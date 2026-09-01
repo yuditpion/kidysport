@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Kidysport — אודות, mobile artboard (Figma 514:2, 402 × 7317)
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+
+  /* The mobile footer butts straight onto the section above it, as on the home
+     page (no overlap on this breakpoint). 7317 + 1852 = 9169. */
+  .page--about { height: calc(9169 * var(--u)); }
+  .page--about .foot { top: calc(7317 * var(--u)); }
+
+  /* ---------------------------- intro (0 – 1425) ---------------------------- */
+  .ab-intro { top: 0; height: calc(1425 * var(--u)); }
+
+  .ab-hero__band { top: calc(-33 * var(--u)); width: max(var(--vwc), calc(456 * var(--u))); height: calc(1060 * var(--u)); }
+  /* This frame has no ellipse overlay (that layer is desktop-only); it repeats
+     the hero band instead (514:19), so the grey carries unbroken from the top
+     of the page down past the signature. It overlaps the first band by 78 and
+     sits under the photo and the copy. */
+  .ab-hero__ellipse { display: none; }
+  .ab-hero__band2 {
+    display: block; position: absolute;
+    left: 50%; transform: translateX(-50%);
+    top: calc(949 * var(--u));
+    width: max(var(--vwc), calc(456 * var(--u)));
+    height: calc(492 * var(--u));
+    object-fit: cover; z-index: 0;
+  }
+
+  .ab-intro__kicker { left: calc(36 * var(--u)); top: calc(152 * var(--u)); width: calc(326 * var(--u)); height: calc(65 * var(--u)); }
+  .ab-intro__title  { left: calc(29 * var(--u)); top: calc(152 * var(--u)); width: calc(345 * var(--u)); height: calc(163 * var(--u)); }
+  .ab-intro__body   { left: calc(29 * var(--u)); top: calc(292 * var(--u)); width: calc(345 * var(--u)); height: calc(306 * var(--u)); }
+  /* the last three paragraphs sit in their own block on this frame (514:18) */
+  .ab-intro__p5, .ab-intro__p6, .ab-intro__p7 { display: none; }
+
+  .ab-intro__photo { left: calc(-45 * var(--u)); top: calc(584 * var(--u)); width: calc(416 * var(--u)); height: calc(419 * var(--u)); }
+
+  /* same specificity as the desktop hide, and flex to match `.s > .t-body`,
+     which is what this block has always actually rendered as here. */
+  .s > .ab-intro__tail { display: flex; }
+  .ab-intro__tail  { left: calc(26 * var(--u)); top: calc(1003 * var(--u)); width: calc(345 * var(--u)); height: calc(303 * var(--u));
+                     font-size: calc(22 * var(--u)); line-height: calc(38 * var(--u)); text-align: right; z-index: 3; }
+  .ab-intro__sign  { left: calc(6 * var(--u)); top: calc(1306 * var(--u)); width: calc(368 * var(--u)); height: calc(86 * var(--u)); }
+  .ab-intro__role  { left: calc(6 * var(--u)); top: calc(1375 * var(--u)); width: calc(368 * var(--u)); height: calc(22 * var(--u));
+                     font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
+
+  /* -------------------------- ממכון קטן (1425 – 2541) -------------------------- */
+  .ab-grow { top: calc(1425 * var(--u)); height: calc(1116 * var(--u)); }
+  /* the clip is this section's backdrop on both breakpoints; only its height
+     changes with the frame */
+  .ab-grow > .film { height: calc(1116 * var(--u)); }
+  .ab-grow__title { left: calc(107 * var(--u)); top: calc(44 * var(--u)); width: calc(267 * var(--u)); height: calc(302 * var(--u)); }
+  .ab-grow__body  { left: calc(42 * var(--u)); top: calc(307 * var(--u)); width: calc(329 * var(--u)); height: calc(448 * var(--u)); }
+  .ab-badge { left: calc(-32 * var(--u)); top: calc(176 * var(--u)); width: calc(170 * var(--u)); height: calc(170 * var(--u)); }
+
+  /* ------------------------ מה חשוב לנו? (2541 – 5379) ------------------------ */
+  .ab-values { top: calc(2541 * var(--u)); height: calc(2838 * var(--u)); }
+  /* The frame stacks this band three times to cover the section. One pinned
+     backdrop gives the same picture with no seams: the art holds still and
+     only the cards travel over it. */
+  .ab-values__band, .ab-values__ellipse { display: none; }
+
+  .ab-values__title { left: calc(11 * var(--u)); top: calc(1042 * var(--u)); width: calc(393 * var(--u)); height: calc(100 * var(--u));
+                      font-size: calc(80 * var(--u)); line-height: calc(86 * var(--u)); }
+
+  .vc--c { left: calc(40 * var(--u)); top: calc(1219 * var(--u)); width: calc(327 * var(--u)); height: calc(270 * var(--u)); }
+  .vc--a { left: calc(40 * var(--u)); top: calc(1519 * var(--u)); width: calc(327 * var(--u)); height: calc(270 * var(--u)); }
+  .vc--b { left: calc(49 * var(--u)); top: calc(1819 * var(--u)); width: calc(327 * var(--u)); height: calc(270 * var(--u)); }
+  .vc--e { left: calc(49 * var(--u)); top: calc(2119 * var(--u)); width: calc(327 * var(--u)); height: calc(293 * var(--u)); }
+  .vc--d { left: calc(49 * var(--u)); top: calc(2442 * var(--u)); width: calc(327 * var(--u)); height: calc(293 * var(--u)); }
+
+  /* mirrors the `.s > .vt` specificity above so this frame keeps its own box. */
+  .s > .vt { width: calc(279 * var(--u)); text-align: center; }
+  .vt--c { left: calc(64 * var(--u)); top: calc(1335 * var(--u)); height: calc(134 * var(--u)); }
+  .vt--a { left: calc(64 * var(--u)); top: calc(1635 * var(--u)); height: calc(134 * var(--u)); }
+  .vt--b { left: calc(73 * var(--u)); top: calc(1945 * var(--u)); height: calc(134 * var(--u)); }
+  .vt--e { left: calc(73 * var(--u)); top: calc(2223 * var(--u)); height: calc(180 * var(--u)); }
+  .vt--d { left: calc(73 * var(--u)); top: calc(2559 * var(--u)); height: calc(134 * var(--u)); }
+
+  /* Same five icons, stacked one per card here. The mobile frame gives each the
+     same crop box as the desktop one, so each box carries the identical
+     correction: the file's margins are taken off the crop's own position, which
+     leaves the ink exactly where the sprite crop had it. */
+  .vi--c { left: calc(168 * var(--u));   top: calc(1234 * var(--u));   width: calc(71.5 * var(--u));  height: calc(84.9 * var(--u)); }
+  .vi--b { left: calc(162.3 * var(--u)); top: calc(1537 * var(--u));   width: calc(83.6 * var(--u));  height: calc(78.3 * var(--u)); }
+  .vi--a { left: calc(178.5 * var(--u)); top: calc(1843.8 * var(--u)); width: calc(69.3 * var(--u));  height: calc(85.7 * var(--u)); }
+  .vi--e { left: calc(158.5 * var(--u)); top: calc(2153.5 * var(--u)); width: calc(109.1 * var(--u)); height: calc(78.3 * var(--u)); }
+  .vi--d { left: calc(163.5 * var(--u)); top: calc(2473.8 * var(--u)); width: calc(100.2 * var(--u)); height: calc(85.6 * var(--u)); }
+
+  /* ------------------------ הצוות שלנו (5379 – 6305) ------------------------ */
+  .ab-team { top: calc(5379 * var(--u)); height: calc(926 * var(--u)); }
+  .ab-team__band  { top: 0; width: max(var(--vwc), calc(438 * var(--u))); height: calc(926 * var(--u)); }
+  .ab-team__card  { left: calc(17 * var(--u)); top: calc(60 * var(--u)); width: calc(367 * var(--u)); height: calc(681 * var(--u)); }
+  .ab-team__title { left: calc(55 * var(--u)); top: calc(64 * var(--u)); width: calc(290 * var(--u)); height: calc(163 * var(--u));
+                    font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u)); }
+  .ab-team__body  { left: calc(55 * var(--u)); top: calc(192 * var(--u)); width: calc(290 * var(--u)); height: calc(178 * var(--u));
+                    font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
+
+  .tc--b { left: calc(30.76 * var(--u)); top: calc(365.43 * var(--u)); width: calc(160.23 * var(--u)); height: calc(157.19 * var(--u));
+           border-radius: calc(22.78 * var(--u)); }
+  .tc--c { left: calc(214.53 * var(--u)); top: calc(365.43 * var(--u)); width: calc(159.47 * var(--u)); height: calc(157.19 * var(--u));
+           border-radius: calc(22.78 * var(--u)); }
+  .tc--a { left: calc(213 * var(--u)); top: calc(546 * var(--u)); width: calc(160.29 * var(--u)); height: calc(158 * var(--u));
+           border-radius: calc(22.9 * var(--u)); }
+
+  .tt { font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
+  .tt--b { left: calc(30 * var(--u));  top: calc(465.43 * var(--u)); width: calc(161.75 * var(--u)); height: calc(35.69 * var(--u)); }
+  .tt--c { left: calc(228.2 * var(--u)); top: calc(465.43 * var(--u)); width: calc(132.13 * var(--u)); height: calc(35.69 * var(--u)); }
+  .tt--a { left: calc(225.21 * var(--u)); top: calc(646.75 * var(--u)); width: calc(135.86 * var(--u)); height: calc(35.87 * var(--u)); }
+
+  /* the mobile frame draws these three as image crops, not the icon set */
+  .ti--b { left: calc(76.32 * var(--u)); top: calc(382.9 * var(--u));  width: calc(69.86 * var(--u)); height: calc(74.96 * var(--u)); }
+  .ti--c { left: calc(266.93 * var(--u)); top: calc(388.21 * var(--u)); width: calc(53.79 * var(--u)); height: calc(64.7 * var(--u)); }
+  .ti--a { left: calc(262.61 * var(--u)); top: calc(564.32 * var(--u)); width: calc(61.06 * var(--u)); height: calc(75.29 * var(--u)); }
+
+  .ab-team__seal { left: calc(-10 * var(--u)); top: calc(546 * var(--u)); width: calc(235.8 * var(--u)); height: calc(237.17 * var(--u)); }
+
+  /* ----------------------------- CTA (6305 – 7317) ----------------------------- */
+  .ab-cta { top: calc(6305 * var(--u)); height: calc(1012 * var(--u)); }
+  .ab-cta__band { display: none; }
+  .ab-cta__band-m { display: block; position: absolute; left: 50%; transform: translateX(-50%);
+                    top: 0; width: max(var(--vwc), calc(503 * var(--u))); height: calc(971 * var(--u));
+                    object-fit: cover; z-index: 0; }
+  .ab-cta__card  { left: calc(18 * var(--u)); top: calc(377 * var(--u)); width: calc(367 * var(--u)); height: calc(553 * var(--u)); }
+  .ab-cta__title { left: calc(38 * var(--u)); top: calc(503 * var(--u)); width: calc(327 * var(--u)); height: calc(163 * var(--u));
+                   font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u)); }
+  .ab-cta__btn   { left: calc(78 * var(--u)); top: calc(817 * var(--u)); width: calc(267 * var(--u)); height: calc(67 * var(--u));
+                   border-radius: calc(30 * var(--u)); font-size: calc(22 * var(--u)); }
+}
+
+@media (max-width: 1199px) {
+  /* The CTA clip is a desktop piece: this frame draws that section with its own
+     portrait crop, and the landscape footage would have to be cropped past
+     recognition to fill a 402 column. The stage wrapper steps aside so the
+     children keep positioning against the section itself. */
+  .ab-cta > .cta-stage { display: contents; }
+  .ab-cta .film { display: none; }
+}

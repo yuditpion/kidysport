@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Kidysport — שאלות ותשובות, mobile (Figma 516:150, 402 wide)
+
+   The frame draws four questions; the real list has seventeen and changes
+   height as answers open, so the list itself flows and the two blocks around
+   it are laid out at the frame's own coordinates inside their own sections.
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+
+  .page--faq { height: auto; }
+
+  /* sections stack; each one is its own little artboard */
+  .page--faq .s:where(:not(.foot)) {
+    position: relative; top: auto; left: auto;
+    width: 100%; height: auto;
+  }
+  .page--faq .foot { position: relative; top: auto; height: calc(1852 * var(--u)); }
+
+  /* ------------------------------------------------------------- hero ----
+     The clip is not full-bleed here: the frame gives it a box on the left,
+     with the copy beside it rather than over it. */
+  .page--faq .fq-hero { height: calc(541 * var(--u)); }
+  .page--faq .fq-hero > * { position: absolute; }
+
+  .page--faq .fq-grad--a {
+    left: calc(-38 * var(--u)); top: calc(453 * var(--u));
+    width: calc(478 * var(--u)); height: calc(1524 * var(--u));
+  }
+  .page--faq .fq-grad--b { display: none; }   /* one wash on this frame */
+
+  .page--faq .fq-hero__film {
+    left: calc(-51 * var(--u)); top: calc(234 * var(--u));
+    width: calc(732 * var(--u)); height: calc(276 * var(--u));
+    transform: none; z-index: 1;
+  }
+  .page--faq .fq-hero__t {
+    left: calc(21 * var(--u)); top: calc(65 * var(--u));
+    width: calc(360 * var(--u)); height: calc(181 * var(--u));
+    font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u));
+    text-align: right; z-index: 3;
+  }
+  .page--faq .fq-hero__sub {
+    left: calc(168 * var(--u)); top: calc(299 * var(--u));
+    width: calc(213 * var(--u)); height: calc(174 * var(--u));
+    font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
+    text-align: right; z-index: 3;
+  }
+  .page--faq .fq-hero__check {
+    left: calc(152 * var(--u)); top: calc(319 * var(--u));
+    width: calc(49 * var(--u)); height: calc(28 * var(--u)); z-index: 3;
+  }
+
+  /* ------------------------------------------------------------- list ---- */
+  .page--faq .fq-list-sec { padding: 0 0 calc(23 * var(--u)); }
+  .page--faq .faq__list { position: relative; left: calc(22 * var(--u)); top: 0;
+                          width: calc(358 * var(--u)); z-index: 3; }
+
+  /* ------------------------------------------------- the closing block ---
+     Frame coordinates, taken relative to the boy's top (1383). */
+  .page--faq .moreq { left: auto; top: auto; height: calc(470 * var(--u)); }
+  .page--faq .moreq > * { position: absolute; }
+
+  .page--faq .moreq__boy   { left: calc(200 * var(--u)); top: 0;
+                             width: calc(239 * var(--u)); height: calc(424.663 * var(--u)); z-index: 4; }
+  .page--faq .moreq__photo { left: calc(13 * var(--u)); top: calc(59 * var(--u));
+                             width: calc(377 * var(--u)); height: calc(420 * var(--u)); z-index: 2; }
+  .page--faq .moreq__photo img { left: -120.34%; top: -1.12%; width: 237.51%; height: 120.41%; }
+  .page--faq .moreq__ellipse { left: calc(29 * var(--u)); top: calc(111 * var(--u));
+                               width: calc(226 * var(--u)); height: calc(361 * var(--u)); z-index: 1; }
+  .page--faq .moreq__t     { left: 0; top: calc(59 * var(--u));
+                             width: calc(220 * var(--u)); height: calc(228 * var(--u));
+                             font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u));
+                             text-align: right; z-index: 5; }
+  .page--faq .moreq__sub   { left: calc(16 * var(--u)); top: calc(276 * var(--u));
+                             width: calc(217 * var(--u)); height: calc(90 * var(--u));
+                             font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
+                             text-align: right; z-index: 5; }
+  /* the frame draws a pair here; the copy names one, so it takes the centre */
+  .page--faq .moreq__btn2  { left: calc(113 * var(--u)); top: calc(391 * var(--u));
+                             width: calc(176.272 * var(--u)); height: calc(45.25 * var(--u));
+                             border-radius: calc(20.261 * var(--u));
+                             font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); z-index: 5; }
+
+  /* the alpha clip is measured against the desktop box; scale it to this one */
+  .page--faq .moreq__film {
+    left: calc(19.5 * var(--u)); top: calc(41.9 * var(--u));
+    width: calc(169.7 * var(--u)); height: calc(319.3 * var(--u));
+  }
+}

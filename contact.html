@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>יצירת קשר — קידיספורט</title>
+<meta name="description" content="השאירו פרטים ונחזור אליכם — נשמע על הילד, נענה על שאלות ונבדוק יחד אם קידיספורט מתאים לו.">
+<link rel="preload" href="assets/fonts/Fredoka-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/GoogleSansFlex_24pt-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script src="js/unit.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/contact-mobile.css">
+</head>
+<body>
+  <a class="wa" href="#ct-form" aria-label="וואטסאפ"><img src="assets/icons/whatsapp.webp" alt=""></a>
+
+<div class="page page--contact">
+<header class="site-hdr">
+  <div class="hdr glass"></div>
+  <a class="hdr__logo" href="index.html"><img src="assets/img/kidisport-logo.webp" alt="קידיספורט"></a>
+  <nav class="hdr__nav" aria-label="ראשי">
+    <a class="nav-i nav-i--contact is-active" href="contact.html">יצירת קשר</a>
+    <a class="nav-i nav-i--rec"      href="rec.html">המלצות</a>
+    <a class="nav-i nav-i--faq"      href="faq.html">שאלות ותשובות</a>
+    <a class="nav-i nav-i--what"     href="do.html">מה אנחנו עושים?</a>
+    <a class="nav-i nav-i--about"    href="about.html">אודות</a>
+    <a class="nav-i nav-i--home"     href="index.html">דף הבית</a>
+  </nav>
+  <a class="hdr__cta" href="#ct-form"><span class="btn__label">דברו איתנו</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
+  <img class="hdr__phone" src="assets/icons/phone-header.svg" alt="" aria-hidden="true">
+  <button class="hdr__burger" type="button" aria-label="תפריט" aria-expanded="false" aria-controls="m-menu">
+    <span class="burger__disc"></span>
+    <svg class="burger__ic" viewBox="0 0 44 29" aria-hidden="true">
+      <path d="M2.5 2.5H41.5"/><path d="M2.5 14.5H41.5"/><path d="M2.5 26.5H41.5"/>
+    </svg>
+  </button>
+  <div class="m-menu" id="m-menu" hidden>
+    <a href="index.html">דף הבית</a>
+    <a href="about.html">אודות</a>
+    <a href="do.html">מה אנחנו עושים?</a>
+    <a href="faq.html">שאלות ותשובות</a>
+    <a href="rec.html">המלצות</a>
+    <a href="contact.html">יצירת קשר</a>
+  </div>
+</header>
+
+  <!-- ============================== THE FORM ============================== -->
+  <section class="s ct" id="ct-form">
+    <!-- The frame crops this fill rather than fitting it, and the two artboards
+         do not crop the same file: the mobile frame places a taller cut of the
+         same photograph. Feeding it the desktop cut was what stretched the
+         picture out of shape. Each breakpoint gets its own, and the box clips. -->
+    <picture class="ct__bg" aria-hidden="true">
+      <source media="(max-width: 1199px)" srcset="assets/img/contact-bg-m.webp">
+      <img src="assets/img/contact-bg2.webp" alt="">
+    </picture>
+
+    <div class="ct__under" aria-hidden="true"><img src="assets/img/contact-bg-m2.webp" alt=""></div>
+    <div class="ct__boy" aria-hidden="true"><img src="assets/img/contact-bg-m.webp" alt=""></div>
+    <div class="ct__panel glass"></div>
+    <p class="ct__kicker c-teal">מקום שבו ילדים יכולים</p>
+    <h1 class="ct__t t-h1 c-orange">להצליח ולהתחזק</h1>
+    <div class="ct__lead t-body"><p>השאירו פרטים ונתחזור אליכם.<br>נשמע על הילד, נענה על שאלות, ונבדוק יחד אם קידיספורט יכול להתאים לו</p></div>
+
+    <form class="ct__form glass" id="ct-form-el" novalidate>
+      <div class="cf cf--child">
+        <input id="ct-child" type="text" name="child" placeholder=" " autocomplete="given-name">
+        <label for="ct-child">שם הילד</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/kid.webp" alt=""><img class="ico__on" src="assets/icons/kid--hover.webp" alt=""></span>
+      </div>
+      <div class="cf cf--surname">
+        <input id="ct-surname" type="text" name="surname" placeholder=" " autocomplete="family-name">
+        <label for="ct-surname">שם משפחה</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/fullname.webp" alt=""><img class="ico__on" src="assets/icons/fullname--hover.webp" alt=""></span>
+      </div>
+      <div class="cf cf--id">
+        <input id="ct-id" type="text" name="idnum" placeholder=" " inputmode="numeric" maxlength="9">
+        <label for="ct-id">ת&quot;ז</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/confidence.webp" alt=""><img class="ico__on" src="assets/icons/confidence--hover.webp" alt=""></span>
+      </div>
+      <div class="cf cf--dob">
+        <input id="ct-dob" type="text" name="dob" placeholder=" " inputmode="numeric" autocomplete="bday">
+        <label for="ct-dob">תאריך לידה</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/clock.webp" alt=""><img class="ico__on" src="assets/icons/clock--hover.webp" alt=""></span>
+      </div>
+
+      <!-- The two choosers are built rather than native. A browser draws a
+           select's popup itself, in the operating system's own style, and no
+           stylesheet reaches inside it — so the white sheet, the rounded orange
+           highlight and the list that leaves the prompt behind can only exist as
+           real elements. The value rides in a hidden input so the form still
+           carries it. -->
+      <div class="cf cf--lang cf--pick" data-pick>
+        <input type="hidden" name="lang" value="">
+        <button class="pick__btn" type="button" id="ct-lang" aria-haspopup="listbox" aria-expanded="false">
+          <span class="pick__value" data-prompt="שפה">שפה</span>
+        </button>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/talking.webp" alt=""><img class="ico__on" src="assets/icons/talking--hover.webp" alt=""></span>
+        <img class="cf__chev" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+        <ul class="pick__list" role="listbox" aria-label="שפה" hidden>
+          <li class="pick__opt" role="option" aria-selected="false" data-value="he">עברית</li>
+          <li class="pick__opt" role="option" aria-selected="false" data-value="en">אנגלית</li>
+          <li class="pick__opt" role="option" aria-selected="false" data-value="yi">אידיש</li>
+        </ul>
+      </div>
+      <div class="cf cf--area cf--pick" data-pick>
+        <input type="hidden" name="area" value="">
+        <button class="pick__btn" type="button" id="ct-area" aria-haspopup="listbox" aria-expanded="false">
+          <span class="pick__value" data-prompt="אזור מגורים">אזור מגורים</span>
+        </button>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/three-friends.webp" alt=""><img class="ico__on" src="assets/icons/three-friends--hover.webp" alt=""></span>
+        <img class="cf__chev" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+        <ul class="pick__list" role="listbox" aria-label="אזור מגורים" hidden>
+          <li class="pick__opt" role="option" aria-selected="false">רמה א׳</li>
+          <li class="pick__opt" role="option" aria-selected="false">לב הרמה</li>
+          <li class="pick__opt" role="option" aria-selected="false">רמה ג׳</li>
+          <li class="pick__opt" role="option" aria-selected="false">רמת אברהם</li>
+          <li class="pick__opt" role="option" aria-selected="false">רמה ד׳</li>
+        </ul>
+      </div>
+
+      <div class="cf cf--mphone">
+        <input id="ct-mphone" type="tel" name="mother_phone" placeholder=" " autocomplete="tel">
+        <label for="ct-mphone">טלפון אמא</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt=""></span>
+      </div>
+      <div class="cf cf--fphone">
+        <input id="ct-fphone" type="tel" name="father_phone" placeholder=" " autocomplete="tel">
+        <label for="ct-fphone">טלפון אבא</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt=""></span>
+      </div>
+      <div class="cf cf--mail">
+        <input id="ct-mail" type="email" name="email" placeholder=" " autocomplete="email">
+        <label for="ct-mail">אימייל</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/mail.webp" alt=""><img class="ico__on" src="assets/icons/mail--hover.webp" alt=""></span>
+      </div>
+      <div class="cf cf--msg">
+        <textarea id="ct-msg" name="message" placeholder=" "></textarea>
+        <label for="ct-msg">ספרו לנו בקצרה על הילד/ה</label>
+        <span class="ico" aria-hidden="true"><img src="assets/icons/pencil.webp" alt=""><img class="ico__on" src="assets/icons/pencil--hover.webp" alt=""></span>
+      </div>
+    </form>
+
+    <button class="ct__submit btn btn--orange" type="submit" form="ct-form-el"><span class="btn__label">אני רוצה לבדוק התאמה</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></button>
+  </section>
+
+  <!-- =========================== פרטי יצירת קשר =========================== -->
+  <section class="s ct-det">
+    <div class="ct-bar glass"></div>
+    <h2 class="ct-bar__t c-orange">פרטי יצירת קשר</h2>
+    <span class="cd cd--phone ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt=""></span>
+    <p class="cdx cdx--phone t-body">02-500-9293</p>
+    <span class="cd cd--mail ico" aria-hidden="true"><img src="assets/icons/mail.webp" alt=""><img class="ico__on" src="assets/icons/mail--hover.webp" alt=""></span>
+    <p class="cdx cdx--mail t-body">info@kidysport.co.il</p>
+    <span class="cd cd--clock ico" aria-hidden="true"><img src="assets/icons/clock.webp" alt=""><img class="ico__on" src="assets/icons/clock--hover.webp" alt=""></span>
+    <p class="cdx cdx--clock t-body">א’ - ה’ : 8:00 - 18:00 , ו’ : 8:00 - 12:00</p>
+  </section>
+
+  <!-- ============================ הסניפים שלנו ============================ -->
+  <section class="s ct-br">
+    <div class="ct-bar glass"></div>
+    <h2 class="ct-bar__t c-orange">הסניפים שלנו</h2>
+    <ul class="cb cb--1 t-body"><li>עובדיה 7 -רמה ג’</li></ul>
+    <ul class="cb cb--2 t-body"><li>נחל שורק 15 - רמה א’</li></ul>
+    <ul class="cb cb--3 t-body"><li>לב הרמה - נהר הירדן 1 - רמה ב’</li></ul>
+    <ul class="cb cb--4 t-body"><li>שדרות האמוראים 33 - רמה ד’</li></ul>
+  </section>
+
+
+  <!-- ===================== תודה על פניתכם ===================== -->
+  <!-- Shown when either form is sent. The illustration from the design — the
+       boy, the tick and the confetti — drops into .thanks__art as one export;
+       until it arrives the card carries the words and the flourish, which is
+       what the message actually needs to say. -->
+  <div class="thanks" id="thanks" hidden>
+    <div class="thanks__veil" data-thanks-close></div>
+    <div class="thanks__card" role="dialog" aria-modal="true" aria-labelledby="thanks-t">
+      <button class="thanks__x" type="button" aria-label="סגירה" data-thanks-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <!-- The illustration. The boy is the export; the tick, its disc and the
+           ribbons around them are drawn here, because they are geometry rather
+           than artwork and a drawn one stays crisp at every size. The whole
+           block is one viewBox so the parts cannot drift apart from each other.
+           Coordinates are the design's own, measured against a 920-wide card. -->
+      <svg class="thanks__art thanks__art--d" viewBox="0 0 920 660" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="thanks-disc-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0d5a63" flood-opacity=".16"/>
+          </filter>
+        </defs>
+
+        <!-- the orange ribbon runs behind everything, left curl to right curl -->
+        <g fill="none" stroke="#FF8C05" stroke-width="7" stroke-linecap="round">
+          <path d="M196 300 C126 248 40 316 78 386 C114 452 214 436 238 372"/>
+          <path d="M238 372 C330 452 470 516 620 492 C752 470 838 402 884 330"/>
+          <path d="M884 330 C906 292 866 268 852 294 C838 320 868 352 902 342"/>
+        </g>
+
+        <!-- a teal ribbon crosses under the disc -->
+        <path d="M404 578 C534 646 700 632 806 528" fill="none" stroke="#1BA5AE"
+              stroke-width="7" stroke-linecap="round"/>
+
+        <!-- the burst above the disc -->
+        <g stroke-linecap="round" fill="none">
+          <path d="M598 150 C606 132 612 118 616 104" stroke="#FF8C05" stroke-width="9"/>
+          <path d="M556 176 C548 160 540 148 530 136" stroke="#FF8C05" stroke-width="8"/>
+          <path d="M652 168 C668 156 682 148 700 142" stroke="#1BA5AE" stroke-width="9"/>
+          <path d="M672 214 C692 210 710 210 728 214" stroke="#1BA5AE" stroke-width="8"/>
+          <path d="M636 120 C648 112 660 108 672 106" stroke="#1BA5AE" stroke-width="7"/>
+        </g>
+        <g fill="#FF8C05">
+          <circle cx="512" cy="140" r="9"/><circle cx="716" cy="262" r="7"/>
+          <circle cx="404" cy="510" r="8"/><circle cx="466" cy="536" r="5"/>
+        </g>
+        <g fill="#1BA5AE">
+          <circle cx="700" cy="330" r="8"/><circle cx="430" cy="470" r="9"/>
+          <circle cx="452" cy="524" r="6"/>
+        </g>
+
+        <!-- the disc and its tick -->
+        <circle cx="532" cy="372" r="146" fill="#F5F8F8" filter="url(#thanks-disc-shadow)"/>
+        <circle cx="532" cy="372" r="146" fill="none" stroke="#1BA5AE" stroke-width="5"/>
+        <path d="M451 372 L508 432 L620 306" fill="none" stroke="#1BA5AE"
+              stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- the boy stands in front of the ribbon, feet on the card's floor -->
+        <image href="assets/img/thanks-boy.webp" x="117" y="12" width="274" height="615"/>
+      </svg>
+      <!-- The column stacks what the wide card sets side by side: the boy above,
+           the disc below and overlapping his feet, the ribbons redrawn around
+           that arrangement. Its own viewBox, because the parts sit in different
+           places relative to one another — a wide drawing squeezed narrow would
+           not give this. -->
+      <svg class="thanks__art thanks__art--m" viewBox="0 0 622 1030" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="thanks-disc-shadow-m" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0d5a63" flood-opacity=".16"/>
+          </filter>
+        </defs>
+
+        <g fill="none" stroke="#FF8C05" stroke-width="8" stroke-linecap="round">
+          <path d="M226 468 C120 470 22 556 60 646 C96 730 214 736 268 690"/>
+          <path d="M268 690 C368 760 470 790 546 774"/>
+          <path d="M546 774 C594 764 592 716 562 720 C534 724 528 772 566 790"/>
+        </g>
+
+        <path d="M104 962 C232 1058 430 1040 556 916" fill="none" stroke="#1BA5AE"
+              stroke-width="8" stroke-linecap="round"/>
+
+        <g stroke-linecap="round" fill="none">
+          <path d="M372 596 C368 574 366 558 366 540" stroke="#FF8C05" stroke-width="10"/>
+          <path d="M424 576 C432 556 442 540 454 526" stroke="#FF8C05" stroke-width="9"/>
+          <path d="M446 636 C470 628 494 624 518 624" stroke="#1BA5AE" stroke-width="10"/>
+          <path d="M436 684 C462 686 486 692 508 700" stroke="#1BA5AE" stroke-width="9"/>
+          <path d="M470 582 C488 570 504 562 522 556" stroke="#1BA5AE" stroke-width="8"/>
+        </g>
+        <g fill="#FF8C05">
+          <circle cx="344" cy="612" r="10"/><circle cx="556" cy="680" r="8"/>
+          <circle cx="238" cy="944" r="9"/><circle cx="262" cy="1000" r="6"/>
+        </g>
+        <g fill="#1BA5AE">
+          <circle cx="540" cy="744" r="9"/><circle cx="212" cy="906" r="7"/>
+        </g>
+
+        <circle cx="387" cy="845" r="146" fill="#F5F8F8" filter="url(#thanks-disc-shadow-m)"/>
+        <circle cx="387" cy="845" r="146" fill="none" stroke="#1BA5AE" stroke-width="6"/>
+        <path d="M306 845 L363 905 L475 779" fill="none" stroke="#1BA5AE"
+              stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <image href="assets/img/thanks-boy.webp" x="110" y="150" width="313" height="675"/>
+      </svg>
+
+      <p class="thanks__t" id="thanks-t">
+        <span class="c-orange">תודה על פניתכם,</span>
+        <span class="c-teal">נחזור אליכם בהקדם</span>
+      </p>
+      <img class="thanks__bird" src="assets/icons/bird2.svg" alt="" aria-hidden="true">
+    </div>
+  </div>
+
+  <!-- ================== הפניה לא נשלחה ================== -->
+  <!-- Shown when a form is sent with something still empty. Same card as the
+       thank-you, a different picture and a different sentence. The wide layout
+       stands the boy beside the disc with the words to his right, so its parts
+       are placed against the card rather than stacked — the column version
+       stacks them, and each has its own drawing. -->
+  <div class="thanks thanks--err" hidden>
+    <div class="thanks__veil" data-thanks-close></div>
+    <div class="thanks__card" role="dialog" aria-modal="true" aria-labelledby="oops-t">
+      <button class="thanks__x" type="button" aria-label="סגירה" data-thanks-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <svg class="thanks__art thanks__art--d" viewBox="0 0 1006 1018" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="oops-disc-d" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#7a2a28" flood-opacity=".14"/>
+          </filter>
+        </defs>
+        <g fill="none" stroke="#FF8C05" stroke-width="7" stroke-linecap="round">
+          <path d="M236 700 C152 676 100 740 146 788 C192 834 272 796 264 742"/>
+          <path d="M264 742 C356 652 452 546 588 486"/>
+          <path d="M588 486 C700 436 820 428 900 462"/>
+          <path d="M900 462 C946 482 934 530 902 514 C874 500 888 456 930 460"/>
+        </g>
+        <path d="M476 452 C556 502 642 498 702 442" fill="none" stroke="#E8534F"
+              stroke-width="8" stroke-linecap="round"/>
+        <g stroke-linecap="round" fill="none">
+          <path d="M676 148 C682 128 690 112 700 96" stroke="#FF8C05" stroke-width="9"/>
+          <path d="M612 176 C606 156 600 140 592 124" stroke="#1BA5AE" stroke-width="8"/>
+          <path d="M742 190 C760 176 776 166 794 158" stroke="#1BA5AE" stroke-width="9"/>
+          <path d="M776 246 C798 240 818 238 838 240" stroke="#1BA5AE" stroke-width="8"/>
+          <path d="M726 122 C738 112 750 106 764 102" stroke="#FF8C05" stroke-width="7"/>
+        </g>
+        <g fill="#FF8C05">
+          <circle cx="566" cy="180" r="9"/><circle cx="846" cy="316" r="8"/>
+          <circle cx="512" cy="470" r="8"/><circle cx="596" cy="642" r="6"/>
+        </g>
+        <g fill="#1BA5AE">
+          <circle cx="806" cy="132" r="8"/><circle cx="880" cy="222" r="7"/>
+          <circle cx="548" cy="374" r="8"/>
+        </g>
+        <circle cx="666" cy="336" r="146" fill="#F7F8F8" filter="url(#oops-disc-d)"/>
+        <circle cx="666" cy="336" r="146" fill="none" stroke="#E8534F" stroke-width="6"/>
+        <g stroke="#E8534F" stroke-width="44" stroke-linecap="round">
+          <path d="M612 282 L720 390"/><path d="M720 282 L612 390"/>
+        </g>
+        <image href="assets/img/oops-boy.webp" x="140" y="108" width="219" height="640"/>
+      </svg>
+
+      <svg class="thanks__art thanks__art--m" viewBox="0 0 735 980" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="oops-disc-m" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#7a2a28" flood-opacity=".14"/>
+          </filter>
+        </defs>
+        <g fill="none" stroke="#FF8C05" stroke-width="9" stroke-linecap="round">
+          <path d="M120 806 C48 786 14 856 62 900 C108 942 176 900 166 852"/>
+          <path d="M166 852 C230 780 300 742 372 730"/>
+          <path d="M638 706 C700 716 730 760 716 798"/>
+        </g>
+        <path d="M356 852 C470 918 610 900 690 806" fill="none" stroke="#E8534F"
+              stroke-width="9" stroke-linecap="round"/>
+        <g stroke-linecap="round" fill="none">
+          <path d="M470 396 C466 372 464 354 466 334" stroke="#FF8C05" stroke-width="10"/>
+          <path d="M540 372 C550 350 562 332 576 316" stroke="#FF8C05" stroke-width="9"/>
+          <path d="M600 452 C626 444 652 440 678 442" stroke="#1BA5AE" stroke-width="10"/>
+          <path d="M596 512 C622 512 648 518 672 526" stroke="#1BA5AE" stroke-width="9"/>
+        </g>
+        <g fill="#FF8C05">
+          <circle cx="430" cy="440" r="10"/><circle cx="686" cy="576" r="8"/>
+          <circle cx="392" cy="700" r="9"/>
+        </g>
+        <g fill="#1BA5AE">
+          <circle cx="640" cy="380" r="9"/><circle cx="418" cy="560" r="8"/>
+        </g>
+        <circle cx="520" cy="646" r="150" fill="#F7F8F8" filter="url(#oops-disc-m)"/>
+        <circle cx="520" cy="646" r="150" fill="none" stroke="#E8534F" stroke-width="7"/>
+        <g stroke="#E8534F" stroke-width="46" stroke-linecap="round">
+          <path d="M464 590 L576 702"/><path d="M576 590 L464 702"/>
+        </g>
+        <image href="assets/img/oops-boy.webp" x="95" y="220" width="233" height="680"/>
+      </svg>
+
+      <p class="thanks__t" id="oops-t">
+        <span class="c-orange">הפניה לא נשלחה,</span>
+        <span class="c-teal">בדוק את הפרטים,</span>
+        <span class="c-teal">ונסה שנית</span>
+      </p>
+      <img class="thanks__bird" src="assets/icons/bird2.svg" alt="" aria-hidden="true">
+    </div>
+  </div>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="s foot">
+    <div class="sticky-bg" aria-hidden="true"><img src="assets/img/bg-hero.webp" alt=""></div>
+    <img class="foot__bg bleed" src="assets/img/bg-hero.webp" alt="" aria-hidden="true">
+    <img class="foot__bird" src="assets/icons/bird2.svg" alt="" aria-hidden="true">
+    <h2 class="foot__t t-h1 c-orange">תני לו תנופה</h2>
+    <img class="foot__boy" src="assets/img/boy-footer.webp" alt="" aria-hidden="true">
+
+    <!-- סניפים -->
+    <div class="fc fc--branch glass"></div>
+    <h3 class="fc__t fc__t--branch t-h1b c-teal">סניפים</h3>
+    <p class="br br--a t-body">רמה א’</p>
+    <p class="br br--b t-body">רמה ב’</p>
+    <p class="br br--c t-body">רמה ג’</p>
+    <p class="br br--d t-body">רמה ד’</p>
+    <span class="hline hline--b1"></span>
+    <span class="hline hline--b2"></span>
+    <span class="hline hline--b3"></span>
+
+    <!-- פרטי קשר -->
+    <div class="fc fc--info glass"></div>
+    <h3 class="fc__t fc__t--info t-h1b c-teal">פרטי קשר</h3>
+    <p class="inf inf--a t-body">02-500-9293</p>
+    <p class="inf inf--b t-body">info@kidysport.co.il</p>
+    <div class="inf inf--c t-body"><p>א’ - ה’ : 8:00 - 18:00<br>ו’ : 8:00 - 12:00</p></div>
+    <span class="ifi ifi--a ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="ifi ifi--b ico" aria-hidden="true"><img src="assets/icons/mail.webp" alt=""><img class="ico__on" src="assets/icons/mail--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="ifi ifi--c ico" aria-hidden="true"><img src="assets/icons/clock.webp" alt=""><img class="ico__on" src="assets/icons/clock--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="hline hline--i1"></span>
+    <span class="hline hline--i2"></span>
+
+    <!-- ניווט -->
+    <div class="fc fc--nav glass"></div>
+    <h3 class="fc__t fc__t--nav t-h1b c-teal">ניווט</h3>
+    <a class="fn fn--a t-body" href="index.html#hero">דף הבית</a>
+    <a class="fn fn--b t-body" href="about.html">אודות</a>
+    <a class="fn fn--c t-body" href="do.html">מה אנחנו עושים?</a>
+    <a class="fn fn--d t-body" href="faq.html">שאלות ותשובות</a>
+    <a class="fn fn--e t-body" href="rec.html">המלצות</a>
+    <a class="fn fn--f t-body" href="contact.html">יצירת קשר</a>
+    <img class="fv fv--a" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--b" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--c" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--d" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--e" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--f" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+
+    <!-- brand -->
+    <div class="fc fc--brand glass"></div>
+    <img class="fc__logo" src="assets/img/kidisport-logo.webp" alt="קידיספורט">
+    <div class="fc__tag t-body"><p>טיפול בתנועה ובספורט מותאם לילדים.<br>כי תנועה היא כוח לצמוח</p></div>
+
+    <div class="foot__bar glass"></div>
+    <p class="foot__bar-t t-h2">בואו נמצא יחד את המקום שבו הילד שלכם יוכל להרגיש טוב, להתחזק ולהצליח.</p>
+    <p class="foot__credit t-body c-teal"><a href="https://yudit.co.il/he/home/" target="_blank" rel="noopener noreferrer">אפיון, עיצוב ובניה ע”י יהודית</a></p>
+  </footer>
+
+</div><!-- /.page -->
+
+<!-- gooey filter: merges the four blobs into one liquid front -->
+<svg class="goo-defs" aria-hidden="true" focusable="false"><defs>
+  <filter id="goo" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"/>
+    <feColorMatrix in="blur" mode="matrix"
+      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="goo"/>
+    <feBlend in2="goo" in="SourceGraphic"/>
+  </filter>
+</defs></svg>
+
+<script src="js/pick.js" defer></script>
+<script src="js/thanks.js" defer></script>
+<script src="js/app.js"></script>
+</body>
+</html>

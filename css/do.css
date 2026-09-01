@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Kidysport — מה אנחנו עושים, desktop artboard (Figma 464:632, 1920 × 7091)
+   Coordinates are section-relative; sections sit on the shared 1920 artboard
+   from main.css. The two clip sections carry their own notes below.
+   ========================================================================== */
+
+/* 7091 is where the CTA art ends; the footer overlaps the section above it by
+   152, the same as the home page and אודות. 6939 + 1201 = 8140. */
+.page--do { height: calc(10337 * var(--u)); }
+.page--do .foot { top: calc(9136 * var(--u)); }
+
+.page--do .nav-i--what { top: calc(-3 * var(--u)); }
+
+/* section colours this page adds to the palette */
+.c-blue   { color: #0566ab; }
+.c-purple { color: #5e05ab; }
+
+/* The process clip is pinned inside its (absolutely placed) section, so the
+   picture holds still for as long as that section is passing while the copy
+   scrolls over it. The rest of the player lives in main.css — אודות uses it
+   too, and that page does not load this sheet. */
+.do-proc > .film {
+  position: sticky; top: 0; left: 0;
+  width: 100%; height: 100vh;
+  z-index: 0;
+}
+
+/* ============================ HERO (0 – 1090) ============================ */
+.do-hero { top: 0; height: calc(1090 * var(--u)); }
+.do-hero__bg { left: calc(-20 * var(--u)); top: calc(-37 * var(--u));
+               width: calc(1950 * var(--u)); height: calc(1087 * var(--u));
+               object-fit: cover; z-index: 0; }
+
+.do-hero__t    { left: calc(166 * var(--u)); top: calc(334 * var(--u));
+                 width: calc(700 * var(--u)); height: calc(86 * var(--u));
+                 white-space: nowrap; text-align: right; z-index: 3; }
+.do-hero__sub  { left: calc(249 * var(--u)); top: calc(430 * var(--u));
+                 width: calc(617 * var(--u)); height: calc(76 * var(--u));
+                 font-size: calc(40 * var(--u)); line-height: calc(38 * var(--u));
+                 text-align: right; z-index: 3; }
+.do-hero__body { left: calc(274 * var(--u)); top: calc(536 * var(--u));
+                 width: calc(592 * var(--u)); height: calc(228 * var(--u));
+                 font-size: calc(22 * var(--u)); line-height: calc(38 * var(--u));
+                 text-align: right; color: #000; z-index: 3; }
+
+/* ====================== התחומים שבהם (1090 – 2085) ====================== */
+.do-focus { top: calc(1090 * var(--u)); height: calc(995 * var(--u)); }
+.do-focus__t { left: calc(360 * var(--u)); top: calc(22 * var(--u));
+               width: calc(1200 * var(--u)); height: calc(86 * var(--u));
+               text-align: center; z-index: 3; }
+
+.fc-pic { border-radius: 50%; object-fit: cover; z-index: 2; }
+.fc-pic--behav  { left: calc(94 * var(--u));   top: calc(167 * var(--u)); width: calc(360 * var(--u)); height: calc(360 * var(--u)); }
+.fc-pic--social { left: calc(570 * var(--u));  top: calc(172 * var(--u)); width: calc(348 * var(--u)); height: calc(348 * var(--u)); }
+.fc-pic--emo    { left: calc(1004 * var(--u)); top: calc(160 * var(--u)); width: calc(372 * var(--u)); height: calc(372 * var(--u)); }
+.fc-pic--motor  { left: calc(1496 * var(--u)); top: calc(185 * var(--u)); width: calc(321 * var(--u)); height: calc(321 * var(--u)); }
+
+.fc-t { font-family: var(--font-head); font-weight: 700; font-variation-settings: 'wdth' 100;
+        font-size: calc(40 * var(--u)); line-height: calc(86 * var(--u));
+        height: calc(86 * var(--u)); text-align: center; z-index: 3; }
+.fc-t--motor  { left: calc(1506 * var(--u)); top: calc(527 * var(--u)); width: calc(300 * var(--u)); color: var(--orange); }
+.fc-t--emo    { left: calc(1040 * var(--u)); top: calc(529 * var(--u)); width: calc(300 * var(--u)); color: var(--teal); }
+.fc-t--social { left: calc(594 * var(--u));  top: calc(516 * var(--u)); width: calc(300 * var(--u)); color: #0566ab; }
+.fc-t--behav  { left: calc(74 * var(--u));   top: calc(530 * var(--u)); width: calc(400 * var(--u)); color: #5e05ab; }
+
+/* Bullets sit inside the centred line, the way Figma sets them — `outside`
+   would hang them off a fixed edge and break the centring. */
+.fc-l { list-style: disc inside; text-align: center; color: #000;
+        font-size: calc(22 * var(--u)); line-height: calc(38 * var(--u)); z-index: 3; }
+.fc-l--motor  { left: calc(1527 * var(--u)); top: calc(616 * var(--u)); width: calc(260 * var(--u)); }
+.fc-l--emo    { left: calc(1012 * var(--u)); top: calc(620 * var(--u)); width: calc(356 * var(--u)); }
+.fc-l--social { left: calc(568 * var(--u));  top: calc(606 * var(--u)); width: calc(352 * var(--u)); }
+.fc-l--behav  { left: calc(161 * var(--u));  top: calc(613 * var(--u)); width: calc(226 * var(--u)); }
+
+.fc-rule { top: calc(546 * var(--u)); width: 1px; height: calc(390 * var(--u));
+           background: rgba(0,0,0,.12); z-index: 2; }
+.fc-rule--a { left: calc(1434 * var(--u)); }
+.fc-rule--b { left: calc(955 * var(--u)); }
+.fc-rule--c { left: calc(476 * var(--u)); }
+
+/* ==================== כך נראה התהליך (2085 – 4253) ====================
+   The clip supplies the room, the teal panel and the boy. Everything below
+   is the copy that travels over it. */
+/* The frame is 2168 tall, which is exactly as much scroll as the copy needs —
+   so the clip only reached its last frame as the section was already leaving
+   and the walk looked cut off. The extra 432 is runway after the last step:
+   the boy finishes his exit while steps 6 and 7 are still on screen, holds
+   there (see data-film-end in the markup), and only then does the page move on. */
+.do-proc { top: calc(2085 * var(--u)); height: calc(2600 * var(--u)); }
+
+.do-proc__t { left: calc(664 * var(--u)); top: calc(103 * var(--u));
+              width: calc(592 * var(--u)); height: calc(86 * var(--u));
+              text-align: center; color: var(--white); z-index: 3; }
+
+/* one step: the ring, its icon, the number and the copy, all hung off the
+   ring's top edge so a step moves as one piece */
+.st { left: calc(687 * var(--u)); width: calc(400 * var(--u)); height: 0; z-index: 3; }
+.st > * { position: absolute; }
+.st__ring { left: calc(411 * var(--u)); top: 0;
+            width: calc(96 * var(--u)); height: calc(96 * var(--u)); }
+.st__ico  { display: block; line-height: 0; overflow: hidden; }
+.st__ico img { position: absolute; max-width: none; }
+.st__n    { left: calc(514 * var(--u)); top: 0; width: calc(32 * var(--u));
+            font-weight: 700; line-height: calc(38 * var(--u));
+            text-align: right; color: var(--white); }
+/* 20 wider than the frame's 400, hung off the same right edge: the Hebrew
+   fallback face runs a little wide and step 2 spilled onto an eighth line.
+   The extra room is spent on the ragged side, where nothing shows. */
+.st__x    { left: calc(-20 * var(--u)); top: 0; width: calc(420 * var(--u));
+            text-align: right; color: var(--white); }
+.st__x strong { font-weight: 700; }
+
+.st--1 { top: calc(220 * var(--u)); }
+.st--2 { top: calc(500 * var(--u)); }
+.st--3 { top: calc(806 * var(--u)); }
+.st--4 { top: calc(1045 * var(--u)); }
+.st--5 { top: calc(1428 * var(--u)); }
+.st--6 { top: calc(1678 * var(--u)); }
+.st--7 { top: calc(1920 * var(--u)); }
+
+/* Each block is centred on the centre-line its frame gives it. Step 6 is the
+   one paragraph no box width reproduces at the frame's line count (widening it
+   enough costs step 4 a line), so it runs to six lines and is centred on the
+   same line — which also keeps it clear of the rule below. */
+.st--2 .st__x { top: calc(-7 * var(--u)); }
+.st--3 .st__x { top: calc(2 * var(--u)); }
+.st--5 .st__x { top: calc(2 * var(--u)); }
+.st--6 .st__x { top: calc(-17 * var(--u)); }
+
+/* icon windows — crops of one sprite, exactly as the frame slices it */
+.st--1 .st__ico { left: calc(425 * var(--u)); top: calc(8 * var(--u));  width: calc(68 * var(--u)); height: calc(79 * var(--u)); }
+.st--2 .st__ico { left: calc(422 * var(--u)); top: calc(8 * var(--u));  width: calc(73 * var(--u)); height: calc(79 * var(--u)); }
+.st--3 .st__ico { left: calc(432 * var(--u)); top: calc(8 * var(--u));  width: calc(58 * var(--u)); height: calc(79 * var(--u)); }
+.st--4 .st__ico { left: calc(422 * var(--u)); top: calc(5 * var(--u));  width: calc(77 * var(--u)); height: calc(79 * var(--u)); }
+.st--5 .st__ico { left: calc(425 * var(--u)); top: calc(12 * var(--u)); width: calc(76 * var(--u)); height: calc(72 * var(--u)); }
+.st--6 .st__ico { left: calc(422 * var(--u)); top: calc(13 * var(--u)); width: calc(71 * var(--u)); height: calc(72 * var(--u)); }
+.st--7 .st__ico { left: calc(434 * var(--u)); top: calc(12 * var(--u)); width: calc(57 * var(--u)); height: calc(72 * var(--u)); }
+
+.st--1 .st__ico img { width: 485.29%; height: 254.64%; left: -19.12%;  top: -29.22%; }
+.st--2 .st__ico img { width: 452.05%; height: 254.64%; left: -127.4%;  top: -29.22%; }
+.st--3 .st__ico img { width: 568.97%; height: 254.64%; left: -301.72%; top: -29.22%; }
+.st--4 .st__ico img { width: 428.57%; height: 254.64%; left: -319.48%; top: -29.22%; }
+.st--5 .st__ico img { width: 434.21%; height: 279.39%; left: -56.58%;  top: -154.28%; }
+.st--6 .st__ico img { width: 464.79%; height: 279.39%; left: -181.69%; top: -154.28%; }
+.st--7 .st__ico img { width: 578.95%; height: 279.39%; left: -385.96%; top: -154.28%; }
+
+.st-rule { left: calc(687 * var(--u)); width: calc(400 * var(--u)); height: 1px;
+           background: rgba(255,255,255,.35); z-index: 3; }
+.st-rule--1 { top: calc(474 * var(--u)); }
+.st-rule--2 { top: calc(780 * var(--u)); }
+.st-rule--3 { top: calc(1026 * var(--u)); }
+.st-rule--4 { top: calc(1409 * var(--u)); }
+.st-rule--5 { top: calc(1642 * var(--u)); }
+.st-rule--6 { top: calc(1899 * var(--u)); }
+.st-rule--7 { top: calc(2175 * var(--u)); }
+
+/* ====================== שלוש כרטיסיות (4253 – 5088) ====================== */
+.do-cards { top: calc(4685 * var(--u)); height: calc(835 * var(--u)); }
+
+.dc-t { top: calc(178 * var(--u)); height: calc(40 * var(--u));
+        font-family: var(--font-head); font-weight: 700; font-variation-settings: 'wdth' 100;
+        font-size: calc(40 * var(--u)); line-height: calc(40 * var(--u));
+        text-align: center; z-index: 3; }
+.dc-t--a { left: calc(1341 * var(--u)); width: calc(383 * var(--u)); }
+.dc-t--b { left: calc(712 * var(--u));  width: calc(495 * var(--u)); }
+.dc-t--c { left: calc(155 * var(--u));  width: calc(479 * var(--u)); }
+
+/* The pad and the photo butt together into one rectangle, so only the two
+   OUTER corners of each are rounded — rounding the seam side is what left a
+   notch at the top and bottom of the join. */
+.dc-pad { top: calc(246 * var(--u)); height: calc(406 * var(--u));
+          border-radius: calc(20 * var(--u)) 0 0 calc(20 * var(--u)); z-index: 1; }
+.dc-pad--a { left: calc(1260 * var(--u)); width: calc(178 * var(--u)); background: #e7f2fc; }
+.dc-pad--b { left: calc(685 * var(--u));  width: calc(143 * var(--u));
+             background: linear-gradient(180deg, #b8dcfa 0%, #cbe5fb 50%, #b9dbf9 100%); }
+.dc-pad--c { left: calc(110 * var(--u));  width: calc(203 * var(--u)); background: #c6ddf3; }
+
+.dc-pic { display: block; top: calc(247 * var(--u)); overflow: hidden; line-height: 0;
+          border-radius: 0 calc(20 * var(--u)) calc(20 * var(--u)) 0; z-index: 1; }
+/* Each photo is placed the way its own frame places it — a centred `cover`
+   would slide the child left, over the copy. */
+.dc-pic img { position: absolute; max-width: none; }
+.dc-pic--a img { left: 0; top: 0; height: 100%; width: 109.41%; }
+.dc-pic--b img { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+.dc-pic--c img { left: -2.31%; top: 0; height: 100%; width: 116.71%; }
+
+/* the hover clip, clipped to the photo box so it can never reach the copy */
+.dc-pic__film { position: absolute; inset: 0; width: 100%; height: 100%;
+                opacity: 0; transition: opacity .25s ease; }
+.dc-pic.is-playing .dc-pic__film { opacity: 1; }
+.dc-pic--a { left: calc(1438 * var(--u)); width: calc(372 * var(--u)); height: calc(407 * var(--u)); }
+.dc-pic--b { left: calc(828 * var(--u));  width: calc(405 * var(--u)); height: calc(405 * var(--u)); }
+.dc-pic--c { left: calc(313 * var(--u));  width: calc(347 * var(--u)); height: calc(405 * var(--u)); }
+
+.dc-x { top: calc(289 * var(--u)); height: calc(327 * var(--u)); width: calc(223 * var(--u));
+        text-align: right; color: #000; z-index: 3; }
+.dc-x--a { left: calc(1310 * var(--u)); }
+.dc-x--b { left: calc(717 * var(--u)); }
+.dc-x--c { left: calc(143 * var(--u)); }
+
+/* ================== מה הילד מקבל אצלינו? (5088 – 6323) ================== */
+/* Same runway problem as the process section: the frame is only as tall as
+   its own content, so the boy was still mid-jump and the last points still
+   dark as the section left. The extra 665 lets the clip land and all eight
+   points light while they are still on screen, and holds there. */
+/* 1235 is the frame's own height; the rest is runway, and there is a lot of it
+   because the jumps have to be readable and each label needs a moment of its
+   own before the finished picture is held. */
+.do-gets { top: calc(5520 * var(--u)); height: calc(3000 * var(--u)); }
+
+/* Unlike the process section, nothing here scrolls over the picture: the copy,
+   the points and the clip all hold still together while the reveal runs, and
+   the whole section then leaves as one piece. The stage is the height of the
+   frame, not of the window, so the boy, the points and the health-fund bar keep
+   the spacing they were drawn with â filling the window instead blew the clip
+   up until the bar sat across him. */
+.s > .gets-stage {
+  position: sticky;
+  /* Centred in the window when there is room for it, but never higher than the
+     header: on a laptop the centring put the stage's top edge above the top of
+     the window, which parked this section's heading and its line underneath the
+     bar for the whole time the stage was pinned. Clamped here, the stage's top
+     meets the bar's lower edge and the heading sits below it. */
+  top: max(var(--hdr-bottom), calc(50vh - 617.5 * var(--u)));
+  left: 0; width: 100%; height: calc(1235 * var(--u));
+}
+.gets-stage > * { position: absolute; }
+.gets-stage > .film { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+
+.do-gets__t   { left: calc(360 * var(--u)); top: calc(58 * var(--u));
+                width: calc(1200 * var(--u)); height: calc(86 * var(--u));
+                text-align: center; z-index: 3; }
+.do-gets__sub { left: calc(460 * var(--u)); top: calc(154 * var(--u));
+                width: calc(1000 * var(--u)); height: calc(38 * var(--u));
+                font-size: calc(40 * var(--u)); line-height: calc(38 * var(--u));
+                text-align: center; z-index: 3; }
+
+/* the eight labelled points */
+.gp { height: 0; z-index: 3; }
+.gp > * { position: absolute; }
+.gp__t { font-family: var(--font-head); font-weight: 700; font-variation-settings: 'wdth' 100;
+         font-size: calc(30 * var(--u)); line-height: calc(55 * var(--u));
+         height: calc(55 * var(--u)); color: var(--teal); top: 0; }
+.gp__x { font-size: calc(22 * var(--u)); line-height: calc(38 * var(--u));
+         height: calc(38 * var(--u)); color: var(--ink); }
+.gp__ico { display: block; line-height: 0; overflow: hidden; }
+.gp__ico img { position: absolute; max-width: none; }
+
+/* right-hand column: boxes are pinned by their right edge */
+.gp--1, .gp--2, .gp--3, .gp--4 { }
+.gp--1 .gp__t, .gp--1 .gp__x,
+.gp--2 .gp__t, .gp--2 .gp__x,
+.gp--3 .gp__t, .gp--3 .gp__x,
+.gp--4 .gp__t, .gp--4 .gp__x { text-align: right; }
+
+.gp--1 { left: calc(1436 * var(--u)); top: calc(281 * var(--u)); width: calc(248 * var(--u)); }
+.gp--1 .gp__x { left: calc(60 * var(--u)); top: calc(47 * var(--u)); width: calc(188 * var(--u)); }
+.gp--1 .gp__t { left: 0; width: calc(248 * var(--u)); }
+.gp--1 .gp__ico { left: calc(260 * var(--u)); top: calc(23 * var(--u)); width: calc(84 * var(--u)); height: calc(81 * var(--u)); }
+.gp--1 .gp__ico img { width: 589.34%; height: 460.89%; left: -38.52%; top: -36.75%; }
+
+.gp--2 { left: calc(1367 * var(--u)); top: calc(472 * var(--u)); width: calc(186 * var(--u)); }
+.gp--2 .gp__t { left: 0; width: calc(186 * var(--u)); }
+.gp--2 .gp__x { left: 0; top: calc(46 * var(--u)); width: calc(186 * var(--u)); }
+/* -14, not -86: at -86 the two figures floated up out of their own label and
+   sat under "45 דקות בכל שבוע" instead, which is the icon that looked adrift.
+   Checked against the frame — the other seven land on it exactly. */
+.gp--2 .gp__ico { left: calc(189 * var(--u)); top: calc(-14 * var(--u)); width: calc(100 * var(--u)); height: calc(110 * var(--u)); }
+.gp--2 .gp__ico img { width: 540.2%; height: 371.09%; left: -163.6%; top: -15.01%; }
+
+.gp--3 { left: calc(1326 * var(--u)); top: calc(663 * var(--u)); width: calc(248 * var(--u)); }
+.gp--3 .gp__t { left: 0; width: calc(248 * var(--u)); }
+.gp--3 .gp__x { left: calc(25 * var(--u)); top: calc(45 * var(--u)); width: calc(223 * var(--u)); }
+.gp--3 .gp__ico { left: calc(242 * var(--u)); top: calc(-19 * var(--u)); width: calc(88 * var(--u)); height: calc(110 * var(--u)); }
+.gp--3 .gp__ico img { width: 613.86%; height: 371.09%; left: -337.04%; top: -15.01%; }
+
+.gp--4 { left: calc(1308 * var(--u)); top: calc(794 * var(--u)); width: calc(248 * var(--u)); }
+.gp--4 .gp__t { left: 0; width: calc(248 * var(--u)); }
+.gp--4 .gp__x { left: calc(25 * var(--u)); top: calc(45 * var(--u)); width: calc(223 * var(--u)); }
+.gp--4 .gp__ico { left: calc(245 * var(--u)); top: calc(-3 * var(--u)); width: calc(118 * var(--u)); height: calc(98 * var(--u)); }
+.gp--4 .gp__ico img { width: 457.79%; height: 416.53%; left: -351.35%; top: -29.1%; }
+
+/* left-hand column: boxes are pinned by their left edge */
+.gp--5, .gp--6, .gp--7, .gp--8 { }
+.gp--5 { left: calc(338 * var(--u)); top: calc(281 * var(--u)); width: calc(167 * var(--u)); }
+.gp--5 .gp__t { left: 0; width: calc(167 * var(--u)); }
+.gp--5 .gp__x { left: 0; top: calc(47 * var(--u)); width: calc(183 * var(--u)); }
+.gp--5 .gp__ico { left: calc(-122 * var(--u)); top: calc(-1 * var(--u)); width: calc(116 * var(--u)); height: calc(123 * var(--u)); }
+.gp--5 .gp__ico img { width: 505.15%; height: 358.96%; left: -18.74%; top: -126.7%; }
+
+.gp--6 { left: calc(338 * var(--u)); top: calc(423 * var(--u)); width: calc(274 * var(--u)); }
+.gp--6 .gp__t { left: 0; width: calc(274 * var(--u)); }
+.gp--6 .gp__x { left: 0; top: calc(46 * var(--u)); width: calc(183 * var(--u)); }
+.gp--6 .gp__ico { left: calc(-114 * var(--u)); top: calc(-20 * var(--u)); width: calc(130 * var(--u)); height: calc(123 * var(--u)); }
+.gp--6 .gp__ico img { width: 450.75%; height: 358.96%; left: -125.95%; top: -126.7%; }
+
+.gp--7 { left: calc(338 * var(--u)); top: calc(602 * var(--u)); width: calc(301 * var(--u)); }
+.gp--7 .gp__t { left: 0; width: calc(301 * var(--u)); }
+.gp--7 .gp__x { left: 0; top: calc(44 * var(--u)); width: calc(232 * var(--u)); }
+.gp--7 .gp__ico { left: calc(-114 * var(--u)); top: calc(-26 * var(--u)); width: calc(114 * var(--u)); height: calc(123 * var(--u)); }
+.gp--7 .gp__ico img { width: 514.01%; height: 358.96%; left: -275.2%; top: -126.7%; }
+
+.gp--8 { left: calc(361 * var(--u)); top: calc(768 * var(--u)); width: calc(274 * var(--u)); }
+.gp--8 .gp__t { left: 0; width: calc(274 * var(--u)); }
+.gp--8 .gp__x { left: 0; top: calc(46 * var(--u)); width: calc(183 * var(--u)); }
+.gp--8 .gp__ico { left: calc(-121 * var(--u)); top: calc(-17 * var(--u)); width: calc(128 * var(--u)); height: calc(123 * var(--u)); }
+.gp--8 .gp__ico img { width: 457.79%; height: 358.96%; left: -351.35%; top: -126.7%; }
+
+/* the dotted leaders that run from each icon towards the boy */
+.gl { z-index: 2; }
+.gl img { display: block; width: 100%; height: 100%; }
+.gl--1 { left: calc(1227 * var(--u)); top: calc(390 * var(--u)); width: calc(233 * var(--u)); height: calc(122 * var(--u)); }
+.gl--2 { left: calc(1227 * var(--u)); top: calc(565 * var(--u)); width: calc(132 * var(--u)); height: calc(101 * var(--u)); }
+.gl--3 { left: calc(1172 * var(--u)); top: calc(729 * var(--u)); width: calc(145 * var(--u)); height: calc(34 * var(--u)); }
+.gl--5 { left: calc(552 * var(--u));  top: calc(543 * var(--u)); width: calc(150 * var(--u)); height: calc(73 * var(--u)); }
+.gl--8 { left: calc(505 * var(--u));  top: calc(363 * var(--u)); width: calc(134 * var(--u)); height: calc(95 * var(--u)); }
+
+/* three of the leaders are rotated in the frame; the export is the unrotated
+   shape, so the box carries the transform Figma decomposed it into */
+.gl--4, .gl--6, .gl--7 { display: grid; place-items: center; }
+.gl--4 img, .gl--6 img, .gl--7 img { width: auto; height: auto; }
+.gl--4 { left: calc(1067 * var(--u)); top: calc(804 * var(--u)); width: calc(250 * var(--u)); height: calc(35 * var(--u)); }
+.gl--4 img { width: calc(248.5 * var(--u)); height: calc(20.6 * var(--u));
+             transform: rotate(-3.24deg) skewX(1.7deg); }
+.gl--6 { left: calc(612 * var(--u)); top: calc(658 * var(--u)); width: calc(106 * var(--u)); height: calc(88 * var(--u)); }
+.gl--6 img { width: calc(78 * var(--u)); height: calc(70.6 * var(--u));
+             transform: rotate(-18.83deg) skewX(8.64deg); }
+.gl--7 { left: calc(568 * var(--u)); top: calc(792 * var(--u)); width: calc(118 * var(--u)); height: calc(73 * var(--u)); }
+.gl--7 img { width: calc(104.1 * var(--u)); height: calc(42.7 * var(--u));
+             transform: rotate(-19.99deg) skewX(9.03deg); }
+
+/* health-fund bar */
+.funds   { left: calc(110 * var(--u)); top: calc(982 * var(--u));
+           width: calc(1700 * var(--u)); height: calc(170 * var(--u));
+           border-radius: calc(30 * var(--u)); z-index: 2; }
+/* `.glass` puts a 2px border on this box, and absolutely-placed children
+   resolve against the padding box — so every offset below is the frame value
+   less that border. */
+.funds > * { position: absolute; }
+.funds__t { left: calc(805 * var(--u)); top: calc(23 * var(--u));
+            width: calc(800 * var(--u)); height: calc(60 * var(--u)); white-space: nowrap;
+            font-family: var(--font-head); font-weight: 700; font-variation-settings: 'wdth' 100;
+            font-size: calc(40 * var(--u)); line-height: calc(60 * var(--u));
+            text-align: right; z-index: 3; }
+.funds__x { left: calc(1205 * var(--u)); top: calc(83 * var(--u));
+            width: calc(400 * var(--u)); height: calc(38 * var(--u));
+            font-size: calc(40 * var(--u)); line-height: calc(38 * var(--u));
+            text-align: right; z-index: 3; }
+.fund { object-fit: contain; z-index: 3; }
+.fund--maccabi  { left: calc(540 * var(--u)); top: calc(52 * var(--u)); width: calc(153 * var(--u)); height: calc(58 * var(--u)); }
+.fund--clalit   { left: calc(739 * var(--u)); top: calc(59 * var(--u)); width: calc(175 * var(--u)); height: calc(50 * var(--u)); }
+.fund--leumit   { left: calc(304 * var(--u)); top: calc(57 * var(--u)); width: calc(208 * var(--u)); height: calc(52 * var(--u)); }
+.fund--meuhedet { left: calc(86 * var(--u));  top: calc(64 * var(--u)); width: calc(191 * var(--u)); height: calc(44 * var(--u)); }
+
+/* ============================ CTA (6323 – 7091) ============================ */
+.do-cta { top: calc(8520 * var(--u)); height: calc(768 * var(--u)); }
+
+/* Points light up one at a time while the clip runs. The hidden state is
+   applied by JS (`is-anim`), so with scripting off — or reduced motion — every
+   point is simply visible from the start. */
+.do-gets.is-anim .gp,
+.do-gets.is-anim .gl {
+  opacity: 0;
+  transform: translateY(calc(14 * var(--u)));
+  transition: opacity .5s ease, transform .5s ease;
+}
+.do-gets.is-anim .gp.is-on,
+.do-gets.is-anim .gl.is-on { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .do-gets.is-anim .gp,
+  .do-gets.is-anim .gl { opacity: 1; transform: none; transition: none; }
+}
+
+/* Same as אודות: the footer overlaps the section above so the boy rises over
+   it, but its backdrop starts at the section boundary so the two do not show
+   a seam behind him. */
+
+/* The clip is the card itself, not the whole band: measured against the frame's
+   art, its rounded card runs the full 1200 of the frame and sits 48 down, while
+   the card in the section sits at 40,78 and is 1841 wide. Scaling the one onto
+   the other puts the clip at 40,4 by 1841x767 â the same 2.4 aspect, so nothing
+   is cropped, and its white margin lands on the section's own white surround.
+   Stretching it across the whole 1920x768 band, as it was, squashed the card
+   and cut its bottom edge off. */

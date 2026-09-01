@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Kidysport — מה אנחנו עושים, mobile.
+
+   This page has no mobile frame in the Figma file, so the layout below is an
+   adaptation rather than a trace. It keeps the desktop page's colours, type
+   scale and section order and restacks every row into the single 402-wide
+   column the other two pages use.
+
+   The desktop sheet is an absolute artboard; here the sections flow instead,
+   which lets each one size to its own copy rather than to a measured frame.
+   Only the two clip stages stay pinned, and the footer keeps the artboard
+   layout mobile.css already gives it.
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+
+  .page--do { height: auto; }
+
+  /* sections flow; the footer keeps its own absolute layout */
+  /* The CTA is the one section on this page with a mobile frame of its own
+     (980:178), so it stays an artboard instead of joining the stack; its
+     trace lives with the shared block in mobile.css. */
+  .page--do .s:not(.foot):not(.do-cta) {
+    position: relative; top: auto; left: auto;
+    width: 100%; height: auto;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .page--do .foot { position: relative; top: auto; height: calc(1852 * var(--u)); }
+
+  /* Every child joins the flow except the pinned stage and the backdrop art.
+     The exclusions sit in `:where()` so they add no specificity — otherwise
+     this rule out-ranks the per-element sizes further down and every photo
+     falls back to `height: auto`. */
+  .page--do .s:where(:not(.foot)):where(:not(.do-cta)) > :where(:not(.film)):where(:not(.bg-art)) {
+    position: relative;
+    left: auto; right: auto; top: auto; bottom: auto;
+    width: 100%; height: auto;
+    z-index: 3;
+  }
+
+  .page--do .bg-art {
+    left: 50%; top: 0; transform: translateX(-50%);
+    width: max(var(--vwc), calc(402 * var(--u))); height: 100%;
+    object-fit: cover; z-index: 0;
+  }
+
+  /* The two scroll stages are pinned but must not take a screen's worth of
+     flow space, so they give the height straight back and the copy rides over
+     them. Named per section rather than applied to every `.film`: the CTA also
+     holds a clip, and that one is placed by its own frame, not pinned. */
+  .page--do .do-proc > .film,
+  .page--do .gets-stage > .film { height: 100vh; margin-bottom: -100vh; }
+
+  /* ------------------------------------------------------------- hero ---- */
+  .page--do .do-hero {
+    padding: calc(120 * var(--u)) calc(29 * var(--u)) calc(330 * var(--u));
+    gap: calc(14 * var(--u)); align-items: stretch;
+  }
+  .page--do .do-hero__t   { white-space: normal; text-align: right; }
+  .page--do .do-hero__sub { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u)); text-align: right; }
+  .page--do .do-hero__body{ font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); text-align: right; }
+  .page--do .do-hero__body p + p { margin-top: calc(10 * var(--u)); }
+
+  /* ------------------------------------------------------------ focus ---- */
+  .page--do .do-focus { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(40 * var(--u)); gap: calc(6 * var(--u)); }
+  .page--do .do-focus__t { text-align: center; margin-bottom: calc(20 * var(--u)); }
+
+  /* one column: picture, heading, list — four times over */
+  .page--do .fc-pic { width: calc(220 * var(--u)); height: calc(220 * var(--u)); margin-top: calc(26 * var(--u)); }
+  .page--do .fc-t   { font-size: calc(30 * var(--u)); line-height: calc(46 * var(--u)); height: auto; text-align: center; }
+  .page--do .fc-l   { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); text-align: center; }
+  .page--do .fc-rule { display: none; }
+
+  .page--do .do-focus__t     { order: 0; }
+  .page--do .fc-pic--motor   { order: 1; }
+  .page--do .fc-t--motor     { order: 2; }
+  .page--do .fc-l--motor     { order: 3; }
+  .page--do .fc-pic--emo     { order: 4; }
+  .page--do .fc-t--emo       { order: 5; }
+  .page--do .fc-l--emo       { order: 6; }
+  .page--do .fc-pic--social  { order: 7; }
+  .page--do .fc-t--social    { order: 8; }
+  .page--do .fc-l--social    { order: 9; }
+  .page--do .fc-pic--behav   { order: 10; }
+  .page--do .fc-t--behav     { order: 11; }
+  .page--do .fc-l--behav     { order: 12; }
+
+  /* ----------------------------------------------------------- process --- */
+  .page--do .do-proc { padding: calc(80 * var(--u)) calc(29 * var(--u)) calc(80 * var(--u)); gap: calc(22 * var(--u)); }
+  .page--do .do-proc__t { text-align: center; margin-bottom: calc(10 * var(--u)); }
+
+  /* number and ring pinned to the right edge, copy filling the rest */
+  .page--do .st { padding-right: calc(78 * var(--u)); min-height: calc(92 * var(--u)); }
+  .page--do .st > * { position: absolute; }
+  .page--do .st__n {
+    left: auto; right: 0; top: 0;
+    width: calc(56 * var(--u)); text-align: center;
+    font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u));
+  }
+  .page--do .st__ring {
+    left: auto; right: 0; top: calc(28 * var(--u));
+    width: calc(56 * var(--u)); height: calc(56 * var(--u));
+  }
+  /* anchored on the ring's centre, so each step's own crop box can keep the
+     size and offsets the sprite needs and simply be scaled down */
+  .page--do .st__ico {
+    left: auto; right: calc(28 * var(--u)); top: calc(56 * var(--u));
+    transform: translate(50%, -50%) scale(.58);
+  }
+  .page--do .st__x {
+    position: relative; left: auto; top: auto;
+    width: 100%; font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u));
+  }
+  .page--do .st__x p + p { margin-top: calc(8 * var(--u)); }
+  .page--do .st-rule { width: 100%; }
+
+  /* ------------------------------------------------------------- cards --- */
+  .page--do .do-cards { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(56 * var(--u)); gap: calc(10 * var(--u)); }
+  .page--do .dc-t  { font-size: calc(30 * var(--u)); line-height: calc(40 * var(--u)); height: auto;
+                     text-align: center; margin-top: calc(30 * var(--u)); }
+  .page--do .dc-pic { height: calc(300 * var(--u)); overflow: hidden;
+                      border-radius: calc(20 * var(--u)); }
+  .page--do .dc-pic img { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+  .page--do .dc-x  { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); text-align: right; }
+  /* the tinted half-panels only make sense beside a photo, not above it */
+  .page--do .dc-pad { display: none; }
+
+  .page--do .dc-t--a  { order: 0; margin-top: 0; }
+  .page--do .dc-pic--a{ order: 1; }
+  .page--do .dc-x--a  { order: 2; }
+  .page--do .dc-t--b  { order: 3; }
+  .page--do .dc-pic--b{ order: 4; }
+  .page--do .dc-x--b  { order: 5; }
+  .page--do .dc-t--c  { order: 6; }
+  .page--do .dc-pic--c{ order: 7; }
+  .page--do .dc-x--c  { order: 8; }
+
+  /* -------------------------------------------------------------- gets --- */
+  /* The pinned stage is a desktop idea; on one column the section just flows,
+     so the wrapper steps out of the way and its children become the flex
+     items the rest of these rules expect. */
+  .page--do .gets-stage { display: contents; }
+  .page--do .gets-stage > :where(:not(.film)) {
+    position: relative; left: auto; right: auto; top: auto; bottom: auto;
+    width: 100%; height: auto; z-index: 3;
+  }
+  .page--do .gets-stage > .film { position: sticky; top: 0; }
+
+  .page--do .do-gets { padding: calc(70 * var(--u)) calc(29 * var(--u)) calc(56 * var(--u)); gap: calc(16 * var(--u)); }
+  .page--do .do-gets__t   { text-align: center; }
+  .page--do .do-gets__sub { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
+                            text-align: center; margin-bottom: calc(14 * var(--u)); }
+  /* the dotted leaders point at desktop positions; there is nothing for them
+     to connect once the points are a single column */
+  .page--do .gl { display: none; }
+
+  .page--do .gp { display: flex; flex-direction: row; align-items: center;
+                  gap: calc(14 * var(--u)); min-height: calc(74 * var(--u)); }
+  .page--do .gp > * { position: relative; left: auto; top: auto; width: auto; height: auto; }
+  .page--do .gp__t { font-size: calc(22 * var(--u)); line-height: calc(28 * var(--u)); text-align: right; }
+  .page--do .gp__x { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); text-align: right; }
+  .page--do .gp__ico { flex: none; }
+  /* the crop windows are percentage-based, so scaling the window scales the
+     artwork inside it — each keeps its own aspect */
+  .page--do .gp--1 .gp__ico { width: calc(50 * var(--u)); height: calc(49 * var(--u)); }
+  .page--do .gp--2 .gp__ico { width: calc(60 * var(--u)); height: calc(66 * var(--u)); }
+  .page--do .gp--3 .gp__ico { width: calc(53 * var(--u)); height: calc(66 * var(--u)); }
+  .page--do .gp--4 .gp__ico { width: calc(71 * var(--u)); height: calc(59 * var(--u)); }
+  .page--do .gp--5 .gp__ico { width: calc(70 * var(--u)); height: calc(74 * var(--u)); }
+  .page--do .gp--6 .gp__ico { width: calc(78 * var(--u)); height: calc(74 * var(--u)); }
+  .page--do .gp--7 .gp__ico { width: calc(68 * var(--u)); height: calc(74 * var(--u)); }
+  .page--do .gp--8 .gp__ico { width: calc(77 * var(--u)); height: calc(74 * var(--u)); }
+  /* the label pair fills what the icon leaves */
+  .page--do .gp__t, .page--do .gp__x { flex: 1 1 auto; }
+  .page--do .gp { flex-wrap: wrap; }
+  .page--do .gp__t { flex-basis: calc(100% - 92 * var(--u)); }
+  .page--do .gp__x { flex-basis: calc(100% - 92 * var(--u)); }
+
+  /* health funds */
+  .page--do .funds { display: flex; flex-direction: column; align-items: center;
+                     gap: calc(12 * var(--u)); padding: calc(24 * var(--u)) calc(16 * var(--u));
+                     margin-top: calc(30 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .page--do .funds > * { position: relative; left: auto; top: auto; }
+  .page--do .funds__t { width: 100%; white-space: normal; text-align: center;
+                        font-size: calc(24 * var(--u)); line-height: calc(32 * var(--u)); height: auto; }
+  .page--do .funds__x { width: 100%; text-align: center;
+                        font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); height: auto;
+                        margin-bottom: calc(6 * var(--u)); }
+  .page--do .fund { height: calc(38 * var(--u)); width: auto; }
+
+}

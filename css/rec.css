@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Kidysport — המלצות, desktop artboard (Figma 464:716, 1920 × 3743)
+   ========================================================================== */
+
+/* 3743 is where the CTA art ends; the footer overlaps the section above it by
+   152, as on every page. 3591 + 1201 = 4792. */
+.page--rec { height: calc(4792 * var(--u)); }
+.page--rec .foot { top: calc(3591 * var(--u)); }
+
+.page--rec .nav-i--rec { top: calc(-3 * var(--u)); }
+
+/* ============================== HERO ============================== */
+.rec-top { top: 0; height: calc(426 * var(--u)); }
+
+/* the band runs well past its section; nothing clips it, which is what the
+   frame does too */
+.rec-band { left: calc(-534 * var(--u)); top: calc(-168 * var(--u));
+            width: calc(2678 * var(--u)); height: calc(1507 * var(--u));
+            object-fit: cover; z-index: 0; }
+
+/* The frame sets this as one line, both colours inline in a single paragraph.
+   Headings here are column flex boxes so Figma's vertical centring works, which
+   turns sibling spans into separate rows — right for the two-line headings
+   elsewhere, wrong here, where it stacked "מההורים" onto the description
+   below. The markup wraps both colours in one span so they share a row. */
+.rec-top__t   { left: calc(500 * var(--u)); top: calc(222 * var(--u));
+                width: calc(920 * var(--u)); height: calc(163 * var(--u));
+                text-align: center; z-index: 3; }
+.rec-top__t > span { white-space: nowrap; }
+.rec-top__sub { left: calc(513 * var(--u)); top: calc(351 * var(--u));
+                width: calc(895 * var(--u)); height: calc(54 * var(--u));
+                text-align: center; color: var(--ink); z-index: 3; }
+
+/* ============================ THE WALL ============================
+   Two columns of screenshots at the sizes the frame gives each one. The
+   section sits above the CTA in the stack because the last message overlaps
+   the top of the CTA art by 28, exactly as drawn. */
+.rec-wall { top: calc(426 * var(--u)); height: calc(2577 * var(--u)); z-index: 1; }
+
+.rw { border-radius: calc(20 * var(--u)); overflow: hidden; display: block;
+      line-height: 0; z-index: 2; }
+.rw > img { position: absolute; max-width: none; }
+img.rw { object-fit: cover; }
+
+/* right column (Figma left 110) */
+.rw--a { left: calc(110 * var(--u));  top: 0;                  width: calc(793 * var(--u)); height: calc(214 * var(--u)); }
+.rw--b { left: calc(110 * var(--u));  top: calc(254 * var(--u)); width: calc(797 * var(--u)); height: calc(154 * var(--u)); }
+.rw--c { left: calc(110 * var(--u));  top: calc(448 * var(--u)); width: calc(796 * var(--u)); height: calc(243 * var(--u)); }
+.rw--d { left: calc(110 * var(--u));  top: calc(731 * var(--u)); width: calc(791 * var(--u)); height: calc(679 * var(--u)); }
+.rw--j { left: calc(110 * var(--u));  top: calc(1450 * var(--u)); width: calc(800 * var(--u)); height: calc(1127 * var(--u)); }
+.rw--j > img { left: 0; top: 0; width: 100%; height: 118.9%; }
+
+/* left column (Figma left 1036 / 1024) */
+.rw--e { left: calc(1036 * var(--u)); top: 0;                  width: calc(774 * var(--u)); height: calc(237 * var(--u)); }
+.rw--e > img { left: -0.92%; top: 0; width: 100.92%; height: 100%; }
+.rw--f { left: calc(1036 * var(--u)); top: calc(274 * var(--u)); width: calc(774 * var(--u)); height: calc(187 * var(--u)); }
+.rw--f > img { left: -3.1%; top: 0; width: 103.1%; height: 100%; }
+.rw--g { left: calc(1036 * var(--u)); top: calc(501 * var(--u)); width: calc(774 * var(--u)); height: calc(213 * var(--u)); }
+.rw--h { left: calc(1024 * var(--u)); top: calc(754 * var(--u)); width: calc(786 * var(--u)); height: calc(187 * var(--u)); }
+.rw--i { left: calc(1024 * var(--u)); top: calc(981 * var(--u)); width: calc(786 * var(--u)); height: calc(1301.04 * var(--u)); }
+.rw--i > img { left: -9.44%; top: 0; width: 109.44%; height: 110.74%; }
+
+/* The redactions the frame paints over names and phone numbers. */
+.rd { border-radius: calc(20 * var(--u)); z-index: 3;
+      background: rgba(11,16,20,.64);
+      -webkit-backdrop-filter: blur(calc(3.5 * var(--u)));
+      backdrop-filter: blur(calc(3.5 * var(--u))); }
+.rd--1 { left: calc(1467 * var(--u));   top: calc(1033.69 * var(--u)); width: calc(280.637 * var(--u)); height: calc(35.483 * var(--u)); }
+.rd--2 { left: calc(1675.6 * var(--u)); top: calc(1069.17 * var(--u)); width: calc(67.74 * var(--u));   height: calc(23.655 * var(--u)); }
+.rd--3 { left: calc(590 * var(--u));    top: calc(1499 * var(--u));    width: calc(261 * var(--u));     height: calc(33 * var(--u)); }
+.rd--4 { left: calc(784 * var(--u));    top: calc(1532 * var(--u));    width: calc(67 * var(--u));      height: calc(23 * var(--u)); }
+.rd--5 { left: calc(558 * var(--u));    top: calc(1610 * var(--u));    width: calc(261 * var(--u));     height: calc(33 * var(--u));
+         background: rgba(19,67,51,.65); }
+.rd--6 { left: calc(612 * var(--u));    top: calc(2060 * var(--u));    width: calc(258 * var(--u));     height: calc(23 * var(--u)); }
+
+/* ============================== CTA ==============================
+   Identical to the block on מה אנחנו עושים — same art, same offsets — so it
+   reuses those rules and only the section is placed here. */
+.rec-cta { top: calc(2975 * var(--u)); height: calc(768 * var(--u)); z-index: 0; }

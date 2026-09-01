@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>המלצות — קידיספורט</title>
+<meta name="description" content="מילים ושיתופים מהשטח, מתוך החוויה של ההורים והילדים בקידיספורט.">
+<link rel="preload" href="assets/fonts/Fredoka-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/GoogleSansFlex_24pt-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script src="js/unit.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/rec.css">
+<link rel="stylesheet" href="css/rec-mobile.css">
+</head>
+<body>
+  <a class="wa" href="contact.html" aria-label="וואטסאפ"><img src="assets/icons/whatsapp.webp" alt=""></a>
+
+<div class="page page--rec">
+<header class="site-hdr">
+  <div class="hdr glass"></div>
+  <a class="hdr__logo" href="index.html"><img src="assets/img/kidisport-logo.webp" alt="קידיספורט"></a>
+  <nav class="hdr__nav" aria-label="ראשי">
+    <a class="nav-i nav-i--contact" href="contact.html">יצירת קשר</a>
+    <a class="nav-i nav-i--rec is-active" href="rec.html">המלצות</a>
+    <a class="nav-i nav-i--faq"     href="faq.html">שאלות ותשובות</a>
+    <a class="nav-i nav-i--what"    href="do.html">מה אנחנו עושים?</a>
+    <a class="nav-i nav-i--about"   href="about.html">אודות</a>
+    <a class="nav-i nav-i--home"    href="index.html">דף הבית</a>
+  </nav>
+  <a class="hdr__cta" href="contact.html"><span class="btn__label">דברו איתנו</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
+  <img class="hdr__phone" src="assets/icons/phone-header.svg" alt="" aria-hidden="true">
+  <button class="hdr__burger" type="button" aria-label="תפריט" aria-expanded="false" aria-controls="m-menu">
+    <span class="burger__disc"></span>
+    <svg class="burger__ic" viewBox="0 0 44 29" aria-hidden="true">
+      <path d="M2.5 2.5H41.5"/><path d="M2.5 14.5H41.5"/><path d="M2.5 26.5H41.5"/>
+    </svg>
+  </button>
+  <div class="m-menu" id="m-menu" hidden>
+    <a href="index.html">דף הבית</a>
+    <a href="about.html">אודות</a>
+    <a href="do.html">מה אנחנו עושים?</a>
+    <a href="faq.html">שאלות ותשובות</a>
+    <a href="rec.html">המלצות</a>
+    <a href="contact.html">יצירת קשר</a>
+  </div>
+</header>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="s rec-top">
+    <img class="rec-band" src="assets/img/rec-band.webp" alt="" aria-hidden="true">
+    <h1 class="rec-top__t t-h1"><span><span class="c-orange">המלצות </span><span class="c-teal">מההורים</span></span></h1>
+    <p class="rec-top__sub t-body">מילים ושיתופים מהשטח, מתוך החוויה של ההורים והילדים.</p>
+  </section>
+
+  <!-- ============================ THE WALL ============================
+       Real messages from parents, exactly as the frame lays them out. The
+       small translucent patches are the redactions the frame draws over
+       names and phone numbers — they are part of the design, not decoration. -->
+  <section class="s rec-wall">
+    <img class="rw rw--a" src="assets/img/rec-04.png" alt="המלצה מהורה">
+    <img class="rw rw--b" src="assets/img/rec-03.png" alt="המלצה מהורה">
+    <img class="rw rw--c" src="assets/img/rec-05.png" alt="המלצה מהורה">
+    <img class="rw rw--d" src="assets/img/rec-08.png" alt="המלצה מהורה">
+
+    <span class="rw rw--e"><img src="assets/img/rec-01.png" alt="המלצה מהורה"></span>
+    <span class="rw rw--f"><img src="assets/img/rec-02.png" alt="המלצה מהורה"></span>
+    <img class="rw rw--g" src="assets/img/rec-06.png" alt="המלצה מהורה">
+    <img class="rw rw--h" src="assets/img/rec-07.png" alt="המלצה מהורה">
+
+    <span class="rw rw--i"><img src="assets/img/rec-09.png" alt="המלצה מהורה"></span>
+    <span class="rd rd--1"></span>
+    <span class="rd rd--2"></span>
+
+    <span class="rw rw--j"><img src="assets/img/rec-10.png" alt="המלצה מהורה"></span>
+    <span class="rd rd--3"></span>
+    <span class="rd rd--4"></span>
+    <span class="rd rd--5"></span>
+    <span class="rd rd--6"></span>
+  </section>
+
+  <!-- ============================== CTA ==============================
+       The same block as מה אנחנו עושים, down to the numbers — including the
+       waving boy, who is a clip there and here. -->
+  <section class="s rec-cta" data-film="w" data-frames="32" data-film-mode="loop">
+    <img class="do-cta__bg bg-art" src="assets/img/do-cta-bg.webp" alt="" aria-hidden="true">
+    <div class="film" aria-hidden="true">
+      <img class="film__still" src="assets/seq/seq_w_000.jpg" alt="">
+      <canvas class="film__canvas"></canvas>
+    </div>
+    <h2 class="do-cta__t t-h1 c-teal">רוצים לבדוק אם התהליך מתאים לילד שלכם?</h2>
+    <p class="do-cta__sub">השאירו פרטים, ונחזור אליכם לשיחת היכרות</p>
+    <a class="do-cta__btn btn btn--orange" href="contact.html"><span class="btn__label">לשיחת התאמה</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
+  </section>
+
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="s foot">
+    <div class="sticky-bg" aria-hidden="true"><img src="assets/img/bg-hero.webp" alt=""></div>
+    <img class="foot__bg bleed" src="assets/img/bg-hero.webp" alt="" aria-hidden="true">
+    <img class="foot__bird" src="assets/icons/bird2.svg" alt="" aria-hidden="true">
+    <h2 class="foot__t t-h1 c-orange">תני לו תנופה</h2>
+    <img class="foot__boy" src="assets/img/boy-footer.webp" alt="" aria-hidden="true">
+
+    <!-- סניפים -->
+    <div class="fc fc--branch glass"></div>
+    <h3 class="fc__t fc__t--branch t-h1b c-teal">סניפים</h3>
+    <p class="br br--a t-body">רמה א’</p>
+    <p class="br br--b t-body">רמה ב’</p>
+    <p class="br br--c t-body">רמה ג’</p>
+    <p class="br br--d t-body">רמה ד’</p>
+    <span class="hline hline--b1"></span>
+    <span class="hline hline--b2"></span>
+    <span class="hline hline--b3"></span>
+
+    <!-- פרטי קשר -->
+    <div class="fc fc--info glass"></div>
+    <h3 class="fc__t fc__t--info t-h1b c-teal">פרטי קשר</h3>
+    <p class="inf inf--a t-body">02-500-9293</p>
+    <p class="inf inf--b t-body">info@kidysport.co.il</p>
+    <div class="inf inf--c t-body"><p>א’ - ה’ : 8:00 - 18:00<br>ו’ : 8:00 - 12:00</p></div>
+    <span class="ifi ifi--a ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="ifi ifi--b ico" aria-hidden="true"><img src="assets/icons/mail.webp" alt=""><img class="ico__on" src="assets/icons/mail--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="ifi ifi--c ico" aria-hidden="true"><img src="assets/icons/clock.webp" alt=""><img class="ico__on" src="assets/icons/clock--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="hline hline--i1"></span>
+    <span class="hline hline--i2"></span>
+
+    <!-- ניווט -->
+    <div class="fc fc--nav glass"></div>
+    <h3 class="fc__t fc__t--nav t-h1b c-teal">ניווט</h3>
+    <a class="fn fn--a t-body" href="index.html#hero">דף הבית</a>
+    <a class="fn fn--b t-body" href="about.html">אודות</a>
+    <a class="fn fn--c t-body" href="do.html">מה אנחנו עושים?</a>
+    <a class="fn fn--d t-body" href="faq.html">שאלות ותשובות</a>
+    <a class="fn fn--e t-body" href="rec.html">המלצות</a>
+    <a class="fn fn--f t-body" href="contact.html">יצירת קשר</a>
+    <img class="fv fv--a" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--b" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--c" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--d" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--e" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--f" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+
+    <!-- brand -->
+    <div class="fc fc--brand glass"></div>
+    <img class="fc__logo" src="assets/img/kidisport-logo.webp" alt="קידיספורט">
+    <div class="fc__tag t-body"><p>טיפול בתנועה ובספורט מותאם לילדים.<br>כי תנועה היא כוח לצמוח</p></div>
+
+    <div class="foot__bar glass"></div>
+    <p class="foot__bar-t t-h2">בואו נמצא יחד את המקום שבו הילד שלכם יוכל להרגיש טוב, להתחזק ולהצליח.</p>
+    <p class="foot__credit t-body c-teal"><a href="https://yudit.co.il/he/home/" target="_blank" rel="noopener noreferrer">אפיון, עיצוב ובניה ע”י יהודית</a></p>
+  </footer>
+
+</div><!-- /.page -->
+
+<!-- gooey filter: merges the four blobs into one liquid front -->
+<svg class="goo-defs" aria-hidden="true" focusable="false"><defs>
+  <filter id="goo" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"/>
+    <feColorMatrix in="blur" mode="matrix"
+      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="goo"/>
+    <feBlend in2="goo" in="SourceGraphic"/>
+  </filter>
+</defs></svg>
+
+<script src="js/app.js"></script>
+<script src="js/do-scroll.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Kidysport — אודות (Figma 464:654, 1920 × 4711)
+
+   Loads after main.css so it inherits the shared chrome: header, glass
+   surfaces, blob buttons, hover icons, type tokens. Only the page height and
+   this page's own sections are declared here.
+   ========================================================================== */
+
+/* 4711 is where the CTA band ends; the footer overlaps the section above it by
+   152, exactly as it does on the home page, so the CTA card hangs 74 into the
+   footer and the boy peeks 22 over its bottom edge. 4559 + 1201 = 5760. */
+.page--about { height: calc(7371 * var(--u)); }
+.page--about .foot { top: calc(6170 * var(--u)); }
+
+/* Figma exports the signature in Gveret Levin AlefAlefAlef, which is not in
+   the project's font folder. Falling back to the heading face keeps it a
+   handwritten-feeling display line until the real file is supplied. */
+.ab-intro__sign {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: calc(24 * var(--u));
+  line-height: calc(86 * var(--u));
+  color: #000;
+}
+
+/* ============================ INTRO (0 – 1023) ============================ */
+.ab-intro { top: 0; height: calc(1023 * var(--u)); }
+
+.ab-hero__band    { position: absolute; left: 50%; transform: translateX(-50%);
+                    top: calc(-33 * var(--u)); width: max(var(--vwc), calc(1956 * var(--u)));
+                    height: calc(1060 * var(--u)); object-fit: cover; z-index: 0; }
+.ab-hero__ellipse { position: absolute; left: calc(314 * var(--u)); top: calc(-33 * var(--u));
+                    width: calc(1665 * var(--u)); height: calc(1060 * var(--u));
+                    object-fit: cover; z-index: 1; }
+/* mobile only — this frame has no ellipse, it repeats the band instead. */
+.ab-hero__band2   { display: none; }
+
+.ab-intro__photo  { left: calc(110 * var(--u)); top: calc(171 * var(--u));
+                    width: calc(752 * var(--u)); height: calc(757 * var(--u));
+                    border-radius: 50%; overflow: hidden; z-index: 3;
+                    box-shadow: calc(4 * var(--u)) calc(4 * var(--u)) calc(20 * var(--u)) calc(20 * var(--u)) rgba(255,255,255,.5); }
+.ab-intro__photo img { position: absolute; left: -5.69%; top: -3.32%; width: 114%; height: 105.09%; max-width: none; }
+
+.ab-intro__kicker { left: calc(1456 * var(--u)); top: calc(248 * var(--u)); width: calc(326 * var(--u)); height: calc(65 * var(--u)); text-align: right; z-index: 3; }
+.ab-intro__title  { left: calc(777 * var(--u));  top: calc(268 * var(--u)); width: calc(1005 * var(--u)); height: calc(163 * var(--u)); text-align: right; z-index: 3; }
+.ab-intro__body   { left: calc(922 * var(--u));  top: calc(399 * var(--u)); width: calc(860 * var(--u)); height: calc(452 * var(--u)); text-align: right; z-index: 3; }
+.ab-intro__sign   { position: absolute; left: calc(1414 * var(--u)); top: calc(851 * var(--u)); width: calc(368 * var(--u)); height: calc(86 * var(--u));
+                    display: flex; flex-direction: column; justify-content: center; text-align: right; z-index: 3; }
+.ab-intro__role   { left: calc(1414 * var(--u)); top: calc(913 * var(--u)); width: calc(368 * var(--u)); height: calc(38 * var(--u)); text-align: right; color: #000; z-index: 3; }
+
+/* ==================== ממכון קטן (1023 – 1831) ==================== */
+.ab-grow { top: calc(1023 * var(--u)); height: calc(808 * var(--u)); }
+
+.ab-grow__band { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+                 width: max(var(--vwc), calc(1945 * var(--u))); height: calc(808 * var(--u));
+                 object-fit: cover; z-index: 0; }
+.ab-grow__boy  { left: calc(80 * var(--u)); top: calc(184 * var(--u));
+                 width: calc(468 * var(--u)); height: calc(645 * var(--u));
+                 object-fit: cover; z-index: 3; }
+
+.ab-grow__title { left: calc(423 * var(--u)); top: calc(101 * var(--u)); width: calc(1175 * var(--u)); height: calc(163 * var(--u)); text-align: right; z-index: 3; }
+.ab-grow__body  { left: calc(703 * var(--u)); top: calc(302 * var(--u)); width: calc(895 * var(--u)); height: calc(311 * var(--u)); text-align: right; z-index: 3; }
+
+/* the round "10 years" style badge (476:94) */
+.ab-badge { position: absolute; left: calc(434 * var(--u)); top: calc(40 * var(--u));
+            width: calc(289 * var(--u)); height: calc(289 * var(--u)); z-index: 4; }
+.ab-badge img { position: absolute; max-width: none; }
+.ab-badge__disc { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+/* One logo, assembled from two crops of a single sprite (476:96 / 476:97):
+   the wordmark sits below the green mark. Each needs its own clipping window
+   or the whole strip shows and the logo appears twice. */
+.wg { position: absolute; overflow: hidden; transform: rotate(1.45deg); }
+.wg img { position: absolute; top: 0; height: 100%; max-width: none; }
+.ab-badge .wg--text { left: 27.76%; top: 45.47%; width: 42.05%; height: 17.99%; }
+.ab-badge .wg--text img { left: 0; width: 182.3%; }
+.ab-badge .wg--mark { left: 31.55%; top: 26.77%; width: 35.42%; height: 17.82%; }
+.ab-badge .wg--mark img { left: -123.16%; width: 216.84%; }
+.ab-badge__dot{ left: 16.75%; top: 61.56%; width: 4.31%; height: 5.18%; }
+
+/* ==================== מה חשוב לנו? (1831 – 2777) ==================== */
+.ab-values { top: calc(1831 * var(--u)); height: calc(946 * var(--u)); }
+
+.ab-values__band    { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+                      width: max(var(--vwc), calc(2230 * var(--u))); height: calc(946 * var(--u));
+                      object-fit: cover; z-index: 0; }
+.ab-values__ellipse { position: absolute; left: calc(-7 * var(--u)); top: 0;
+                      width: calc(1956 * var(--u)); height: calc(946 * var(--u));
+                      object-fit: cover; z-index: 1; }
+
+.ab-values__title { left: calc(697 * var(--u)); top: calc(139 * var(--u)); width: calc(533 * var(--u)); height: calc(100 * var(--u)); text-align: center; z-index: 3; }
+
+.vc { box-shadow: 0 0 calc(20 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
+.vc--a { left: calc(271 * var(--u));  top: calc(348 * var(--u)); width: calc(441 * var(--u)); height: calc(191 * var(--u)); }
+.vc--b { left: calc(743 * var(--u));  top: calc(348 * var(--u)); width: calc(441 * var(--u)); height: calc(191 * var(--u)); }
+.vc--c { left: calc(1217 * var(--u)); top: calc(348 * var(--u)); width: calc(441 * var(--u)); height: calc(191 * var(--u)); }
+.vc--d { left: calc(506 * var(--u));  top: calc(568 * var(--u)); width: calc(441 * var(--u)); height: calc(226 * var(--u)); }
+.vc--e { left: calc(980 * var(--u));  top: calc(568 * var(--u)); width: calc(441 * var(--u)); height: calc(226 * var(--u)); }
+
+/* Two things this rule has to out-specify `.s > p` for:
+   - `justify-content` — `.s > p` centres, which would leave every card title at
+     a different height. Top-aligning puts all five on one line, as Figma has.
+   - `width` — Figma's box is 279, but the Hebrew fallback face renders one line
+     of card b at 283, which would force a sixth line. The box is 11 wider and
+     every `left` below is 11 smaller, so the right edge lands exactly on Figma's
+     and the slack is spent on the ragged (left) side, where nothing shows. */
+.s > .vt { width: calc(290 * var(--u)); text-align: right; line-height: calc(28 * var(--u));
+           color: var(--ink); z-index: 3; justify-content: flex-start; }
+.vt strong { color: var(--teal); font-weight: 700; }
+.vt--a { left: calc(300 * var(--u));   top: calc(377 * var(--u)); height: calc(134 * var(--u)); }
+.vt--b { left: calc(777 * var(--u));   top: calc(377 * var(--u)); height: calc(134 * var(--u)); }
+.vt--c { left: calc(1251 * var(--u)); top: calc(377 * var(--u)); height: calc(134 * var(--u)); }
+.vt--d { left: calc(535 * var(--u));   top: calc(597 * var(--u)); height: calc(151 * var(--u)); }
+.vt--e { left: calc(1009 * var(--u)); top: calc(597 * var(--u)); height: calc(151 * var(--u)); }
+
+
+/* The five icons on the value cards. They used to be crops of one sprite sheet,
+   which is why they had no hover state — a crop has no second version. These are
+   the real files, each with the twin that lights part of it orange.
+
+   The boxes are solved, not copied: the sprite crop was tight to the glyph and
+   these files carry their own margins, so what is held constant is where the ink
+   lands. Each ink rect below is where the crop put it on the artboard, and the
+   box is sized and placed so this file's ink falls there. The two drawings agree
+   to within 2% on proportions, which is the check that they are the same art. */
+.vi { z-index: 4; }
+.vi--a { left: calc(610.5 * var(--u));  top: calc(401.8 * var(--u)); width: calc(69.3 * var(--u));  height: calc(85.7 * var(--u)); }
+.vi--b { left: calc(1082.3 * var(--u)); top: calc(405.0 * var(--u)); width: calc(83.6 * var(--u));  height: calc(78.3 * var(--u)); }
+.vi--c { left: calc(1561.0 * var(--u)); top: calc(402.0 * var(--u)); width: calc(71.5 * var(--u));  height: calc(84.9 * var(--u)); }
+.vi--d { left: calc(834.5 * var(--u));  top: calc(638.8 * var(--u)); width: calc(100.2 * var(--u)); height: calc(85.6 * var(--u)); }
+.vi--e { left: calc(1305.5 * var(--u)); top: calc(641.5 * var(--u)); width: calc(109.1 * var(--u)); height: calc(78.3 * var(--u)); }
+
+/* ===================== הצוות שלנו (2772 – 3622) ===================== */
+.ab-team { top: calc(2772 * var(--u)); height: calc(850 * var(--u)); }
+
+.ab-team__band { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+                 width: max(var(--vwc), calc(1978 * var(--u))); height: calc(850 * var(--u));
+                 object-fit: cover; z-index: 0; }
+
+.ab-team__seal { position: absolute; left: calc(268 * var(--u)); top: calc(178 * var(--u));
+                 width: calc(492.14 * var(--u)); height: calc(495 * var(--u)); z-index: 3; }
+.ab-team__seal img { position: absolute; max-width: none; }
+.ab-team__seal-img { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+.ab-team__seal .wg--text { left: 33.85%; top: 25.33%; width: 40.75%; height: 17.34%; }
+.ab-team__seal .wg--text img { left: 0; width: 182.3%; }
+.ab-team__seal .wg--mark { left: 37.52%; top: 7.31%; width: 34.32%; height: 17.17%; }
+.ab-team__seal .wg--mark img { left: -123.16%; width: 216.84%; }
+
+.ab-team__card  { left: calc(1013 * var(--u)); top: calc(115 * var(--u)); width: calc(797 * var(--u)); height: calc(620 * var(--u));
+                  box-shadow: 0 0 calc(20 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
+.ab-team__title { left: calc(1184 * var(--u)); top: calc(119 * var(--u)); width: calc(541 * var(--u)); height: calc(163 * var(--u)); text-align: right; z-index: 3; }
+.ab-team__body  { left: calc(1095 * var(--u)); top: calc(233 * var(--u)); width: calc(630 * var(--u)); height: calc(231 * var(--u)); text-align: right; z-index: 3; }
+
+.tc { height: calc(207 * var(--u)); top: calc(464 * var(--u));
+      box-shadow: 0 0 calc(20 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
+.tc--a { left: calc(1065 * var(--u)); width: calc(210 * var(--u)); }
+.tc--b { left: calc(1306 * var(--u)); width: calc(211 * var(--u)); }
+.tc--c { left: calc(1548 * var(--u)); width: calc(210 * var(--u)); }
+
+.ti { top: calc(471 * var(--u)); width: calc(131 * var(--u)); z-index: 3; }
+.ti--a { left: calc(1102 * var(--u)); }
+.ti--b { left: calc(1348 * var(--u)); }
+.ti--c { left: calc(1586 * var(--u)); }
+
+.tt { top: calc(596 * var(--u)); height: calc(47 * var(--u)); text-align: center; line-height: calc(28 * var(--u)); z-index: 3; }
+.tt--a { left: calc(1081 * var(--u)); width: calc(178 * var(--u)); }
+.tt--b { left: calc(1305 * var(--u)); width: calc(213 * var(--u)); }
+.tt--c { left: calc(1566 * var(--u)); width: calc(174 * var(--u)); }
+
+/* ========================= CTA (3622 – 4711) ========================= */
+/* The footer overlaps this section, and its boy has to stand in front of the
+   card the way he does over the contact panel on the home page. There the
+   section is a stacking context (the --faq-shift translate makes one), which
+   keeps its children from outranking the later footer; this one needs saying
+   out loud. */
+/* The section is held while its clip runs, so it needs scroll to spend: 1089 is
+   the frame's own height and the rest is runway. Everything inside sits on one
+   sticky stage the height of the frame, which keeps the composition exactly as
+   drawn instead of stretching it to whatever the window happens to be. */
+.ab-cta { top: calc(3622 * var(--u)); height: calc(2700 * var(--u)); isolation: isolate; }
+.s > .cta-stage {
+  position: sticky;
+  top: calc(50vh - 544.5 * var(--u));      /* centre the frame in the window */
+  left: 0; width: 100%; height: calc(1089 * var(--u));
+}
+.cta-stage > * { position: absolute; }
+.cta-stage > .film { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+
+
+.ab-cta__band { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+                width: max(var(--vwc), calc(2338 * var(--u))); height: calc(1091 * var(--u));
+                object-fit: cover; z-index: 0; }
+
+.ab-cta__card  { left: calc(359 * var(--u)); top: calc(691 * var(--u)); width: calc(1278 * var(--u)); height: calc(320 * var(--u));
+                 box-shadow: 0 0 calc(20 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
+/* Two lines in the frame, one colour each. The shared rule that stacks a
+   heading's spans keys off `.s > .t-h1`, and this heading sits inside
+   .cta-stage rather than directly in the section, so it never applied: both
+   spans ran on one line and "מהלופ" and "ונעזור" met with nothing between
+   them. Stacking them here restores the frame's two lines. */
+.ab-cta__title { left: calc(411 * var(--u)); top: calc(727 * var(--u)); width: calc(1175 * var(--u)); height: calc(163 * var(--u)); text-align: center; z-index: 3;
+                 display: flex; flex-direction: column; justify-content: center; }
+.ab-cta__btn   { left: calc(865 * var(--u)); top: calc(916 * var(--u)); width: calc(267 * var(--u)); }
+
+/* mobile-only: the intro tail block (514:18). It has to be hidden through
+   `.s > ` because it carries `t-body`, and main.css lays out `.s > .t-body`
+   as a flex column — a plain `.ab-intro__tail` loses to that on specificity,
+   which is how a second copy of the closing paragraphs ended up printed
+   across the top of the desktop page. */
+.s > .ab-intro__tail { display: none; }
+
+/* this frame nudges the active nav item up 3px (464:661) */
+.page--about .nav-i--about { top: calc(-3 * var(--u)); }   /* nav box sits at 55; Figma puts this item at 52 */
+
+.ab-cta__band-m { display: none; }   /* the mobile frame uses its own crop (514:74) */
+
+/* The footer overlaps the section above it so the boy rises over that section
+   rather than standing on a band of his own. On the home page the contact
+   panel and its photo fill that overlap and hide the join between the two
+   backdrops; this page ends in bare art, so the join showed as a hard edge
+   behind him. The footer's own backdrop therefore starts at the section
+   boundary, and only the boy crosses it. */
+
+/* Same as the CTA on מה אנחנו עושים: this clip is the section's own backdrop,
+   filling its box rather than pinning to the viewport. */
+.ab-grow > .film { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+                   width: max(var(--vwc), calc(1920 * var(--u))); height: calc(808 * var(--u)); z-index: 0; }
+
+/* Hovering a team card lights its icon,
+the same way the cards on the home
+   page do — the icon is a later sibling,
+so the card can reach it. */
+.tc--a:hover ~ .ti--a,
+.tc--b:hover ~ .ti--b,
+.tc--c:hover ~ .ti--c,
+.tt--a:hover ~ .ti--a,
+.tt--b:hover ~ .ti--b,
+.tt--c:hover ~ .ti--c { --on: 1; }

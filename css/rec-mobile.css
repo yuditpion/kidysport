@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Kidysport — המלצות, mobile.
+
+   No mobile frame exists for this page. The screenshots are the content, so
+   the two columns become one and each message keeps its own aspect ratio at
+   the full column width — scaling them down to fit a phone would make the
+   messages unreadable, which is the whole point of the page.
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+
+  .page--rec { height: auto; }
+
+  /* The CTA is the one section on this page with a mobile frame of its own
+     (980:178), so it stays an artboard instead of joining the stack; its
+     trace lives with the shared block in mobile.css. */
+  .page--rec .s:where(:not(.foot)):where(:not(.rec-cta)) {
+    position: relative; top: auto; left: auto;
+    width: 100%; height: auto;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .page--rec .foot { position: relative; top: auto; height: calc(1852 * var(--u)); }
+
+  .page--rec .s:where(:not(.foot)):where(:not(.rec-cta)) > :where(:not(.film)):where(:not(.bg-art)):where(:not(.rec-band)) {
+    position: relative;
+    left: auto; right: auto; top: auto; bottom: auto;
+    width: 100%; height: auto;
+    z-index: 3;
+  }
+
+  /* ------------------------------------------------------------- hero ---- */
+  .page--rec .rec-top {
+    padding: calc(120 * var(--u)) calc(29 * var(--u)) calc(40 * var(--u));
+    gap: calc(14 * var(--u));
+  }
+  .page--rec .rec-band {
+    left: 50%; top: 0; transform: translateX(-50%);
+    width: max(var(--vwc), calc(402 * var(--u))); height: 100%;
+    object-fit: cover; z-index: 0;
+  }
+  .page--rec .rec-top__t   { text-align: center; }
+  .page--rec .rec-top__sub { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u));
+                             text-align: center; }
+
+  /* ------------------------------------------------------------- wall ---- */
+  .page--rec .rec-wall { padding: calc(10 * var(--u)) calc(16 * var(--u)) calc(40 * var(--u));
+                         gap: calc(16 * var(--u)); }
+  /* each message keeps its own proportions at the column width */
+  .page--rec .rw { height: auto; aspect-ratio: var(--ar); }
+  .page--rec .rw > img { position: static; width: 100%; height: 100%; object-fit: cover; }
+  .page--rec img.rw { height: auto; }
+
+  .page--rec .rw--a { --ar: 793 / 214; }
+  .page--rec .rw--b { --ar: 797 / 154; }
+  .page--rec .rw--c { --ar: 796 / 243; }
+  .page--rec .rw--d { --ar: 791 / 679; }
+  .page--rec .rw--e { --ar: 774 / 237; }
+  .page--rec .rw--f { --ar: 774 / 187; }
+  .page--rec .rw--g { --ar: 774 / 213; }
+  .page--rec .rw--h { --ar: 786 / 187; }
+  .page--rec .rw--i { --ar: 786 / 1301; }
+  .page--rec .rw--j { --ar: 800 / 1127; }
+
+  /* right column first, then the left one, in reading order */
+  .page--rec .rw--a { order: 1; }
+  .page--rec .rw--e { order: 2; }
+  .page--rec .rw--b { order: 3; }
+  .page--rec .rw--f { order: 4; }
+  .page--rec .rw--c { order: 5; }
+  .page--rec .rw--g { order: 6; }
+  .page--rec .rw--d { order: 7; }
+  .page--rec .rw--h { order: 8; }
+  .page--rec .rw--j { order: 9; }
+  .page--rec .rw--i { order: 10; }
+
+  /* The redactions are placed against the desktop artboard. Stacked in one
+     column the screenshots move, so instead of chasing them the two messages
+     that carry redactions are cropped to hide the same details. */
+  .page--rec .rd { display: none; }
+  .page--rec .rw--i > img { object-position: right top; }
+  .page--rec .rw--j > img { object-position: right top; }
+
+}

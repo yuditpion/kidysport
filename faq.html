@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שאלות ותשובות — קידיספורט</title>
+<meta name="description" content="השאלות שאנחנו נשאלים הכי הרבה על ספורט טיפולי בקידיספורט — קבוצות, מפגשים, אבחון, קופות חולים והתקדמות.">
+<link rel="preload" href="assets/fonts/Fredoka-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/GoogleSansFlex_24pt-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script src="js/unit.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/faq.css">
+<link rel="stylesheet" href="css/faq-mobile.css">
+</head>
+<body>
+  <a class="wa" href="contact.html" aria-label="וואטסאפ"><img src="assets/icons/whatsapp.webp" alt=""></a>
+
+<div class="page page--faq">
+<header class="site-hdr">
+  <div class="hdr glass"></div>
+  <a class="hdr__logo" href="index.html"><img src="assets/img/kidisport-logo.webp" alt="קידיספורט"></a>
+  <nav class="hdr__nav" aria-label="ראשי">
+    <a class="nav-i nav-i--contact" href="contact.html">יצירת קשר</a>
+    <a class="nav-i nav-i--rec"     href="rec.html">המלצות</a>
+    <a class="nav-i nav-i--faq is-active" href="faq.html">שאלות ותשובות</a>
+    <a class="nav-i nav-i--what"    href="do.html">מה אנחנו עושים?</a>
+    <a class="nav-i nav-i--about"   href="about.html">אודות</a>
+    <a class="nav-i nav-i--home"    href="index.html">דף הבית</a>
+  </nav>
+  <a class="hdr__cta" href="contact.html"><span class="btn__label">דברו איתנו</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
+  <img class="hdr__phone" src="assets/icons/phone-header.svg" alt="" aria-hidden="true">
+  <button class="hdr__burger" type="button" aria-label="תפריט" aria-expanded="false" aria-controls="m-menu">
+    <span class="burger__disc"></span>
+    <svg class="burger__ic" viewBox="0 0 44 29" aria-hidden="true">
+      <path d="M2.5 2.5H41.5"/><path d="M2.5 14.5H41.5"/><path d="M2.5 26.5H41.5"/>
+    </svg>
+  </button>
+  <div class="m-menu" id="m-menu" hidden>
+    <a href="index.html">דף הבית</a>
+    <a href="about.html">אודות</a>
+    <a href="do.html">מה אנחנו עושים?</a>
+    <a href="faq.html">שאלות ותשובות</a>
+    <a href="rec.html">המלצות</a>
+    <a href="contact.html">יצירת קשר</a>
+  </div>
+</header>
+
+  <!-- ============================== HERO ==============================
+       The backdrop is a clip of the boy thinking, running on a loop. -->
+  <section class="s fq-hero" data-film="k" data-frames="32" data-film-mode="loop">
+    <!-- the two washes are the backmost layers of the frame, so they sit
+         first in the first section: anything later paints over them -->
+    <div class="fq-grad fq-grad--a"></div>
+    <div class="fq-grad fq-grad--b"></div>
+    <div class="film fq-hero__film" aria-hidden="true">
+      <img class="film__still" src="assets/seq/seq_k_000.jpg" alt="">
+      <canvas class="film__canvas"></canvas>
+    </div>
+    <h1 class="fq-hero__t t-h1"><span class="c-orange">שאלות נפוצות</span><span class="c-teal">אנחנו כאן בשבילכם</span></h1>
+    <div class="fq-hero__sub t-body"><p>ריכזנו עבורכם את השאלות שאנחנו נשאלים הכי הרבה.<br>לא מצאתם תשובה? נשמח לדבר איתכם!</p></div>
+    <img class="fq-hero__check" src="assets/icons/faq-check.svg" alt="" aria-hidden="true">
+  </section>
+
+  <!-- ============================= THE LIST =============================
+       Same accordion as the home page: one open at a time, and the page
+       grows and shrinks with it (app.js publishes --faq-shift). -->
+  <section class="s fq-list-sec">
+    <div class="faq__list" id="faq-list">
+      <details class="fq" open>
+        <summary>
+          <span class="fq__q t-h2b c-teal">מהו ספורט טיפולי?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">תהליך שמשתמש בתנועה, משחק ופעילות ספורטיבית כדי לקדם מטרות רגשיות, חברתיות, התנהגותיות ומוטוריות.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">איך הטיפול אישי אם יש עוד ילדים בקבוצה?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">לכל ילד נבנית תוכנית משלו. המדריכה מתאימה עבורו מטרות ואתגרים אישיים בתוך הפעילות המשותפת.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">כמה ילדים יש בכל קבוצה?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">עד שישה ילדים בקבוצה.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">כמה זמן נמשך המפגש?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">כל מפגש נמשך 45 דקות ומתקיים אחת לשבוע.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">למה הטיפול בקבוצה ולא באופן פרטני?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">הקבוצה מאפשרת לתרגל בזמן אמת תקשורת, גבולות, המתנה לתור, שיתוף פעולה והתמודדות חברתית.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">מה קורה כשכל ילד מתקשה בדבר אחר?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">אותו משחק יכול לקדם מטרות שונות. ילד אחד עובד על קואורדינציה, אחר על ויסות רגשות ואחר על ביטחון חברתי.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">מה ההבדל בין ספורט טיפולי לחוג רגיל?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">בחוג רגיל המטרה המרכזית היא הפעילות הספורטיבית. אצלנו לכל פעילות יש גם מטרות טיפוליות אישיות ומעקב מקצועי.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">האם הילד ירגיש שהוא מגיע לטיפול?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">מבחינת הילד זו פעילות מהנה עם משחקים, אתגרים וחברים. העבודה הטיפולית נמצאת בתכנון ובתיווך של הצוות.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">מתי מתקיימת שיחת האינטייק?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">במהלך החודש הראשון, לאחר שהצוות כבר התחיל להכיר את הילד בתוך הפעילות.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">האם צריך לעבור אבחון לפני שמתחילים?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">לא. ההיכרות עם הילד מתבצעת כחלק מהפעילות ומשיחת האינטייק. ניתן להעביר לצוות אבחונים קיימים.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">איך נבנית התוכנית האישית?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">התוכנית נבנית לפי המידע מההורים וההתבוננות בילד במהלך הפעילות.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">איך ההורים יודעים שהילד מתקדם?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">הצוות מתעד את הפעילות, ובכל רבעון ההורים מקבלים דוח התקדמות ממוקד.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">האם הצוות מוסמך?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">כן. כל המדריכות בעלות הסמכה בספורט טיפולי מטעם וינגייט ומקבלות הדרכה מקצועית שבועית.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">האם אפשר לקבל השתתפות מקופת החולים?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">קיימת אפשרות להשתתפות בהתאם לזכאות האישית ולתנאי קופת החולים.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">איפה מתקיימים הטיפולים?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">לקידיספורט חמישה סניפים ברחבי בית שמש. רמה ג’ - עובדיה 7, רמה א’ - נחל שורק 15, רמה ב’ - לב הרמה - נהר הירדן 1, רמה ד’ - שדרות האמוראים 33</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">כיצד יודעים איזו קבוצה מתאימה לילד?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">לאחר שיחת היכרות נבדקת התאמה לפי גיל הילד, הצרכים שלו, הסניף וזמינות הקבוצות.</p></div>
+      </details>
+      <details class="fq">
+        <summary>
+          <span class="fq__q t-h2b c-teal">מה קורה אם הילד לא מתחבר?</span>
+          <svg class="fq__ic" viewBox="0 0 102.881 102" aria-hidden="true">
+            <ellipse class="fq__disc" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <ellipse class="fq__fill" cx="51.4404" cy="46" rx="39.4404" ry="39"/>
+            <path class="fq__chev fq__chev--down" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41"/>
+            <path class="fq__chev fq__chev--up"   d="M38.2936 51C38.2936 51 50.9348 37 51.946 37C52.9573 37 65.0928 51 65.0928 51"/>
+          </svg>
+        </summary>
+        <div class="fq__a"><p class="t-body">בתחילת הדרך אנחנו בודקות כיצד הילד מגיב לפעילות ולקבוצה. במידת הצורך נבחן יחד את האפשרויות המתאימות להמשך.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ========================= יש לכם שאלה נוספת? ========================= -->
+  <section class="s moreq" id="more-q">
+    <img class="moreq__ellipse" src="assets/img/faq-ellipse.svg" alt="" aria-hidden="true">
+    <div class="moreq__photo"><img src="assets/img/faq-cta-photo.webp" alt="" aria-hidden="true"><span class="moreq__veil"></span></div>
+    <!-- the boy is a still until you hover him, then he lowers the hoop -->
+    <span class="moreq__boy" data-hoverclip="q" data-hoverframes="18">
+      <img src="assets/img/faq-boy-hoop.webp" alt="ילד על כדור שיווי משקל עם חישוק">
+      <canvas class="moreq__film"></canvas>
+    </span>
+    <h2 class="moreq__t t-h1 c-teal">לא מצאתם תשובה?</h2>
+    <p class="moreq__sub t-body">נשמח לשמוע מכם ולענות באופן אישי.</p>
+    <a class="moreq__btn2 btn btn--outline" href="contact.html"><span class="btn__label">דברו איתנו</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
+  </section>
+
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="s foot">
+    <div class="sticky-bg" aria-hidden="true"><img src="assets/img/bg-hero.webp" alt=""></div>
+    <img class="foot__bg bleed" src="assets/img/bg-hero.webp" alt="" aria-hidden="true">
+    <img class="foot__bird" src="assets/icons/bird2.svg" alt="" aria-hidden="true">
+    <h2 class="foot__t t-h1 c-orange">תני לו תנופה</h2>
+    <img class="foot__boy" src="assets/img/boy-footer.webp" alt="" aria-hidden="true">
+
+    <!-- סניפים -->
+    <div class="fc fc--branch glass"></div>
+    <h3 class="fc__t fc__t--branch t-h1b c-teal">סניפים</h3>
+    <p class="br br--a t-body">רמה א’</p>
+    <p class="br br--b t-body">רמה ב’</p>
+    <p class="br br--c t-body">רמה ג’</p>
+    <p class="br br--d t-body">רמה ד’</p>
+    <span class="hline hline--b1"></span>
+    <span class="hline hline--b2"></span>
+    <span class="hline hline--b3"></span>
+
+    <!-- פרטי קשר -->
+    <div class="fc fc--info glass"></div>
+    <h3 class="fc__t fc__t--info t-h1b c-teal">פרטי קשר</h3>
+    <p class="inf inf--a t-body">02-500-9293</p>
+    <p class="inf inf--b t-body">info@kidysport.co.il</p>
+    <div class="inf inf--c t-body"><p>א’ - ה’ : 8:00 - 18:00<br>ו’ : 8:00 - 12:00</p></div>
+    <span class="ifi ifi--a ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="ifi ifi--b ico" aria-hidden="true"><img src="assets/icons/mail.webp" alt=""><img class="ico__on" src="assets/icons/mail--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="ifi ifi--c ico" aria-hidden="true"><img src="assets/icons/clock.webp" alt=""><img class="ico__on" src="assets/icons/clock--hover.webp" alt="" aria-hidden="true"></span>
+    <span class="hline hline--i1"></span>
+    <span class="hline hline--i2"></span>
+
+    <!-- ניווט -->
+    <div class="fc fc--nav glass"></div>
+    <h3 class="fc__t fc__t--nav t-h1b c-teal">ניווט</h3>
+    <a class="fn fn--a t-body" href="index.html#hero">דף הבית</a>
+    <a class="fn fn--b t-body" href="about.html">אודות</a>
+    <a class="fn fn--c t-body" href="do.html">מה אנחנו עושים?</a>
+    <a class="fn fn--d t-body" href="faq.html">שאלות ותשובות</a>
+    <a class="fn fn--e t-body" href="rec.html">המלצות</a>
+    <a class="fn fn--f t-body" href="contact.html">יצירת קשר</a>
+    <img class="fv fv--a" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--b" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--c" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--d" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--e" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+    <img class="fv fv--f" src="assets/icons/chevron.svg" alt="" aria-hidden="true">
+
+    <!-- brand -->
+    <div class="fc fc--brand glass"></div>
+    <img class="fc__logo" src="assets/img/kidisport-logo.webp" alt="קידיספורט">
+    <div class="fc__tag t-body"><p>טיפול בתנועה ובספורט מותאם לילדים.<br>כי תנועה היא כוח לצמוח</p></div>
+
+    <div class="foot__bar glass"></div>
+    <p class="foot__bar-t t-h2">בואו נמצא יחד את המקום שבו הילד שלכם יוכל להרגיש טוב, להתחזק ולהצליח.</p>
+    <p class="foot__credit t-body c-teal"><a href="https://yudit.co.il/he/home/" target="_blank" rel="noopener noreferrer">אפיון, עיצוב ובניה ע”י יהודית</a></p>
+  </footer>
+
+</div><!-- /.page -->
+
+<!-- gooey filter: merges the four blobs into one liquid front -->
+<svg class="goo-defs" aria-hidden="true" focusable="false"><defs>
+  <filter id="goo" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"/>
+    <feColorMatrix in="blur" mode="matrix"
+      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="goo"/>
+    <feBlend in2="goo" in="SourceGraphic"/>
+  </filter>
+</defs></svg>
+
+<script src="js/app.js"></script>
+<script src="js/do-scroll.js"></script>
+</body>
+</html>

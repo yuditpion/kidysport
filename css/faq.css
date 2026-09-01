@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Kidysport — שאלות ותשובות, desktop artboard (Figma 464:696, 1920 wide)
+
+   The accordion itself is the home page's component (.faq__list / .fq in
+   main.css) and so is "יש לכם שאלה נוספת?" — this sheet only places them.
+   ========================================================================== */
+
+/* The list grows and shrinks as answers open. Everything below it rides on
+   --faq-shift (main.css), and the page itself is sized from the list's own
+   height — 2670 is everything that is not the list, and 2823 is what the
+   list measures with one answer open, which is the state the artboard is
+   drawn in and the fallback when scripting is off. Seventeen questions. */
+/* The list ends at 3666 with one answer open, and the CTA sits 115 below it
+   just as the frame has it. 3332 + 1112 = 4444; the footer overlaps that by
+   152, as on every page, and 4292 + 1201 = 5493. */
+.page--faq { height: calc(2670 * var(--u) + var(--faq-list-h, calc(2986 * var(--u)))); }
+.page--faq .foot { top: calc(4455 * var(--u)); }
+
+.page--faq .nav-i--faq { top: calc(-3 * var(--u)); }
+
+/* ============================ HERO (0 – 843) ============================ */
+.fq-hero { top: 0; height: calc(843 * var(--u)); }
+
+/* the backdrop is a clip of the boy thinking, on a loop */
+.fq-hero__film {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  top: calc(-85 * var(--u));
+  width: max(var(--vwc), calc(1952 * var(--u))); height: calc(890 * var(--u));
+  z-index: 0;
+}
+
+.fq-hero__t     { left: calc(928 * var(--u));  top: calc(275 * var(--u));
+                  width: calc(750 * var(--u)); height: calc(181 * var(--u));
+                  text-align: right; z-index: 3; }
+.fq-hero__sub   { left: calc(1058 * var(--u)); top: calc(494 * var(--u));
+                  width: calc(620 * var(--u)); height: calc(61 * var(--u));
+                  text-align: right; z-index: 3; }
+.fq-hero__check { left: calc(1007 * var(--u)); top: calc(555 * var(--u));
+                  width: calc(81.5 * var(--u)); height: calc(45.5 * var(--u)); z-index: 3; }
+
+/* ============================== THE LIST ==============================
+   Height is whatever the accordion needs, so the section is sized by its
+   content rather than by a measured number. */
+.fq-list-sec { top: calc(843 * var(--u)); height: auto; }
+
+/* Two tall gradient washes stand behind the whole page. They live in the hero
+   because sections paint in document order: parked in the list section they
+   covered the hero clip, which is what the frame puts in front of them. */
+.fq-grad {
+  left: calc(-80 * var(--u)); width: calc(2016 * var(--u)); height: calc(4371 * var(--u));
+  background: linear-gradient(180deg, #f0f7fd 0%, #fbfbfd 50%, #edf6fd 100%);
+  z-index: 0;
+}
+.fq-grad--a { top: calc(238 * var(--u)); }
+.fq-grad--b { top: calc(2658 * var(--u)); }
+
+.page--faq .faq__list { left: calc(78 * var(--u)); top: 0;
+                        width: calc(1700 * var(--u)); z-index: 3; }
+
+/* ========================= יש לכם שאלה נוספת? =========================
+   The same block as the home page, and at the same offsets inside its own
+   section — this frame simply sits 32 to the left of that one, so the whole
+   section is nudged rather than every child re-stated. */
+.page--faq .moreq { left: calc(-32 * var(--u)); top: calc(3495 * var(--u));
+                    height: calc(1112 * var(--u)); }
+
+/* With one button instead of the frame's pair, it takes the pair's right-hand
+   slot — the first one in reading order — so it lines up under the right edge
+   of the copy above it. */
+.page--faq .moreq__btn2 { left: calc(709 * var(--u)); }
+
+/* The frame closes this block with two buttons, and it is the pair that lines
+   up: together they run to 1002, the same right edge as the subheading above
+   them. This page carries one button, so sitting in the left-hand slot left it
+   ending at 705 — short of the subheading and of the heading, which is the
+   stray edge. Moved to finish on 1002, it keeps its own width and lands on the
+   subheading's edge. (The home page still draws both, untouched.) */
+.page--faq .moreq__btn2 { left: calc(741 * var(--u)); }

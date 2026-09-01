@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Kidysport — design tokens
+   Every value below is taken verbatim from the Figma file
+   (HmScsT7LonoB4sknYZQP1s — "דף הבית" desktop 450:572 / mobile 457:6).
+   ========================================================================== */
+
+/* --- Fonts -------------------------------------------------------------- */
+/* Fredoka: variable (158 KB) — headings, Bold 700, wdth 100                */
+@font-face {
+  font-family: 'Fredoka';
+  src: url('../assets/fonts/Fredoka-Variable.ttf') format('truetype-variations');
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-display: swap;
+}
+
+/* Google Sans Flex: static 24pt instances (260 KB total) — body copy.
+   The full variable face (4.1 MB) is parked in _dev/alt-fonts/ if you would
+   rather have every axis; drop it back into assets/fonts/ and swap the two
+   rules below to format('truetype-variations').               */
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('../assets/fonts/GoogleSansFlex_24pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('../assets/fonts/GoogleSansFlex_24pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  /* --- Colour (Figma styles) ------------------------------------------- */
+  --orange:      #ff8c05;   /* כתום - קידיספורט   */
+  --teal:        #05a3ab;   /* כחול - קידיספורט   */
+  --gray:        #383838;   /* אפור - קידיספורט   */
+  --ink:         #2e2e30;   /* nav + card body    */
+  --white:       #ffffff;   /* לבן - קידיספורט    */
+  --bg:          #f5f8fc;   /* רקע - קידיספורט    */
+
+  --glass:       rgba(255, 255, 255, 0.7);
+  --glass-blur:  10px;
+
+  --font-head: 'Fredoka', 'Trebuchet MS', sans-serif;
+  --font-body: 'Google Sans Flex', 'Segoe UI', Arial, sans-serif;
+
+  --r-pill: 30px;
+  --r-card: 20px;
+  --r-field: 10px;
+}

@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="102.881" height="102" viewBox="0 0 102.881 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 19">
+<g id="Ellipse 2" filter="url(#filter0_d_0_9)">
+<ellipse cx="51.4404" cy="46" rx="39.4404" ry="39" transform="rotate(-180 51.4404 46)" fill="white"/>
+<path d="M51.4404 84.5C29.9289 84.5 12.4999 67.2577 12.4999 46C12.4999 24.7423 29.9289 7.50001 51.4404 7.5C72.9519 7.5 90.3808 24.7423 90.3808 46C90.3808 67.2577 72.9519 84.5 51.4404 84.5Z" stroke="#05A3AB"/>
+</g>
+<path id="Vector 8" d="M64.5873 41C64.5873 41 51.9462 55 50.9349 55C49.9236 55 37.7881 41 37.7881 41" stroke="#05A3AB" stroke-width="4" stroke-linecap="round"/>
+</g>
+<defs>
+<filter id="filter0_d_0_9" x="-3.66708e-07" y="-7.16284e-08" width="102.881" height="102" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="2" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_0_9"/>
+<feOffset dy="5"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_9"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_9" result="shape"/>
+</filter>
+</defs>
+</svg>
