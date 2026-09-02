@@ -197,6 +197,12 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .hero__film { left: 0; top: 0; width: calc(1920 * var(--u)); height: calc(1080 * var(--u));
               z-index: 3; pointer-events: none; }
 
+/* The second leg, laid in the same way. Its opening frame is a picture of
+   this section's own boy, and lining the two up puts the box at 0,2 — so it
+   too needs no fitting on this frame. */
+.how__film { left: 0; top: calc(2 * var(--u)); width: calc(1920 * var(--u)); height: calc(1080 * var(--u));
+             z-index: 3; pointer-events: none; }
+
 .hero__badge    { left: calc(1572 * var(--u)); top: calc(352 * var(--u)); width: calc(238 * var(--u)); height: calc(238 * var(--u)); }
 .hero__badge-ic { left: calc(1646 * var(--u)); top: calc(394 * var(--u)); width: calc(89 * var(--u)); z-index: 3; }
 .hero__badge-t1 { left: calc(1640 * var(--u)); top: calc(471 * var(--u)); width: calc(101 * var(--u)); height: calc(50 * var(--u)); text-align: center; color: var(--orange); font-weight: 700; z-index: 3; }

@@ -90,6 +90,10 @@
      fits at 0.66, which leaves him 324 wide against the still's 347. */
   .hero__film { left: calc(-343 * var(--u)); top: calc(479 * var(--u));
                 width: calc(1274 * var(--u)); height: calc(717 * var(--u)); }
+
+  /* Second leg, same fit at this width. */
+  .how__film { left: calc(-264 * var(--u)); top: calc(542 * var(--u));
+               width: calc(1600 * var(--u)); height: calc(900 * var(--u)); }
   .hero__strip  { left: calc(-44 * var(--u)); top: calc(1120 * var(--u)); width: calc(856 * var(--u)); height: calc(180 * var(--u)); }
 
   /* the three figures spread across the full width instead of crowding */

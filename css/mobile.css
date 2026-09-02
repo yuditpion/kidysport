@@ -93,6 +93,13 @@
      than the still was, and placed so his first frame keeps the still's top. */
   .hero__film { left: calc(-180 * var(--u)); top: calc(494 * var(--u));
                 width: calc(667 * var(--u)); height: calc(375 * var(--u)); }
+
+  /* Second leg. Sized so its boy matches this frame's own, and placed so its
+     opening frame lands on the still it starts from. The camera travels much
+     further inside this clip than the column does between the two sections,
+     so the pin carries most of the difference here. */
+  .how__film { left: calc(-259 * var(--u)); top: calc(442 * var(--u));
+               width: calc(1008 * var(--u)); height: calc(567 * var(--u)); }
   /* Through `.s > ` for the same reason as the about tail: these carry type
      classes, and main.css lays `.s > .t-body` out as a flex column, which
      outranks a bare class. They were only invisible because the page clips. */

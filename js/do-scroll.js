@@ -118,7 +118,7 @@
     var ANCH = { x: parseFloat(anchor[0]) || 0, y: parseFloat(anchor[1]) || 0 };
     /* Where the clip sits when nothing has been scrolled — the position it
        must not jump away from as the pin takes over. Measured unpinned. */
-    var natPage = null, cbZero = { x: 0, y: 0 };
+    var natPage = null, cbZero = { x: 0, y: 0 }, legTop = 0;
     /* 0 below, 1 above, eased in between */
     function ease(x) {
       var s = x < 0 ? 0 : x > 1 ? 1 : x;
@@ -231,15 +231,17 @@
           return;
         }
 
-        var p;
+        var p, raw = 0;
         if (mode === 'enter' && pinTo && pinSec) {
-          /* Run to the point where the still it hands over to begins its own
-             journey — the top of that still's section, which is exactly where
-             boy-scroll.js picks the boy up. Tying the two to the same scroll
-             position is what makes the handover land on one frame rather than
-             leaving a gap or an overlap between the clip and the canvas. */
-          var handoff = pinSec.getBoundingClientRect().top + window.scrollY;
-          p = handoff > 0 ? window.scrollY / handoff : 0;
+          /* From the top of this clip's own section to the top of the section
+             holding the still it hands over to. Every leg of the boy's journey
+             is one section long, so the clips chain end to end: each starts
+             exactly where the one before it stopped, and the last of them
+             stops where boy-scroll.js picks him up. */
+          legTop = r.top + window.scrollY;
+          var pinTop = pinSec.getBoundingClientRect().top + window.scrollY;
+          raw = (window.scrollY - legTop) / Math.max(1, pinTop - legTop);
+          p = raw;
         } else if (mode === 'enter') {
           /* The hero is about one viewport tall, so it has no pinned stretch:
              `scroll` would divide by a travel of nearly nothing and start the
@@ -298,7 +300,12 @@
             stage.style.left = prevL;
             stage.style.top = prevT;
           }
-          if (t >= 0.999) {
+          /* Out of the way both before its leg and after it. After, because
+             the next thing along has the boy; before, because the clip ahead
+             of it does — and a clip sitting on its first frame while an
+             earlier one runs is a second boy standing where this one is about
+             to start. */
+          if (t >= 0.999 || raw < 0) {
             stage.style.position = '';
             stage.style.left = stage.style.top = '';
             stage.style.visibility = 'hidden';
@@ -318,12 +325,29 @@
                straight from start to target instead pulled him down towards a
                target that begins a screen and a half below, and he spent the
                middle of the run off the bottom of the screen. */
+            /* The two axes want different treatment, because the target
+               behaves differently on each. Sideways it does not move with the
+               scroll at all, so the clip tracks it evenly the whole way —
+               which is what cancels the camera move inside the clip on the
+               narrow frames, where the layout does not carry the boy across
+               the way the artboard does. Vertically the target is a screen
+               and a half below when the leg starts and only arrives at the
+               end, so tracking it evenly would drag him off the bottom: there
+               he rises onto a hold, stays in front of you for the run, and
+               lands on the still over the last third. */
             var fh = stage.offsetHeight;
-            var holdY = Math.min(Math.max(natPage.y, 0), Math.max(0, vh - fh));
+            /* natPage is where the stage sits on the PAGE; the pin needs where it
+               sits on the SCREEN as its leg begins, which is that less the top
+               of its own section. They are the same number only for the hero,
+               whose section starts at nought — for a clip further down the
+               page the difference is a whole section, and it was placing the
+               boy that far below the fold. */
+            var natTop = natPage.y - legTop;
+            var holdY = Math.min(Math.max(natTop, 0), Math.max(0, vh - fh));
             var rise = ease(t / 0.15);            // onto the hold, at the start
             var land = ease((t - 0.68) / 0.32);   // off it, onto the still
-            var baseY = natPage.y + (holdY - natPage.y) * rise;
-            stage.style.left = (natPage.x + (endL - natPage.x) * land - cbZero.x) + "px";
+            var baseY = natTop + (holdY - natTop) * rise;
+            stage.style.left = (natPage.x + (endL - natPage.x) * t - cbZero.x) + "px";
             stage.style.top  = (baseY + (endT - baseY) * land - cbZero.y) + "px";
           }
         }
