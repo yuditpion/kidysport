@@ -50,7 +50,14 @@
 
 
   <!-- ============================ HERO ============================ -->
-  <section class="s hero" id="hero" data-film="r" data-frames="30" data-film-mode="enter" data-film-end="0.62" data-film-ext="webp">
+  <!-- data-film-anchor: overlay the clip's last frame on the next section's
+       boy and they match at IoU 0.948; in that position the still's box sits
+       at 0.28542, 0.03333 of the frame. That is what the two are lined up by,
+       rather than either picture's ink edge — the re-encoded clip carries a
+       softer alpha edge than the original still, so the two disagree about
+       where the outline is by around twenty-five units. -->
+  <section class="s hero" id="hero" data-film="r" data-frames="30" data-film-mode="enter"
+           data-film-pin=".how__boy" data-film-anchor="0.28542,0.03333" data-film-ext="webp">
     <img class="hero__bg bleed" src="assets/img/bg-clouds.webp" alt="" aria-hidden="true">
     <div class="hero__strip" aria-hidden="true"><img src="assets/img/bg-clouds.webp" alt=""></div>
     <img class="hero__vector" src="assets/img/hero-vector.svg" alt="" aria-hidden="true">

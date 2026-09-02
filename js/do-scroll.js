@@ -14,6 +14,7 @@
                             screen and runs as the section scrolls away, for a
                             hero that is only about a viewport tall and so has
                             no pinned stretch for `scroll` to measure
+
      visibility          — from 70% of a short section being on screen to all
                             of it, for backdrops that are not pinned
      loop                — not scrubbed; plays while the section is on screen
@@ -21,6 +22,17 @@
                             screen, then holds its last frame
    `data-film-end` below 1 lands the last frame early and holds it there, so
    the end of a walk is on screen rather than arriving as the section leaves.
+
+   `data-film-pin` names a still further down the page that the clip's last
+   frame is a picture of. Two things follow from it. The clip is pinned to the
+   screen while it runs, instead of scrolling away with its section — the boy
+   has to stay in front of you the whole way, or he vanishes off the top just
+   as he starts moving. And it finishes exactly where that still is, so the
+   last frame lands on it and the handover is invisible; both ends are measured
+   by `data-film-anchor`, which is the fraction of the clip frame that the
+   still sits at — found by overlapping the two pictures rather than by
+   measuring either one edge, which thresholds disagree about. The scrub runs to the top of the still's own section,
+   which is where boy-scroll.js picks the boy up, so the two never overlap.
 
    The three cards on מה אנחנו עושים also swap their photo for a clip on hover;
    that lives at the bottom of this file.
@@ -96,6 +108,22 @@
                     on screen, and stays on the last frame                  */
     var mode = section.dataset.filmMode || 'scroll';
     var VIS_FROM = 0.7;
+
+    /* The still this clip hands over to, and where the boy sits inside the
+       clip's last frame as a fraction of it. */
+    var pinSel = section.dataset.filmPin;
+    var pinTo = pinSel ? document.querySelector(pinSel) : null;
+    var pinSec = pinTo ? pinTo.closest('.s') : null;
+    var anchor = (section.dataset.filmAnchor || '0,0').split(',');
+    var ANCH = { x: parseFloat(anchor[0]) || 0, y: parseFloat(anchor[1]) || 0 };
+    /* Where the clip sits when nothing has been scrolled — the position it
+       must not jump away from as the pin takes over. Measured unpinned. */
+    var natPage = null, cbZero = { x: 0, y: 0 };
+    /* 0 below, 1 above, eased in between */
+    function ease(x) {
+      var s = x < 0 ? 0 : x > 1 ? 1 : x;
+      return s * s * (3 - 2 * s);
+    }
     var stage = section.querySelector('.film');
     var canvas = section.querySelector('.film__canvas');
     var still = section.querySelector('.film__still');
@@ -204,7 +232,15 @@
         }
 
         var p;
-        if (mode === 'enter') {
+        if (mode === 'enter' && pinTo && pinSec) {
+          /* Run to the point where the still it hands over to begins its own
+             journey — the top of that still's section, which is exactly where
+             boy-scroll.js picks the boy up. Tying the two to the same scroll
+             position is what makes the handover land on one frame rather than
+             leaving a gap or an overlap between the clip and the canvas. */
+          var handoff = pinSec.getBoundingClientRect().top + window.scrollY;
+          p = handoff > 0 ? window.scrollY / handoff : 0;
+        } else if (mode === 'enter') {
           /* The hero is about one viewport tall, so it has no pinned stretch:
              `scroll` would divide by a travel of nearly nothing and start the
              clip halfway through. Progress here is simply how far the section
@@ -232,10 +268,70 @@
 
         if (reveal.length) paintReveal(reveal, reduced ? 1 : t);
         if (reduced) return;
+
+        /* The pin. While the clip runs it is held on the screen rather than
+           on the page, so the boy stays in front of you instead of sliding
+           off the top the moment he starts moving. It is held between two
+           places: where it sits with nothing scrolled, and wherever the still
+           it hands over to happens to be right now, offset by the fraction of
+           the frame the boy occupies. Both ends are exact, so there is no jump
+           into the pin at the start and none out of it at the end — and past
+           the end the clip steps aside and the canvas takes the boy on. */
+        if (pinTo) {
+          if (!natPage) {
+            var n = stage.getBoundingClientRect();
+            natPage = { x: n.left + window.scrollX, y: n.top + window.scrollY };
+            /* `position: fixed` is not necessarily relative to the viewport
+               here: an ancestor of this stage establishes a containing block
+               for fixed descendants, so `left: 0` lands at the page's left
+               edge rather than the screen's. Find out where zero actually is
+               once, and take it off every position from here on — without it
+               the clip sits exactly one page margin to the side and the boy
+               steps sideways as the canvas takes over. */
+            var prevPos = stage.style.position, prevL = stage.style.left, prevT = stage.style.top;
+            stage.style.position = 'fixed';
+            stage.style.left = '0px';
+            stage.style.top = '0px';
+            var z = stage.getBoundingClientRect();
+            cbZero = { x: z.left, y: z.top };
+            stage.style.position = prevPos;
+            stage.style.left = prevL;
+            stage.style.top = prevT;
+          }
+          if (t >= 0.999) {
+            stage.style.position = '';
+            stage.style.left = stage.style.top = '';
+            stage.style.visibility = 'hidden';
+          } else {
+            var tr = pinTo.getBoundingClientRect();
+            var fw = stage.offsetWidth, fh = stage.offsetHeight;
+            var endL = tr.left - ANCH.x * fw;
+            var endT = tr.top - ANCH.y * fh;
+            stage.style.visibility = '';
+            stage.style.position = 'fixed';
+            /* Three places, not two. Where it starts is where the frame draws
+               it, which on the narrower frames is partly below the fold — that
+               is fine standing still, but it cannot be where the boy is held
+               while he runs. So it rises just far enough to be wholly on the
+               screen, stays there for the length of the run, and only in the
+               last third eases onto the still it hands over to. Blending
+               straight from start to target instead pulled him down towards a
+               target that begins a screen and a half below, and he spent the
+               middle of the run off the bottom of the screen. */
+            var fh = stage.offsetHeight;
+            var holdY = Math.min(Math.max(natPage.y, 0), Math.max(0, vh - fh));
+            var rise = ease(t / 0.15);            // onto the hold, at the start
+            var land = ease((t - 0.68) / 0.32);   // off it, onto the still
+            var baseY = natPage.y + (holdY - natPage.y) * rise;
+            stage.style.left = (natPage.x + (endL - natPage.x) * land - cbZero.x) + "px";
+            stage.style.top  = (baseY + (endT - baseY) * land - cbZero.y) + "px";
+          }
+        }
+
         if (r.bottom < -vh || r.top > vh * 2) return;   // far off-screen: skip
         draw(Math.min(count - 1, Math.max(0, Math.round(t * (count - 1)))));
       },
-      resize: function () { drawn = -1; }
+      resize: function () { drawn = -1; natPage = null; cbZero = { x: 0, y: 0 }; }
     };
   }
 

@@ -316,6 +316,12 @@
     if (!ready) return;
 
     var scrollY = window.scrollY;
+
+    /* Nothing above the first anchor. The hero clip owns the boy until it
+       reaches its last frame at exactly this scroll position, and drawing him
+       here as well put two of him on the screen at once — one mid-run in the
+       clip and one already standing in the section below, holding his ball. */
+    if (scrollY < tops[0] - 1) { blank(); return; }
     var k = Math.min(cur.k, segs.length - 1), p = cur.p;
     var seg = segs[k];
     var leap = leaps[k];
@@ -364,6 +370,11 @@
   }
 
   function onResize() { measure(); lastKey = ''; cur = readScroll(); render(); }
+
+  /* Exposed for the layout harness, as window.KIDY_FILM is: the pane it runs
+     in never composites, so scroll events and rAF do not fire there and the
+     boy has to be stepped by hand to be measured at all. */
+  window.KIDY_BOY_RENDER = function () { lastKey = ''; cur = readScroll(); render(); };
 
   var useGsap = !!(window.gsap && window.ScrollTrigger);
 
