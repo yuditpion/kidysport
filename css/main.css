@@ -525,17 +525,24 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .foot__credit a:hover,
 .foot__credit a:focus-visible { text-decoration: underline; }
 
-/* =========================  boy scroll canvas  ========================= */
-.boy-canvas {
-  position: fixed; inset: 0; width: 100%; height: 100%;
-  z-index: 6; pointer-events: none; display: none;
-}
-.boy-canvas.is-live { display: block; }
-.js-boy-anim .boy-static { visibility: hidden; }
+/* =====================  the stills the clips land on  =====================
+   The boy used to leap between the sections on a canvas of his own, shrinking
+   and tilting through each gap. He does not any more: the two clips carry him
+   from the hero to the ball, and where they leave him he stays. Each section
+   simply shows its own pose again.
+
+   Two of those poses are marks rather than pictures while a clip is running.
+   The one in איך הטיפול עובד is where the first clip lands and the second one
+   starts, so it is never drawn — both clips have a boy of their own there.
+   The one in מה זה בעצם ספורט טיפולי is where the second lands, so it is held
+   back until the clip reaches it and then shown, which is the same picture in
+   the same place. Both stay visible without JS, and with reduced motion, where
+   the clips hold their first frame. */
+.js-clips .how__boy { visibility: hidden; }
+.js-clips .whatis__boy { visibility: hidden; }
+.js-clips .whatis__boy.is-revealed { visibility: visible; }
 
 @media (prefers-reduced-motion: reduce) {
-  .boy-canvas { display: none !important; }
-  .js-boy-anim .boy-static { visibility: visible !important; }
   .btn { transition: none; }
 }
 

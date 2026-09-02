@@ -111,6 +111,12 @@
 
     /* The still this clip hands over to, and where the boy sits inside the
        clip's last frame as a fraction of it. */
+    /* `data-film-reveal` names the still that takes over when this clip is
+       done. It is held back while the clip runs — the clip is drawing the boy,
+       and the still underneath it would be a second one — and shown the moment
+       the clip lands on it, which is the same picture in the same place. */
+    var revealSel = section.dataset.filmReveal;
+    var revealEl = revealSel ? document.querySelector(revealSel) : null;
     var pinSel = section.dataset.filmPin;
     var pinTo = pinSel ? document.querySelector(pinSel) : null;
     var pinSec = pinTo ? pinTo.closest('.s') : null;
@@ -305,6 +311,7 @@
              of it does — and a clip sitting on its first frame while an
              earlier one runs is a second boy standing where this one is about
              to start. */
+          if (revealEl) revealEl.classList.toggle("is-revealed", t >= 0.999);
           if (t >= 0.999 || raw < 0) {
             stage.style.position = '';
             stage.style.left = stage.style.top = '';
@@ -358,6 +365,12 @@
       resize: function () { drawn = -1; natPage = null; cbZero = { x: 0, y: 0 }; }
     };
   }
+
+  /* The stills the clips land on are marks while a clip is running, not
+     pictures. Only say so when the clips will actually run: with reduced
+     motion they hold their first frame and the original composition is what
+     should be on the page. */
+  if (films.length && !reduced) document.documentElement.classList.add("js-clips");
 
   var players = films.map(setup);
 
