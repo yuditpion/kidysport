@@ -455,6 +455,77 @@
     });
   })();
 
+  /* ---------------------------------------------------------- the swing ----
+     The boy on the swing moves only while the pointer is on him, and then he
+     keeps swinging for as long as it stays. This clip is not a cut-out: it
+     carries the section's own backdrop with it, so what the hover swaps is the
+     whole picture, and the cut-out beneath simply fades out of the way.
+
+     It loops rather than playing once, and the loop is clean: the step from
+     the last frame back to the first measures smaller than an average step
+     between neighbours, because the clip was rendered to come back to where
+     it started. Frames load on the first hover, so nobody who never points at
+     him pays for them. */
+  (function () {
+    var box = document.querySelector('[data-swingclip]');
+    if (!box || reduced) return;
+    var tag = box.dataset.swingclip;
+    var count = parseInt(box.dataset.swingframes, 10) || 30;
+    var over = document.querySelector(box.dataset.swingOver);
+    var section = box.closest('.s');
+    var canvas = box.querySelector('canvas');
+    if (!over || !canvas || !section) return;
+    var ctx = canvas.getContext('2d', { alpha: false });
+    var frames = null, timer = 0, at = 0, on = false;
+    var FPS = 8;                 /* the clip's own pace: 30 frames over ~4s */
+
+    function load() {
+      if (frames) return;
+      frames = [];
+      for (var i = 0; i < count; i++) {
+        var img = new Image();
+        img.decoding = 'async';
+        var seq = window.KIDY_SEQ && window.KIDY_SEQ[tag];
+        img.src = seq ? seq[Math.round(i / (count - 1) * (seq.length - 1))]
+                      : 'assets/seq/seq_' + tag + '_' + String(i).padStart(3, '0') + '.jpg';
+        frames.push(img);
+      }
+    }
+    function fit() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
+      if (w && h && (canvas.width !== w || canvas.height !== h)) { canvas.width = w; canvas.height = h; }
+    }
+    function paint() {
+      var img = frames && frames[at];
+      if (img && img.complete && img.naturalWidth) {
+        fit();
+        var s = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
+        var w = img.naturalWidth * s, h = img.naturalHeight * s;
+        ctx.drawImage(img, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+      }
+      at = (at + 1) % count;
+    }
+    function start() {
+      if (on) return;
+      on = true; load(); at = 0;
+      section.classList.add('is-swinging');
+      paint();
+      timer = setInterval(function () { if (on) paint(); }, 1000 / FPS);
+    }
+    function stop() {
+      on = false;
+      clearInterval(timer); timer = 0;
+      section.classList.remove('is-swinging');
+    }
+    over.addEventListener('pointerenter', start);
+    over.addEventListener('pointerleave', stop);
+    /* a pointer that leaves the window without a leave event, and touch, which
+       has no hover at all: end the loop rather than leaving it running */
+    over.addEventListener('pointercancel', stop);
+    window.addEventListener('blur', stop);
+  })();
+
   /* ------------------------------------------------------------ card hover --
      Each of the three cards swaps its photo for a looping clip while the
      pointer is anywhere on that card, and goes back to the photo on the way

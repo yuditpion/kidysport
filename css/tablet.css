@@ -158,6 +158,7 @@
   /* ------------------------ תוכנית אישית בקבוצה קטנה (4354 – 5244) ------ */
   .plan       { top: calc(4354 * var(--u)); height: calc(890 * var(--u)); }
   .plan__bg   { top: 0; height: calc(890 * var(--u)); }
+  .plan__film { top: 0; height: calc(890 * var(--u)); }
   .plan__boy  { left: calc(-540 * var(--u)); top: calc(40 * var(--u)); width: calc(880 * var(--u)); height: calc(930 * var(--u)); }
   .plan__card { left: calc(48 * var(--u)); top: calc(40 * var(--u)); width: calc(672 * var(--u)); height: calc(480 * var(--u)); }
   .plan__t    { left: calc(96 * var(--u)); top: calc(64 * var(--u));  width: calc(576 * var(--u)); height: calc(140 * var(--u)); }

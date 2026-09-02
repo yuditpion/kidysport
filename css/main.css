@@ -541,6 +541,27 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .js-clips .how__boy { visibility: hidden; }
 .js-clips .whatis__boy { visibility: hidden; }
 
+/* ------------------------------------------------- the swing, on hover ----
+   The boy on the swing is a still until you point at him, and then he swings
+   for as long as you stay. The clip carries this section's own backdrop as
+   well as the boy, so it stands in for the whole picture rather than for the
+   figure alone — which is why it sits where the backdrop sits and the cut-out
+   steps aside underneath it.
+
+   The cut-out fades rather than hiding: it is the thing being pointed at, and
+   something with `visibility: hidden` stops taking the pointer, which would
+   end the hover the instant it began and leave the swing flickering. */
+.plan__film {
+  left: 50%; transform: translateX(-50%);
+  top: 0; width: max(var(--vwc), calc(1920 * var(--u)));
+  height: calc(1081 * var(--u));
+  z-index: 0; display: none; pointer-events: none;
+}
+.plan__film .film__canvas { opacity: 1; }
+.plan.is-swinging .plan__film { display: block; }
+.plan.is-swinging .plan__boy { opacity: 0; }
+.plan__boy { cursor: pointer; }
+
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
 }

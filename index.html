@@ -113,8 +113,8 @@
        pixels high. The y here is that figure corrected against the join as
        actually measured at each width, which brings all three inside five
        pixels. A larger y moves the clip up, not down. -->
-  <section class="s how" id="how" data-film="b" data-frames="30" data-film-mode="enter"
-           data-film-pin=".whatis__boy" data-film-anchor="0.62865,0.0357" data-film-hold data-film-ext="webp">
+  <section class="s how" id="how" data-film="b" data-frames="26" data-film-mode="enter"
+           data-film-pin=".whatis__boy" data-film-anchor="0.5771,0.0569" data-film-hold data-film-ext="webp">
     <img class="how__bg bleed" src="assets/img/bg-hero.webp" alt="" aria-hidden="true">
     <div class="how__film film" aria-hidden="true">
       <img class="film__still" src="assets/seq/seq_b_000.webp" alt="">
@@ -173,6 +173,14 @@
   <!-- ================= תוכנית אישית בקבוצה קטנה ================= -->
   <section class="s plan" id="plan">
     <img class="plan__bg bleed" src="assets/img/bg-clouds.webp" alt="" aria-hidden="true">
+    <!-- The swing comes alive only under the pointer. The clip carries this
+         section's own backdrop as well as the boy — same room, same ball, same
+         cone — so hovering swaps the whole picture for the moving one and puts
+         it back on the way out. -->
+    <div class="plan__film film" data-swingclip="sw" data-swingframes="30"
+         data-swing-over=".plan__boy" aria-hidden="true">
+      <canvas class="film__canvas"></canvas>
+    </div>
     <img class="plan__boy boy-static" src="assets/img/boy-on-swing.webp" alt="ילד על נדנדה">
     <div class="plan__card glass"></div>
     <h2 class="plan__t t-h1 c-teal"><span class="c-orange">תוכנית אישית</span> בקבוצה קטנה</h2>
