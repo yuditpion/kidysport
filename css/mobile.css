@@ -140,9 +140,6 @@
   /* ================ מה זה בעצם ספורט טיפולי (2165 – 3249) ================ */
   .whatis { top: calc(2165 * var(--u)); height: calc(1084 * var(--u)); }
   .whatis__bg   { top: 0; height: calc(1084 * var(--u)); }
-  /* the backdrop clip takes this section's own backdrop rect */
-  .whatis__film { top: 0; width: max(var(--vwc), calc(402 * var(--u)));
-                  height: calc(1084 * var(--u)); }
   .strength__bg { display: block; top: calc(1084 * var(--u)); height: calc(1084 * var(--u)); }
   .whatis__boy  { left: calc(96 * var(--u)); top: calc(496 * var(--u)); width: calc(297 * var(--u)); height: calc(532 * var(--u)); }
   .strength__boy { display: block; left: calc(96 * var(--u)); top: calc(1580 * var(--u)); width: calc(297 * var(--u)); height: calc(532 * var(--u)); z-index: 3; }

@@ -127,8 +127,6 @@
   /* --------------- מה זה בעצם ספורט טיפולי + החוזקות (2354 – 4354) ------ */
   .whatis        { top: calc(2354 * var(--u)); height: calc(1000 * var(--u)); }
   .whatis__bg    { top: 0; height: calc(1000 * var(--u)); }
-  .whatis__film  { top: 0; width: max(var(--vwc), calc(768 * var(--u)));
-                   height: calc(1000 * var(--u)); }
   .whatis__t1    { left: calc(48 * var(--u)); top: calc(66 * var(--u));  width: calc(672 * var(--u)); height: calc(78 * var(--u)); }
   .whatis__t2    { left: calc(48 * var(--u)); top: calc(144 * var(--u)); width: calc(672 * var(--u)); height: calc(78 * var(--u)); }
   .whatis__body  { left: calc(96 * var(--u)); top: calc(234 * var(--u)); width: calc(576 * var(--u)); height: calc(176 * var(--u)); }
