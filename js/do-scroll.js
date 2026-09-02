@@ -456,72 +456,61 @@
   })();
 
   /* ---------------------------------------------------------- the swing ----
-     The boy on the swing moves only while the pointer is on him, and then he
-     keeps swinging for as long as it stays. This clip is not a cut-out: it
-     carries the section's own backdrop with it, so what the hover swaps is the
-     whole picture, and the cut-out beneath simply fades out of the way.
+     The boy on the swing moves only while the pointer is on him, and keeps
+     swinging for as long as it stays. The clip is not a cut-out: it carries
+     the section's own backdrop with it — same room, same ball, same cone — so
+     the hover swaps the whole picture, and the cut-out fades out of the way
+     underneath it. It fades rather than hiding, because something with
+     `visibility: hidden` stops taking the pointer, which would end the hover
+     the instant it began and leave the swing flickering.
 
-     It loops rather than playing once, and the loop is clean: the step from
-     the last frame back to the first measures smaller than an average step
-     between neighbours, because the clip was rendered to come back to where
-     it started. Frames load on the first hover, so nobody who never points at
-     him pays for them. */
+     This one plays as a video, where every other clip here is a sequence of
+     stills. Stills are what scrubbing needs — seeking a video on each scroll
+     step stalls — but a loop is not scrubbed, it is played, and stepping
+     stills means stepping them on a timer at whatever rate the frames can
+     afford. Thirty of them at eight a second is what read as stuttering.
+     Handing the file to the browser gets its own frame rate for nothing, out
+     of a file smaller than the stills it replaces. */
   (function () {
-    var box = document.querySelector('[data-swingclip]');
+    var box = document.querySelector('[data-swing-over]');
     if (!box || reduced) return;
-    var tag = box.dataset.swingclip;
-    var count = parseInt(box.dataset.swingframes, 10) || 30;
     var over = document.querySelector(box.dataset.swingOver);
     var section = box.closest('.s');
-    var canvas = box.querySelector('canvas');
-    if (!over || !canvas || !section) return;
-    var ctx = canvas.getContext('2d', { alpha: false });
-    var frames = null, timer = 0, at = 0, on = false;
-    var FPS = 8;                 /* the clip's own pace: 30 frames over ~4s */
+    var vid = box.querySelector('video');
+    if (!over || !vid || !section) return;
 
-    function load() {
-      if (frames) return;
-      frames = [];
-      for (var i = 0; i < count; i++) {
-        var img = new Image();
-        img.decoding = 'async';
-        var seq = window.KIDY_SEQ && window.KIDY_SEQ[tag];
-        img.src = seq ? seq[Math.round(i / (count - 1) * (seq.length - 1))]
-                      : 'assets/seq/seq_' + tag + '_' + String(i).padStart(3, '0') + '.jpg';
-        frames.push(img);
-      }
+    /* Not fetched until the section is nearly in view, so nobody who never
+       scrolls this far pays for it and it is ready before anyone can hover. */
+    var asked = false;
+    function fetchIt() {
+      if (asked) return;
+      asked = true;
+      vid.preload = 'auto';
+      vid.load();
     }
-    function fit() {
-      var dpr = Math.min(2, window.devicePixelRatio || 1);
-      var w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
-      if (w && h && (canvas.width !== w || canvas.height !== h)) { canvas.width = w; canvas.height = h; }
-    }
-    function paint() {
-      var img = frames && frames[at];
-      if (img && img.complete && img.naturalWidth) {
-        fit();
-        var s = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
-        var w = img.naturalWidth * s, h = img.naturalHeight * s;
-        ctx.drawImage(img, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
-      }
-      at = (at + 1) % count;
-    }
+    if (window.IntersectionObserver) {
+      var io = new IntersectionObserver(function (es) {
+        for (var i = 0; i < es.length; i++) {
+          if (es[i].isIntersecting) { fetchIt(); io.disconnect(); return; }
+        }
+      }, { rootMargin: '400px' });
+      io.observe(section);
+    } else fetchIt();
+
     function start() {
-      if (on) return;
-      on = true; load(); at = 0;
+      fetchIt();
       section.classList.add('is-swinging');
-      paint();
-      timer = setInterval(function () { if (on) paint(); }, 1000 / FPS);
+      var p = vid.play();
+      if (p && p.catch) p.catch(function () {});
     }
     function stop() {
-      on = false;
-      clearInterval(timer); timer = 0;
       section.classList.remove('is-swinging');
+      vid.pause();
     }
     over.addEventListener('pointerenter', start);
     over.addEventListener('pointerleave', stop);
     /* a pointer that leaves the window without a leave event, and touch, which
-       has no hover at all: end the loop rather than leaving it running */
+       has no hover at all: stop rather than leaving it running */
     over.addEventListener('pointercancel', stop);
     window.addEventListener('blur', stop);
   })();

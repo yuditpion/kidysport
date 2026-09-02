@@ -557,7 +557,17 @@ button { font: inherit; color: inherit; background: none; border: 0; }
   height: calc(1081 * var(--u));
   z-index: 0; display: none; pointer-events: none;
 }
-.plan__film .film__canvas { opacity: 1; }
+/* This one is a plain loop, not a scrub, so it plays as a video rather than as
+   a sequence of stills. Stills are what scrubbing needs — seeking a video on
+   every scroll step stalls — but stepping stills for a loop means stepping
+   them on a timer, and a timer that can afford the frames runs at a fraction
+   of the clip's own rate. Thirty stills at eight a second is what read as
+   stuttering. The browser plays the file at its own frame rate for free. */
+.plan__film__v {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
 .plan.is-swinging .plan__film { display: block; }
 .plan.is-swinging .plan__boy { opacity: 0; }
 .plan__boy { cursor: pointer; }
