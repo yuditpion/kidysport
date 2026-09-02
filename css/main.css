@@ -203,6 +203,13 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .how__film { left: 0; top: calc(2 * var(--u)); width: calc(1920 * var(--u)); height: calc(1080 * var(--u));
              z-index: 3; pointer-events: none; }
 
+/* The third leg carries its own background, so its stage sits exactly where
+   this section's backdrop sat — full bleed, the section's own height — and the
+   canvas it draws into is the screen. */
+.whatis__film { left: 50%; transform: translateX(-50%);
+                top: 0; width: max(var(--vwc), calc(1920 * var(--u)));
+                height: calc(1084 * var(--u)); z-index: 0; pointer-events: none; }
+
 .hero__badge    { left: calc(1572 * var(--u)); top: calc(352 * var(--u)); width: calc(238 * var(--u)); height: calc(238 * var(--u)); }
 .hero__badge-ic { left: calc(1646 * var(--u)); top: calc(394 * var(--u)); width: calc(89 * var(--u)); z-index: 3; }
 .hero__badge-t1 { left: calc(1640 * var(--u)); top: calc(471 * var(--u)); width: calc(101 * var(--u)); height: calc(50 * var(--u)); text-align: center; color: var(--orange); font-weight: 700; z-index: 3; }
@@ -860,6 +867,37 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
    showing through it for the whole run — a second boy, standing still where
    the animated one started, drifting apart from him as he ran. */
 .film.is-live .film__still { opacity: 0; transition: opacity .2s linear; }
+
+/* ---------------------------------------------------- backdrop clips ----
+   A clip that carries its own background is the backdrop for the stretch it
+   runs over, not a figure on it. Its canvas is the screen rather than the
+   stage: the stage still says where the frame goes — that is what keeps the
+   boy inside it on his marks — and the canvas around it is filled by
+   stretching the frame's own edges out to the corners, because a 16:9 frame
+   does not fill a screen and a gap would show whatever is scrolling behind. */
+.film--bg { overflow: visible; }
+.film--bg .film__canvas {
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+}
+.film--bg .film__still { display: none; }
+
+/* Every leg of the boy's journey is a clip now, so the stills those clips
+   start and land on are marks, not pictures — the clip draws him. They stay
+   in the page (the clips are placed by measuring them) and stay visible
+   without JS, or with reduced motion, where the clips hold their first frame
+   and the original composition is what should be seen. */
+.js-clips .how__boy,
+.js-clips .whatis__boy,
+.js-clips .strength__boy,
+.js-clips .plan__boy { visibility: hidden; }
+
+/* תוכנית אישית has no backdrop of its own: this is the closing frame of the
+   clip above it, held back until the clip stands down so the two never both
+   show. */
+.js-clips .plan__bg { visibility: hidden; }
+.js-clips .plan__bg.is-revealed { visibility: visible; }
 
 /* Mobile uses one pinned backdrop per region instead of stacking copies. */
 .sticky-bg { display: none; }

@@ -111,6 +111,14 @@
 
     /* The still this clip hands over to, and where the boy sits inside the
        clip's last frame as a fraction of it. */
+    /* A backdrop clip stands behind the copy and fills the screen; a cutout
+       clip is a figure drawn over it. `data-film-reveal` names something that
+       takes over when the clip is done — for the backdrop that is the next
+       section's own background, which is a still of this clip's last frame,
+       so the swap is one picture for the same picture. */
+    var isBg = section.hasAttribute("data-film-bg");
+    var revealSel = section.dataset.filmReveal;
+    var revealEl = revealSel ? document.querySelector(revealSel) : null;
     var pinSel = section.dataset.filmPin;
     var pinTo = pinSel ? document.querySelector(pinSel) : null;
     var pinSec = pinTo ? pinTo.closest('.s') : null;
@@ -149,10 +157,49 @@
       sized = w;
     }
 
+    function markLive() {
+      if (!stage.classList.contains('is-live')) stage.classList.add('is-live');
+    }
+
+    /* A backdrop clip is the section's background rather than a figure on top
+       of it, so it has to fill the screen while it is pinned — and the frame
+       is 16:9, which the screen rarely is. The frame goes exactly where the
+       stage says (that is what keeps the boy inside it on his marks), and the
+       rest of the screen is filled by stretching the frame's own edge rows and
+       columns outwards. The room in this clip is soft and pale at every edge,
+       so the extension reads as more room rather than as smearing — where a
+       second copy scaled to cover would have shown a seam against the first. */
+    function drawBackdrop(img) {
+      var dpr = canvas.width / (canvas.clientWidth || 1);
+      var r = stage.getBoundingClientRect();
+      var iw = img.naturalWidth, ih = img.naturalHeight;
+      var cw = canvas.width, ch = canvas.height;
+      /* Cover the stage the way the backdrop it replaces covers it, rather
+         than stretching to fit: the stage is 16:9 on the desktop frame but
+         nothing like it on the narrow ones, and the still this hands over to
+         is covered the same way, so cropping alike is what makes the two
+         match. The edges are then extended from what was actually drawn. */
+      var sc = Math.max(r.width / iw, r.height / ih);
+      var W = iw * sc * dpr, H = ih * sc * dpr;
+      var L = (r.left + (r.width - iw * sc) / 2) * dpr;
+      var T = (r.top + (r.height - ih * sc) / 2) * dpr;
+      ctx.drawImage(img, L, T, W, H);
+      if (T > 0)            ctx.drawImage(img, 0, 0, iw, 1, L, 0, W, T);
+      if (T + H < ch)       ctx.drawImage(img, 0, ih - 1, iw, 1, L, T + H, W, ch - T - H);
+      if (L > 0)            ctx.drawImage(img, 0, 0, 1, ih, 0, T, L, H);
+      if (L + W < cw)       ctx.drawImage(img, iw - 1, 0, 1, ih, L + W, T, cw - L - W, H);
+      if (L > 0 && T > 0)                 ctx.drawImage(img, 0, 0, 1, 1, 0, 0, L, T);
+      if (L + W < cw && T > 0)            ctx.drawImage(img, iw - 1, 0, 1, 1, L + W, 0, cw - L - W, T);
+      if (L > 0 && T + H < ch)            ctx.drawImage(img, 0, ih - 1, 1, 1, 0, T + H, L, ch - T - H);
+      if (L + W < cw && T + H < ch)       ctx.drawImage(img, iw - 1, ih - 1, 1, 1, L + W, T + H, cw - L - W, ch - T - H);
+    }
+
     function draw(i) {
       var img = frames[i];
       if (!img || !img.complete || !img.naturalWidth) return;
-      if (i === drawn) return;
+      /* a backdrop is redrawn on every step even on the same frame: it is
+         pinned, so where it sits on the screen changes as the page moves */
+      if (i === drawn && !isBg) return;
       fit();
       if (!canvas.width || !canvas.height) return;
 
@@ -160,6 +207,9 @@
          covering it, but a sequence with alpha does not: without this the
          frames pile up and the boy is drawn once for every step of his jump. */
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (isBg) { drawBackdrop(img); drawn = i; markLive(); return; }
+
       // cover: fill the stage, centre the overflow
       var s = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
       var w = img.naturalWidth * s, h = img.naturalHeight * s;
@@ -305,7 +355,14 @@
              of it does — and a clip sitting on its first frame while an
              earlier one runs is a second boy standing where this one is about
              to start. */
-          if (t >= 0.999 || raw < 0) {
+          /* The legs meet exactly: one clip ends where the next begins. Both
+             boundaries are given the same small tolerance so that a fraction
+             of a pixel either way cannot leave a moment with two clips drawn
+             or, worse, none — at the join the outgoing one is already past
+             1 - EPS and the incoming one already past -EPS. */
+          var EPS = 0.002;
+          if (revealEl) revealEl.classList.toggle("is-revealed", t >= 1 - EPS);
+          if (t >= 1 - EPS || raw < -EPS) {
             stage.style.position = '';
             stage.style.left = stage.style.top = '';
             stage.style.visibility = 'hidden';
@@ -358,6 +415,12 @@
       resize: function () { drawn = -1; natPage = null; cbZero = { x: 0, y: 0 }; }
     };
   }
+
+  /* The stills the clips start and land on are marks now, not pictures — the
+     clips draw the boy. Only say so when the clips will actually run: with
+     reduced motion they hold their first frame and the original composition
+     is what should be on the page. */
+  if (films.length && !reduced) document.documentElement.classList.add("js-clips");
 
   var players = films.map(setup);
 

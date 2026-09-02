@@ -142,7 +142,20 @@
   </section>
 
   <!-- =================== מה זה בעצם ספורט טיפולי =================== -->
-  <section class="s whatis" id="what-is">
+  <!-- The third leg, and a different kind of clip: this one has a background,
+       so it IS the backdrop for both this section and the one below rather
+       than a figure drawn over one. It stays put on the screen while the copy
+       scrolls up over it, and it ends on the boy landing on the swing — which
+       is why תוכנית אישית has no backdrop of its own any more: its background
+       is a still of this clip's last frame, revealed as the clip stands down,
+       so one picture replaces the same picture. -->
+  <section class="s whatis" id="what-is" data-film="v" data-frames="30" data-film-mode="enter"
+           data-film-bg data-film-pin=".plan__bg" data-film-reveal=".plan__bg"
+           data-film-anchor="0,0" data-film-ext="jpg">
+    <div class="whatis__film film film--bg" aria-hidden="true">
+      <img class="film__still" src="assets/seq/seq_v_000.jpg" alt="">
+      <canvas class="film__canvas"></canvas>
+    </div>
     <img class="whatis__bg bleed" src="assets/img/bg-what-is.webp" alt="" aria-hidden="true">
     <img class="strength__bg bleed" src="assets/img/bg-what-is.webp" alt="" aria-hidden="true">
     <img class="whatis__boy boy-static" src="assets/img/boy-on-ball.webp" alt="ילד עומד על כדור">
@@ -172,7 +185,10 @@
 
   <!-- ================= תוכנית אישית בקבוצה קטנה ================= -->
   <section class="s plan" id="plan">
-    <img class="plan__bg bleed" src="assets/img/bg-clouds.webp" alt="" aria-hidden="true">
+    <!-- the clip's closing frame, so the pinned clip and this hand over on the
+         same picture; the boy on the swing is already in it, which is why the
+         cut-out beside it is not drawn once the clips are running -->
+    <img class="plan__bg bleed" src="assets/seq/seq_v_029.jpg" alt="" aria-hidden="true">
     <img class="plan__boy boy-static" src="assets/img/boy-on-swing.webp" alt="ילד על נדנדה">
     <div class="plan__card glass"></div>
     <h2 class="plan__t t-h1 c-teal"><span class="c-orange">תוכנית אישית</span> בקבוצה קטנה</h2>
@@ -618,7 +634,6 @@
 
 </div><!-- /.page -->
 
-<canvas class="boy-canvas" id="boy-canvas" aria-hidden="true"></canvas>
 
 <!-- gooey filter: merges the four blobs into one liquid front -->
 <svg class="goo-defs" aria-hidden="true" focusable="false"><defs>
@@ -634,7 +649,6 @@
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/thanks.js" defer></script>
 <script src="js/app.js"></script>
-<script src="js/boy-scroll.js"></script>
 <script src="js/do-scroll.js"></script>
 </body>
 </html>
