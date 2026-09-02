@@ -115,6 +115,11 @@
        done. It is held back while the clip runs — the clip is drawing the boy,
        and the still underneath it would be a second one — and shown the moment
        the clip lands on it, which is the same picture in the same place. */
+    /* When a clip is done it normally stands down, because the next clip or
+       the section itself has the boy. `data-film-hold` says to stay instead,
+       parked where it landed — for a clip whose landing still is a different
+       drawing of the pose. */
+    var holdEnd = section.hasAttribute("data-film-hold");
     var revealSel = section.dataset.filmReveal;
     var revealEl = revealSel ? document.querySelector(revealSel) : null;
     var pinSel = section.dataset.filmPin;
@@ -311,16 +316,27 @@
              of it does — and a clip sitting on its first frame while an
              earlier one runs is a second boy standing where this one is about
              to start. */
-          if (revealEl) revealEl.classList.toggle("is-revealed", t >= 0.999);
-          if (t >= 0.999 || raw < 0) {
+          var tr = pinTo.getBoundingClientRect();
+          var fw = stage.offsetWidth, fh0 = stage.offsetHeight;
+          var endL = tr.left - ANCH.x * fw;
+          var endT = tr.top - ANCH.y * fh0;
+
+          if (t >= 0.999 && holdEnd) {
+            /* Park it where it landed rather than standing down. The still
+               underneath is a second drawing of the same pose, and on that one
+               the boy has no kippah — handing over to it took his kippah off
+               halfway down the page. Keeping the clip is keeping the picture,
+               and it costs nothing: it is one frame, sitting still. */
+            var sr = section.getBoundingClientRect();
+            stage.style.position = 'absolute';
+            stage.style.left = (endL - sr.left) + 'px';
+            stage.style.top  = (endT - sr.top) + 'px';
+            stage.style.visibility = '';
+          } else if (t >= 0.999 || raw < 0) {
             stage.style.position = '';
             stage.style.left = stage.style.top = '';
             stage.style.visibility = 'hidden';
           } else {
-            var tr = pinTo.getBoundingClientRect();
-            var fw = stage.offsetWidth, fh = stage.offsetHeight;
-            var endL = tr.left - ANCH.x * fw;
-            var endT = tr.top - ANCH.y * fh;
             stage.style.visibility = '';
             stage.style.position = 'fixed';
             /* Three places, not two. Where it starts is where the frame draws
@@ -362,7 +378,14 @@
         if (r.bottom < -vh || r.top > vh * 2) return;   // far off-screen: skip
         draw(Math.min(count - 1, Math.max(0, Math.round(t * (count - 1)))));
       },
-      resize: function () { drawn = -1; natPage = null; cbZero = { x: 0, y: 0 }; }
+      resize: function () {
+        /* clear any parked or pinned placement first: natPage is measured from
+           where the stage sits, and measuring it while parked would take the
+           landing spot for the starting one */
+        stage.style.position = "";
+        stage.style.left = stage.style.top = "";
+        drawn = -1; natPage = null; cbZero = { x: 0, y: 0 };
+      }
     };
   }
 
