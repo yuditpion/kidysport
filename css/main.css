@@ -848,6 +848,12 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
    is what a reduced-motion or no-JS visitor keeps */
 .film__canvas { opacity: 0; transition: opacity .2s linear; }
 .film.is-live .film__canvas { opacity: 1; }
+/* and the still steps aside once it has. It is only ever the poster for the
+   moment before the first frame decodes. An opaque clip hides it by covering
+   it, so this never mattered; the hero clip carries alpha, and frame 0 was
+   showing through it for the whole run — a second boy, standing still where
+   the animated one started, drifting apart from him as he ran. */
+.film.is-live .film__still { opacity: 0; transition: opacity .2s linear; }
 
 /* Mobile uses one pinned backdrop per region instead of stacking copies. */
 .sticky-bg { display: none; }
