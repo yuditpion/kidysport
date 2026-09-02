@@ -85,9 +85,19 @@
   .hero__btn1{ left: calc(11.58 * var(--u)); top: calc(505 * var(--u)); width: calc(178.206 * var(--u)); }
   .hero__btn2{ left: calc(199.8 * var(--u)); top: calc(505 * var(--u)); width: calc(174.201 * var(--u)); }
 
-  .hero__boy    { left: calc(1 * var(--u)); top: calc(552 * var(--u)); width: calc(295 * var(--u)); height: calc(433 * var(--u)); }
-  .hero__sticks { left: calc(1 * var(--u)); top: calc(988 * var(--u)); width: calc(241 * var(--u)); }
-  .hero__badge, .hero__badge-ic, .hero__badge-t1, .hero__badge-t2 { display: none; }
+  /* The clip is composed across the desktop artboard: the boy covers 1088 of
+     its 1920 units on his way over the ladder. On a 402 column that whole
+     path has to fit, or he runs off the edge halfway through the scrub and
+     the closing pose — the one that hands over to the next section — is cut.
+     So the box is scaled to fit his travel, which leaves him smaller here
+     than the still was, and placed so his first frame keeps the still's top. */
+  .hero__film { left: calc(-180 * var(--u)); top: calc(494 * var(--u));
+                width: calc(667 * var(--u)); height: calc(375 * var(--u)); }
+  /* Through `.s > ` for the same reason as the about tail: these carry type
+     classes, and main.css lays `.s > .t-body` out as a flex column, which
+     outranks a bare class. They were only invisible because the page clips. */
+  .s > .hero__badge, .s > .hero__badge-ic,
+  .s > .hero__badge-t1, .s > .hero__badge-t2 { display: none; }
 
   .hero__stats { left: calc(18 * var(--u)); top: calc(1047 * var(--u)); width: calc(366 * var(--u)); height: calc(95 * var(--u));
                  border-radius: calc(12.309 * var(--u)); border-width: calc(0.821 * var(--u));
@@ -353,8 +363,13 @@
      The card and the band under it are the frame's two rectangles, both wider
      than the column, so they are drawn on the section rather than added as
      elements. */
+  /* `top: auto` matters: the section keeps the desktop artboard's `top`, and
+     turning it relative without clearing that turns a placement into an
+     offset — it was being pushed some 8000 units down the page, out past the
+     footer, with the gap left standing where it belongs. */
   .page--do .do-cta, .page--rec .rec-cta {
     display: block; position: relative;
+    top: auto;
     width: calc(402 * var(--u)); height: calc(1131 * var(--u));
     padding: 0; overflow: hidden;
   }

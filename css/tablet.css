@@ -1,0 +1,635 @@
+/* ==========================================================================
+   Kidysport — tablet artboard (768 wide), 768–1199
+
+   Figma has no tablet frame, so this sheet is derived rather than traced, and
+   it is derived from the mobile frame rather than the desktop one on purpose:
+   scaling the phone layout UP is structurally safe (boxes grow, and the text
+   inside them is flex-centred, so it can only gain air), while scaling the
+   desktop layout DOWN overflows every text box it touches.
+
+   Three rules hold the whole sheet together:
+
+   1. The artboard is 768 instead of 402, so the column fills a tablet instead
+      of sitting as a ~500px strip in the middle of it. `--u` is capped at 1.2,
+      so past 922px the column stops growing and centres, with the full-bleed
+      art carrying the margins.
+
+   2. Vertical coordinates stay close to the phone's. That is deliberate — the
+      phone's rhythm is already tuned for a viewport roughly this tall, and
+      blowing it up 1.9x would make the hero two screens deep.
+
+   3. The width that is gained goes into the layout, not into scale. Every
+      stack that ran one-up on the phone runs two-up here: the four strength
+      cards, the five value cards, the four footer cards, the contact fields,
+      the eight benefit points, the recommendation wall. That is also what
+      claws back the vertical space those stacks were eating, which is why
+      every page here is shorter than its phone version.
+
+   Grid: 48 margin, 672 content, 24 gutter, 324 half-column.
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  /* ------------------------------------------------------------- frame -- */
+  :root { --u: min(1.2px, calc(var(--vwc) / 768)); }
+
+  .page  { width: calc(768 * var(--u)); height: calc(11968 * var(--u) + var(--faq-shift, 0px)); }
+  /* the three pages that flow rather than sitting on an artboard keep
+     sizing to their own content */
+  .page--do, .page--faq, .page--rec { height: auto; }
+  .s     { width: calc(768 * var(--u)); }
+  .bleed { width: max(var(--vwc), calc(768 * var(--u))); }
+
+  /* --- type: between the two frames ------------------------------------ */
+  .t-h1  { font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
+  .t-h1b { font-size: calc(40 * var(--u)); line-height: calc(70 * var(--u)); }
+  .t-h2  { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .t-h2b { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .t-body{ font-size: calc(20 * var(--u)); line-height: calc(32 * var(--u)); }
+
+  .glass { border-width: calc(2 * var(--u)); border-radius: calc(28 * var(--u));
+           -webkit-backdrop-filter: blur(calc(10 * var(--u))); backdrop-filter: blur(calc(10 * var(--u))); }
+  .btn   { height: calc(56 * var(--u)); border-radius: calc(28 * var(--u));
+           font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+
+  /* ------------------------------------------------------------ header -- */
+  /* The burger stays: six items plus a call-to-action do not sit comfortably
+     on 672 even at the top of the range, and a tablet reaching for a menu
+     button is ordinary. */
+  :root { --hdr-bottom: calc(116 * var(--u)); }
+  .hdr        { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); height: calc(92 * var(--u));
+                border-radius: calc(34 * var(--u)); }
+  .hdr__logo  { left: calc(72 * var(--u)); top: calc(40 * var(--u)); width: calc(116 * var(--u)); height: calc(64 * var(--u)); }
+  .hdr__burger{ left: calc(626 * var(--u)); top: calc(56 * var(--u)); width: calc(44 * var(--u)); height: calc(27 * var(--u)); }
+
+  .m-menu   { left: calc(48 * var(--u)); top: calc(126 * var(--u)); width: calc(672 * var(--u));
+              border-radius: calc(28 * var(--u)); padding: calc(10 * var(--u)) calc(28 * var(--u)); }
+  .m-menu a { padding: calc(13 * var(--u)) 0; font-size: calc(20 * var(--u)); }
+
+  .wa { width: calc(88 * var(--u)); right: max(16px, calc(32 * var(--u))); bottom: max(16px, calc(32 * var(--u))); }
+
+  /* ======================================================================
+     דף הבית
+     ====================================================================== */
+
+  /* ------------------------------------------------- HERO (0 – 1270) ---- */
+  .hero        { top: 0; height: calc(1270 * var(--u)); }
+  .hero__bg    { top: calc(-27 * var(--u)); height: calc(1300 * var(--u)); }
+  .hero__vector{ left: calc(-120 * var(--u)); top: calc(600 * var(--u)); width: calc(760 * var(--u)); height: calc(448 * var(--u)); }
+  .hero__bird  { left: calc(560 * var(--u)); top: calc(140 * var(--u)); width: calc(62 * var(--u)); }
+
+  .hero__t1  { left: calc(48 * var(--u)); top: calc(150 * var(--u)); width: calc(672 * var(--u)); height: calc(76 * var(--u)); }
+  .hero__t2  { left: calc(48 * var(--u)); top: calc(214 * var(--u)); width: calc(672 * var(--u)); height: calc(86 * var(--u));
+               font-size: calc(56 * var(--u)); line-height: calc(70 * var(--u)); }
+  .hero__sub { left: calc(48 * var(--u)); top: calc(302 * var(--u)); width: calc(672 * var(--u)); height: calc(48 * var(--u)); }
+  .hero__body{ left: calc(48 * var(--u)); top: calc(354 * var(--u)); width: calc(672 * var(--u)); height: calc(164 * var(--u)); }
+  .hero__btn1{ left: calc(120 * var(--u)); top: calc(530 * var(--u)); width: calc(240 * var(--u)); }
+  .hero__btn2{ left: calc(408 * var(--u)); top: calc(530 * var(--u)); width: calc(240 * var(--u)); }
+
+  /* Same fit as the phone, with more room to give it: at 768 his whole run
+     fits at 0.66, which leaves him 324 wide against the still's 347. */
+  .hero__film { left: calc(-343 * var(--u)); top: calc(479 * var(--u));
+                width: calc(1274 * var(--u)); height: calc(717 * var(--u)); }
+  .hero__strip  { left: calc(-44 * var(--u)); top: calc(1120 * var(--u)); width: calc(856 * var(--u)); height: calc(180 * var(--u)); }
+
+  /* the three figures spread across the full width instead of crowding */
+  .hero__stats { left: calc(48 * var(--u)); top: calc(1150 * var(--u)); width: calc(672 * var(--u)); height: calc(112 * var(--u));
+                 border-radius: calc(16 * var(--u)); border-width: calc(1 * var(--u));
+                 -webkit-backdrop-filter: blur(calc(5 * var(--u))); backdrop-filter: blur(calc(5 * var(--u))); }
+  .hero__ic1 { left: calc(120 * var(--u)); top: calc(1156 * var(--u)); width: calc(54 * var(--u)); }
+  .hero__ic2 { left: calc(348 * var(--u)); top: calc(1156 * var(--u)); width: calc(53 * var(--u)); }
+  .hero__ic3 { left: calc(576 * var(--u)); top: calc(1156 * var(--u)); width: calc(54 * var(--u)); }
+  .hero__st1 { left: calc(72 * var(--u));  top: calc(1204 * var(--u)); width: calc(150 * var(--u)); height: calc(52 * var(--u));
+               font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
+  .hero__st2 { left: calc(300 * var(--u)); top: calc(1204 * var(--u)); width: calc(150 * var(--u)); height: calc(52 * var(--u));
+               font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
+  .hero__st3 { left: calc(528 * var(--u)); top: calc(1204 * var(--u)); width: calc(150 * var(--u)); height: calc(52 * var(--u));
+               font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
+  .hero__ln1 { left: calc(262 * var(--u)); top: calc(1170 * var(--u)); height: calc(74 * var(--u)); }
+  .hero__ln2 { left: calc(490 * var(--u)); top: calc(1170 * var(--u)); height: calc(74 * var(--u)); }
+
+  /* ------------------------------------ איך הטיפול עובד (1270 – 2354) --- */
+  .how       { top: calc(1270 * var(--u)); height: calc(1084 * var(--u)); }
+  .how__bg   { top: 0; height: calc(1084 * var(--u)); }
+  .how__card { left: calc(48 * var(--u)); top: calc(52 * var(--u)); width: calc(672 * var(--u)); height: calc(412 * var(--u));
+               border-radius: calc(34 * var(--u)); border-width: calc(2 * var(--u)); }
+  .how__t    { left: calc(96 * var(--u)); top: calc(74 * var(--u));  width: calc(576 * var(--u)); height: calc(150 * var(--u)); }
+  .how__sub  { left: calc(96 * var(--u)); top: calc(228 * var(--u)); width: calc(576 * var(--u)); height: calc(48 * var(--u)); }
+  .how__body { left: calc(96 * var(--u)); top: calc(280 * var(--u)); width: calc(576 * var(--u)); height: calc(168 * var(--u)); }
+  .how__btn  { left: calc(254 * var(--u)); top: calc(490 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
+               border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); }
+  .how__boy  { left: calc(184 * var(--u)); top: calc(570 * var(--u)); width: calc(400 * var(--u)); height: calc(514 * var(--u)); }
+
+  /* --------------- מה זה בעצם ספורט טיפולי + החוזקות (2354 – 4354) ------ */
+  .whatis        { top: calc(2354 * var(--u)); height: calc(1000 * var(--u)); }
+  .whatis__bg    { top: 0; height: calc(1000 * var(--u)); }
+  .whatis__t1    { left: calc(48 * var(--u)); top: calc(66 * var(--u));  width: calc(672 * var(--u)); height: calc(78 * var(--u)); }
+  .whatis__t2    { left: calc(48 * var(--u)); top: calc(144 * var(--u)); width: calc(672 * var(--u)); height: calc(78 * var(--u)); }
+  .whatis__body  { left: calc(96 * var(--u)); top: calc(234 * var(--u)); width: calc(576 * var(--u)); height: calc(176 * var(--u)); }
+  .whatis__boy   { left: calc(184 * var(--u)); top: calc(436 * var(--u)); width: calc(400 * var(--u)); height: calc(560 * var(--u)); }
+
+  .strength__bg  { top: calc(1000 * var(--u)); height: calc(1000 * var(--u)); }
+  .strength__boy { left: calc(184 * var(--u)); top: calc(1036 * var(--u)); width: calc(400 * var(--u)); height: calc(560 * var(--u)); z-index: 3; }
+
+  /* the four strength cards, two-up */
+  .fcd { width: calc(324 * var(--u)); height: calc(160 * var(--u));
+         box-shadow: 0 0 calc(18 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
+  .fcd--b { left: calc(396 * var(--u)); top: calc(1620 * var(--u)); }   /* מוטורי   */
+  .fcd--d { left: calc(48 * var(--u));  top: calc(1620 * var(--u)); }   /* התנהגותי */
+  .fcd--a { left: calc(396 * var(--u)); top: calc(1804 * var(--u)); }   /* רגשי     */
+  .fcd--c { left: calc(48 * var(--u));  top: calc(1804 * var(--u)); }   /* חברתי    */
+
+  .fic--b { left: calc(624 * var(--u)); top: calc(1656 * var(--u)); width: calc(82 * var(--u)); }
+  .fic--d { left: calc(276 * var(--u)); top: calc(1656 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--a { left: calc(624 * var(--u)); top: calc(1840 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--c { left: calc(276 * var(--u)); top: calc(1840 * var(--u)); width: calc(81 * var(--u)); }
+
+  .ftx { width: calc(206 * var(--u)); height: calc(120 * var(--u));
+         font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
+  .ftx--b { left: calc(408 * var(--u)); top: calc(1640 * var(--u)); }
+  .ftx--d { left: calc(60 * var(--u));  top: calc(1640 * var(--u)); }
+  .ftx--a { left: calc(408 * var(--u)); top: calc(1824 * var(--u)); }
+  .ftx--c { left: calc(60 * var(--u));  top: calc(1824 * var(--u)); }
+
+  /* ------------------------ תוכנית אישית בקבוצה קטנה (4354 – 5244) ------ */
+  .plan       { top: calc(4354 * var(--u)); height: calc(890 * var(--u)); }
+  .plan__bg   { top: 0; height: calc(890 * var(--u)); }
+  .plan__boy  { left: calc(-540 * var(--u)); top: calc(40 * var(--u)); width: calc(880 * var(--u)); height: calc(930 * var(--u)); }
+  .plan__card { left: calc(48 * var(--u)); top: calc(40 * var(--u)); width: calc(672 * var(--u)); height: calc(480 * var(--u)); }
+  .plan__t    { left: calc(96 * var(--u)); top: calc(64 * var(--u));  width: calc(576 * var(--u)); height: calc(140 * var(--u)); }
+  .plan__list { left: calc(96 * var(--u)); top: calc(214 * var(--u)); width: calc(576 * var(--u)); height: calc(282 * var(--u)); }
+  .plan__list li + li { margin-top: calc(20 * var(--u)); }
+  .plan__btn  { left: calc(264 * var(--u)); top: calc(548 * var(--u)); width: calc(240 * var(--u)); }
+
+  /* ------------------------- למה דווקא טיפול בקבוצה? (5244 – 6122) ------ */
+  .why       { top: calc(5244 * var(--u)); height: calc(878 * var(--u)); }
+  .why__bg   { top: 0; height: calc(878 * var(--u)); }
+  .why__t    { left: calc(48 * var(--u)); top: calc(36 * var(--u));  width: calc(672 * var(--u)); height: calc(158 * var(--u)); }
+  .why__body { left: calc(96 * var(--u)); top: calc(198 * var(--u)); width: calc(576 * var(--u)); height: calc(222 * var(--u)); }
+
+  /* the four-up icon bar keeps its 2x2 but spreads over the wider frame */
+  .why__bar { left: calc(48 * var(--u)); top: calc(432 * var(--u)); width: calc(672 * var(--u)); height: calc(250 * var(--u));
+              box-shadow: 0 0 calc(18 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
+  .why__ic3 { left: calc(180 * var(--u)); top: calc(440 * var(--u)); width: calc(84 * var(--u)); }
+  .why__ic4 { left: calc(504 * var(--u)); top: calc(440 * var(--u)); width: calc(85 * var(--u)); }
+  .why__ic1 { left: calc(180 * var(--u)); top: calc(560 * var(--u)); width: calc(85 * var(--u)); }
+  .why__ic2 { left: calc(504 * var(--u)); top: calc(560 * var(--u)); width: calc(85 * var(--u)); }
+  .why__t3  { left: calc(162 * var(--u)); top: calc(510 * var(--u)); width: calc(120 * var(--u)); height: calc(32 * var(--u)); }
+  .why__t4  { left: calc(486 * var(--u)); top: calc(510 * var(--u)); width: calc(120 * var(--u)); height: calc(32 * var(--u)); }
+  .why__t1  { left: calc(162 * var(--u)); top: calc(630 * var(--u)); width: calc(120 * var(--u)); height: calc(32 * var(--u)); }
+  .why__t2  { left: calc(486 * var(--u)); top: calc(630 * var(--u)); width: calc(120 * var(--u)); height: calc(32 * var(--u)); }
+  .why__ln1 { left: calc(384 * var(--u)); top: calc(462 * var(--u)); height: calc(190 * var(--u)); }
+  .why__ln2 { left: calc(120 * var(--u)); top: calc(550 * var(--u)); width: calc(230 * var(--u)); height: 1px; }
+  .why__ln3 { left: calc(444 * var(--u)); top: calc(550 * var(--u)); width: calc(230 * var(--u)); height: 1px; }
+
+  .why__film { left: calc(-40 * var(--u)); top: calc(672 * var(--u));
+               width: calc(844 * var(--u)); height: calc(386 * var(--u)); transform: none; }
+
+  /* --------------------------------- טובה טייכמאן (6122 – 7148) --------- */
+  /* Here the extra width buys the desktop arrangement back: the portrait sits
+     beside the name instead of above it, and the story runs full width under
+     the pair. */
+  .founder         { top: calc(6122 * var(--u)); height: calc(1026 * var(--u)); }
+  .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(1026 * var(--u)); }
+  .founder__photo  { left: calc(48 * var(--u)); top: calc(130 * var(--u)); width: calc(300 * var(--u)); height: calc(302 * var(--u));
+                     border-radius: 50%; }
+  .founder__kicker { left: calc(384 * var(--u)); top: calc(176 * var(--u)); width: calc(336 * var(--u)); height: calc(48 * var(--u)); }
+  .founder__t      { left: calc(384 * var(--u)); top: calc(224 * var(--u)); width: calc(336 * var(--u)); height: calc(160 * var(--u)); }
+  .founder__body   { left: calc(48 * var(--u)); top: calc(478 * var(--u)); width: calc(672 * var(--u)); height: calc(336 * var(--u)); }
+  .founder__btn    { left: calc(254 * var(--u)); top: calc(852 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
+                     border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); }
+
+  /* ------------------------------------- שאלות נפוצות (7148 – 8436) ----- */
+  .faq       { top: calc(7148 * var(--u)); height: calc(1288 * var(--u)); }
+  .faq__grad { top: calc(367 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(1462 * var(--u)); }
+  .faq__hero { top: calc(140 * var(--u)); left: calc(-40 * var(--u)); transform: none;
+               width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
+  .faq__t    { left: calc(48 * var(--u));  top: calc(24 * var(--u));  width: calc(672 * var(--u)); height: calc(168 * var(--u)); }
+  .faq__sub  { left: calc(392 * var(--u)); top: calc(200 * var(--u)); width: calc(328 * var(--u)); height: calc(160 * var(--u)); }
+  .faq__bird { left: calc(340 * var(--u)); top: calc(222 * var(--u)); width: calc(54 * var(--u)); }
+
+  .faq__list { left: calc(48 * var(--u)); top: calc(440 * var(--u)); width: calc(672 * var(--u)); }
+  .fq        { border-radius: calc(24 * var(--u)); margin-bottom: calc(24 * var(--u)); }
+  .fq summary{ height: calc(120 * var(--u));
+               padding-inline-start: calc(34 * var(--u));
+               padding-inline-end: calc(120 * var(--u)); }
+  .fq__ic    { left: calc(24 * var(--u)); top: calc(24 * var(--u)); width: calc(72 * var(--u)); height: calc(71 * var(--u)); }
+  .fq[open] .fq__ic { top: calc(24 * var(--u)); }
+  .fq__q     { font-size: calc(24 * var(--u)); line-height: calc(34 * var(--u)); }
+  .fq[open] summary { height: calc(134 * var(--u)); }
+  .fq__a     { margin: 0 calc(16 * var(--u)) calc(22 * var(--u)); padding: calc(18 * var(--u)) calc(24 * var(--u));
+               border-radius: calc(20 * var(--u)); }
+
+  /* --------------------------------- יש לכם שאלה נוספת? (8436 – 8976) --- */
+  .moreq          { top: calc(8436 * var(--u)); height: calc(540 * var(--u)); }
+  .moreq__ellipse { left: calc(60 * var(--u)); top: calc(470 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
+  .moreq__photo   { left: calc(384 * var(--u)); top: calc(56 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u));
+                    border-radius: calc(24 * var(--u)); }
+  .moreq__boy     { left: calc(376 * var(--u)); top: calc(16 * var(--u)); width: calc(280 * var(--u)); height: calc(498 * var(--u)); }
+  .moreq__t       { left: calc(48 * var(--u)); top: calc(62 * var(--u));  width: calc(300 * var(--u)); height: calc(232 * var(--u)); }
+  .moreq__sub     { left: calc(48 * var(--u)); top: calc(304 * var(--u)); width: calc(300 * var(--u)); height: calc(100 * var(--u)); }
+  .moreq__btn1    { left: calc(196 * var(--u)); top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
+  .moreq__btn2    { left: calc(28 * var(--u));  top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
+
+  /* -------------------------------------- יצירת קשר (8976 – 10538) ------ */
+  .contact         { top: calc(8976 * var(--u)); height: calc(1562 * var(--u)); }
+  .contact__bg-m   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(900 * var(--u)); }
+
+  .contact__panel  { left: calc(48 * var(--u)); top: calc(28 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
+  .contact__kicker { left: calc(96 * var(--u)); top: calc(56 * var(--u));  width: calc(576 * var(--u)); height: calc(36 * var(--u)); }
+  .contact__t      { left: calc(96 * var(--u)); top: calc(100 * var(--u)); width: calc(576 * var(--u)); height: calc(96 * var(--u)); }
+  .contact__lead   { left: calc(96 * var(--u)); top: calc(204 * var(--u)); width: calc(576 * var(--u)); height: calc(96 * var(--u)); }
+
+  /* the fields pair off; the message keeps the full width */
+  .contact__form   { left: calc(84 * var(--u)); top: calc(316 * var(--u)); width: calc(600 * var(--u)); height: calc(300 * var(--u)); }
+  .fld             { border-radius: calc(12 * var(--u)); padding-inline: calc(16 * var(--u)); }
+  .fld > .ico      { width: calc(34 * var(--u)); margin-inline-end: calc(10 * var(--u)); }
+  .fld input, .fld textarea { font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+  .fld--name  { left: calc(308 * var(--u)); top: calc(8 * var(--u));   width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .fld--phone { left: calc(4 * var(--u));   top: calc(8 * var(--u));   width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .fld--mail  { left: calc(308 * var(--u)); top: calc(78 * var(--u));  width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .fld--age   { left: calc(4 * var(--u));   top: calc(78 * var(--u));  width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .fld--about { left: calc(4 * var(--u));   top: calc(148 * var(--u)); width: calc(592 * var(--u)); height: calc(112 * var(--u)); }
+  .contact__submit { left: calc(264 * var(--u)); top: calc(632 * var(--u)); width: calc(240 * var(--u)); height: calc(52 * var(--u)); }
+
+  .contact__det    { left: calc(48 * var(--u)); top: calc(830 * var(--u)); width: calc(672 * var(--u)); height: calc(340 * var(--u)); }
+  .contact__det-t  { left: calc(48 * var(--u)); top: calc(850 * var(--u)); width: calc(672 * var(--u)); height: calc(78 * var(--u)); }
+  .contact__d1  { left: calc(300 * var(--u)); top: calc(948 * var(--u));  width: calc(240 * var(--u)); height: calc(40 * var(--u)); }
+  .contact__d2  { left: calc(232 * var(--u)); top: calc(1016 * var(--u)); width: calc(308 * var(--u)); height: calc(40 * var(--u)); }
+  .contact__d3  { left: calc(200 * var(--u)); top: calc(1082 * var(--u)); width: calc(340 * var(--u)); height: calc(76 * var(--u)); }
+  .contact__di1 { left: calc(556 * var(--u)); top: calc(938 * var(--u));  width: calc(54 * var(--u)); }
+  .contact__di2 { left: calc(556 * var(--u)); top: calc(1012 * var(--u)); width: calc(54 * var(--u)); }
+  .contact__di3 { left: calc(556 * var(--u)); top: calc(1090 * var(--u)); width: calc(54 * var(--u)); }
+
+  /* ======================================================================
+     FOOTER — shared by every page
+     Four cards two-up instead of a single column, with the boy taking the
+     corner the cards no longer need. This is where most of the height the
+     phone footer wanted comes back: 1430 against 1852.
+     ====================================================================== */
+  .foot       { top: calc(10538 * var(--u)); height: calc(1430 * var(--u)); }
+  .foot__bg   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(980 * var(--u)); }
+  .foot__bird { left: calc(96 * var(--u)); top: calc(26 * var(--u)); width: calc(88 * var(--u)); }
+  .foot__t    { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u)); }
+  .foot__boy  { left: calc(-30 * var(--u)); top: calc(880 * var(--u)); width: calc(290 * var(--u)); height: calc(435 * var(--u)); }
+
+  /* row 1 — brand (right) and ניווט (left) */
+  .fc--brand { left: calc(396 * var(--u)); top: calc(190 * var(--u)); width: calc(324 * var(--u)); height: calc(320 * var(--u)); }
+  .fc__logo  { left: calc(474 * var(--u)); top: calc(236 * var(--u)); width: calc(168 * var(--u)); }
+  .fc__tag   { left: calc(432 * var(--u)); top: calc(326 * var(--u)); width: calc(252 * var(--u)); height: calc(140 * var(--u)); }
+
+  .fc--nav    { left: calc(48 * var(--u));  top: calc(190 * var(--u)); width: calc(324 * var(--u)); height: calc(320 * var(--u)); }
+  .fc__t--nav { left: calc(72 * var(--u));  top: calc(206 * var(--u)); width: calc(276 * var(--u)); height: calc(64 * var(--u)); }
+  .fn         { height: calc(38 * var(--u)); }
+  .fn--a { left: calc(238 * var(--u)); top: calc(280 * var(--u)); width: calc(90 * var(--u)); }
+  .fn--b { left: calc(261 * var(--u)); top: calc(316 * var(--u)); width: calc(67 * var(--u)); }
+  .fn--c { left: calc(158 * var(--u)); top: calc(352 * var(--u)); width: calc(170 * var(--u)); }
+  .fn--d { left: calc(172 * var(--u)); top: calc(388 * var(--u)); width: calc(156 * var(--u)); }
+  .fn--e { left: calc(238 * var(--u)); top: calc(424 * var(--u)); width: calc(90 * var(--u)); }
+  .fn--f { left: calc(211 * var(--u)); top: calc(460 * var(--u)); width: calc(117 * var(--u)); }
+  .fv    { left: calc(332 * var(--u)); width: calc(6 * var(--u)); }
+  .fv--a { top: calc(294 * var(--u)); }
+  .fv--b { top: calc(330 * var(--u)); }
+  .fv--c { top: calc(366 * var(--u)); }
+  .fv--d { top: calc(402 * var(--u)); }
+  .fv--e { top: calc(438 * var(--u)); }
+  .fv--f { top: calc(474 * var(--u)); }
+
+  /* row 2 — פרטי קשר (right) and סניפים (left) */
+  .fc--info    { left: calc(396 * var(--u)); top: calc(540 * var(--u)); width: calc(324 * var(--u)); height: calc(320 * var(--u)); }
+  .fc__t--info { left: calc(420 * var(--u)); top: calc(556 * var(--u)); width: calc(276 * var(--u)); height: calc(64 * var(--u)); }
+  .inf--a { left: calc(452 * var(--u)); top: calc(636 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
+  .inf--b { left: calc(436 * var(--u)); top: calc(688 * var(--u)); width: calc(182 * var(--u)); height: calc(38 * var(--u)); }
+  .inf--c { left: calc(433 * var(--u)); top: calc(740 * var(--u)); width: calc(185 * var(--u)); height: calc(78 * var(--u)); }
+  .ifi    { width: calc(53 * var(--u)); }
+  .ifi--a { left: calc(626 * var(--u)); top: calc(631 * var(--u)); }
+  .ifi--b { left: calc(626 * var(--u)); top: calc(685 * var(--u)); }
+  .ifi--c { left: calc(627 * var(--u)); top: calc(748 * var(--u)); }
+  .hline--i1 { left: calc(433 * var(--u)); top: calc(679 * var(--u)); width: calc(226 * var(--u)); }
+  .hline--i2 { left: calc(433 * var(--u)); top: calc(740 * var(--u)); width: calc(226 * var(--u)); }
+
+  .fc--branch    { left: calc(48 * var(--u)); top: calc(540 * var(--u)); width: calc(324 * var(--u)); height: calc(320 * var(--u)); }
+  .fc__t--branch { left: calc(72 * var(--u)); top: calc(556 * var(--u)); width: calc(276 * var(--u)); height: calc(64 * var(--u)); }
+  .br--a { left: calc(170 * var(--u)); top: calc(634 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
+  .br--b { left: calc(170 * var(--u)); top: calc(686 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
+  .br--c { left: calc(65 * var(--u));  top: calc(738 * var(--u)); width: calc(271 * var(--u)); height: calc(40 * var(--u)); }
+  .br--d { left: calc(65 * var(--u));  top: calc(790 * var(--u)); width: calc(271 * var(--u)); height: calc(40 * var(--u)); }
+  .hline--b1 { left: calc(86 * var(--u)); top: calc(678 * var(--u)); width: calc(250 * var(--u)); }
+  .hline--b2 { left: calc(86 * var(--u)); top: calc(730 * var(--u)); width: calc(250 * var(--u)); }
+  .hline--b3 { left: calc(86 * var(--u)); top: calc(782 * var(--u)); width: calc(250 * var(--u)); }
+
+  /* the closing bar sits beside the boy rather than under him */
+  .foot__bar   { left: calc(290 * var(--u)); top: calc(1000 * var(--u)); width: calc(430 * var(--u)); height: calc(140 * var(--u));
+                 border-radius: calc(34 * var(--u)); border-width: calc(2 * var(--u)); }
+  .foot__bar-t { left: calc(316 * var(--u)); top: calc(1016 * var(--u)); width: calc(378 * var(--u)); height: calc(108 * var(--u)); }
+  .foot__credit{ left: calc(48 * var(--u)); top: calc(1350 * var(--u)); width: calc(672 * var(--u)); height: calc(44 * var(--u)); }
+
+  /* On the three pages that flow, the footer is in the flow too, so the `top`
+     above would be a relative offset that shoves it a whole artboard down the
+     page instead of placing it. It only ever meant anything to the artboards. */
+  .page--do .foot, .page--faq .foot, .page--rec .foot { top: auto; }
+
+  /* ======================================================================
+     אודות
+     ====================================================================== */
+  .page--about { height: calc(8161 * var(--u)); }
+  .page--about .foot { top: calc(6731 * var(--u)); }
+
+  /* --------------------------------------------- intro (0 – 1425) ------- */
+  .ab-intro { top: 0; height: calc(1425 * var(--u)); }
+  .ab-hero__band  { top: calc(-33 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(1060 * var(--u)); }
+  .ab-hero__band2 { top: calc(949 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(492 * var(--u)); }
+
+  .ab-intro__kicker { left: calc(48 * var(--u)); top: calc(150 * var(--u)); width: calc(672 * var(--u)); height: calc(68 * var(--u)); }
+  .ab-intro__title  { left: calc(48 * var(--u)); top: calc(150 * var(--u)); width: calc(672 * var(--u)); height: calc(170 * var(--u)); }
+  .ab-intro__body   { left: calc(48 * var(--u)); top: calc(288 * var(--u)); width: calc(672 * var(--u)); height: calc(300 * var(--u)); }
+  .ab-intro__photo  { left: calc(184 * var(--u)); top: calc(596 * var(--u)); width: calc(400 * var(--u)); height: calc(403 * var(--u)); }
+  .ab-intro__tail   { left: calc(48 * var(--u)); top: calc(1016 * var(--u)); width: calc(672 * var(--u)); height: calc(240 * var(--u));
+                      font-size: calc(20 * var(--u)); line-height: calc(32 * var(--u)); }
+  .ab-intro__sign   { left: calc(48 * var(--u)); top: calc(1272 * var(--u)); width: calc(672 * var(--u)); height: calc(90 * var(--u)); }
+  .ab-intro__role   { left: calc(48 * var(--u)); top: calc(1348 * var(--u)); width: calc(672 * var(--u)); height: calc(32 * var(--u));
+                      font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); }
+
+  /* ------------------------------------------ ממכון קטן (1425 – 2541) --- */
+  .ab-grow        { top: calc(1425 * var(--u)); height: calc(1116 * var(--u)); }
+  .ab-grow > .film{ height: calc(1116 * var(--u)); }
+  .ab-grow__title { left: calc(200 * var(--u)); top: calc(52 * var(--u)); width: calc(520 * var(--u)); height: calc(230 * var(--u)); }
+  .ab-grow__body  { left: calc(48 * var(--u)); top: calc(310 * var(--u)); width: calc(672 * var(--u)); height: calc(430 * var(--u)); }
+  .ab-badge       { left: calc(-20 * var(--u)); top: calc(96 * var(--u)); width: calc(190 * var(--u)); height: calc(190 * var(--u)); }
+
+  /* ---------------------------------------- מה חשוב לנו? (2541 – 4793) -- */
+  /* Five cards: two, two, and the last one centred. */
+  .ab-values        { top: calc(2541 * var(--u)); height: calc(2252 * var(--u)); }
+  .ab-values__title { left: calc(48 * var(--u)); top: calc(1020 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u));
+                      font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
+
+  .vc--c { left: calc(396 * var(--u)); top: calc(1200 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--a { left: calc(48 * var(--u));  top: calc(1200 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--b { left: calc(396 * var(--u)); top: calc(1540 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--e { left: calc(48 * var(--u));  top: calc(1540 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--d { left: calc(222 * var(--u)); top: calc(1880 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+
+  /* two of these run to five lines on a 276 box, so the text block is taller
+     here than the phone's and the cards grew to hold it */
+  .s > .vt { width: calc(276 * var(--u)); text-align: center; }
+  .vt--c { left: calc(420 * var(--u)); top: calc(1322 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--a { left: calc(72 * var(--u));  top: calc(1322 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--b { left: calc(420 * var(--u)); top: calc(1662 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--e { left: calc(72 * var(--u));  top: calc(1662 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--d { left: calc(246 * var(--u)); top: calc(2002 * var(--u)); height: calc(176 * var(--u)); }
+
+  .vi--c { left: calc(522 * var(--u));   top: calc(1224 * var(--u)); width: calc(71.5 * var(--u));  height: calc(84.9 * var(--u)); }
+  .vi--a { left: calc(175.5 * var(--u)); top: calc(1223 * var(--u)); width: calc(69.3 * var(--u));  height: calc(85.7 * var(--u)); }
+  .vi--b { left: calc(516.3 * var(--u)); top: calc(1568 * var(--u)); width: calc(83.6 * var(--u));  height: calc(78.3 * var(--u)); }
+  .vi--e { left: calc(155.5 * var(--u)); top: calc(1568 * var(--u)); width: calc(109.1 * var(--u)); height: calc(78.3 * var(--u)); }
+  .vi--d { left: calc(334 * var(--u));   top: calc(1903 * var(--u)); width: calc(100.2 * var(--u)); height: calc(85.6 * var(--u)); }
+
+  /* ---------------------------------------- הצוות שלנו (4793 – 5719) ---- */
+  .ab-team        { top: calc(4793 * var(--u)); height: calc(926 * var(--u)); }
+  .ab-team__band  { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(926 * var(--u)); }
+  .ab-team__card  { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
+  .ab-team__title { left: calc(96 * var(--u)); top: calc(70 * var(--u)); width: calc(576 * var(--u)); height: calc(150 * var(--u));
+                    font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
+  .ab-team__body  { left: calc(96 * var(--u)); top: calc(226 * var(--u)); width: calc(576 * var(--u)); height: calc(140 * var(--u));
+                    font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+
+  /* three tiles across, which is what the width now allows */
+  .tc--b { left: calc(72 * var(--u));  top: calc(400 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
+           border-radius: calc(26 * var(--u)); }
+  .tc--c { left: calc(288 * var(--u)); top: calc(400 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
+           border-radius: calc(26 * var(--u)); }
+  .tc--a { left: calc(504 * var(--u)); top: calc(400 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
+           border-radius: calc(26 * var(--u)); }
+
+  .tt { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
+  .tt--b { left: calc(80 * var(--u));  top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
+  .tt--c { left: calc(296 * var(--u)); top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
+  .tt--a { left: calc(512 * var(--u)); top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
+
+  .ti--b { left: calc(137 * var(--u)); top: calc(420 * var(--u)); width: calc(70 * var(--u)); height: calc(75 * var(--u)); }
+  .ti--c { left: calc(361 * var(--u)); top: calc(425 * var(--u)); width: calc(54 * var(--u)); height: calc(65 * var(--u)); }
+  .ti--a { left: calc(574 * var(--u)); top: calc(420 * var(--u)); width: calc(61 * var(--u)); height: calc(75 * var(--u)); }
+
+  .ab-team__seal { left: calc(266 * var(--u)); top: calc(640 * var(--u)); width: calc(236 * var(--u)); height: calc(237 * var(--u)); }
+
+  /* ----------------------------------------------- CTA (5719 – 6731) ---- */
+  .ab-cta         { top: calc(5719 * var(--u)); height: calc(1012 * var(--u)); }
+  .ab-cta__band-m { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(971 * var(--u)); }
+  .ab-cta__card   { left: calc(48 * var(--u)); top: calc(360 * var(--u)); width: calc(672 * var(--u)); height: calc(560 * var(--u)); }
+  .ab-cta__title  { left: calc(96 * var(--u)); top: calc(452 * var(--u)); width: calc(576 * var(--u)); height: calc(292 * var(--u));
+                    font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
+  .ab-cta__btn    { left: calc(254 * var(--u)); top: calc(790 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
+                    border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); }
+
+  /* ======================================================================
+     מה אנחנו עושים — this page flows rather than sitting on an artboard,
+     so it only needs the wider gutter and the points paired off.
+     ====================================================================== */
+  .page--do .foot { height: calc(1430 * var(--u)); }
+
+  .page--do .do-hero  { padding: calc(150 * var(--u)) calc(48 * var(--u)) calc(340 * var(--u)); gap: calc(16 * var(--u)); }
+  .page--do .do-hero__sub  { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .page--do .do-hero__body { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+
+  .page--do .do-focus { padding: calc(72 * var(--u)) calc(48 * var(--u)) calc(48 * var(--u)); }
+  .page--do .fc-pic   { width: calc(300 * var(--u)); height: calc(300 * var(--u)); margin-top: calc(32 * var(--u)); }
+  .page--do .fc-t     { font-size: calc(34 * var(--u)); line-height: calc(50 * var(--u)); }
+  .page--do .fc-l     { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+
+  .page--do .do-proc  { padding: calc(96 * var(--u)) calc(48 * var(--u)) calc(96 * var(--u)); gap: calc(26 * var(--u)); }
+  .page--do .st       { padding-right: calc(96 * var(--u)); min-height: calc(104 * var(--u)); }
+  .page--do .st__n    { width: calc(68 * var(--u)); font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); }
+  .page--do .st__ring { top: calc(32 * var(--u)); width: calc(68 * var(--u)); height: calc(68 * var(--u)); }
+  .page--do .st__ico  { right: calc(34 * var(--u)); top: calc(66 * var(--u)); transform: translate(50%, -50%) scale(.7); }
+  .page--do .st__x    { font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); }
+
+  .page--do .do-cards { padding: calc(72 * var(--u)) calc(48 * var(--u)) calc(72 * var(--u)); }
+  .page--do .dc-t     { font-size: calc(34 * var(--u)); line-height: calc(46 * var(--u)); margin-top: calc(36 * var(--u)); }
+  .page--do .dc-pic   { height: calc(380 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .page--do .dc-x     { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+
+  /* the eight points pair off, which is the whole reason this page gains a
+     screen of height back */
+  .page--do .do-gets { padding: calc(88 * var(--u)) calc(48 * var(--u)) calc(72 * var(--u));
+                       flex-flow: row wrap; justify-content: space-between;
+                       gap: calc(18 * var(--u)) calc(24 * var(--u)); }
+  .page--do .do-gets > * { width: 100%; }
+  .page--do .do-gets__sub { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .page--do .gp      { width: calc(50% - 12 * var(--u)); min-height: calc(84 * var(--u)); align-items: flex-start; }
+  .page--do .gp__t   { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u)); flex-basis: calc(100% - 100 * var(--u)); }
+  .page--do .gp__x   { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); flex-basis: calc(100% - 100 * var(--u)); }
+
+  .page--do .funds    { padding: calc(32 * var(--u)) calc(28 * var(--u)); margin-top: calc(40 * var(--u)); width: 100%; }
+  .page--do .funds__t { font-size: calc(30 * var(--u)); line-height: calc(40 * var(--u)); }
+  .page--do .funds__x { font-size: calc(22 * var(--u)); line-height: calc(32 * var(--u)); }
+  .page--do .fund     { height: calc(48 * var(--u)); }
+
+  /* ======================================================================
+     שאלות ותשובות — flows, with the hero and the closing block as their own
+     little artboards, both restated on 768.
+     ====================================================================== */
+  .page--faq .foot { height: calc(1430 * var(--u)); }
+
+  .page--faq .fq-hero { height: calc(600 * var(--u)); }
+  .page--faq .fq-grad--a { left: calc(-40 * var(--u)); top: calc(500 * var(--u));
+                           width: calc(848 * var(--u)); height: calc(1524 * var(--u)); }
+  .page--faq .fq-hero__film { left: calc(-40 * var(--u)); top: calc(268 * var(--u));
+                              width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
+  .page--faq .fq-hero__t    { left: calc(48 * var(--u)); top: calc(96 * var(--u));
+                              width: calc(672 * var(--u)); height: calc(180 * var(--u));
+                              font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
+  .page--faq .fq-hero__sub  { left: calc(392 * var(--u)); top: calc(330 * var(--u));
+                              width: calc(328 * var(--u)); height: calc(160 * var(--u));
+                              font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .page--faq .fq-hero__check{ left: calc(340 * var(--u)); top: calc(352 * var(--u));
+                              width: calc(54 * var(--u)); height: calc(31 * var(--u)); }
+
+  .page--faq .fq-list-sec { padding: 0 0 calc(32 * var(--u)); }
+  /* the list is centred by its own width; the phone's left offset applied on
+     top of that pushed it off the column */
+  .page--faq .faq__list   { left: 0; width: calc(672 * var(--u)); margin-inline: auto; }
+
+  .page--faq .moreq          { height: calc(540 * var(--u)); }
+  .page--faq .moreq__boy     { left: calc(376 * var(--u)); top: 0; width: calc(280 * var(--u)); height: calc(498 * var(--u)); }
+  .page--faq .moreq__photo   { left: calc(384 * var(--u)); top: calc(40 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u)); }
+  .page--faq .moreq__ellipse { left: calc(60 * var(--u)); top: calc(110 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
+  .page--faq .moreq__t       { left: calc(48 * var(--u)); top: calc(46 * var(--u)); width: calc(300 * var(--u)); height: calc(232 * var(--u));
+                               font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
+  .page--faq .moreq__sub     { left: calc(48 * var(--u)); top: calc(288 * var(--u)); width: calc(300 * var(--u)); height: calc(100 * var(--u));
+                               font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .page--faq .moreq__btn2    { left: calc(48 * var(--u)); top: calc(404 * var(--u)); width: calc(240 * var(--u)); height: calc(52 * var(--u));
+                               border-radius: calc(26 * var(--u)); font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+  .page--faq .moreq__film    { left: calc(46 * var(--u)); top: calc(50 * var(--u));
+                               width: calc(199 * var(--u)); height: calc(374 * var(--u)); }
+
+  /* ======================================================================
+     המלצות — the wall goes back to two columns, which is what these
+     screenshots were shot for.
+     ====================================================================== */
+  .page--rec .foot { height: calc(1430 * var(--u)); }
+
+  .page--rec .rec-top { padding: calc(150 * var(--u)) calc(48 * var(--u)) calc(48 * var(--u)); gap: calc(16 * var(--u)); }
+  .page--rec .rec-top__sub { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+
+  .page--rec .rec-wall { padding: calc(16 * var(--u)) calc(40 * var(--u)) calc(56 * var(--u));
+                         flex-flow: row wrap; align-items: flex-start;
+                         gap: calc(20 * var(--u)) calc(20 * var(--u)); }
+  .page--rec .rw       { width: calc(50% - 10 * var(--u)); }
+
+  /* ======================================================================
+     יצירת קשר — an artboard on every frame. The ten fields pair off, which
+     lifts the boy and everything under him by 302.
+     ====================================================================== */
+  .page--contact { height: calc(3568 * var(--u)); }
+  /* the height too, or the phone sheet's taller footer wins on specificity */
+  .page--contact .foot { top: calc(2138 * var(--u)); height: calc(1430 * var(--u)); }
+
+  .ct { top: 0; height: calc(1360 * var(--u)); }
+
+  .ct__bg    { left: calc(-20 * var(--u)); top: calc(-26 * var(--u)); width: calc(808 * var(--u)); height: calc(940 * var(--u)); }
+  .ct__bg > img { left: calc(-1180 * var(--u)); top: calc(0.35 * var(--u));
+                  width: calc(2320 * var(--u)); height: calc(1810 * var(--u)); }
+  .ct__under { left: calc(-40 * var(--u)); top: calc(900 * var(--u)); width: calc(848 * var(--u)); height: calc(1210 * var(--u)); }
+  .ct__boy   { left: calc(60 * var(--u)); top: calc(901 * var(--u)); width: calc(430 * var(--u)); height: calc(426 * var(--u)); }
+
+  .ct__panel { left: calc(48 * var(--u)); top: calc(120 * var(--u)); width: calc(672 * var(--u)); height: calc(840 * var(--u));
+               border-radius: calc(24 * var(--u)); }
+  .ct__kicker{ left: calc(96 * var(--u)); top: calc(152 * var(--u)); width: calc(576 * var(--u)); height: calc(36 * var(--u));
+               font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
+  .ct__t     { left: calc(96 * var(--u)); top: calc(196 * var(--u)); width: calc(576 * var(--u)); height: calc(100 * var(--u));
+               font-size: calc(64 * var(--u)); line-height: calc(60 * var(--u)); }
+  .ct__lead  { left: calc(96 * var(--u)); top: calc(306 * var(--u)); width: calc(576 * var(--u)); height: calc(80 * var(--u));
+               font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+
+  .ct__form  { left: calc(84 * var(--u)); top: calc(398 * var(--u)); width: calc(600 * var(--u)); height: calc(476 * var(--u));
+               border-radius: calc(20 * var(--u)); }
+  .cf        { border-radius: calc(8 * var(--u)); }
+  .cf input, .cf textarea { padding: 0 calc(56 * var(--u)) 0 calc(18 * var(--u));
+                            font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+  .cf textarea { padding-top: calc(18 * var(--u)); }
+  .cf label  { right: calc(56 * var(--u)); top: calc(16 * var(--u));
+               font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+  .cf > .ico { right: calc(14 * var(--u)); top: calc(10 * var(--u)); width: calc(38 * var(--u)); }
+
+  /* four pairs, then the address and the message full width */
+  .cf--child   { left: calc(308 * var(--u)); top: calc(16 * var(--u));  width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--surname { left: calc(4 * var(--u));   top: calc(16 * var(--u));  width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--id      { left: calc(308 * var(--u)); top: calc(86 * var(--u));  width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--dob     { left: calc(4 * var(--u));   top: calc(86 * var(--u));  width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--mphone  { left: calc(308 * var(--u)); top: calc(156 * var(--u)); width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--fphone  { left: calc(4 * var(--u));   top: calc(156 * var(--u)); width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--lang    { left: calc(308 * var(--u)); top: calc(226 * var(--u)); width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--area    { left: calc(4 * var(--u));   top: calc(226 * var(--u)); width: calc(288 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--mail    { left: calc(4 * var(--u));   top: calc(296 * var(--u)); width: calc(592 * var(--u)); height: calc(56 * var(--u)); }
+  .cf--msg     { left: calc(4 * var(--u));   top: calc(366 * var(--u)); width: calc(592 * var(--u)); height: calc(94 * var(--u)); }
+
+  .pick__btn { padding: 0 calc(56 * var(--u)) 0 calc(44 * var(--u));
+               font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+  .cf__chev  { left: calc(14 * var(--u)); width: calc(17 * var(--u)); }
+  .pick__opt { padding: calc(10 * var(--u)) calc(44 * var(--u)) calc(10 * var(--u)) calc(18 * var(--u));
+               font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u));
+               border-radius: calc(10 * var(--u)); }
+
+  .ct__submit { left: calc(264 * var(--u)); top: calc(886 * var(--u)); width: calc(240 * var(--u)); height: calc(52 * var(--u));
+                border-radius: calc(26 * var(--u)); font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
+
+  /* the two cards under the form */
+  .ct-bar    { left: calc(48 * var(--u)); width: calc(672 * var(--u)); height: calc(344 * var(--u)); border-radius: calc(34 * var(--u)); }
+  .ct-bar__t { font-size: calc(44 * var(--u)); line-height: calc(64 * var(--u)); height: calc(78 * var(--u)); }
+  .cdx { font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); }
+  .cb  { font-size: calc(22 * var(--u)); line-height: calc(38 * var(--u)); }
+
+  .ct-det { top: calc(1360 * var(--u)); height: calc(344 * var(--u)); }
+  .ct-det .ct-bar__t { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); }
+  .cd { width: calc(54 * var(--u)); }
+  .cd--phone { left: calc(556 * var(--u)); top: calc(92 * var(--u)); }
+  .cd--mail  { left: calc(556 * var(--u)); top: calc(167 * var(--u)); width: calc(54 * var(--u)); }
+  .cd--clock { left: calc(556 * var(--u)); top: calc(245 * var(--u)); width: calc(54 * var(--u)); }
+  .cdx--phone { left: calc(300 * var(--u)); top: calc(106 * var(--u)); width: calc(240 * var(--u)); height: calc(40 * var(--u)); }
+  .cdx--mail  { left: calc(232 * var(--u)); top: calc(172 * var(--u)); width: calc(308 * var(--u)); height: calc(40 * var(--u)); }
+  .cdx--clock { left: calc(200 * var(--u)); top: calc(232 * var(--u)); width: calc(340 * var(--u)); height: calc(76 * var(--u)); }
+
+  .ct-br { top: calc(1754 * var(--u)); height: calc(344 * var(--u)); }
+  .ct-br .ct-bar__t { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); line-height: calc(78 * var(--u)); }
+  .cb--1 { left: calc(400 * var(--u)); top: calc(114 * var(--u)); width: calc(240 * var(--u)); height: calc(40 * var(--u)); }
+  .cb--2 { left: calc(360 * var(--u)); top: calc(168 * var(--u)); width: calc(280 * var(--u)); height: calc(40 * var(--u)); }
+  .cb--3 { left: calc(128 * var(--u)); top: calc(222 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
+  .cb--4 { left: calc(128 * var(--u)); top: calc(282 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
+
+  /* ======================================================================
+     רוצים לבדוק אם התהליך מתאים — the shared CTA artboard, on 768
+     ====================================================================== */
+  .page--do .do-cta, .page--rec .rec-cta { width: calc(768 * var(--u)); height: calc(1131 * var(--u)); }
+
+  .page--do .do-cta::before, .page--rec .rec-cta::before {
+    left: calc(-64 * var(--u)); top: calc(-58 * var(--u));
+    width: calc(896 * var(--u)); height: calc(560 * var(--u));
+  }
+  .page--do .do-cta::after, .page--rec .rec-cta::after {
+    top: calc(965 * var(--u)); width: calc(900 * var(--u)); height: calc(166 * var(--u));
+  }
+  /* the strip slides to keep the boy in the middle of the wider window */
+  .page--do .do-cta > .film, .page--rec .rec-cta > .film {
+    left: calc(-868 * var(--u)); top: calc(455 * var(--u));
+    width: calc(1641 * var(--u)); height: calc(512 * var(--u));
+  }
+  .page--do .do-cta__t, .page--rec .do-cta__t {
+    left: calc(48 * var(--u)); top: calc(150 * var(--u));
+    width: calc(672 * var(--u)); height: calc(230 * var(--u));
+    font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u));
+  }
+  .page--do .do-cta__sub, .page--rec .do-cta__sub {
+    left: calc(48 * var(--u)); top: calc(400 * var(--u));
+    width: calc(672 * var(--u)); height: calc(72 * var(--u));
+    font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u));
+  }
+  .page--do .do-cta__btn, .page--rec .do-cta__btn {
+    left: calc(254 * var(--u)); top: calc(1000 * var(--u));
+    width: calc(260 * var(--u)); height: calc(56 * var(--u));
+    border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u));
+  }
+
+  /* ------------------------------------------------------- the dialogs -- */
+  .thanks__card { width: min(calc(520 * var(--u)), 76vw); }
+  .thanks--err .thanks__card { width: min(calc(520 * var(--u)), 76vw); }
+}

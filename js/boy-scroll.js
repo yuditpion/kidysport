@@ -18,6 +18,12 @@
    still lands exactly on the Figma position at each section boundary — the
    poses are measured by their alpha bounding box, as before.
 
+   The first leap is no longer one of these. Scrolling out of the hero now
+   scrubs a clip that was rendered for it (seq_r, driven by do-scroll.js),
+   which runs the boy over the ladder and ends on him catching the ball —
+   the pose the next section already draws. So the chain here starts at that
+   section instead, and picks the boy up where the clip sets him down.
+
    Respects prefers-reduced-motion: the static poses stay as they are.
    ========================================================================== */
 (function () {
@@ -33,19 +39,17 @@
      ball pose in the strength-cards band, so there it is five poses: that
      extra leap is a "hold" — same pose at both ends, so the boy travels
      without a pose change. */
-  var heroBoy   = document.querySelector('.hero__boy');
   var howBoy    = document.querySelector('.how__boy');
   var whatisBoy = document.querySelector('.whatis__boy');
   var strengthBoy = document.querySelector('.strength__boy');
   var planBoy   = document.querySelector('.plan__boy');
 
-  var secHero   = document.getElementById('hero');
   var secHow    = document.getElementById('how');
   var secWhatis = document.getElementById('what-is');
   var secPlan   = document.getElementById('plan');
 
-  if (!heroBoy || !howBoy || !whatisBoy || !planBoy ||
-      !secHero || !secHow || !secWhatis || !secPlan) return;
+  if (!howBoy || !whatisBoy || !planBoy ||
+      !secHow || !secWhatis || !secPlan) return;
 
   var statics = [];   // anchor elements, in order
   var segs    = [];   // {hold} per gap between anchors
@@ -59,18 +63,16 @@
       window.getComputedStyle(strengthBoy).display !== 'none';
 
     if (useStrength) {
-      statics  = [heroBoy, howBoy, whatisBoy, strengthBoy, planBoy];
+      statics  = [howBoy, whatisBoy, strengthBoy, planBoy];
       boundFns = [
-        function () { return pageTop(secHero); },
         function () { return pageTop(secHow); },
         function () { return pageTop(secWhatis); },
         function () { return pageBottom(secWhatis); },   /* strength band starts */
         function () { return pageTop(secPlan); }
       ];
     } else {
-      statics  = [heroBoy, howBoy, whatisBoy, planBoy];
+      statics  = [howBoy, whatisBoy, planBoy];
       boundFns = [
-        function () { return pageTop(secHero); },
         function () { return pageTop(secHow); },
         function () { return pageTop(secWhatis); },
         function () { return pageTop(secPlan); }

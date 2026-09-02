@@ -189,8 +189,13 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .hero__btn1{ left: calc(368 * var(--u)); top: calc(672 * var(--u)); width: calc(267 * var(--u)); }
 .hero__btn2{ left: calc(650 * var(--u)); top: calc(672 * var(--u)); width: calc(261 * var(--u)); }
 
-.hero__boy    { left: calc(985 * var(--u)); top: calc(168 * var(--u)); width: calc(537 * var(--u)); height: calc(788 * var(--u)); z-index: 3; }
-.hero__sticks { left: calc(985 * var(--u)); top: calc(962 * var(--u)); width: calc(436 * var(--u)); z-index: 2; }
+/* The running clip replaces the boy and the ladder that used to stand here as
+   two stills. It is rendered on this very artboard — 1920x1080, with the boy
+   in its first frame at 1024,168, which is where the still had him — so it is
+   laid in at the artboard's own origin and needs no fitting. It carries alpha,
+   so the copy and the badge beside it read straight through. */
+.hero__film { left: 0; top: 0; width: calc(1920 * var(--u)); height: calc(1080 * var(--u));
+              z-index: 3; pointer-events: none; }
 
 .hero__badge    { left: calc(1572 * var(--u)); top: calc(352 * var(--u)); width: calc(238 * var(--u)); height: calc(238 * var(--u)); }
 .hero__badge-ic { left: calc(1646 * var(--u)); top: calc(394 * var(--u)); width: calc(89 * var(--u)); z-index: 3; }

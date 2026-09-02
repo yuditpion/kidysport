@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/tablet.css">
 </head>
 <body>
   <a class="wa" href="contact.html" aria-label="וואטסאפ"><img src="assets/icons/whatsapp.webp" alt=""></a>
@@ -49,7 +50,7 @@
 
 
   <!-- ============================ HERO ============================ -->
-  <section class="s hero" id="hero">
+  <section class="s hero" id="hero" data-film="r" data-frames="30" data-film-mode="enter" data-film-end="0.62" data-film-ext="webp">
     <img class="hero__bg bleed" src="assets/img/bg-clouds.webp" alt="" aria-hidden="true">
     <div class="hero__strip" aria-hidden="true"><img src="assets/img/bg-clouds.webp" alt=""></div>
     <img class="hero__vector" src="assets/img/hero-vector.svg" alt="" aria-hidden="true">
@@ -65,8 +66,15 @@
     <a class="hero__btn1 btn btn--orange"  href="#contact"><span class="btn__label">לפרטים והרשמה</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
     <a class="hero__btn2 btn btn--outline" href="#founder"><span class="btn__label">קצת עלינו</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></a>
 
-    <img class="hero__boy boy-static" src="assets/img/running-boy-hero.webp" alt="ילד רץ מעל מקלות">
-    <img class="hero__sticks" src="assets/img/sticks-hero.webp" alt="" aria-hidden="true">
+    <!-- The clip carries the boy and the ladder both, which is why it replaces
+         the pair of stills rather than just the boy. It is drawn on the same
+         1920x1080 artboard as this section, so its opening frame lands the boy
+         exactly where the still had him. The still stays as the poster: it is
+         what shows before the frames decode, and with reduced motion. -->
+    <div class="hero__film film" aria-hidden="true">
+      <img class="film__still" src="assets/seq/seq_r_000.webp" alt="">
+      <canvas class="film__canvas"></canvas>
+    </div>
 
     <div class="hero__badge glass"></div>
     <span class="hero__badge-ic ico" aria-hidden="true"><img src="assets/icons/person-heart.webp" alt=""><img class="ico__on" src="assets/icons/person-heart--hover.webp" alt="" aria-hidden="true"></span>

@@ -9,6 +9,11 @@
    `data-film-mode` picks how the clip is driven:
      scroll     (default) — the section's pinned stretch, so it holds the
                             opening frame until the section fills the screen
+     enter               — the section's own height: the clip sits on its
+                            first frame while the section is at the top of the
+                            screen and runs as the section scrolls away, for a
+                            hero that is only about a viewport tall and so has
+                            no pinned stretch for `scroll` to measure
      visibility          — from 70% of a short section being on screen to all
                             of it, for backdrops that are not pinned
      loop                — not scrubbed; plays while the section is on screen
@@ -199,7 +204,15 @@
         }
 
         var p;
-        if (mode === 'visibility') {
+        if (mode === 'enter') {
+          /* The hero is about one viewport tall, so it has no pinned stretch:
+             `scroll` would divide by a travel of nearly nothing and start the
+             clip halfway through. Progress here is simply how far the section
+             has scrolled up out of its own height — 0 with the page at the
+             top, 1 once the section has gone by — which is exactly "still
+             while you are looking at it, running as you leave it". */
+          p = r.height > 0 ? (-r.top) / r.height : 0;
+        } else if (mode === 'visibility') {
           /* how much of the section is on screen, 0..1 */
           var shown = Math.min(r.bottom, vh) - Math.max(r.top, 0);
           var vis = shown / Math.min(r.height, vh);
