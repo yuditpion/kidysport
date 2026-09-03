@@ -159,6 +159,10 @@
 .st-rule--7 { top: calc(2175 * var(--u)); }
 
 /* ====================== שלוש כרטיסיות (4253 – 5088) ====================== */
+/* Empty on this artboard: the health-fund bar stays inside the pinned scene
+   here, and app.js only moves it into this host below 1200. */
+.do-funds { display: none; }
+
 /* The wrapper only exists for the tablet and phone artboards. Here it is
    taken out of the box tree so the picture and the copy stay direct children
    of the section and keep the coordinates below.

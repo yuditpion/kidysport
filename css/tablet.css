@@ -731,11 +731,15 @@
   }
   .page--do .gets-stage > .film {
     position: absolute; inset: auto; margin-bottom: 0;
-    left: calc(-491 * var(--uu)); top: calc(-1 * var(--uu));
+    /* The frame hangs it at -1, which puts the boy's head 167 below the line
+       under the title — the upper half of the picture is empty wall. He sits a
+       quarter of the way down his own frame, so lifting the clip 127 brings him
+       up under the title and crops that wall off the top. */
+    left: calc(-491 * var(--uu)); top: calc(-128 * var(--uu));
     width: calc(1952 * var(--uu));
     /* the frame's height, or the stage's if that is taller — the clip is set
        to cover, so a taller box simply shows less of its width */
-    height: max(calc(1221 * var(--uu)), 100%);
+    height: max(calc(1221 * var(--uu)), calc(100% + 128 * var(--uu)));
   }
   /* the frames draw no leader lines */
   .page--do .gl { display: none; }
@@ -801,8 +805,17 @@
   /* The frame puts this at 880 of 1194. The stage is a screen tall now rather
      than 1194, so it hangs off the stage's foot instead — same distance up
      from the bottom edge the frame gives it. */
+  /* Its own section after the scene now, not a panel over it: app.js moves the
+     bar into .do-funds below 1200. The host carries the same design pixel the
+     scene does, since the bar is drawn on the 834 frame. */
+  .page--do .do-funds {
+    --uu: min(1.10504px, calc(var(--vwc) / 834));
+    display: block; position: relative; top: auto; left: auto;
+    width: calc(834 * var(--uu)); margin-inline: auto; height: auto;
+    padding: calc(40 * var(--uu)) 0 calc(48 * var(--uu));
+  }
   .page--do .funds {
-    left: calc(36 * var(--uu)); top: auto; bottom: calc(50 * var(--uu));
+    position: relative; left: auto; top: auto; bottom: auto; margin-inline: auto;
     width: calc(762 * var(--uu)); height: calc(264 * var(--uu));
     border-radius: calc(30 * var(--uu)); padding: 0; margin-top: 0;
   }

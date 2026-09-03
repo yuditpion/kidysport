@@ -355,13 +355,18 @@
     top: 0; height: calc(199 * var(--u));
     background: #cad7e1;
   }
+  /* The frame hangs the clip at 188, which puts the boy's head 215 below the
+     line under the title — the whole upper half of the picture is empty wall.
+     He is a quarter of the way down his own frame, so lifting the clip 178
+     brings him up under the title with the wall cropped off the top, where the
+     band covers it anyway. */
   .page--do .gets-stage > .film {
-    position: absolute; inset: auto; top: calc(188 * var(--u));
+    position: absolute; inset: auto; top: calc(10 * var(--u));
     left: calc(-512 * var(--u)); margin-bottom: 0;
     width: calc(1426 * var(--u));
     /* the frame's height, or whatever reaches the stage's foot if that is
        lower — the clip is set to cover, so a taller box shows less width */
-    height: max(calc(892 * var(--u)), calc(100% - 188 * var(--u)));
+    height: max(calc(892 * var(--u)), calc(100% - 10 * var(--u)));
   }
   /* the frames draw no leader lines */
   .page--do .gl { display: none; }
@@ -422,9 +427,17 @@
   /* The frame puts this at 912 of 1356. The stage is a screen tall now rather
      than 1356, so it hangs off the stage's foot instead — the same distance up
      from the bottom edge the frame gives it. */
+  /* Its own section after the scene now, not a panel over it: app.js moves
+     the bar into .do-funds below 1200, so it scrolls in after the clip has
+     had its say instead of sitting on top of it the whole way down. */
+  .page--do .do-funds {
+    display: block; position: relative; top: auto; left: auto;
+    width: calc(402 * var(--u)); margin-inline: auto; height: auto;
+    padding: calc(28 * var(--u)) 0 calc(36 * var(--u));
+  }
   .page--do .funds {
-    display: block; position: absolute;
-    left: calc(13 * var(--u)); top: auto; bottom: calc(40 * var(--u));
+    display: block; position: relative;
+    left: auto; top: auto; bottom: auto; margin-inline: auto;
     width: calc(377 * var(--u)); height: calc(361 * var(--u));
     border-radius: calc(30 * var(--u)); padding: 0; margin-top: 0; gap: 0;
   }

@@ -87,6 +87,24 @@
     syncFaqHeight();
   }
 
+  /* --- the health-fund bar -----------------------------------------------
+     The desktop artboard draws it as a panel over the pinned scene, so it has
+     to be inside the stage there. The phone and tablet frames put it after the
+     scene, in a section of its own, where a child of a pinned box cannot go.
+     Rather than carry the bar twice in the markup, the one bar moves. */
+  var fundsBar   = document.querySelector('.funds');
+  var fundsHost  = document.querySelector('.do-funds');
+  var fundsStage = document.querySelector('.gets-stage');
+  if (fundsBar && fundsHost && fundsStage) {
+    var wide = window.matchMedia('(min-width: 1200px)');
+    var placeFunds = function () {
+      (wide.matches ? fundsStage : fundsHost).appendChild(fundsBar);
+    };
+    if (wide.addEventListener) wide.addEventListener('change', placeFunds);
+    else if (wide.addListener) wide.addListener(placeFunds);
+    placeFunds();
+  }
+
   /* --- smooth in-page navigation --------------------------------------- */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click', function (e) {
