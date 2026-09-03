@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kidysport â ×× ×× ×× × ×¢××©××, mobile.
+   Kidysport — מה אנחנו עושים, mobile.
 
    This page has no mobile frame in the Figma file, so the layout below is an
    adaptation rather than a trace. It keeps the desktop page's colours, type
@@ -28,7 +28,7 @@
   .page--do .foot { position: relative; top: auto; height: calc(1852 * var(--u)); }
 
   /* Every child joins the flow except the pinned stage and the backdrop art.
-     The exclusions sit in `:where()` so they add no specificity â otherwise
+     The exclusions sit in `:where()` so they add no specificity — otherwise
      this rule out-ranks the per-element sizes further down and every photo
      falls back to `height: auto`. */
   .page--do .s:where(:not(.foot)):where(:not(.do-cta)) > :where(:not(.film)):where(:not(.bg-art)) {
@@ -52,7 +52,7 @@
   .page--do .gets-stage > .film { height: 100vh; margin-bottom: -100vh; }
 
   /* ------------------------------------------------------------- hero ----
-     Figma "iPhone 17 - 16" (1033:292), drawn on a 402 frame â the same width
+     Figma "iPhone 17 - 16" (1033:292), drawn on a 402 frame — the same width
      this artboard uses, so every number below is Figma's own.
 
      The one departure: the frame has no header in it, and its title sits at
@@ -80,7 +80,7 @@
   /* Figma crops this photo rather than fitting it: the fill is 1277.96 x
      712.98 inside a 633 x 641 window at -84, 357. The picture is the same
      2271 x 1266 original, so the crop is reproduced by placing the whole
-     picture at that size and cutting the window out of it â the top edge
+     picture at that size and cutting the window out of it — the top edge
      where the ground shows through, the bottom where the frame ends.
      Left and right are left uncut so it bleeds; the right edge follows the
      window until the screen is wide enough to need more. */
@@ -121,7 +121,7 @@
   .page--do .do-focus { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(40 * var(--u)); gap: calc(6 * var(--u)); }
   .page--do .do-focus__t { text-align: center; margin-bottom: calc(20 * var(--u)); }
 
-  /* one column: picture, heading, list â four times over */
+  /* one column: picture, heading, list — four times over */
   .page--do .fc-pic { width: calc(220 * var(--u)); height: calc(220 * var(--u)); margin-top: calc(26 * var(--u)); }
   .page--do .fc-t   { font-size: calc(30 * var(--u)); line-height: calc(46 * var(--u)); height: auto; text-align: center; }
   .page--do .fc-l   { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); text-align: center; }
@@ -142,7 +142,7 @@
   .page--do .fc-l--behav     { order: 12; }
 
   /* ----------------------------------------------------------- process ---
-     Figma "iPhone 17 - 15" (1032:107), a 402 frame â the width this artboard
+     Figma "iPhone 17 - 15" (1032:107), a 402 frame — the width this artboard
      already uses, so every number here is Figma's own.
 
      No clip on this artboard. The frame draws the section as flat layers: the
@@ -227,7 +227,7 @@
     font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u));
     text-align: right; color: var(--white);
   }
-  /* Figma sets the paragraphs solid and all at one weight â the box heights it
+  /* Figma sets the paragraphs solid and all at one weight — the box heights it
      draws are exactly the line count times 22. */
   .page--do .st__x p + p { margin-top: 0; }
   .page--do .st__x strong { font-weight: 400; }
@@ -260,7 +260,7 @@
   /* Step 2 is the one paragraph the frame's 272 does not reproduce: the Hebrew
      fallback face runs a little wide and it spills onto a ninth line. Widened
      to the left, off the same right edge the frame gives it, so the extra room
-     goes on the ragged side where nothing shows â the same fix do.css already
+     goes on the ragged side where nothing shows — the same fix do.css already
      applies to this step on the desktop artboard. */
   .page--do .st--2 .st__x { left: calc(45 * var(--u));  top: calc(950 * var(--u));  width: calc(288 * var(--u)); height: calc(176 * var(--u)); }
   .page--do .st--3 .st__x { left: calc(58 * var(--u));  top: calc(1312 * var(--u)); width: calc(275 * var(--u)); height: calc(154 * var(--u)); }
@@ -283,7 +283,7 @@
   /* ------------------------------------------------------------- cards ---
      A heading over a card, the copy on the right of the card and the picture
      on the left of it. The card's fill is that picture's own ground, read off
-     each file (#e6f2fc, #c4e2fc, #c8def4) â which is why the middle one is the
+     each file (#e6f2fc, #c4e2fc, #c8def4) — which is why the middle one is the
      bluest, and why the picture meets the card with no seam. The desktop
      artboard already tints its half-panels with the same three. */
   .page--do .do-cards { padding: calc(40 * var(--u)) calc(29 * var(--u)) calc(44 * var(--u)); gap: 0; }
@@ -304,7 +304,7 @@
   .page--do .dc-card--c { --tint: #c8def4; }
 
   /* first column is the right one here, so the copy takes it and the picture
-     the second â the way round her layout has them */
+     the second — the way round her layout has them */
   .page--do .dc-x   { grid-column: 1; grid-row: 1; position: static; width: auto; height: auto;
                       font-size: calc(16 * var(--u)); line-height: calc(22 * var(--u)); text-align: right; }
   /* both pinned to the one row: auto-placement will not step back to an
@@ -322,21 +322,28 @@
      leaving as the second four arrive in the same band. The swap is in
      do-scroll.js; every coordinate below is the frame's own.
 
-     Nothing is pinned here: the frame is 1356 tall against a phone screen, and
-     a pinned box taller than the window leaves its own foot unreachable. It
-     scrolls, and the points change as it passes. */
-  .page--do .gets-stage { display: block; position: static;
-                          width: 100%; height: 100%; }
+     The picture stays put and the copy moves over it. The stage is a screen
+     tall rather than the frame's 1356, so that it always fits — a pinned box
+     taller than the window leaves its own foot unreachable. */
+  .page--do .s > .gets-stage {
+    display: block; position: sticky; top: var(--hdr-bottom); left: 0;
+    width: 100%; height: calc(100vh - var(--hdr-bottom));
+    /* vertical only — the clip and the band still bleed past the column */
+    clip-path: inset(0 -100vw);
+  }
   .page--do .gets-stage > * { position: absolute; }
 
   .page--do .s.do-gets:not(.foot):not(.do-cta) {
     display: block; position: relative;
     width: calc(402 * var(--u)); margin-inline: auto;
-    height: calc(1356 * var(--u));
+    /* the pinned travel is what paces the reveal — see the tablet sheet */
+    height: calc(3.4 * (100vh - var(--hdr-bottom)));
     padding: 0; gap: 0;
   }
-  /* the band the heading sits on, edge to edge */
-  .page--do .do-gets::before {
+  /* the band the heading sits on, edge to edge. On the stage rather than the
+     section: the section is three screens tall now, and the band belongs to
+     the part that holds still. */
+  .page--do .gets-stage::before {
     content: ''; position: absolute; z-index: 0;
     left: 50%; transform: translateX(-50%);
     width: max(var(--vwc), calc(440 * var(--u)));
@@ -346,7 +353,10 @@
   .page--do .gets-stage > .film {
     position: absolute; inset: auto; top: calc(188 * var(--u));
     left: calc(-512 * var(--u)); margin-bottom: 0;
-    width: calc(1426 * var(--u)); height: calc(892 * var(--u));
+    width: calc(1426 * var(--u));
+    /* the frame's height, or whatever reaches the stage's foot if that is
+       lower — the clip is set to cover, so a taller box shows less width */
+    height: max(calc(892 * var(--u)), calc(100% - 188 * var(--u)));
   }
   /* the frames draw no leader lines */
   .page--do .gl { display: none; }
@@ -404,9 +414,12 @@
 
   /* Health funds. The offsets inside are the frame's less the glass border,
      since absolutely-placed children resolve against the padding box. */
+  /* The frame puts this at 912 of 1356. The stage is a screen tall now rather
+     than 1356, so it hangs off the stage's foot instead — the same distance up
+     from the bottom edge the frame gives it. */
   .page--do .funds {
     display: block; position: absolute;
-    left: calc(13 * var(--u)); top: calc(912 * var(--u));
+    left: calc(13 * var(--u)); top: auto; bottom: calc(40 * var(--u));
     width: calc(377 * var(--u)); height: calc(361 * var(--u));
     border-radius: calc(30 * var(--u)); padding: 0; margin-top: 0; gap: 0;
   }
@@ -415,9 +428,11 @@
                         width: calc(342 * var(--u)); height: calc(130 * var(--u));
                         white-space: normal; text-align: center;
                         font-size: calc(40 * var(--u)); line-height: calc(39 * var(--u)); }
+  /* one line, always: the box the frame draws is only just wide enough for
+     it at 40, and our Hebrew face runs wider than the one Figma sets */
   .page--do .funds__x { left: calc(12.4 * var(--u)); top: calc(117.4 * var(--u));
                         width: calc(339 * var(--u)); height: calc(59 * var(--u));
-                        text-align: center; margin-bottom: 0;
+                        text-align: center; margin-bottom: 0; white-space: nowrap;
                         font-size: calc(40 * var(--u)); line-height: calc(38 * var(--u)); }
   .page--do .fund { width: auto; }
   .page--do .fund--maccabi { left: calc(30.4 * var(--u));  top: calc(207.4 * var(--u)); width: calc(133.59 * var(--u)); height: calc(50.84 * var(--u)); }

@@ -56,6 +56,13 @@
   /* the three pages that flow rather than sitting on an artboard keep
      sizing to their own content */
   .page--do, .page--faq, .page--rec { height: auto; }
+  /* Their footers are the one part of those pages still laid out on the
+     artboard, so they are made `position: relative` to sit at the end of the
+     flow — and on a relative box the `left` above stops placing the column and
+     starts nudging it sideways from wherever it landed. At 1100 that left a
+     245 band down one side and pushed the footer 82 off the other. It centres
+     on its own margins instead. */
+  .page--do .foot, .page--faq .foot, .page--rec .foot { left: auto; margin-inline: auto; }
   .s     { width: calc(768 * var(--u)); }
   .bleed { width: max(var(--vwc), calc(768 * var(--u))); }
 
@@ -704,20 +711,31 @@
     --uu: min(1.10504px, calc(var(--vwc) / 834));
     display: block; position: relative;
     width: calc(834 * var(--uu)); margin-inline: auto;
-    height: calc(1194 * var(--uu));
+    /* The stage holds still for this whole stretch while the points come up
+       over it. The reveal is spread across the pinned travel, so the travel is
+       what decides its pace: at the frame's own height there was barely a
+       screen of it and all eight went by in a flick, most of them after the
+       section had already left. Three and a half screens gives about two and a
+       half of travel — one point at a time, at a walking pace. */
+    height: calc(3.4 * (100vh - var(--hdr-bottom)));
     padding: 0; gap: 0;
   }
-  /* nothing is pinned here: at this width the frame is taller than a good part
-     of the screens that get it, and a pinned box taller than the window leaves
-     its own foot unreachable. It scrolls, and the points change as it passes. */
+  /* The picture stays put and the copy moves over it. The stage is a screen
+     tall rather than the frame's 1194 so that it always fits: a pinned box
+     taller than the window leaves its own foot unreachable. */
   .page--do .s > .gets-stage {
-    position: static; top: auto; left: 0;
-    width: 100%; height: 100%;
+    position: sticky; top: var(--hdr-bottom); left: 0;
+    width: 100%; height: calc(100vh - var(--hdr-bottom));
+    /* vertical only — the clip still has to bleed past the column's sides */
+    clip-path: inset(0 -100vw);
   }
   .page--do .gets-stage > .film {
     position: absolute; inset: auto; margin-bottom: 0;
     left: calc(-491 * var(--uu)); top: calc(-1 * var(--uu));
-    width: calc(1952 * var(--uu)); height: calc(1221 * var(--uu));
+    width: calc(1952 * var(--uu));
+    /* the frame's height, or the stage's if that is taller — the clip is set
+       to cover, so a taller box simply shows less of its width */
+    height: max(calc(1221 * var(--uu)), 100%);
   }
   /* the frames draw no leader lines */
   .page--do .gl { display: none; }
@@ -780,18 +798,23 @@
   .page--do .gp--7 .gp__ico { left: calc(682 * var(--uu)); top: calc(400 * var(--uu)); width: calc(114 * var(--uu)); height: calc(123 * var(--uu)); }
   .page--do .gp--8 .gp__ico { left: calc(680 * var(--uu)); top: calc(542 * var(--uu)); width: calc(128 * var(--uu)); height: calc(123 * var(--uu)); }
 
+  /* The frame puts this at 880 of 1194. The stage is a screen tall now rather
+     than 1194, so it hangs off the stage's foot instead — same distance up
+     from the bottom edge the frame gives it. */
   .page--do .funds {
-    left: calc(36 * var(--uu)); top: calc(880 * var(--uu));
+    left: calc(36 * var(--uu)); top: auto; bottom: calc(50 * var(--uu));
     width: calc(762 * var(--uu)); height: calc(264 * var(--uu));
     border-radius: calc(30 * var(--uu)); padding: 0; margin-top: 0;
   }
   .page--do .funds__t { left: calc(66 * var(--uu)); top: calc(29 * var(--uu));
                         width: calc(630 * var(--uu)); height: calc(60 * var(--uu));
                         font-size: calc(40 * var(--uu)); line-height: calc(60 * var(--uu)); }
+  /* one line, always: the box the frame draws is only just wide enough for it
+     at 40, and our Hebrew face runs wider than the one Figma sets */
   .page--do .funds__x { left: calc(253 * var(--uu)); top: calc(99 * var(--uu));
                         width: calc(257 * var(--uu)); height: calc(38 * var(--uu));
                         font-size: calc(40 * var(--uu)); line-height: calc(38 * var(--uu));
-                        text-align: center; }
+                        text-align: center; white-space: nowrap; }
   .page--do .fund--maccabi  { left: calc(414 * var(--uu)); top: calc(163 * var(--uu)); width: calc(133.59 * var(--uu)); height: calc(50.84 * var(--uu)); }
   .page--do .fund--clalit   { left: calc(581 * var(--uu)); top: calc(172 * var(--uu)); width: calc(154 * var(--uu));    height: calc(43 * var(--uu)); }
   .page--do .fund--leumit   { left: calc(210 * var(--uu)); top: calc(170 * var(--uu)); width: calc(183 * var(--uu));    height: calc(45 * var(--uu)); }
