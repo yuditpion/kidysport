@@ -48,7 +48,7 @@
      which are `position: fixed`, and they would scroll away with the page
      instead of staying put on the screen. */
   .page  { width: max(var(--vwc), calc(768 * var(--u)));
-           height: calc(12170 * var(--u) + var(--faq-shift, 0px)); }
+           height: calc(11870 * var(--u) + var(--faq-shift, 0px)); }
   .s     { left: calc((100% - 768 * var(--u)) / 2); }
   /* the header's children are placed against it, so it keeps the column's
      width and centres with the column */
@@ -285,7 +285,7 @@
   .moreq__btn2    { left: calc(28 * var(--u));  top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
 
   /* -------------------------------------- יצירת קשר (8976 – 10538) ------ */
-  .contact         { top: calc(9178 * var(--u)); height: calc(1562 * var(--u)); }
+  .contact         { top: calc(9178 * var(--u)); height: calc(1262 * var(--u)); }
   .contact__bg-m   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(900 * var(--u)); }
 
   .contact__panel  { left: calc(48 * var(--u)); top: calc(28 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
@@ -320,7 +320,7 @@
      corner the cards no longer need. This is where most of the height the
      phone footer wanted comes back: 1430 against 1852.
      ====================================================================== */
-  .foot       { top: calc(10740 * var(--u)); height: calc(1430 * var(--u)); }
+  .foot       { top: calc(10440 * var(--u)); height: calc(1430 * var(--u)); }
   .foot__bg   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(980 * var(--u)); }
   .foot__bird { left: calc(96 * var(--u)); top: calc(26 * var(--u)); width: calc(88 * var(--u)); }
   .foot__t    { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u)); }

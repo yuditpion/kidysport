@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kidysport — mobile artboard (Figma 457:6, 402 × 12373)
+   Kidysport — mobile artboard (Figma 457:6, 402 × 11983)
 
    Same technique as the desktop sheet: `--u` is one design pixel of the 402
    frame. It is capped at 1.25 so that on a tablet the phone layout sits as a
@@ -20,7 +20,7 @@
 
   .page {
     width: calc(402 * var(--u));
-    height: calc(12373 * var(--u) + var(--faq-shift, 0px));
+    height: calc(11983 * var(--u) + var(--faq-shift, 0px));
   }
   .s { width: calc(402 * var(--u)); }
 
@@ -140,8 +140,8 @@
   /* ================ מה זה בעצם ספורט טיפולי (2165 – 3249) ================ */
   .whatis { top: calc(2165 * var(--u)); height: calc(1084 * var(--u)); }
   .whatis__bg   { top: 0; height: calc(1084 * var(--u)); }
-  .strength__bg { display: block; top: calc(1084 * var(--u)); height: calc(1084 * var(--u)); }
-  .whatis__boy  { left: calc(96 * var(--u)); top: calc(496 * var(--u)); width: calc(297 * var(--u)); height: calc(532 * var(--u)); }
+  .strength__bg { display: block; top: calc(994 * var(--u)); height: calc(1084 * var(--u)); }
+  .whatis__boy  { left: calc(96 * var(--u)); top: calc(406 * var(--u)); width: calc(297 * var(--u)); height: calc(532 * var(--u)); }
   .whatis__t1   { left: calc(23 * var(--u)); top: calc(59 * var(--u));  width: calc(352 * var(--u)); height: calc(60 * var(--u)); }
   .whatis__t2   { left: calc(23 * var(--u)); top: calc(119 * var(--u)); width: calc(352 * var(--u)); height: calc(60 * var(--u)); }
   .whatis__body { left: calc(28 * var(--u)); top: calc(169 * var(--u)); width: calc(347 * var(--u)); height: calc(171 * var(--u)); }
@@ -149,25 +149,25 @@
   /* the four strength cards get their own band on mobile (Figma 3249 – 4333) */
   .fcd { width: calc(347.655 * var(--u)); height: calc(150.572 * var(--u));
          box-shadow: 0 0 calc(15.767 * var(--u)) calc(2.365 * var(--u)) rgba(0,0,0,.07); }
-  .fcd--b { left: calc(27.09 * var(--u)); top: calc(1427 * var(--u)); }   /* מוטורי  */
-  .fcd--d { left: calc(27.09 * var(--u)); top: calc(1605 * var(--u)); }   /* התנהגותי */
-  .fcd--a { left: calc(23 * var(--u));    top: calc(1783 * var(--u)); }   /* רגשי    */
-  .fcd--c { left: calc(23 * var(--u));    top: calc(1961 * var(--u)); }   /* חברתי   */
+  .fcd--b { left: calc(27.09 * var(--u)); top: calc(1337 * var(--u)); }   /* מוטורי  */
+  .fcd--d { left: calc(27.09 * var(--u)); top: calc(1515 * var(--u)); }   /* התנהגותי */
+  .fcd--a { left: calc(23 * var(--u));    top: calc(1693 * var(--u)); }   /* רגשי    */
+  .fcd--c { left: calc(23 * var(--u));    top: calc(1871 * var(--u)); }   /* חברתי   */
 
-  .fic--b { left: calc(286 * var(--u)); top: calc(1461 * var(--u)); width: calc(82 * var(--u)); }
-  .fic--d { left: calc(286 * var(--u)); top: calc(1640 * var(--u)); width: calc(81 * var(--u)); }
-  .fic--a { left: calc(286 * var(--u)); top: calc(1818 * var(--u)); width: calc(81 * var(--u)); }
-  .fic--c { left: calc(286 * var(--u)); top: calc(1996 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--b { left: calc(286 * var(--u)); top: calc(1371 * var(--u)); width: calc(82 * var(--u)); }
+  .fic--d { left: calc(286 * var(--u)); top: calc(1550 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--a { left: calc(286 * var(--u)); top: calc(1728 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--c { left: calc(286 * var(--u)); top: calc(1906 * var(--u)); width: calc(81 * var(--u)); }
 
   .ftx { width: calc(219.945 * var(--u)); height: calc(105.637 * var(--u));
          font-size: calc(17.343 * var(--u)); line-height: calc(22 * var(--u)); }
-  .ftx--b { left: calc(62.57 * var(--u)); top: calc(1454.53 * var(--u)); }
-  .ftx--d { left: calc(62.57 * var(--u)); top: calc(1632.70 * var(--u)); }
-  .ftx--a { left: calc(54.53 * var(--u)); top: calc(1814.53 * var(--u)); }
-  .ftx--c { left: calc(54.53 * var(--u)); top: calc(1992.70 * var(--u)); }
+  .ftx--b { left: calc(62.57 * var(--u)); top: calc(1364.53 * var(--u)); }
+  .ftx--d { left: calc(62.57 * var(--u)); top: calc(1542.70 * var(--u)); }
+  .ftx--a { left: calc(54.53 * var(--u)); top: calc(1724.53 * var(--u)); }
+  .ftx--c { left: calc(54.53 * var(--u)); top: calc(1902.70 * var(--u)); }
 
   /* ================= תוכנית אישית בקבוצה קטנה (4325 – 5215) ================= */
-  .plan { top: calc(4325 * var(--u)); height: calc(890 * var(--u)); }
+  .plan { top: calc(4235 * var(--u)); height: calc(890 * var(--u)); }
   .plan__bg  { top: 0; height: calc(890 * var(--u)); }
   /* He swings the whole time here — there is no hover on a phone to ask for
      it. The clip is a full 16:9 render of this scene, so it cannot cover a
@@ -198,7 +198,7 @@
   .plan__btn { left: calc(193 * var(--u)); top: calc(485 * var(--u)); width: calc(178.206 * var(--u)); }
 
   /* ================== למה דווקא טיפול בקבוצה? (5215 – 6093) ================== */
-  .why { top: calc(5215 * var(--u)); height: calc(878 * var(--u)); }
+  .why { top: calc(5125 * var(--u)); height: calc(878 * var(--u)); }
   .why__bg   { top: 0; height: calc(878 * var(--u)); }
   .why__t    { left: calc(25 * var(--u)); top: calc(35 * var(--u));  width: calc(352 * var(--u)); height: calc(182 * var(--u)); }
   .why__body { left: calc(28 * var(--u)); top: calc(221 * var(--u)); width: calc(347 * var(--u)); height: calc(203 * var(--u)); }
@@ -225,7 +225,7 @@
                transform: none; }
 
   /* ======================= טובה טייכמאן (5986 – 7012) ======================= */
-  .founder { top: calc(5986 * var(--u)); height: calc(1026 * var(--u)); }
+  .founder { top: calc(5896 * var(--u)); height: calc(1026 * var(--u)); }
   .founder__bg { top: 0; width: max(var(--vwc), calc(507 * var(--u))); height: calc(1026 * var(--u)); }
   .founder__photo { left: calc(21 * var(--u)); top: calc(150 * var(--u)); width: calc(361 * var(--u)); height: calc(363 * var(--u));
                     border-radius: 50%; }
@@ -236,7 +236,7 @@
                      border-radius: calc(30 * var(--u)); font-size: calc(18 * var(--u)); }
 
   /* ========================= שאלות נפוצות (7012 – 8300) ========================= */
-  .faq { top: calc(7012 * var(--u)); height: calc(1288 * var(--u)); }
+  .faq { top: calc(6922 * var(--u)); height: calc(1288 * var(--u)); }
   .faq__grad { top: calc(367 * var(--u)); width: max(var(--vwc), calc(478 * var(--u))); height: calc(1462 * var(--u)); }
   .faq__hero { top: calc(148 * var(--u)); left: calc(-51 * var(--u)); transform: none;
                width: calc(732 * var(--u)); height: calc(276 * var(--u)); }
@@ -259,7 +259,7 @@
   .fq__a { margin: 0 calc(9 * var(--u)) calc(20 * var(--u)); padding: calc(16 * var(--u)) calc(18 * var(--u)); border-radius: calc(20 * var(--u)); }
 
   /* ===================== יש לכם שאלה נוספת? (8300 – 8840) ===================== */
-  .moreq { top: calc(8300 * var(--u)); height: calc(540 * var(--u)); }
+  .moreq { top: calc(8210 * var(--u)); height: calc(540 * var(--u)); }
   .moreq__ellipse { left: calc(29 * var(--u)); top: calc(481 * var(--u)); width: calc(226 * var(--u)); height: calc(361 * var(--u)); }
   .moreq__photo   { left: calc(13 * var(--u)); top: calc(68 * var(--u)); width: calc(377 * var(--u)); height: calc(420 * var(--u));
                     border-radius: calc(20 * var(--u)); }
@@ -271,7 +271,7 @@
   .moreq__btn2 { left: calc(13 * var(--u));    top: calc(389 * var(--u)); width: calc(176.27 * var(--u)); height: calc(45.25 * var(--u)); }
 
   /* ========================== יצירת קשר (8831 – 10521) ========================== */
-  .contact { top: calc(8831 * var(--u)); height: calc(1690 * var(--u)); }
+  .contact { top: calc(8741 * var(--u)); height: calc(1390 * var(--u)); }
   .contact__bg { display: none; }
   .contact__bg-m { display: block; top: 0; width: max(var(--vwc), calc(985 * var(--u))); height: calc(845 * var(--u)); }
 
@@ -303,7 +303,7 @@
   .contact__di3 { left: calc(290 * var(--u)); top: calc(1132 * var(--u)); width: calc(50 * var(--u)); }
 
   /* ============================ FOOTER (10521 – 12373) ============================ */
-  .foot { top: calc(10521 * var(--u)); height: calc(1852 * var(--u)); }
+  .foot { top: calc(10131 * var(--u)); height: calc(1852 * var(--u)); }
   .foot__bg   { top: 0; width: max(var(--vwc), calc(467 * var(--u))); height: calc(919 * var(--u)); }
   .foot__bird { left: calc(41 * var(--u)); top: calc(22 * var(--u)); width: calc(81.5 * var(--u)); }
   .foot__t    { left: calc(20 * var(--u)); top: calc(55 * var(--u)); width: calc(363 * var(--u)); height: calc(100 * var(--u)); }
