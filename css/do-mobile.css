@@ -141,34 +141,144 @@
   .page--do .fc-t--behav     { order: 11; }
   .page--do .fc-l--behav     { order: 12; }
 
-  /* ----------------------------------------------------------- process --- */
-  .page--do .do-proc { padding: calc(80 * var(--u)) calc(29 * var(--u)) calc(80 * var(--u)); gap: calc(22 * var(--u)); }
-  .page--do .do-proc__t { text-align: center; margin-bottom: calc(10 * var(--u)); }
+  /* ----------------------------------------------------------- process ---
+     Figma "iPhone 17 - 15" (1032:107), a 402 frame — the width this artboard
+     already uses, so every number here is Figma's own.
 
-  /* number and ring pinned to the right edge, copy filling the rest */
-  .page--do .st { padding-right: calc(78 * var(--u)); min-height: calc(92 * var(--u)); }
+     No clip on this artboard. The frame draws the section as flat layers: the
+     blurred hall three times over, two poses of the boy, the card, the copy.
+     do-proc-bg.png and do-proc-boy.png were already in the project, unused,
+     and are byte for byte the pictures the frame is composed of. The boy file
+     holds both poses side by side, which is why the two figures here are two
+     crops of one picture, the second one mirrored. */
+  .page--do .do-proc > .film { display: none; }
+
+  .page--do .s.do-proc:not(.foot):not(.do-cta) {
+    display: block; position: relative;
+    width: calc(402 * var(--u)); margin-inline: auto;
+    height: calc(3090 * var(--u));
+    padding: 0; gap: 0;
+    --bleed-p: calc((max(var(--vwc), calc(402 * var(--u))) - 402 * var(--u)) / 2);
+  }
+
+  .page--do .proc-bg, .page--do .proc-boy, .page--do .proc-card { display: block; }
+
+  /* Each panel is the whole picture scaled up with the frame's window cut out
+     of it. The left edge is left uncut so it bleeds; the right follows the
+     frame until the window grows wider than that, since the picture has no
+     more image past its own right edge to give. */
+  .page--do .proc-bg {
+    position: absolute; z-index: 0; left: auto; max-width: none;
+    right: calc(0px - max(calc(24 * var(--u)), var(--bleed-p)));
+    width: calc(2283.2 * var(--u));
+  }
+  .page--do .proc-bg--a { top: calc(-227 * var(--u)); height: calc(1284.9 * var(--u));
+    clip-path: inset(calc(227 * var(--u)) 0 calc(91.9 * var(--u)) 0); }
+  .page--do .proc-bg--b { top: calc(962 * var(--u));  height: calc(1285 * var(--u));
+    clip-path: inset(0 0 calc(6 * var(--u)) 0); }
+  .page--do .proc-bg--c { top: calc(1945 * var(--u)); height: calc(1285 * var(--u));
+    clip-path: inset(0 0 calc(140 * var(--u)) 0); }
+
+  .page--do .proc-boy { position: absolute; z-index: 1; max-width: none; }
+  .page--do .proc-boy--a {
+    left: calc(176.04 * var(--u)); top: calc(-12 * var(--u));
+    width: calc(656.8 * var(--u)); height: calc(493 * var(--u));
+    clip-path: inset(calc(12 * var(--u)) calc(372.84 * var(--u)) 0 calc(107.96 * var(--u)));
+  }
+  /* The frame mirrors this one. The box is placed so that after the flip the
+     window lands on 9-199.75, and its two side insets are swapped to match. */
+  .page--do .proc-boy--b {
+    left: calc(-102.4 * var(--u)); top: calc(2640 * var(--u));
+    width: calc(645.3 * var(--u)); height: calc(484 * var(--u));
+    transform: scaleX(-1);
+    clip-path: inset(0 calc(111.4 * var(--u)) calc(34 * var(--u)) calc(343.15 * var(--u)));
+  }
+
+  .page--do .proc-card {
+    position: absolute; z-index: 2;
+    background: #05a3ab; border-radius: calc(30 * var(--u));
+  }
+  .page--do .proc-card--a { left: calc(30 * var(--u)); top: calc(264 * var(--u));
+                            width: calc(342 * var(--u)); height: calc(2618 * var(--u)); }
+  .page--do .proc-card--b { display: none; }   /* the phone frame draws one card */
+
+  .page--do .do-proc__t {
+    position: absolute; z-index: 3;
+    left: calc(94 * var(--u)); top: calc(296 * var(--u));
+    width: calc(241 * var(--u)); height: calc(120 * var(--u));
+    font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u));
+    text-align: center; color: var(--white); margin: 0;
+  }
+
+  /* Every part of a step is placed by the frame's own coordinates, so the
+     block itself is only an anchor at the frame's origin. */
+  .page--do .st { position: absolute; left: 0; top: 0; width: 100%; height: 0;
+                  padding: 0; min-height: 0; z-index: 3; }
   .page--do .st > * { position: absolute; }
+  .page--do .st__ring { left: auto; width: calc(96 * var(--u)); height: calc(96 * var(--u)); }
   .page--do .st__n {
-    left: auto; right: 0; top: 0;
-    width: calc(56 * var(--u)); text-align: center;
-    font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u));
+    left: auto; right: auto; width: calc(32 * var(--u));
+    font-size: calc(22 * var(--u)); line-height: calc(38 * var(--u));
+    font-weight: 700; text-align: right; color: var(--white);
   }
-  .page--do .st__ring {
-    left: auto; right: 0; top: calc(28 * var(--u));
-    width: calc(56 * var(--u)); height: calc(56 * var(--u));
-  }
-  /* anchored on the ring's centre, so each step's own crop box can keep the
-     size and offsets the sprite needs and simply be scaled down */
-  .page--do .st__ico {
-    left: auto; right: calc(28 * var(--u)); top: calc(56 * var(--u));
-    transform: translate(50%, -50%) scale(.58);
-  }
+  .page--do .st__ico { left: auto; right: auto; transform: none; }
   .page--do .st__x {
-    position: relative; left: auto; top: auto;
-    width: 100%; font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u));
+    position: absolute; left: auto; right: auto;
+    font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u));
+    text-align: right; color: var(--white);
   }
-  .page--do .st__x p + p { margin-top: calc(8 * var(--u)); }
-  .page--do .st-rule { width: 100%; }
+  /* Figma sets the paragraphs solid and all at one weight — the box heights it
+     draws are exactly the line count times 22. */
+  .page--do .st__x p + p { margin-top: 0; }
+  .page--do .st__x strong { font-weight: 400; }
+
+  .page--do .st--1 .st__ring { left: calc(150 * var(--u)); top: calc(462 * var(--u)); }
+  .page--do .st--2 .st__ring { left: calc(150 * var(--u)); top: calc(824 * var(--u)); }
+  .page--do .st--3 .st__ring { left: calc(153 * var(--u)); top: calc(1186 * var(--u)); }
+  .page--do .st--4 .st__ring { left: calc(153 * var(--u)); top: calc(1526 * var(--u)); }
+  .page--do .st--5 .st__ring { left: calc(153 * var(--u)); top: calc(1910 * var(--u)); }
+  .page--do .st--6 .st__ring { left: calc(153 * var(--u)); top: calc(2228 * var(--u)); }
+  .page--do .st--7 .st__ring { left: calc(153 * var(--u)); top: calc(2546 * var(--u)); }
+
+  .page--do .st--1 .st__n { left: calc(246 * var(--u)); top: calc(462 * var(--u)); }
+  .page--do .st--2 .st__n { left: calc(246 * var(--u)); top: calc(824 * var(--u)); }
+  .page--do .st--3 .st__n { left: calc(244 * var(--u)); top: calc(1186 * var(--u)); }
+  .page--do .st--4 .st__n { left: calc(244 * var(--u)); top: calc(1526 * var(--u)); }
+  .page--do .st--5 .st__n { left: calc(244 * var(--u)); top: calc(1910 * var(--u)); }
+  .page--do .st--6 .st__n { left: calc(244 * var(--u)); top: calc(2228 * var(--u)); }
+  .page--do .st--7 .st__n { left: calc(244 * var(--u)); top: calc(2546 * var(--u)); }
+
+  .page--do .st--1 .st__ico { left: calc(164 * var(--u)); top: calc(470 * var(--u));  width: calc(68 * var(--u)); height: calc(79 * var(--u)); }
+  .page--do .st--2 .st__ico { left: calc(161 * var(--u)); top: calc(832 * var(--u));  width: calc(73 * var(--u)); height: calc(79 * var(--u)); }
+  .page--do .st--3 .st__ico { left: calc(174 * var(--u)); top: calc(1194 * var(--u)); width: calc(58 * var(--u)); height: calc(79 * var(--u)); }
+  .page--do .st--4 .st__ico { left: calc(163 * var(--u)); top: calc(1531 * var(--u)); width: calc(77 * var(--u)); height: calc(79 * var(--u)); }
+  .page--do .st--5 .st__ico { left: calc(163 * var(--u)); top: calc(1922 * var(--u)); width: calc(76 * var(--u)); height: calc(72 * var(--u)); }
+  .page--do .st--6 .st__ico { left: calc(166 * var(--u)); top: calc(2241 * var(--u)); width: calc(71 * var(--u)); height: calc(72 * var(--u)); }
+  .page--do .st--7 .st__ico { left: calc(173 * var(--u)); top: calc(2558 * var(--u)); width: calc(57 * var(--u)); height: calc(72 * var(--u)); }
+
+  .page--do .st--1 .st__x { left: calc(61 * var(--u));  top: calc(588 * var(--u));  width: calc(272 * var(--u)); height: calc(176 * var(--u)); }
+  /* Step 2 is the one paragraph the frame's 272 does not reproduce: the Hebrew
+     fallback face runs a little wide and it spills onto a ninth line. Widened
+     to the left, off the same right edge the frame gives it, so the extra room
+     goes on the ragged side where nothing shows — the same fix do.css already
+     applies to this step on the desktop artboard. */
+  .page--do .st--2 .st__x { left: calc(45 * var(--u));  top: calc(950 * var(--u));  width: calc(288 * var(--u)); height: calc(176 * var(--u)); }
+  .page--do .st--3 .st__x { left: calc(58 * var(--u));  top: calc(1312 * var(--u)); width: calc(275 * var(--u)); height: calc(154 * var(--u)); }
+  .page--do .st--4 .st__x { left: calc(56 * var(--u));  top: calc(1652 * var(--u)); width: calc(284 * var(--u)); height: calc(198 * var(--u)); }
+  .page--do .st--5 .st__x { left: calc(56 * var(--u));  top: calc(2036 * var(--u)); width: calc(288 * var(--u)); height: calc(132 * var(--u)); }
+  .page--do .st--6 .st__x { left: calc(56 * var(--u));  top: calc(2354 * var(--u)); width: calc(288 * var(--u)); height: calc(132 * var(--u)); }
+  .page--do .st--7 .st__x { left: calc(158 * var(--u)); top: calc(2672 * var(--u)); width: calc(186 * var(--u)); height: calc(154 * var(--u)); }
+
+  /* A rule node's x in the file is its right end; it runs 250 (or 260) left
+     from there, finishing where the copy above it finishes. */
+  .page--do .st-rule { position: absolute; z-index: 3; height: 1px; }
+  .page--do .st-rule--1 { left: calc(89 * var(--u)); top: calc(794 * var(--u));  width: calc(250 * var(--u)); }
+  .page--do .st-rule--2 { left: calc(89 * var(--u)); top: calc(1156 * var(--u)); width: calc(250 * var(--u)); }
+  .page--do .st-rule--3 { left: calc(89 * var(--u)); top: calc(1496 * var(--u)); width: calc(250 * var(--u)); }
+  .page--do .st-rule--4 { left: calc(84 * var(--u)); top: calc(1880 * var(--u)); width: calc(260 * var(--u)); }
+  .page--do .st-rule--5 { left: calc(84 * var(--u)); top: calc(2198 * var(--u)); width: calc(260 * var(--u)); }
+  .page--do .st-rule--6 { left: calc(84 * var(--u)); top: calc(2516 * var(--u)); width: calc(260 * var(--u)); }
+  .page--do .st-rule--7 { display: none; }        /* the frame ends on step 07 */
 
   /* ------------------------------------------------------------- cards --- */
   .page--do .do-cards { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(56 * var(--u)); gap: calc(10 * var(--u)); }

@@ -571,12 +571,101 @@
   .page--do .fc-t     { font-size: calc(30 * var(--u)); line-height: calc(44 * var(--u)); }
   .page--do .fc-l     { font-size: calc(19 * var(--u)); line-height: calc(29 * var(--u)); }
 
-  .page--do .do-proc  { padding: calc(96 * var(--u)) calc(48 * var(--u)) calc(96 * var(--u)); gap: calc(26 * var(--u)); }
-  .page--do .st       { padding-right: calc(96 * var(--u)); min-height: calc(104 * var(--u)); }
-  .page--do .st__n    { width: calc(68 * var(--u)); font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); }
-  .page--do .st__ring { top: calc(32 * var(--u)); width: calc(68 * var(--u)); height: calc(68 * var(--u)); }
-  .page--do .st__ico  { right: calc(34 * var(--u)); top: calc(66 * var(--u)); transform: translate(50%, -50%) scale(.7); }
-  .page--do .st__x    { font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); }
+  /* ----------------------------------------------------------- process ---
+     Figma "iPad Pro 11" - 1" (1032:109), an 834 frame, so the section carries
+     the same design pixel of its own as the hero above: 834 * --uu is exactly
+     768 * --u, and every number here is the one Figma states.
+
+     The frame draws two cards, the copy running down the left of the first and
+     the right of the second, with the hall behind and a pose of the boy beside
+     each. Same two pictures as the phone frame, cropped differently. */
+  .page--do .s.do-proc:not(.foot):not(.do-cta) {
+    --uu: min(1.10504px, calc(var(--vwc) / 834));
+    --bleed-p: calc((max(var(--vwc), calc(834 * var(--uu))) - 834 * var(--uu)) / 2);
+    display: block; position: relative;
+    width: calc(834 * var(--uu)); margin-inline: auto;
+    height: calc(2284 * var(--uu));
+    padding: 0; gap: 0;
+  }
+
+  .page--do .proc-bg {
+    right: calc(0px - max(calc(44 * var(--uu)), var(--bleed-p)));
+    width: calc(2283.2 * var(--uu));
+  }
+  .page--do .proc-bg--a { top: 0; height: calc(1284.9 * var(--uu));
+                          clip-path: inset(0 0 calc(91.9 * var(--uu)) 0); }
+  .page--do .proc-bg--b { top: calc(1166 * var(--uu)); height: calc(1118 * var(--uu));
+                          clip-path: none; }
+  .page--do .proc-bg--c { display: none; }   /* the tablet frame draws two panels */
+
+  .page--do .proc-boy--a {
+    left: calc(290.7 * var(--uu)); top: calc(64 * var(--uu));
+    width: calc(1358.4 * var(--uu)); height: calc(1020 * var(--uu));
+    clip-path: inset(0 calc(771.1 * var(--uu)) 0 calc(223.3 * var(--uu)));
+  }
+  .page--do .proc-boy--b {
+    left: calc(-279.8 * var(--uu)); top: calc(1238 * var(--uu));
+    width: calc(1360 * var(--uu)); height: calc(1020 * var(--uu));
+    transform: scaleX(-1);
+    clip-path: inset(0 calc(234.8 * var(--uu)) 0 calc(723.2 * var(--uu)));
+  }
+
+  .page--do .proc-card { border-radius: calc(30 * var(--uu)); }
+  .page--do .proc-card--a { left: calc(50 * var(--uu));  top: calc(98 * var(--uu));
+                            width: calc(464 * var(--uu)); height: calc(957 * var(--uu)); }
+  .page--do .proc-card--b { display: block;
+                            left: calc(308 * var(--uu)); top: calc(1127 * var(--uu));
+                            width: calc(464 * var(--uu)); height: calc(1068 * var(--uu)); }
+
+  .page--do .do-proc__t {
+    left: calc(50 * var(--uu)); top: calc(147 * var(--uu));
+    width: calc(464 * var(--uu)); height: calc(60 * var(--uu));
+    font-size: calc(60 * var(--uu)); line-height: calc(60 * var(--uu));
+  }
+
+  .page--do .st__ring { width: calc(96 * var(--uu)); height: calc(96 * var(--uu)); }
+  .page--do .st__n    { width: calc(32 * var(--uu));
+                        font-size: calc(22 * var(--uu)); line-height: calc(38 * var(--uu)); }
+  .page--do .st__x    { font-size: calc(18 * var(--uu)); line-height: calc(22 * var(--uu)); }
+
+  .page--do .st--1 .st__ring { left: calc(354 * var(--uu)); top: calc(251 * var(--uu)); }
+  .page--do .st--2 .st__ring { left: calc(354 * var(--uu)); top: calc(512 * var(--uu)); }
+  .page--do .st--3 .st__ring { left: calc(357 * var(--uu)); top: calc(812 * var(--uu)); }
+  .page--do .st--4 .st__ring { left: calc(613 * var(--uu)); top: calc(1188 * var(--uu)); }
+  .page--do .st--5 .st__ring { left: calc(613 * var(--uu)); top: calc(1494 * var(--uu)); }
+  .page--do .st--6 .st__ring { left: calc(613 * var(--uu)); top: calc(1699 * var(--uu)); }
+  .page--do .st--7 .st__ring { left: calc(613 * var(--uu)); top: calc(1913 * var(--uu)); }
+
+  .page--do .st--1 .st__n { left: calc(448 * var(--uu)); top: calc(251 * var(--uu)); }
+  .page--do .st--2 .st__n { left: calc(445 * var(--uu)); top: calc(512 * var(--uu)); }
+  .page--do .st--3 .st__n { left: calc(448 * var(--uu)); top: calc(812 * var(--uu)); }
+  .page--do .st--4 .st__n { left: calc(704 * var(--uu)); top: calc(1188 * var(--uu)); }
+  .page--do .st--5 .st__n { left: calc(704 * var(--uu)); top: calc(1494 * var(--uu)); }
+  .page--do .st--6 .st__n { left: calc(704 * var(--uu)); top: calc(1699 * var(--uu)); }
+  .page--do .st--7 .st__n { left: calc(704 * var(--uu)); top: calc(1913 * var(--uu)); }
+
+  .page--do .st--1 .st__ico { left: calc(368 * var(--uu)); top: calc(259 * var(--uu));  width: calc(68 * var(--uu)); height: calc(79 * var(--uu)); }
+  .page--do .st--2 .st__ico { left: calc(365 * var(--uu)); top: calc(520 * var(--uu));  width: calc(73 * var(--uu)); height: calc(79 * var(--uu)); }
+  .page--do .st--3 .st__ico { left: calc(378 * var(--uu)); top: calc(820 * var(--uu));  width: calc(58 * var(--uu)); height: calc(79 * var(--uu)); }
+  .page--do .st--4 .st__ico { left: calc(623 * var(--uu)); top: calc(1193 * var(--uu)); width: calc(77 * var(--uu)); height: calc(79 * var(--uu)); }
+  .page--do .st--5 .st__ico { left: calc(623 * var(--uu)); top: calc(1506 * var(--uu)); width: calc(76 * var(--uu)); height: calc(72 * var(--uu)); }
+  .page--do .st--6 .st__ico { left: calc(626 * var(--uu)); top: calc(1712 * var(--uu)); width: calc(71 * var(--uu)); height: calc(72 * var(--uu)); }
+  .page--do .st--7 .st__ico { left: calc(633 * var(--uu)); top: calc(1925 * var(--uu)); width: calc(57 * var(--uu)); height: calc(72 * var(--uu)); }
+
+  .page--do .st--1 .st__x { left: calc(94 * var(--uu));  top: calc(259 * var(--uu));  width: calc(238 * var(--uu)); height: calc(198 * var(--uu)); }
+  .page--do .st--2 .st__x { left: calc(94 * var(--uu));  top: calc(517 * var(--uu));  width: calc(238 * var(--uu)); height: calc(242 * var(--uu)); }
+  .page--do .st--3 .st__x { left: calc(94 * var(--uu));  top: calc(812 * var(--uu));  width: calc(238 * var(--uu)); height: calc(154 * var(--uu)); }
+  .page--do .st--4 .st__x { left: calc(353 * var(--uu)); top: calc(1179 * var(--uu)); width: calc(238 * var(--uu)); height: calc(242 * var(--uu)); }
+  .page--do .st--5 .st__x { left: calc(353 * var(--uu)); top: calc(1487 * var(--uu)); width: calc(238 * var(--uu)); height: calc(154 * var(--uu)); }
+  .page--do .st--6 .st__x { left: calc(353 * var(--uu)); top: calc(1699 * var(--uu)); width: calc(238 * var(--uu)); height: calc(154 * var(--uu)); }
+  .page--do .st--7 .st__x { left: calc(353 * var(--uu)); top: calc(1913 * var(--uu)); width: calc(238 * var(--uu)); height: calc(110 * var(--uu)); }
+
+  .page--do .st-rule--1 { left: calc(82 * var(--uu));  top: calc(487 * var(--uu));  width: calc(250 * var(--uu)); }
+  .page--do .st-rule--2 { left: calc(82 * var(--uu));  top: calc(787 * var(--uu));  width: calc(250 * var(--uu)); }
+  .page--do .st-rule--3 { left: calc(82 * var(--uu));  top: calc(999 * var(--uu));  width: calc(250 * var(--uu)); }
+  .page--do .st-rule--4 { left: calc(341 * var(--uu)); top: calc(1454 * var(--uu)); width: calc(250 * var(--uu)); }
+  .page--do .st-rule--5 { left: calc(341 * var(--uu)); top: calc(1674 * var(--uu)); width: calc(250 * var(--uu)); }
+  .page--do .st-rule--6 { left: calc(341 * var(--uu)); top: calc(1878 * var(--uu)); width: calc(250 * var(--uu)); }
 
   .page--do .do-cards { padding: calc(72 * var(--u)) calc(48 * var(--u)) calc(72 * var(--u)); }
   .page--do .dc-t     { font-size: calc(34 * var(--u)); line-height: calc(46 * var(--u)); margin-top: calc(36 * var(--u)); }

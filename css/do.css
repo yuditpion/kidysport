@@ -15,6 +15,10 @@
 .c-blue   { color: #0566ab; }
 .c-purple { color: #5e05ab; }
 
+/* The flat layers the phone and tablet frames are built from. The desktop
+   artboard has all of it inside the clip already, so here they stay off. */
+.proc-bg, .proc-boy, .proc-card { display: none; }
+
 /* The process clip is pinned inside its (absolutely placed) section, so the
    picture holds still for as long as that section is passing while the copy
    scrolls over it. The rest of the player lives in main.css — אודות uses it
