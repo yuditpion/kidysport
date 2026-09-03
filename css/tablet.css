@@ -48,7 +48,7 @@
      which are `position: fixed`, and they would scroll away with the page
      instead of staying put on the screen. */
   .page  { width: max(var(--vwc), calc(768 * var(--u)));
-           height: calc(11870 * var(--u) + var(--faq-shift, 0px)); }
+           height: calc(11340 * var(--u) + var(--faq-shift, 0px)); }
   .s     { left: calc((100% - 768 * var(--u)) / 2); }
   /* the header's children are placed against it, so it keeps the column's
      width and centres with the column */
@@ -62,7 +62,8 @@
      starts nudging it sideways from wherever it landed. At 1100 that left a
      245 band down one side and pushed the footer 82 off the other. It centres
      on its own margins instead. */
-  .page--do .foot, .page--faq .foot, .page--rec .foot { left: auto; margin-inline: auto; }
+  .page--do .foot, .page--faq .foot, .page--rec .foot,
+  .page--do .do-cta, .page--rec .rec-cta { left: auto; margin-inline: auto; }
   .s     { width: calc(768 * var(--u)); }
   .bleed { width: max(var(--vwc), calc(768 * var(--u))); }
 
@@ -158,30 +159,30 @@
   .whatis__body  { left: calc(96 * var(--u)); top: calc(234 * var(--u)); width: calc(576 * var(--u)); height: calc(176 * var(--u)); }
   .whatis__boy   { left: calc(184 * var(--u)); top: calc(436 * var(--u)); width: calc(400 * var(--u)); height: calc(560 * var(--u)); }
 
-  .strength__bg  { top: calc(1000 * var(--u)); height: calc(1000 * var(--u)); }
+  .strength__bg  { top: calc(1000 * var(--u)); height: calc(470 * var(--u)); }
 
   /* the four strength cards, two-up */
   .fcd { width: calc(324 * var(--u)); height: calc(160 * var(--u));
          box-shadow: 0 0 calc(18 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.07); }
-  .fcd--b { left: calc(396 * var(--u)); top: calc(1620 * var(--u)); }   /* מוטורי   */
-  .fcd--d { left: calc(48 * var(--u));  top: calc(1620 * var(--u)); }   /* התנהגותי */
-  .fcd--a { left: calc(396 * var(--u)); top: calc(1804 * var(--u)); }   /* רגשי     */
-  .fcd--c { left: calc(48 * var(--u));  top: calc(1804 * var(--u)); }   /* חברתי    */
+  .fcd--b { left: calc(396 * var(--u)); top: calc(1090 * var(--u)); }   /* מוטורי   */
+  .fcd--d { left: calc(48 * var(--u));  top: calc(1090 * var(--u)); }   /* התנהגותי */
+  .fcd--a { left: calc(396 * var(--u)); top: calc(1274 * var(--u)); }   /* רגשי     */
+  .fcd--c { left: calc(48 * var(--u));  top: calc(1274 * var(--u)); }   /* חברתי    */
 
-  .fic--b { left: calc(624 * var(--u)); top: calc(1656 * var(--u)); width: calc(82 * var(--u)); }
-  .fic--d { left: calc(276 * var(--u)); top: calc(1656 * var(--u)); width: calc(81 * var(--u)); }
-  .fic--a { left: calc(624 * var(--u)); top: calc(1840 * var(--u)); width: calc(81 * var(--u)); }
-  .fic--c { left: calc(276 * var(--u)); top: calc(1840 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--b { left: calc(624 * var(--u)); top: calc(1126 * var(--u)); width: calc(82 * var(--u)); }
+  .fic--d { left: calc(276 * var(--u)); top: calc(1126 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--a { left: calc(624 * var(--u)); top: calc(1310 * var(--u)); width: calc(81 * var(--u)); }
+  .fic--c { left: calc(276 * var(--u)); top: calc(1310 * var(--u)); width: calc(81 * var(--u)); }
 
   .ftx { width: calc(206 * var(--u)); height: calc(120 * var(--u));
          font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
-  .ftx--b { left: calc(408 * var(--u)); top: calc(1640 * var(--u)); }
-  .ftx--d { left: calc(60 * var(--u));  top: calc(1640 * var(--u)); }
-  .ftx--a { left: calc(408 * var(--u)); top: calc(1824 * var(--u)); }
-  .ftx--c { left: calc(60 * var(--u));  top: calc(1824 * var(--u)); }
+  .ftx--b { left: calc(408 * var(--u)); top: calc(1110 * var(--u)); }
+  .ftx--d { left: calc(60 * var(--u));  top: calc(1110 * var(--u)); }
+  .ftx--a { left: calc(408 * var(--u)); top: calc(1294 * var(--u)); }
+  .ftx--c { left: calc(60 * var(--u));  top: calc(1294 * var(--u)); }
 
   /* ------------------------ תוכנית אישית בקבוצה קטנה (4354 – 5244) ------ */
-  .plan       { top: calc(4354 * var(--u)); height: calc(890 * var(--u)); }
+  .plan       { top: calc(3824 * var(--u)); height: calc(890 * var(--u)); }
   .plan__bg   { top: 0; height: calc(890 * var(--u)); }
   /* Same as the phone sheet: always swinging, and the clip laid out so its boy
      comes out at the size the still has (880x930) while the frame still
@@ -193,10 +194,15 @@
     height: calc(890 * var(--u));
     overflow: hidden;
   }
+  /* Half the size, about the boy's own centre so he stays where he was. The
+     clip is already a close-up — he fills its 1914x1082 frame — so at half it
+     no longer covers the section, and it is hung off the section's foot with
+     the card over its top edge: what is left showing is a strip a few units
+     wide at either side, where the clouds behind read through. */
   .plan__film__v {
     inset: auto;
-    left: calc(-540 * var(--u) + var(--bleed-swing)); top: 0;
-    width: calc(1898.4 * var(--u)); height: calc(1068.8 * var(--u));
+    left: calc(-65.6 * var(--u) + var(--bleed-swing)); top: calc(355.6 * var(--u));
+    width: calc(949.2 * var(--u)); height: calc(534.4 * var(--u));
   }
   .plan__boy  { left: calc(-540 * var(--u)); top: calc(40 * var(--u)); width: calc(880 * var(--u)); height: calc(930 * var(--u)); }
   .plan__card { left: calc(48 * var(--u)); top: calc(40 * var(--u)); width: calc(672 * var(--u)); height: calc(480 * var(--u)); }
@@ -210,7 +216,7 @@
      and at 878 it was hanging 180 into טובה טייכמאן below. The desktop frame
      has the same clip ending at 1024 inside a section 1081 tall — it is meant
      to fit, and here it did not. Everything below moves down by 202. */
-  .why       { top: calc(5244 * var(--u)); height: calc(1080 * var(--u)); }
+  .why        { top: calc(4714 * var(--u)); height: calc(1080 * var(--u)); }
   .why__bg   { top: 0; height: calc(1080 * var(--u)); }
   .why__t    { left: calc(48 * var(--u)); top: calc(36 * var(--u));  width: calc(672 * var(--u)); height: calc(158 * var(--u)); }
   .why__body { left: calc(96 * var(--u)); top: calc(198 * var(--u)); width: calc(576 * var(--u)); height: calc(222 * var(--u)); }
@@ -237,7 +243,7 @@
   /* Here the extra width buys the desktop arrangement back: the portrait sits
      beside the name instead of above it, and the story runs full width under
      the pair. */
-  .founder         { top: calc(6324 * var(--u)); height: calc(1026 * var(--u)); }
+  .founder    { top: calc(5794 * var(--u)); height: calc(1026 * var(--u)); }
   .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(1026 * var(--u)); }
   .founder__photo  { left: calc(48 * var(--u)); top: calc(130 * var(--u)); width: calc(300 * var(--u)); height: calc(302 * var(--u));
                      border-radius: 50%; }
@@ -253,7 +259,7 @@
                      line-height: calc(30 * var(--u)); padding-inline: calc(28 * var(--u)); }
 
   /* ------------------------------------- שאלות נפוצות (7148 – 8436) ----- */
-  .faq       { top: calc(7350 * var(--u)); height: calc(1288 * var(--u)); }
+  .faq        { top: calc(6820 * var(--u)); height: calc(1288 * var(--u)); }
   .faq__grad { top: calc(367 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(1462 * var(--u)); }
   .faq__hero { top: calc(140 * var(--u)); left: calc(-40 * var(--u)); transform: none;
                width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
@@ -274,7 +280,7 @@
                border-radius: calc(20 * var(--u)); }
 
   /* --------------------------------- יש לכם שאלה נוספת? (8436 – 8976) --- */
-  .moreq          { top: calc(8638 * var(--u)); height: calc(540 * var(--u)); }
+  .moreq      { top: calc(8108 * var(--u)); height: calc(540 * var(--u)); }
   .moreq__ellipse { left: calc(60 * var(--u)); top: calc(470 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
   .moreq__photo   { left: calc(384 * var(--u)); top: calc(56 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u));
                     border-radius: calc(24 * var(--u)); }
@@ -285,7 +291,7 @@
   .moreq__btn2    { left: calc(28 * var(--u));  top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
 
   /* -------------------------------------- יצירת קשר (8976 – 10538) ------ */
-  .contact         { top: calc(9178 * var(--u)); height: calc(1262 * var(--u)); }
+  .contact    { top: calc(8648 * var(--u)); height: calc(1262 * var(--u)); }
   .contact__bg-m   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(900 * var(--u)); }
 
   .contact__panel  { left: calc(48 * var(--u)); top: calc(28 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
@@ -320,7 +326,7 @@
      corner the cards no longer need. This is where most of the height the
      phone footer wanted comes back: 1430 against 1852.
      ====================================================================== */
-  .foot       { top: calc(10440 * var(--u)); height: calc(1430 * var(--u)); }
+  .foot       { top: calc(9910 * var(--u)); height: calc(1430 * var(--u)); }
   .foot__bg   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(980 * var(--u)); }
   .foot__bird { left: calc(96 * var(--u)); top: calc(26 * var(--u)); width: calc(88 * var(--u)); }
   .foot__t    { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u)); }
@@ -962,34 +968,47 @@
   .ct-br .ct-bar__t { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); line-height: calc(78 * var(--u)); }
   .cb--1 { left: calc(400 * var(--u)); top: calc(114 * var(--u)); width: calc(240 * var(--u)); height: calc(40 * var(--u)); }
   .cb--2 { left: calc(360 * var(--u)); top: calc(168 * var(--u)); width: calc(280 * var(--u)); height: calc(40 * var(--u)); }
-  .cb--3 { left: calc(128 * var(--u)); top: calc(222 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
-  .cb--4 { left: calc(128 * var(--u)); top: calc(282 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
+  .cb--3 { left: calc(300 * var(--u)); top: calc(222 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
+  .cb--4 { left: calc(300 * var(--u)); top: calc(282 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
 
   /* ======================================================================
      רוצים לבדוק אם התהליך מתאים — the shared CTA artboard, on 768
      ====================================================================== */
-  .page--do .do-cta, .page--rec .rec-cta { width: calc(768 * var(--u)); height: calc(1131 * var(--u)); }
+  .page--do .do-cta, .page--rec .rec-cta {
+    width: calc(768 * var(--u)); height: calc(1131 * var(--u));
+    --bleed-cta: calc((max(var(--vwc), calc(768 * var(--u))) - 768 * var(--u)) / 2);
+    /* The phone sheet clips this section to itself, which held the grounds
+       below inside the column however wide they were made. Vertical only here,
+       so they can reach the window while the top panel is still cut at the
+       section's edge the way `overflow` was cutting it. */
+    overflow: visible; clip-path: inset(0 -100vw);
+  }
 
+  /* All three grounds have to reach the window, not the column: the section is
+     centred, and on a wide tablet that leaves a band of page down each side.
+     The two flat panels simply span the window; the picture keeps its size and
+     slides by the same amount, since its right edge only cleared the column by
+     five and any bleed at all opened a gap there. */
   .page--do .do-cta::before, .page--rec .rec-cta::before {
-    left: calc(-64 * var(--u)); top: calc(-58 * var(--u));
-    width: calc(896 * var(--u)); height: calc(560 * var(--u));
+    left: 50%; transform: translateX(-50%); top: calc(-58 * var(--u));
+    width: max(var(--vwc), calc(896 * var(--u))); height: calc(560 * var(--u));
   }
   .page--do .do-cta::after, .page--rec .rec-cta::after {
-    top: calc(965 * var(--u)); width: calc(900 * var(--u)); height: calc(166 * var(--u));
+    top: calc(965 * var(--u));
+    width: max(var(--vwc), calc(900 * var(--u))); height: calc(166 * var(--u));
   }
-  /* the strip slides to keep the boy in the middle of the wider window */
   .page--do .do-cta > .film, .page--rec .rec-cta > .film {
-    left: calc(-868 * var(--u)); top: calc(455 * var(--u));
+    left: calc(-868 * var(--u) + var(--bleed-cta)); top: calc(455 * var(--u));
     width: calc(1641 * var(--u)); height: calc(512 * var(--u));
   }
   .page--do .do-cta__t, .page--rec .do-cta__t {
     left: calc(48 * var(--u)); top: calc(150 * var(--u));
-    width: calc(672 * var(--u)); height: calc(230 * var(--u));
+    width: calc(672 * var(--u)); height: calc(150 * var(--u));
     font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u));
   }
   .page--do .do-cta__sub, .page--rec .do-cta__sub {
-    left: calc(48 * var(--u)); top: calc(400 * var(--u));
-    width: calc(672 * var(--u)); height: calc(72 * var(--u));
+    left: calc(48 * var(--u)); top: calc(316 * var(--u));
+    width: calc(672 * var(--u)); height: calc(44 * var(--u));
     font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u));
   }
   .page--do .do-cta__btn, .page--rec .do-cta__btn {

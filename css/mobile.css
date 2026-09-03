@@ -184,10 +184,12 @@
     height: calc(890 * var(--u));
     overflow: hidden;
   }
+  /* Down 30%, about the boy's own centre so he stays where he was — see the
+     tablet sheet, which takes him down by half for the same reason. */
   .plan__film__v {
     inset: auto;
-    left: calc(-426 * var(--u) + var(--bleed-swing)); top: 0;
-    width: calc(1581.3 * var(--u)); height: calc(890.3 * var(--u));
+    left: calc(-188.8 * var(--u) + var(--bleed-swing)); top: calc(266.8 * var(--u));
+    width: calc(1106.9 * var(--u)); height: calc(623.2 * var(--u));
   }
   .plan__boy { left: calc(-426 * var(--u)); top: calc(57 * var(--u)); width: calc(733 * var(--u)); height: calc(775 * var(--u)); }
   .plan__card{ left: calc(11 * var(--u)); top: calc(35 * var(--u)); width: calc(377 * var(--u)); height: calc(410 * var(--u)); }
