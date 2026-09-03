@@ -465,15 +465,66 @@
      ====================================================================== */
   .page--do .foot { height: calc(1430 * var(--u)); }
 
-  /* The children in this section's photograph are at the bottom of it, and the
-     copy was sitting on top of them. Anchoring the crop to its foot keeps them
-     there whatever the section's height works out to, and the deeper bottom
-     padding is the room they need to be below the words rather than behind
-     them. */
-  .page--do .do-hero  { padding: calc(150 * var(--u)) calc(48 * var(--u)) calc(560 * var(--u)); gap: calc(16 * var(--u)); }
-  .page--do .do-hero__bg { object-position: center bottom; }
-  .page--do .do-hero__sub  { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
-  .page--do .do-hero__body { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+  /* -------------------------------------------------------------- hero ---
+     Figma "iPad Pro 11" - 2" (1033:456). That frame is 834 wide while the
+     rest of this sheet is drawn on a 768 artboard, so the section carries a
+     design pixel of its own: 834 * --uu comes to exactly 768 * --u at every
+     width, which lets every number below be the one Figma states rather than
+     a converted one. */
+  .page--do .s.do-hero:not(.foot):not(.do-cta) {
+    --uu: min(1.10504px, calc(var(--vwc) / 834));
+    --bleed-do: calc((max(var(--vwc), calc(834 * var(--uu))) - 834 * var(--uu)) / 2);
+    display: block; position: relative;
+    width: calc(834 * var(--uu)); margin-inline: auto;
+    height: calc(1143 * var(--uu));
+    padding: 0; gap: 0;
+  }
+
+  /* The pale band the copy sits on. Figma draws it 882 wide and 447 deep from
+     -95; the photo covers everything past 239, so what is left to paint is
+     the top of it — widened to the window so no white shows at the sides. */
+  .page--do .do-hero::before {
+    content: ''; position: absolute; z-index: 0;
+    left: 50%; transform: translateX(-50%);
+    width: max(var(--vwc), calc(882 * var(--uu)));
+    top: 0; height: calc(352 * var(--uu));
+    background: #cfdfee;
+  }
+
+  /* Same crop treatment as the phone frame: Figma sizes the fill 1808.93 x
+     1008.86 inside an 896 x 904 window at 0, 239, and the window's bottom is
+     the frame's, so only the top edge is cut. */
+  .page--do .do-hero__bg {
+    position: absolute; z-index: 1; transform: none;
+    left: auto; right: calc(0px - max(calc(62.09 * var(--uu)), var(--bleed-do)));
+    top: calc(134.14 * var(--uu));
+    width: calc(1808.93 * var(--uu)); height: calc(1008.86 * var(--uu));
+    max-width: none; object-fit: cover; object-position: center;
+    clip-path: inset(calc(104.86 * var(--uu)) 0 0 0);
+  }
+
+  .page--do .do-hero__t {
+    position: absolute; z-index: 3;
+    left: calc(107 * var(--uu)); top: calc(128 * var(--uu));
+    width: calc(621 * var(--uu)); height: calc(60 * var(--uu));
+    font-size: calc(60 * var(--uu)); line-height: calc(60 * var(--uu));
+    white-space: nowrap; text-align: right;
+  }
+  .page--do .do-hero__sub {
+    position: absolute; z-index: 3;
+    left: calc(80 * var(--uu)); top: calc(209 * var(--uu));
+    width: calc(648 * var(--uu)); height: calc(30 * var(--uu));
+    font-size: calc(22 * var(--uu)); line-height: calc(30 * var(--uu));
+    text-align: right;
+  }
+  .page--do .do-hero__body {
+    position: absolute; z-index: 3;
+    left: calc(107 * var(--uu)); top: calc(254 * var(--uu));
+    width: calc(621 * var(--uu)); height: calc(110 * var(--uu));
+    font-size: calc(18 * var(--uu)); line-height: calc(22 * var(--uu));
+    text-align: right; color: #000;
+  }
+  .page--do .do-hero__body p + p { margin-top: 0; }
 
   /* Two circles side by side, and two more beneath them. The four topics are
      not wrapped as blocks — each is three loose siblings, a circle then a

@@ -51,15 +51,71 @@
   .page--do .do-proc > .film,
   .page--do .gets-stage > .film { height: 100vh; margin-bottom: -100vh; }
 
-  /* ------------------------------------------------------------- hero ---- */
-  .page--do .do-hero {
-    padding: calc(120 * var(--u)) calc(29 * var(--u)) calc(330 * var(--u));
-    gap: calc(14 * var(--u)); align-items: stretch;
+  /* ------------------------------------------------------------- hero ----
+     Figma "iPhone 17 - 16" (1033:292), drawn on a 402 frame — the same width
+     this artboard uses, so every number below is Figma's own.
+
+     The one departure: the frame has no header in it, and its title sits at
+     57, under the bar. Everything in the frame is moved down 56 so the title
+     clears it by the same margin the tablet frame draws (which does clear the
+     bar on its own). The frame's 874 becomes 930 with it. */
+  .page--do .s.do-hero:not(.foot):not(.do-cta) {
+    display: block; position: relative;
+    width: calc(402 * var(--u)); margin-inline: auto;
+    height: calc(930 * var(--u));
+    padding: 0; gap: 0;
+    --bleed-do: calc((max(var(--vwc), calc(402 * var(--u))) - 402 * var(--u)) / 2);
   }
-  .page--do .do-hero__t   { white-space: normal; text-align: right; }
-  .page--do .do-hero__sub { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u)); text-align: right; }
-  .page--do .do-hero__body{ font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); text-align: right; }
-  .page--do .do-hero__body p + p { margin-top: calc(10 * var(--u)); }
+
+  /* The frame's ground. It has to reach the edges of the window, not the
+     edges of the artboard, or the screens wider than 502 get a white band
+     down each side. */
+  .page--do .do-hero::before {
+    content: ''; position: absolute; z-index: 0;
+    left: 50%; transform: translateX(-50%);
+    width: max(var(--vwc), 100%); top: 0; height: 100%;
+    background: #cfe0ef;
+  }
+
+  /* Figma crops this photo rather than fitting it: the fill is 1277.96 x
+     712.98 inside a 633 x 641 window at -84, 357. The picture is the same
+     2271 x 1266 original, so the crop is reproduced by placing the whole
+     picture at that size and cutting the window out of it — the top edge
+     where the ground shows through, the bottom where the frame ends.
+     Left and right are left uncut so it bleeds; the right edge follows the
+     window until the screen is wide enough to need more. */
+  .page--do .do-hero__bg {
+    position: absolute; z-index: 1; transform: none;
+    left: auto; right: calc(0px - max(calc(147.06 * var(--u)), var(--bleed-do)));
+    top: calc(285.02 * var(--u));
+    width: calc(1277.96 * var(--u)); height: calc(712.98 * var(--u));
+    max-width: none; object-fit: cover;
+    clip-path: inset(calc(71.98 * var(--u)) 0 calc(68 * var(--u)) 0);
+  }
+
+  .page--do .do-hero__t {
+    position: absolute; z-index: 3;
+    left: calc(45 * var(--u)); top: calc(113 * var(--u));
+    width: calc(326 * var(--u)); height: calc(120 * var(--u));
+    font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u));
+    white-space: normal; text-align: right;
+  }
+  .page--do .do-hero__sub {
+    position: absolute; z-index: 3;
+    left: calc(31 * var(--u)); top: calc(241 * var(--u));
+    width: calc(340 * var(--u)); height: calc(60 * var(--u));
+    font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
+    text-align: right;
+  }
+  .page--do .do-hero__body {
+    position: absolute; z-index: 3;
+    left: calc(45 * var(--u)); top: calc(311 * var(--u));
+    width: calc(326 * var(--u)); height: calc(176 * var(--u));
+    font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u));
+    text-align: right; color: #000;
+  }
+  /* Figma sets the three paragraphs solid: 8 lines at 22 is the 176 it draws. */
+  .page--do .do-hero__body p + p { margin-top: 0; }
 
   /* ------------------------------------------------------------ focus ---- */
   .page--do .do-focus { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(40 * var(--u)); gap: calc(6 * var(--u)); }
