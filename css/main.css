@@ -380,20 +380,10 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .moreq__sub  { left: calc(382 * var(--u)); top: calc(665 * var(--u)); width: calc(620 * var(--u)); height: calc(61 * var(--u));  text-align: right; z-index: 5; }
 .moreq__btn1 { left: calc(735 * var(--u)); top: calc(732 * var(--u)); width: calc(267 * var(--u)); z-index: 5; }
 .moreq__btn2 { left: calc(444 * var(--u)); top: calc(732 * var(--u)); width: calc(261 * var(--u)); z-index: 5; }
-/* the still and the hover clip share one box, so the clip lands on the boy */
+/* He used to lower the hoop while you pointed at him. The clip read as a jump
+   sideways rather than a movement, so the boy is a still now, on both pages. */
 .moreq__boy { display: block; }
 .moreq__boy > img { width: 100%; height: 100%; object-fit: contain; display: block; }
-/* Measured off the alpha of both: the still's ink sits at 40.2,86.3 and is
-   349.2x657.1 inside this 491.886x874 box, and the clip is cropped to exactly
-   that ink — so the canvas takes those numbers and frame 0 lands on the still. */
-.moreq__film {
-  position: absolute;
-  left: calc(40.2 * var(--u)); top: calc(86.3 * var(--u));
-  width: calc(349.2 * var(--u)); height: calc(657.1 * var(--u));
-  opacity: 0; transition: opacity .18s ease; pointer-events: none;
-}
-.moreq__boy.is-playing .moreq__film { opacity: 1; }
-.moreq__boy.is-playing > img { opacity: 0; }
 
 
 /* =====================  יצירת קשר  (8826 – 9773)  ===================== */
@@ -705,7 +695,6 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
 /* Frame-specific copy: Figma writes some blocks differently per breakpoint. */
 .on-mobile { display: none; }
 
-.strength__boy { display: none; }   /* mobile frame only */
 
 /* ==========================================================================
    Button hover states  (Figma 952:268 and 952:330)

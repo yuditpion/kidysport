@@ -113,11 +113,11 @@
          instead of the clip: the hall behind, a pose of the boy beside each
          card, and the card itself. They are hidden on the desktop artboard,
          where the clip already carries all three baked into its frames. -->
-    <img class="proc-bg proc-bg--a" src="assets/img/do-proc-bg.png" alt="" aria-hidden="true">
-    <img class="proc-bg proc-bg--b" src="assets/img/do-proc-bg.png" alt="" aria-hidden="true">
-    <img class="proc-bg proc-bg--c" src="assets/img/do-proc-bg.png" alt="" aria-hidden="true">
-    <img class="proc-boy proc-boy--a" src="assets/img/do-proc-boy.png" alt="" aria-hidden="true">
-    <img class="proc-boy proc-boy--b" src="assets/img/do-proc-boy.png" alt="" aria-hidden="true">
+    <img class="proc-bg proc-bg--a" src="assets/img/do-proc-bg.webp" alt="" aria-hidden="true">
+    <img class="proc-bg proc-bg--b" src="assets/img/do-proc-bg.webp" alt="" aria-hidden="true">
+    <img class="proc-bg proc-bg--c" src="assets/img/do-proc-bg.webp" alt="" aria-hidden="true">
+    <img class="proc-boy proc-boy--a" src="assets/img/do-proc-boy.webp" alt="" aria-hidden="true">
+    <img class="proc-boy proc-boy--b" src="assets/img/do-proc-boy.webp" alt="" aria-hidden="true">
     <span class="proc-card proc-card--a" aria-hidden="true"></span>
     <span class="proc-card proc-card--b" aria-hidden="true"></span>
 
@@ -210,20 +210,31 @@
 
   <!-- =========================== שלוש כרטיסיות =========================== -->
   <section class="s do-cards">
+    <!-- Each heading is followed by its own picture and copy. On the desktop
+         artboard every one of these is placed absolutely and .dc-card is
+         display:contents, so the wrapper is not in the box tree at all; on the
+         tablet and phone artboards the wrapper becomes the card the two sit
+         in. -->
     <h3 class="dc-t dc-t--a t-h2 c-teal">מטרה אישית לכל ילד</h3>
-    <h3 class="dc-t dc-t--b t-h2 c-teal">מכירים את הילד דרך הפעילות</h3>
-    <h3 class="dc-t dc-t--c t-h2 c-teal">מתרגלים בתוך החיים עצמם</h3>
-
     <div class="dc-pad dc-pad--a"></div>
-    <span class="dc-pic dc-pic--a" data-clip="tunnel" aria-hidden="true"><img src="assets/img/do-card-tunnel.webp" alt=""><canvas class="dc-pic__film"></canvas></span>
-    <div class="dc-pad dc-pad--b"></div>
-    <span class="dc-pic dc-pic--b" data-clip="hands" aria-hidden="true"><img src="assets/img/do-card-running.webp" alt=""><canvas class="dc-pic__film"></canvas></span>
-    <div class="dc-pad dc-pad--c"></div>
-    <span class="dc-pic dc-pic--c" data-clip="ball" aria-hidden="true"><img src="assets/img/do-card-standing.webp" alt=""><canvas class="dc-pic__film"></canvas></span>
+    <div class="dc-card dc-card--a">
+      <span class="dc-pic dc-pic--a" data-clip="tunnel" aria-hidden="true"><img src="assets/img/do-card-tunnel.webp" alt=""><canvas class="dc-pic__film"></canvas></span>
+      <p class="dc-x dc-x--a t-body">לכל ילד נבנית תוכנית המותאמת לצרכים שלו. המדריכה מכירה את המטרות האישיות ומשלבת אותן בתוך המשחקים והתרגילים, כך שכל ילד מתקדם בתחומים הרלוונטיים עבורו.</p>
+    </div>
 
-    <p class="dc-x dc-x--a t-body">לכל ילד נבנית תוכנית המותאמת לצרכים שלו. המדריכה מכירה את המטרות האישיות ומשלבת אותן בתוך המשחקים והתרגילים, כך שכל ילד מתקדם בתחומים הרלוונטיים עבורו.</p>
-    <p class="dc-x dc-x--b t-body">אין צורך באבחון נפרד כתנאי להתחלה. הצוות לומד להכיר את הילד תוך כדי משחק, תנועה ואינטראקציה, ומשלב את ההתרשמות עם המידע מההורים לצורך בניית התוכנית האישית ועדכונה.</p>
-    <p class="dc-x dc-x--c t-body">הקבוצה יוצרת הזדמנויות טבעיות לתרגל שיתוף פעולה, המתנה, קבלת גבולות, התמודדות עם הפסד וביטחון חברתי. המדריכה מזהה את האתגרים בזמן אמת ומעניקה לילד כלים להתמודדות נכונה יותר.</p>
+    <h3 class="dc-t dc-t--b t-h2 c-teal">מכירים את הילד דרך הפעילות</h3>
+    <div class="dc-pad dc-pad--b"></div>
+    <div class="dc-card dc-card--b">
+      <span class="dc-pic dc-pic--b" data-clip="hands" aria-hidden="true"><img src="assets/img/do-card-running.webp" alt=""><canvas class="dc-pic__film"></canvas></span>
+      <p class="dc-x dc-x--b t-body">אין צורך באבחון נפרד כתנאי להתחלה. הצוות לומד להכיר את הילד תוך כדי משחק, תנועה ואינטראקציה, ומשלב את ההתרשמות עם המידע מההורים לצורך בניית התוכנית האישית ועדכונה.</p>
+    </div>
+
+    <h3 class="dc-t dc-t--c t-h2 c-teal">מתרגלים בתוך החיים עצמם</h3>
+    <div class="dc-pad dc-pad--c"></div>
+    <div class="dc-card dc-card--c">
+      <span class="dc-pic dc-pic--c" data-clip="ball" aria-hidden="true"><img src="assets/img/do-card-standing.webp" alt=""><canvas class="dc-pic__film"></canvas></span>
+      <p class="dc-x dc-x--c t-body">הקבוצה יוצרת הזדמנויות טבעיות לתרגל שיתוף פעולה, המתנה, קבלת גבולות, התמודדות עם הפסד וביטחון חברתי. המדריכה מזהה את האתגרים בזמן אמת ומעניקה לילד כלים להתמודדות נכונה יותר.</p>
+    </div>
   </section>
 
   <!-- ====================== מה הילד מקבל אצלינו? ====================== -->

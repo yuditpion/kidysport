@@ -507,12 +507,28 @@
       section.classList.remove('is-swinging');
       vid.pause();
     }
-    over.addEventListener('pointerenter', start);
-    over.addEventListener('pointerleave', stop);
+
+    /* The tablet and phone artboards have no hover to give, so there he simply
+       swings the whole time. Started outright rather than off an observer: the
+       clip is short, muted and looping, and browsers throttle a video that is
+       off screen anyway — where gating it on an observer would mean he is not
+       swinging at all if that observer never delivers. */
+    var always = window.matchMedia('(max-width: 1199px)');
+
+    function applyMode() {
+      if (always.matches) start();
+      else stop();
+    }
+    if (always.addEventListener) always.addEventListener('change', applyMode);
+    else if (always.addListener) always.addListener(applyMode);
+    applyMode();
+
+    over.addEventListener('pointerenter', function () { start(); });
+    over.addEventListener('pointerleave', function () { if (!always.matches) stop(); });
     /* a pointer that leaves the window without a leave event, and touch, which
        has no hover at all: stop rather than leaving it running */
-    over.addEventListener('pointercancel', stop);
-    window.addEventListener('blur', stop);
+    over.addEventListener('pointercancel', function () { if (!always.matches) stop(); });
+    window.addEventListener('blur', function () { if (!always.matches) stop(); });
   })();
 
   /* ------------------------------------------------------------ card hover --

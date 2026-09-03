@@ -142,7 +142,6 @@
   .whatis__bg   { top: 0; height: calc(1084 * var(--u)); }
   .strength__bg { display: block; top: calc(1084 * var(--u)); height: calc(1084 * var(--u)); }
   .whatis__boy  { left: calc(96 * var(--u)); top: calc(496 * var(--u)); width: calc(297 * var(--u)); height: calc(532 * var(--u)); }
-  .strength__boy { display: block; left: calc(96 * var(--u)); top: calc(1580 * var(--u)); width: calc(297 * var(--u)); height: calc(532 * var(--u)); z-index: 3; }
   .whatis__t1   { left: calc(23 * var(--u)); top: calc(59 * var(--u));  width: calc(352 * var(--u)); height: calc(60 * var(--u)); }
   .whatis__t2   { left: calc(23 * var(--u)); top: calc(119 * var(--u)); width: calc(352 * var(--u)); height: calc(60 * var(--u)); }
   .whatis__body { left: calc(28 * var(--u)); top: calc(169 * var(--u)); width: calc(347 * var(--u)); height: calc(171 * var(--u)); }
@@ -170,7 +169,26 @@
   /* ================= תוכנית אישית בקבוצה קטנה (4325 – 5215) ================= */
   .plan { top: calc(4325 * var(--u)); height: calc(890 * var(--u)); }
   .plan__bg  { top: 0; height: calc(890 * var(--u)); }
-  .plan__film { top: 0; height: calc(890 * var(--u)); }
+  /* He swings the whole time here — there is no hover on a phone to ask for
+     it. The clip is a full 16:9 render of this scene, so it cannot cover a
+     402x890 section by stretching across it: sized that way it shows a narrow
+     strip of the middle and the boy falls outside it. Instead the clip is laid
+     out so its boy comes out at exactly the size the still has (733x775) and
+     the frame around him still reaches past all four edges, with the box
+     clipping what hangs over. He ends up 62 up from where the still sits,
+     which is as low as a frame that covers the top can put him. */
+  .plan { --bleed-swing: calc((max(var(--vwc), calc(402 * var(--u))) - 402 * var(--u)) / 2); }
+  .plan__film {
+    left: calc(0px - var(--bleed-swing)); transform: none; top: 0;
+    width: max(var(--vwc), calc(402 * var(--u)));
+    height: calc(890 * var(--u));
+    overflow: hidden;
+  }
+  .plan__film__v {
+    inset: auto;
+    left: calc(-426 * var(--u) + var(--bleed-swing)); top: 0;
+    width: calc(1581.3 * var(--u)); height: calc(890.3 * var(--u));
+  }
   .plan__boy { left: calc(-426 * var(--u)); top: calc(57 * var(--u)); width: calc(733 * var(--u)); height: calc(775 * var(--u)); }
   .plan__card{ left: calc(11 * var(--u)); top: calc(35 * var(--u)); width: calc(377 * var(--u)); height: calc(410 * var(--u)); }
   .plan__t   { left: calc(23 * var(--u)); top: calc(60 * var(--u));  width: calc(352 * var(--u)); height: calc(100 * var(--u)); }

@@ -280,26 +280,39 @@
   .page--do .st-rule--6 { left: calc(84 * var(--u)); top: calc(2516 * var(--u)); width: calc(260 * var(--u)); }
   .page--do .st-rule--7 { display: none; }        /* the frame ends on step 07 */
 
-  /* ------------------------------------------------------------- cards --- */
-  .page--do .do-cards { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(56 * var(--u)); gap: calc(10 * var(--u)); }
+  /* ------------------------------------------------------------- cards ---
+     A heading over a card, the copy on the right of the card and the picture
+     on the left of it. The card's fill is that picture's own ground, read off
+     each file (#e6f2fc, #c4e2fc, #c8def4) — which is why the middle one is the
+     bluest, and why the picture meets the card with no seam. The desktop
+     artboard already tints its half-panels with the same three. */
+  .page--do .do-cards { padding: calc(40 * var(--u)) calc(29 * var(--u)) calc(44 * var(--u)); gap: 0; }
   .page--do .dc-t  { font-size: calc(30 * var(--u)); line-height: calc(40 * var(--u)); height: auto;
-                     text-align: center; margin-top: calc(30 * var(--u)); }
-  .page--do .dc-pic { height: calc(300 * var(--u)); overflow: hidden;
-                      border-radius: calc(20 * var(--u)); }
-  .page--do .dc-pic img { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
-  .page--do .dc-x  { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); text-align: right; }
+                     text-align: center; margin: calc(30 * var(--u)) 0 calc(14 * var(--u)); }
+  .page--do .dc-t--a { margin-top: 0; }
   /* the tinted half-panels only make sense beside a photo, not above it */
   .page--do .dc-pad { display: none; }
 
-  .page--do .dc-t--a  { order: 0; margin-top: 0; }
-  .page--do .dc-pic--a{ order: 1; }
-  .page--do .dc-x--a  { order: 2; }
-  .page--do .dc-t--b  { order: 3; }
-  .page--do .dc-pic--b{ order: 4; }
-  .page--do .dc-x--b  { order: 5; }
-  .page--do .dc-t--c  { order: 6; }
-  .page--do .dc-pic--c{ order: 7; }
-  .page--do .dc-x--c  { order: 8; }
+  .page--do .dc-card {
+    display: grid; grid-template-columns: 1fr calc(150 * var(--u));
+    column-gap: calc(12 * var(--u)); align-items: center;
+    padding: calc(16 * var(--u)); border-radius: calc(20 * var(--u));
+    background: var(--tint); width: 100%;
+  }
+  .page--do .dc-card--a { --tint: #e6f2fc; }
+  .page--do .dc-card--b { --tint: #c4e2fc; }
+  .page--do .dc-card--c { --tint: #c8def4; }
+
+  /* first column is the right one here, so the copy takes it and the picture
+     the second — the way round her layout has them */
+  .page--do .dc-x   { grid-column: 1; grid-row: 1; position: static; width: auto; height: auto;
+                      font-size: calc(16 * var(--u)); line-height: calc(22 * var(--u)); text-align: right; }
+  /* both pinned to the one row: auto-placement will not step back to an
+     earlier column, so left to itself it puts them on two rows */
+  .page--do .dc-pic { grid-column: 2; grid-row: 1; position: relative; left: auto; top: auto;
+                      width: calc(150 * var(--u)); height: calc(150 * var(--u));
+                      overflow: hidden; border-radius: 0; }
+  .page--do .dc-pic img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
 
   /* -------------------------------------------------------------- gets --- */
   /* The pinned stage is a desktop idea; on one column the section just flows,

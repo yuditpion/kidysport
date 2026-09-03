@@ -159,6 +159,16 @@
 .st-rule--7 { top: calc(2175 * var(--u)); }
 
 /* ====================== שלוש כרטיסיות (4253 – 5088) ====================== */
+/* The wrapper only exists for the tablet and phone artboards. Here it is
+   taken out of the box tree so the picture and the copy stay direct children
+   of the section and keep the coordinates below.
+
+   `display: contents` settles the box tree but not selector matching: these
+   two are still written as children of the wrapper, so `.s > *` no longer
+   reaches them and they have to be told to position themselves here. */
+.dc-card { display: contents; }
+.dc-pic, .dc-x { position: absolute; }
+
 .do-cards { top: calc(4685 * var(--u)); height: calc(835 * var(--u)); }
 
 .dc-t { top: calc(178 * var(--u)); height: calc(40 * var(--u));

@@ -152,7 +152,6 @@
   .whatis__boy   { left: calc(184 * var(--u)); top: calc(436 * var(--u)); width: calc(400 * var(--u)); height: calc(560 * var(--u)); }
 
   .strength__bg  { top: calc(1000 * var(--u)); height: calc(1000 * var(--u)); }
-  .strength__boy { left: calc(184 * var(--u)); top: calc(1036 * var(--u)); width: calc(400 * var(--u)); height: calc(560 * var(--u)); z-index: 3; }
 
   /* the four strength cards, two-up */
   .fcd { width: calc(324 * var(--u)); height: calc(160 * var(--u));
@@ -177,7 +176,21 @@
   /* ------------------------ תוכנית אישית בקבוצה קטנה (4354 – 5244) ------ */
   .plan       { top: calc(4354 * var(--u)); height: calc(890 * var(--u)); }
   .plan__bg   { top: 0; height: calc(890 * var(--u)); }
-  .plan__film { top: 0; height: calc(890 * var(--u)); }
+  /* Same as the phone sheet: always swinging, and the clip laid out so its boy
+     comes out at the size the still has (880x930) while the frame still
+     reaches past every edge, the box clipping the rest. */
+  .plan { --bleed-swing: calc((max(var(--vwc), calc(768 * var(--u))) - 768 * var(--u)) / 2); }
+  .plan__film {
+    left: calc(0px - var(--bleed-swing)); transform: none; top: 0;
+    width: max(var(--vwc), calc(768 * var(--u)));
+    height: calc(890 * var(--u));
+    overflow: hidden;
+  }
+  .plan__film__v {
+    inset: auto;
+    left: calc(-540 * var(--u) + var(--bleed-swing)); top: 0;
+    width: calc(1898.4 * var(--u)); height: calc(1068.8 * var(--u));
+  }
   .plan__boy  { left: calc(-540 * var(--u)); top: calc(40 * var(--u)); width: calc(880 * var(--u)); height: calc(930 * var(--u)); }
   .plan__card { left: calc(48 * var(--u)); top: calc(40 * var(--u)); width: calc(672 * var(--u)); height: calc(480 * var(--u)); }
   .plan__t    { left: calc(96 * var(--u)); top: calc(64 * var(--u));  width: calc(576 * var(--u)); height: calc(140 * var(--u)); }
@@ -667,10 +680,16 @@
   .page--do .st-rule--5 { left: calc(341 * var(--uu)); top: calc(1674 * var(--uu)); width: calc(250 * var(--uu)); }
   .page--do .st-rule--6 { left: calc(341 * var(--uu)); top: calc(1878 * var(--uu)); width: calc(250 * var(--uu)); }
 
-  .page--do .do-cards { padding: calc(72 * var(--u)) calc(48 * var(--u)) calc(72 * var(--u)); }
-  .page--do .dc-t     { font-size: calc(34 * var(--u)); line-height: calc(46 * var(--u)); margin-top: calc(36 * var(--u)); }
-  .page--do .dc-pic   { height: calc(380 * var(--u)); border-radius: calc(24 * var(--u)); }
-  .page--do .dc-x     { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+  /* Same card as the phone sheet, at this artboard's measurements. */
+  .page--do .do-cards { padding: calc(48 * var(--u)) calc(48 * var(--u)) calc(56 * var(--u)); }
+  .page--do .dc-t     { font-size: calc(34 * var(--u)); line-height: calc(46 * var(--u));
+                        margin: calc(36 * var(--u)) 0 calc(18 * var(--u)); }
+  .page--do .dc-t--a  { margin-top: 0; }
+  .page--do .dc-card  { grid-template-columns: 1fr calc(300 * var(--u));
+                        column-gap: calc(20 * var(--u));
+                        padding: calc(24 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .page--do .dc-pic   { width: calc(300 * var(--u)); height: calc(300 * var(--u)); border-radius: 0; }
+  .page--do .dc-x     { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); }
 
   /* the eight points pair off, which is the whole reason this page gains a
      screen of height back */
