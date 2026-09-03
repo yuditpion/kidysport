@@ -179,7 +179,12 @@
   .page--do .proc-bg--c { top: calc(1945 * var(--u)); height: calc(1285 * var(--u));
     clip-path: inset(0 0 calc(140 * var(--u)) 0); }
 
-  .page--do .proc-boy { position: absolute; z-index: 1; max-width: none; }
+  /* Over the card, not under it — the phone frame lists both boys after it, so
+     his head and arm read against the teal instead of being cut off at its
+     edge. The copy stays above him: it sits on the same layer and comes later
+     in the markup. (The tablet frame has it the other way round, card over
+     boy, which is why this is only here.) */
+  .page--do .proc-boy { position: absolute; z-index: 3; max-width: none; }
   .page--do .proc-boy--a {
     left: calc(176.04 * var(--u)); top: calc(-12 * var(--u));
     width: calc(656.8 * var(--u)); height: calc(493 * var(--u));
