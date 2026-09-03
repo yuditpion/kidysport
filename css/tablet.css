@@ -48,7 +48,7 @@
      which are `position: fixed`, and they would scroll away with the page
      instead of staying put on the screen. */
   .page  { width: max(var(--vwc), calc(768 * var(--u)));
-           height: calc(11340 * var(--u) + var(--faq-shift, 0px)); }
+           height: calc(11205 * var(--u) + var(--faq-shift, 0px)); }
   .s     { left: calc((100% - 768 * var(--u)) / 2); }
   /* the header's children are placed against it, so it keeps the column's
      width and centres with the column */
@@ -243,23 +243,23 @@
   /* Here the extra width buys the desktop arrangement back: the portrait sits
      beside the name instead of above it, and the story runs full width under
      the pair. */
-  .founder    { top: calc(5794 * var(--u)); height: calc(1026 * var(--u)); }
-  .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(1026 * var(--u)); }
-  .founder__photo  { left: calc(48 * var(--u)); top: calc(130 * var(--u)); width: calc(300 * var(--u)); height: calc(302 * var(--u));
+  .founder    { top: calc(5794 * var(--u)); height: calc(891 * var(--u)); }
+  .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(891 * var(--u)); }
+  .founder__photo  { left: calc(48 * var(--u)); top: calc(53 * var(--u)); width: calc(300 * var(--u)); height: calc(302 * var(--u));
                      border-radius: 50%; }
-  .founder__kicker { left: calc(384 * var(--u)); top: calc(176 * var(--u)); width: calc(336 * var(--u)); height: calc(48 * var(--u)); }
-  .founder__t      { left: calc(384 * var(--u)); top: calc(224 * var(--u)); width: calc(336 * var(--u)); height: calc(160 * var(--u)); }
-  .founder__body   { left: calc(48 * var(--u)); top: calc(478 * var(--u)); width: calc(672 * var(--u)); height: calc(336 * var(--u)); }
+  .founder__kicker { left: calc(384 * var(--u)); top: calc(99 * var(--u)); width: calc(336 * var(--u)); height: calc(48 * var(--u)); }
+  .founder__t      { left: calc(384 * var(--u)); top: calc(135 * var(--u)); width: calc(336 * var(--u)); height: calc(160 * var(--u)); }
+  .founder__body   { left: calc(48 * var(--u)); top: calc(379 * var(--u)); width: calc(672 * var(--u)); height: calc(336 * var(--u)); }
   /* The one button on the site whose label does not fit on a line at this
      width: it wrapped to two and filled the box to within a pixel, so the
      words sat on the outline. Wide enough for the wrap to breathe, tall enough
      for two lines, and the slack is even on all four sides. */
-  .founder__btn    { left: calc(174 * var(--u)); top: calc(846 * var(--u)); width: calc(420 * var(--u)); height: calc(92 * var(--u));
+  .founder__btn    { left: calc(174 * var(--u)); top: calc(749 * var(--u)); width: calc(420 * var(--u)); height: calc(92 * var(--u));
                      border-radius: calc(46 * var(--u)); font-size: calc(20 * var(--u));
                      line-height: calc(30 * var(--u)); padding-inline: calc(28 * var(--u)); }
 
   /* ------------------------------------- שאלות נפוצות (7148 – 8436) ----- */
-  .faq        { top: calc(6820 * var(--u)); height: calc(1288 * var(--u)); }
+  .faq        { top: calc(6685 * var(--u)); height: calc(1288 * var(--u)); }
   .faq__grad { top: calc(367 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(1462 * var(--u)); }
   .faq__hero { top: calc(140 * var(--u)); left: calc(-40 * var(--u)); transform: none;
                width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
@@ -280,7 +280,7 @@
                border-radius: calc(20 * var(--u)); }
 
   /* --------------------------------- יש לכם שאלה נוספת? (8436 – 8976) --- */
-  .moreq      { top: calc(8108 * var(--u)); height: calc(540 * var(--u)); }
+  .moreq      { top: calc(7973 * var(--u)); height: calc(540 * var(--u)); }
   .moreq__ellipse { left: calc(60 * var(--u)); top: calc(470 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
   .moreq__photo   { left: calc(384 * var(--u)); top: calc(56 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u));
                     border-radius: calc(24 * var(--u)); }
@@ -291,7 +291,7 @@
   .moreq__btn2    { left: calc(28 * var(--u));  top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
 
   /* -------------------------------------- יצירת קשר (8976 – 10538) ------ */
-  .contact    { top: calc(8648 * var(--u)); height: calc(1262 * var(--u)); }
+  .contact    { top: calc(8513 * var(--u)); height: calc(1262 * var(--u)); }
   .contact__bg-m   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(900 * var(--u)); }
 
   .contact__panel  { left: calc(48 * var(--u)); top: calc(28 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
@@ -326,7 +326,7 @@
      corner the cards no longer need. This is where most of the height the
      phone footer wanted comes back: 1430 against 1852.
      ====================================================================== */
-  .foot       { top: calc(9910 * var(--u)); height: calc(1430 * var(--u)); }
+  .foot       { top: calc(9775 * var(--u)); height: calc(1430 * var(--u)); }
   .foot__bg   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(980 * var(--u)); }
   .foot__bird { left: calc(96 * var(--u)); top: calc(26 * var(--u)); width: calc(88 * var(--u)); }
   .foot__t    { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u)); }
