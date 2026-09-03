@@ -691,21 +691,111 @@
   .page--do .dc-pic   { width: calc(300 * var(--u)); height: calc(300 * var(--u)); border-radius: 0; }
   .page--do .dc-x     { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); }
 
-  /* the eight points pair off, which is the whole reason this page gains a
-     screen of height back */
-  .page--do .do-gets { padding: calc(88 * var(--u)) calc(48 * var(--u)) calc(72 * var(--u));
-                       flex-flow: row wrap; justify-content: space-between;
-                       gap: calc(18 * var(--u)) calc(24 * var(--u)); }
-  .page--do .do-gets > * { width: 100%; }
-  .page--do .do-gets__sub { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
-  .page--do .gp      { width: calc(50% - 12 * var(--u)); min-height: calc(84 * var(--u)); align-items: flex-start; }
-  .page--do .gp__t   { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u)); flex-basis: calc(100% - 100 * var(--u)); }
-  .page--do .gp__x   { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); flex-basis: calc(100% - 100 * var(--u)); }
+  /* --------------------------------------------- מה הילד מקבל אצלינו ---
+     Figma "iPad Pro 11" - 4" (1034/1033:465) and "- 5" (1034:516): one frame,
+     drawn twice, for the two states the copy passes through. The picture is
+     the same clip in both and does not move — only the points change, the
+     first four leaving as the second four arrive, which is why they share the
+     band down the middle. The swap itself is in do-scroll.js.
 
-  .page--do .funds    { padding: calc(32 * var(--u)) calc(28 * var(--u)); margin-top: calc(40 * var(--u)); width: 100%; }
-  .page--do .funds__t { font-size: calc(30 * var(--u)); line-height: calc(40 * var(--u)); }
-  .page--do .funds__x { font-size: calc(22 * var(--u)); line-height: calc(32 * var(--u)); }
-  .page--do .fund     { height: calc(48 * var(--u)); }
+     834 frame, so this section carries its own design pixel like the hero and
+     the process section above. */
+  .page--do .s.do-gets:not(.foot):not(.do-cta) {
+    --uu: min(1.10504px, calc(var(--vwc) / 834));
+    display: block; position: relative;
+    width: calc(834 * var(--uu)); margin-inline: auto;
+    height: calc(1194 * var(--uu));
+    padding: 0; gap: 0;
+  }
+  /* nothing is pinned here: at this width the frame is taller than a good part
+     of the screens that get it, and a pinned box taller than the window leaves
+     its own foot unreachable. It scrolls, and the points change as it passes. */
+  .page--do .s > .gets-stage {
+    position: static; top: auto; left: 0;
+    width: 100%; height: 100%;
+  }
+  .page--do .gets-stage > .film {
+    position: absolute; inset: auto; margin-bottom: 0;
+    left: calc(-491 * var(--uu)); top: calc(-1 * var(--uu));
+    width: calc(1952 * var(--uu)); height: calc(1221 * var(--uu));
+  }
+  /* the frames draw no leader lines */
+  .page--do .gl { display: none; }
+
+  .page--do .do-gets__t {
+    left: calc(135 * var(--uu)); top: calc(51 * var(--uu));
+    width: calc(565 * var(--uu)); height: calc(60 * var(--uu));
+    font-size: calc(60 * var(--uu)); line-height: calc(60 * var(--uu));
+    text-align: center;
+  }
+  .page--do .do-gets__sub {
+    left: calc(238 * var(--uu)); top: calc(111 * var(--uu));
+    width: calc(358 * var(--uu)); height: calc(30 * var(--uu));
+    font-size: calc(22 * var(--uu)); line-height: calc(30 * var(--uu));
+    text-align: center; white-space: nowrap;
+  }
+
+  /* every part of a point is placed by the frame's coordinates, so the point
+     itself is only an anchor at the frame's origin */
+  .page--do .gp { left: 0; top: 0; width: 100%; height: 0;
+                  min-height: 0; align-items: stretch; }
+  .page--do .gp > * { position: absolute; }
+  /* One class deeper than the plain element selector on purpose: the phone
+     sheet gives each point its own height, in its own design pixel, and a
+     two-class rule here would lose to it and leave the tablet measuring in
+     phone units. */
+  .page--do .gp .gp__t { flex-basis: auto; text-align: right; color: #05a3ab;
+                         display: flex; flex-direction: column; justify-content: center;
+                         font-size: calc(30 * var(--uu)); line-height: calc(34 * var(--uu)); }
+  .page--do .gp .gp__x { flex-basis: auto; text-align: right; color: #383838;
+                         font-size: calc(22 * var(--uu)); line-height: calc(38 * var(--uu));
+                         height: calc(38 * var(--uu)); }
+
+  .page--do .gp--1 .gp__t { left: calc(70 * var(--uu));  top: calc(248 * var(--uu)); width: calc(191 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--2 .gp__t { left: calc(75 * var(--uu));  top: calc(378 * var(--uu)); width: calc(186 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--3 .gp__t { left: calc(13 * var(--uu));  top: calc(506 * var(--uu)); width: calc(248 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--4 .gp__t { left: calc(13 * var(--uu));  top: calc(635 * var(--uu)); width: calc(248 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--5 .gp__t { left: calc(429 * var(--uu)); top: calc(174 * var(--uu)); width: calc(248 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--6 .gp__t { left: calc(415 * var(--uu)); top: calc(295 * var(--uu)); width: calc(262 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--7 .gp__t { left: calc(377 * var(--uu)); top: calc(422 * var(--uu)); width: calc(300 * var(--uu)); height: calc(55 * var(--uu)); }
+  .page--do .gp--8 .gp__t { left: calc(437 * var(--uu)); top: calc(560 * var(--uu)); width: calc(240 * var(--uu)); height: calc(55 * var(--uu)); }
+
+  .page--do .gp--1 .gp__x { left: calc(73 * var(--uu));  top: calc(306 * var(--uu)); width: calc(188 * var(--uu)); }
+  .page--do .gp--2 .gp__x { left: calc(75 * var(--uu));  top: calc(424 * var(--uu)); width: calc(186 * var(--uu)); }
+  .page--do .gp--3 .gp__x { left: calc(38 * var(--uu));  top: calc(551 * var(--uu)); width: calc(223 * var(--uu)); }
+  .page--do .gp--4 .gp__x { left: calc(38 * var(--uu));  top: calc(680 * var(--uu)); width: calc(223 * var(--uu)); }
+  .page--do .gp--5 .gp__x { left: calc(489 * var(--uu)); top: calc(221 * var(--uu)); width: calc(188 * var(--uu)); }
+  .page--do .gp--6 .gp__x { left: calc(491 * var(--uu)); top: calc(341 * var(--uu)); width: calc(186 * var(--uu)); }
+  .page--do .gp--7 .gp__x { left: calc(454 * var(--uu)); top: calc(467 * var(--uu)); width: calc(223 * var(--uu)); }
+  .page--do .gp--8 .gp__x { left: calc(454 * var(--uu)); top: calc(619 * var(--uu)); width: calc(223 * var(--uu)); }
+
+  /* the icon boxes come out the same size the desktop frame gives them, so the
+     sprite offsets in do.css carry over untouched */
+  .page--do .gp--1 .gp__ico { left: calc(279 * var(--uu)); top: calc(251 * var(--uu)); width: calc(84 * var(--uu));  height: calc(81 * var(--uu)); }
+  .page--do .gp--2 .gp__ico { left: calc(271 * var(--uu)); top: calc(357 * var(--uu)); width: calc(100 * var(--uu)); height: calc(110 * var(--uu)); }
+  .page--do .gp--3 .gp__ico { left: calc(278 * var(--uu)); top: calc(492 * var(--uu)); width: calc(88 * var(--uu));  height: calc(110 * var(--uu)); }
+  .page--do .gp--4 .gp__ico { left: calc(271 * var(--uu)); top: calc(625 * var(--uu)); width: calc(118 * var(--uu)); height: calc(98 * var(--uu)); }
+  .page--do .gp--5 .gp__ico { left: calc(677 * var(--uu)); top: calc(164 * var(--uu)); width: calc(116 * var(--uu)); height: calc(123 * var(--uu)); }
+  .page--do .gp--6 .gp__ico { left: calc(680 * var(--uu)); top: calc(277 * var(--uu)); width: calc(118 * var(--uu)); height: calc(123 * var(--uu)); }
+  .page--do .gp--7 .gp__ico { left: calc(682 * var(--uu)); top: calc(400 * var(--uu)); width: calc(114 * var(--uu)); height: calc(123 * var(--uu)); }
+  .page--do .gp--8 .gp__ico { left: calc(680 * var(--uu)); top: calc(542 * var(--uu)); width: calc(128 * var(--uu)); height: calc(123 * var(--uu)); }
+
+  .page--do .funds {
+    left: calc(36 * var(--uu)); top: calc(880 * var(--uu));
+    width: calc(762 * var(--uu)); height: calc(264 * var(--uu));
+    border-radius: calc(30 * var(--uu)); padding: 0; margin-top: 0;
+  }
+  .page--do .funds__t { left: calc(66 * var(--uu)); top: calc(29 * var(--uu));
+                        width: calc(630 * var(--uu)); height: calc(60 * var(--uu));
+                        font-size: calc(40 * var(--uu)); line-height: calc(60 * var(--uu)); }
+  .page--do .funds__x { left: calc(253 * var(--uu)); top: calc(99 * var(--uu));
+                        width: calc(257 * var(--uu)); height: calc(38 * var(--uu));
+                        font-size: calc(40 * var(--uu)); line-height: calc(38 * var(--uu));
+                        text-align: center; }
+  .page--do .fund--maccabi  { left: calc(414 * var(--uu)); top: calc(163 * var(--uu)); width: calc(133.59 * var(--uu)); height: calc(50.84 * var(--uu)); }
+  .page--do .fund--clalit   { left: calc(581 * var(--uu)); top: calc(172 * var(--uu)); width: calc(154 * var(--uu));    height: calc(43 * var(--uu)); }
+  .page--do .fund--leumit   { left: calc(210 * var(--uu)); top: calc(170 * var(--uu)); width: calc(183 * var(--uu));    height: calc(45 * var(--uu)); }
+  .page--do .fund--meuhedet { left: calc(24 * var(--uu));  top: calc(176 * var(--uu)); width: calc(168 * var(--uu));    height: calc(39 * var(--uu)); }
 
   /* ======================================================================
      שאלות ותשובות — flows, with the hero and the closing block as their own

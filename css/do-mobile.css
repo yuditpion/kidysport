@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kidysport — מה אנחנו עושים, mobile.
+   Kidysport â ×× ×× ×× × ×¢××©××, mobile.
 
    This page has no mobile frame in the Figma file, so the layout below is an
    adaptation rather than a trace. It keeps the desktop page's colours, type
@@ -28,7 +28,7 @@
   .page--do .foot { position: relative; top: auto; height: calc(1852 * var(--u)); }
 
   /* Every child joins the flow except the pinned stage and the backdrop art.
-     The exclusions sit in `:where()` so they add no specificity — otherwise
+     The exclusions sit in `:where()` so they add no specificity â otherwise
      this rule out-ranks the per-element sizes further down and every photo
      falls back to `height: auto`. */
   .page--do .s:where(:not(.foot)):where(:not(.do-cta)) > :where(:not(.film)):where(:not(.bg-art)) {
@@ -52,7 +52,7 @@
   .page--do .gets-stage > .film { height: 100vh; margin-bottom: -100vh; }
 
   /* ------------------------------------------------------------- hero ----
-     Figma "iPhone 17 - 16" (1033:292), drawn on a 402 frame — the same width
+     Figma "iPhone 17 - 16" (1033:292), drawn on a 402 frame â the same width
      this artboard uses, so every number below is Figma's own.
 
      The one departure: the frame has no header in it, and its title sits at
@@ -80,7 +80,7 @@
   /* Figma crops this photo rather than fitting it: the fill is 1277.96 x
      712.98 inside a 633 x 641 window at -84, 357. The picture is the same
      2271 x 1266 original, so the crop is reproduced by placing the whole
-     picture at that size and cutting the window out of it — the top edge
+     picture at that size and cutting the window out of it â the top edge
      where the ground shows through, the bottom where the frame ends.
      Left and right are left uncut so it bleeds; the right edge follows the
      window until the screen is wide enough to need more. */
@@ -121,7 +121,7 @@
   .page--do .do-focus { padding: calc(56 * var(--u)) calc(29 * var(--u)) calc(40 * var(--u)); gap: calc(6 * var(--u)); }
   .page--do .do-focus__t { text-align: center; margin-bottom: calc(20 * var(--u)); }
 
-  /* one column: picture, heading, list — four times over */
+  /* one column: picture, heading, list â four times over */
   .page--do .fc-pic { width: calc(220 * var(--u)); height: calc(220 * var(--u)); margin-top: calc(26 * var(--u)); }
   .page--do .fc-t   { font-size: calc(30 * var(--u)); line-height: calc(46 * var(--u)); height: auto; text-align: center; }
   .page--do .fc-l   { font-size: calc(18 * var(--u)); line-height: calc(26 * var(--u)); text-align: center; }
@@ -142,7 +142,7 @@
   .page--do .fc-l--behav     { order: 12; }
 
   /* ----------------------------------------------------------- process ---
-     Figma "iPhone 17 - 15" (1032:107), a 402 frame — the width this artboard
+     Figma "iPhone 17 - 15" (1032:107), a 402 frame â the width this artboard
      already uses, so every number here is Figma's own.
 
      No clip on this artboard. The frame draws the section as flat layers: the
@@ -227,7 +227,7 @@
     font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u));
     text-align: right; color: var(--white);
   }
-  /* Figma sets the paragraphs solid and all at one weight — the box heights it
+  /* Figma sets the paragraphs solid and all at one weight â the box heights it
      draws are exactly the line count times 22. */
   .page--do .st__x p + p { margin-top: 0; }
   .page--do .st__x strong { font-weight: 400; }
@@ -260,7 +260,7 @@
   /* Step 2 is the one paragraph the frame's 272 does not reproduce: the Hebrew
      fallback face runs a little wide and it spills onto a ninth line. Widened
      to the left, off the same right edge the frame gives it, so the extra room
-     goes on the ragged side where nothing shows — the same fix do.css already
+     goes on the ragged side where nothing shows â the same fix do.css already
      applies to this step on the desktop artboard. */
   .page--do .st--2 .st__x { left: calc(45 * var(--u));  top: calc(950 * var(--u));  width: calc(288 * var(--u)); height: calc(176 * var(--u)); }
   .page--do .st--3 .st__x { left: calc(58 * var(--u));  top: calc(1312 * var(--u)); width: calc(275 * var(--u)); height: calc(154 * var(--u)); }
@@ -283,7 +283,7 @@
   /* ------------------------------------------------------------- cards ---
      A heading over a card, the copy on the right of the card and the picture
      on the left of it. The card's fill is that picture's own ground, read off
-     each file (#e6f2fc, #c4e2fc, #c8def4) — which is why the middle one is the
+     each file (#e6f2fc, #c4e2fc, #c8def4) â which is why the middle one is the
      bluest, and why the picture meets the card with no seam. The desktop
      artboard already tints its half-panels with the same three. */
   .page--do .do-cards { padding: calc(40 * var(--u)) calc(29 * var(--u)) calc(44 * var(--u)); gap: 0; }
@@ -304,7 +304,7 @@
   .page--do .dc-card--c { --tint: #c8def4; }
 
   /* first column is the right one here, so the copy takes it and the picture
-     the second — the way round her layout has them */
+     the second â the way round her layout has them */
   .page--do .dc-x   { grid-column: 1; grid-row: 1; position: static; width: auto; height: auto;
                       font-size: calc(16 * var(--u)); line-height: calc(22 * var(--u)); text-align: right; }
   /* both pinned to the one row: auto-placement will not step back to an
@@ -315,56 +315,116 @@
   .page--do .dc-pic img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
 
   /* -------------------------------------------------------------- gets --- */
-  /* The pinned stage is a desktop idea; on one column the section just flows,
-     so the wrapper steps out of the way and its children become the flex
-     items the rest of these rules expect. */
-  .page--do .gets-stage { display: contents; }
-  .page--do .gets-stage > :where(:not(.film)) {
-    position: relative; left: auto; right: auto; top: auto; bottom: auto;
-    width: 100%; height: auto; z-index: 3;
-  }
-  .page--do .gets-stage > .film { position: sticky; top: 0; }
+  /* --------------------------------------- מה הילד מקבל אצלינו --------
+     Figma "iPhone 17 - 18" (1033:466) and "- 19" (1035:587): one frame drawn
+     twice, for the two states the copy passes through. The picture is the same
+     clip in both and does not move — only the points change, the first four
+     leaving as the second four arrive in the same band. The swap is in
+     do-scroll.js; every coordinate below is the frame's own.
 
-  .page--do .do-gets { padding: calc(70 * var(--u)) calc(29 * var(--u)) calc(56 * var(--u)); gap: calc(16 * var(--u)); }
-  .page--do .do-gets__t   { text-align: center; }
-  .page--do .do-gets__sub { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
-                            text-align: center; margin-bottom: calc(14 * var(--u)); }
-  /* the dotted leaders point at desktop positions; there is nothing for them
-     to connect once the points are a single column */
+     Nothing is pinned here: the frame is 1356 tall against a phone screen, and
+     a pinned box taller than the window leaves its own foot unreachable. It
+     scrolls, and the points change as it passes. */
+  .page--do .gets-stage { display: block; position: static;
+                          width: 100%; height: 100%; }
+  .page--do .gets-stage > * { position: absolute; }
+
+  .page--do .s.do-gets:not(.foot):not(.do-cta) {
+    display: block; position: relative;
+    width: calc(402 * var(--u)); margin-inline: auto;
+    height: calc(1356 * var(--u));
+    padding: 0; gap: 0;
+  }
+  /* the band the heading sits on, edge to edge */
+  .page--do .do-gets::before {
+    content: ''; position: absolute; z-index: 0;
+    left: 50%; transform: translateX(-50%);
+    width: max(var(--vwc), calc(440 * var(--u)));
+    top: 0; height: calc(199 * var(--u));
+    background: #cad7e1;
+  }
+  .page--do .gets-stage > .film {
+    position: absolute; inset: auto; top: calc(188 * var(--u));
+    left: calc(-512 * var(--u)); margin-bottom: 0;
+    width: calc(1426 * var(--u)); height: calc(892 * var(--u));
+  }
+  /* the frames draw no leader lines */
   .page--do .gl { display: none; }
 
-  .page--do .gp { display: flex; flex-direction: row; align-items: center;
-                  gap: calc(14 * var(--u)); min-height: calc(74 * var(--u)); }
-  .page--do .gp > * { position: relative; left: auto; top: auto; width: auto; height: auto; }
-  .page--do .gp__t { font-size: calc(22 * var(--u)); line-height: calc(28 * var(--u)); text-align: right; }
-  .page--do .gp__x { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); text-align: right; }
-  .page--do .gp__ico { flex: none; }
+  .page--do .do-gets__t {
+    left: calc(23 * var(--u)); top: calc(39 * var(--u));
+    width: calc(357 * var(--u)); height: calc(120 * var(--u));
+    font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u));
+    text-align: center; margin: 0;
+  }
+  .page--do .do-gets__sub {
+    left: calc(22 * var(--u)); top: calc(166 * var(--u));
+    width: calc(358 * var(--u)); height: calc(30 * var(--u));
+    font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
+    text-align: center; white-space: nowrap; margin: 0;
+  }
+
+  .page--do .gp { display: block; left: 0; top: 0; width: 100%; height: 0;
+                  min-height: 0; gap: 0; }
+  .page--do .gp > * { position: absolute; flex: none; }
+  .page--do .gp__t { flex-basis: auto; text-align: right; color: #05a3ab;
+                     display: flex; flex-direction: column; justify-content: center;
+                     font-size: calc(20 * var(--u)); line-height: calc(22.977 * var(--u)); }
+  .page--do .gp__x { flex-basis: auto; text-align: right; color: #383838;
+                     font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
+
+  .page--do .gp--1 .gp__t { left: calc(37 * var(--u));  top: calc(232 * var(--u)); width: calc(125 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--2 .gp__t { left: calc(41 * var(--u));  top: calc(317 * var(--u)); width: calc(121 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--3 .gp__t { left: calc(37 * var(--u));  top: calc(401 * var(--u)); width: calc(125 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--4 .gp__t { left: calc(37 * var(--u));  top: calc(485 * var(--u)); width: calc(125 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--5 .gp__t { left: calc(185 * var(--u)); top: calc(214 * var(--u)); width: calc(125 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--6 .gp__t { left: calc(189 * var(--u)); top: calc(308 * var(--u)); width: calc(121 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--7 .gp__t { left: calc(185 * var(--u)); top: calc(420 * var(--u)); width: calc(125 * var(--u)); height: calc(36 * var(--u)); }
+  .page--do .gp--8 .gp__t { left: calc(128 * var(--u)); top: calc(544 * var(--u)); width: calc(182 * var(--u)); height: calc(36 * var(--u)); }
+
+  .page--do .gp--1 .gp__x { left: calc(21 * var(--u));  top: calc(275 * var(--u)); width: calc(141 * var(--u)); height: calc(25 * var(--u)); }
+  .page--do .gp--2 .gp__x { left: calc(41 * var(--u));  top: calc(349 * var(--u)); width: calc(121 * var(--u)); height: calc(25 * var(--u)); }
+  .page--do .gp--3 .gp__x { left: calc(16 * var(--u));  top: calc(442 * var(--u)); width: calc(146 * var(--u)); height: calc(26 * var(--u)); }
+  .page--do .gp--4 .gp__x { left: calc(37 * var(--u));  top: calc(527 * var(--u)); width: calc(125 * var(--u)); height: calc(25 * var(--u)); }
+  .page--do .gp--5 .gp__x { left: calc(169 * var(--u)); top: calc(249 * var(--u)); width: calc(141 * var(--u)); height: calc(25 * var(--u)); }
+  .page--do .gp--6 .gp__x { left: calc(185 * var(--u)); top: calc(359 * var(--u)); width: calc(125 * var(--u)); height: calc(25 * var(--u)); }
+  .page--do .gp--7 .gp__x { left: calc(189 * var(--u)); top: calc(487 * var(--u)); width: calc(121 * var(--u)); height: calc(26 * var(--u)); }
+  .page--do .gp--8 .gp__x { left: calc(185 * var(--u)); top: calc(574 * var(--u)); width: calc(125 * var(--u)); height: calc(25 * var(--u)); }
+
   /* the crop windows are percentage-based, so scaling the window scales the
      artwork inside it — each keeps its own aspect */
-  .page--do .gp--1 .gp__ico { width: calc(50 * var(--u)); height: calc(49 * var(--u)); }
-  .page--do .gp--2 .gp__ico { width: calc(60 * var(--u)); height: calc(66 * var(--u)); }
-  .page--do .gp--3 .gp__ico { width: calc(53 * var(--u)); height: calc(66 * var(--u)); }
-  .page--do .gp--4 .gp__ico { width: calc(71 * var(--u)); height: calc(59 * var(--u)); }
-  .page--do .gp--5 .gp__ico { width: calc(70 * var(--u)); height: calc(74 * var(--u)); }
-  .page--do .gp--6 .gp__ico { width: calc(78 * var(--u)); height: calc(74 * var(--u)); }
-  .page--do .gp--7 .gp__ico { width: calc(68 * var(--u)); height: calc(74 * var(--u)); }
-  .page--do .gp--8 .gp__ico { width: calc(77 * var(--u)); height: calc(74 * var(--u)); }
-  /* the label pair fills what the icon leaves */
-  .page--do .gp__t, .page--do .gp__x { flex: 1 1 auto; }
-  .page--do .gp { flex-wrap: wrap; }
-  .page--do .gp__t { flex-basis: calc(100% - 92 * var(--u)); }
-  .page--do .gp__x { flex-basis: calc(100% - 92 * var(--u)); }
+  .page--do .gp--1 .gp__ico { left: calc(174 * var(--u)); top: calc(232 * var(--u)); width: calc(49 * var(--u)); height: calc(47 * var(--u)); }
+  .page--do .gp--2 .gp__ico { left: calc(169 * var(--u)); top: calc(312 * var(--u)); width: calc(58 * var(--u)); height: calc(64 * var(--u)); }
+  .page--do .gp--3 .gp__ico { left: calc(173 * var(--u)); top: calc(405 * var(--u)); width: calc(51 * var(--u)); height: calc(64 * var(--u)); }
+  .page--do .gp--4 .gp__ico { left: calc(165 * var(--u)); top: calc(486 * var(--u)); width: calc(68 * var(--u)); height: calc(57 * var(--u)); }
+  .page--do .gp--5 .gp__ico { left: calc(314 * var(--u)); top: calc(206 * var(--u)); width: calc(64 * var(--u)); height: calc(68 * var(--u)); }
+  .page--do .gp--6 .gp__ico { left: calc(321 * var(--u)); top: calc(298 * var(--u)); width: calc(65 * var(--u)); height: calc(67.75 * var(--u)); }
+  .page--do .gp--7 .gp__ico { left: calc(321 * var(--u)); top: calc(413 * var(--u)); width: calc(63 * var(--u)); height: calc(68 * var(--u)); }
+  .page--do .gp--8 .gp__ico { left: calc(321 * var(--u)); top: calc(537 * var(--u)); width: calc(70 * var(--u)); height: calc(68 * var(--u)); }
 
-  /* health funds */
-  .page--do .funds { display: flex; flex-direction: column; align-items: center;
-                     gap: calc(12 * var(--u)); padding: calc(24 * var(--u)) calc(16 * var(--u));
-                     margin-top: calc(30 * var(--u)); border-radius: calc(24 * var(--u)); }
-  .page--do .funds > * { position: relative; left: auto; top: auto; }
-  .page--do .funds__t { width: 100%; white-space: normal; text-align: center;
-                        font-size: calc(24 * var(--u)); line-height: calc(32 * var(--u)); height: auto; }
-  .page--do .funds__x { width: 100%; text-align: center;
-                        font-size: calc(20 * var(--u)); line-height: calc(28 * var(--u)); height: auto;
-                        margin-bottom: calc(6 * var(--u)); }
-  .page--do .fund { height: calc(38 * var(--u)); width: auto; }
+  /* Health funds. The offsets inside are the frame's less the glass border,
+     since absolutely-placed children resolve against the padding box. */
+  .page--do .funds {
+    display: block; position: absolute;
+    left: calc(13 * var(--u)); top: calc(912 * var(--u));
+    width: calc(377 * var(--u)); height: calc(361 * var(--u));
+    border-radius: calc(30 * var(--u)); padding: 0; margin-top: 0; gap: 0;
+  }
+  .page--do .funds > * { position: absolute; left: auto; top: auto; }
+  .page--do .funds__t { left: calc(15.4 * var(--u)); top: calc(11.4 * var(--u));
+                        width: calc(342 * var(--u)); height: calc(130 * var(--u));
+                        white-space: normal; text-align: center;
+                        font-size: calc(40 * var(--u)); line-height: calc(39 * var(--u)); }
+  .page--do .funds__x { left: calc(12.4 * var(--u)); top: calc(117.4 * var(--u));
+                        width: calc(339 * var(--u)); height: calc(59 * var(--u));
+                        text-align: center; margin-bottom: 0;
+                        font-size: calc(40 * var(--u)); line-height: calc(38 * var(--u)); }
+  .page--do .fund { width: auto; }
+  .page--do .fund--maccabi { left: calc(30.4 * var(--u));  top: calc(207.4 * var(--u)); width: calc(133.59 * var(--u)); height: calc(50.84 * var(--u)); }
+  .page--do .fund--clalit  { left: calc(197.4 * var(--u)); top: calc(215.4 * var(--u)); width: calc(154 * var(--u));    height: calc(43 * var(--u)); }
+  .page--do .fund--leumit  { left: calc(3.4 * var(--u));   top: calc(274.4 * var(--u)); width: calc(183 * var(--u));    height: calc(45 * var(--u)); }
+  /* the phone frame carries three logos, not four */
+  .page--do .fund--meuhedet { display: none; }
+
 
 }

@@ -77,15 +77,37 @@
     return items;
   }
 
+  /* The tablet and phone frames only have room for four points at a time, and
+     draw the second four in the same band the first four occupy. So there the
+     first four come up, go again, and the second four take their place — while
+     the picture underneath runs on untouched. */
+  var fourAtATime = window.matchMedia('(max-width: 1199px)');
+
+  function light(item, on) {
+    item.point.classList.toggle('is-on', on);
+    if (item.lead) item.lead.classList.toggle('is-on', on);
+  }
+
   function paintReveal(items, p) {
+    if (fourAtATime.matches && items.length === 8) {
+      var IN1 = 0.10, IN1END = 0.32, OUT1 = 0.40, OUT1END = 0.46;
+      var IN2 = 0.54, IN2END = 0.78;
+      for (var a = 0; a < 4; a++) {
+        var up = IN1 + (IN1END - IN1) * (a / 3);
+        var down = OUT1 + (OUT1END - OUT1) * (a / 3);
+        light(items[a], p >= up && p < down);
+      }
+      for (var b = 4; b < 8; b++) {
+        light(items[b], p >= IN2 + (IN2END - IN2) * ((b - 4) / 3));
+      }
+      return;
+    }
     /* spread the eight across the middle of the pass so the first is not
        already lit as the section arrives, nor the last still dark as it goes */
     var from = 0.12, to = 0.78;
     for (var i = 0; i < items.length; i++) {
       var at = from + (to - from) * (i / (items.length - 1 || 1));
-      var on = p >= at;
-      items[i].point.classList.toggle('is-on', on);
-      if (items[i].lead) items[i].lead.classList.toggle('is-on', on);
+      light(items[i], p >= at);
     }
   }
 
