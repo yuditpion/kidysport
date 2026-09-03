@@ -356,7 +356,14 @@
     position: sticky;
     top: 0;
     left: 0;
-    width: 100%;
+    /* the width of the screen, not of the column: on the phone those are the
+       same number, but on a tablet the column is narrower than the window and
+       a backdrop drawn to the column leaves the screen bare either side of it.
+       Negative margins rather than a transform, which would stop `sticky`
+       from pinning. */
+    width: max(var(--vwc), 100%);
+    margin-left: calc((100% - max(var(--vwc), 100%)) / 2);
+    margin-right: calc((100% - max(var(--vwc), 100%)) / 2);
     height: 100vh;
     overflow: hidden;
     z-index: 0;

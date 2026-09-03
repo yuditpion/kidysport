@@ -33,7 +33,26 @@
   /* ------------------------------------------------------------- frame -- */
   :root { --u: min(1.2px, calc(var(--vwc) / 768)); }
 
-  .page  { width: calc(768 * var(--u)); height: calc(11968 * var(--u) + var(--faq-shift, 0px)); }
+  /* The page fills the screen and the column is centred inside it — not the
+     other way round.
+
+     It used to be the other way round: the page WAS the column, 922 wide once
+     `--u` hits its cap, centred with `margin-inline: auto`. And the page also
+     clips, which it must, to contain the full-bleed art. Those two together
+     were the white down both sides of every screen wider than 922: each
+     backdrop was asking for the full width of the window and being trimmed
+     back to the column, with nothing painted either side of it.
+
+     The column is placed with `left` rather than a transform on purpose. A
+     transform here would become the containing block for the pinned clips,
+     which are `position: fixed`, and they would scroll away with the page
+     instead of staying put on the screen. */
+  .page  { width: max(var(--vwc), calc(768 * var(--u)));
+           height: calc(12170 * var(--u) + var(--faq-shift, 0px)); }
+  .s     { left: calc((100% - 768 * var(--u)) / 2); }
+  /* the header's children are placed against it, so it keeps the column's
+     width and centres with the column */
+  .site-hdr { width: calc(768 * var(--u)); margin-inline: auto; }
   /* the three pages that flow rather than sitting on an artboard keep
      sizing to their own content */
   .page--do, .page--faq, .page--rec { height: auto; }
@@ -167,8 +186,12 @@
   .plan__btn  { left: calc(264 * var(--u)); top: calc(548 * var(--u)); width: calc(240 * var(--u)); }
 
   /* ------------------------- למה דווקא טיפול בקבוצה? (5244 – 6122) ------ */
-  .why       { top: calc(5244 * var(--u)); height: calc(878 * var(--u)); }
-  .why__bg   { top: 0; height: calc(878 * var(--u)); }
+  /* 1080, not 878: the clip inside this section reaches 1058 from its top,
+     and at 878 it was hanging 180 into טובה טייכמאן below. The desktop frame
+     has the same clip ending at 1024 inside a section 1081 tall — it is meant
+     to fit, and here it did not. Everything below moves down by 202. */
+  .why       { top: calc(5244 * var(--u)); height: calc(1080 * var(--u)); }
+  .why__bg   { top: 0; height: calc(1080 * var(--u)); }
   .why__t    { left: calc(48 * var(--u)); top: calc(36 * var(--u));  width: calc(672 * var(--u)); height: calc(158 * var(--u)); }
   .why__body { left: calc(96 * var(--u)); top: calc(198 * var(--u)); width: calc(576 * var(--u)); height: calc(222 * var(--u)); }
 
@@ -194,18 +217,23 @@
   /* Here the extra width buys the desktop arrangement back: the portrait sits
      beside the name instead of above it, and the story runs full width under
      the pair. */
-  .founder         { top: calc(6122 * var(--u)); height: calc(1026 * var(--u)); }
+  .founder         { top: calc(6324 * var(--u)); height: calc(1026 * var(--u)); }
   .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(1026 * var(--u)); }
   .founder__photo  { left: calc(48 * var(--u)); top: calc(130 * var(--u)); width: calc(300 * var(--u)); height: calc(302 * var(--u));
                      border-radius: 50%; }
   .founder__kicker { left: calc(384 * var(--u)); top: calc(176 * var(--u)); width: calc(336 * var(--u)); height: calc(48 * var(--u)); }
   .founder__t      { left: calc(384 * var(--u)); top: calc(224 * var(--u)); width: calc(336 * var(--u)); height: calc(160 * var(--u)); }
   .founder__body   { left: calc(48 * var(--u)); top: calc(478 * var(--u)); width: calc(672 * var(--u)); height: calc(336 * var(--u)); }
-  .founder__btn    { left: calc(254 * var(--u)); top: calc(852 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
-                     border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); }
+  /* The one button on the site whose label does not fit on a line at this
+     width: it wrapped to two and filled the box to within a pixel, so the
+     words sat on the outline. Wide enough for the wrap to breathe, tall enough
+     for two lines, and the slack is even on all four sides. */
+  .founder__btn    { left: calc(174 * var(--u)); top: calc(846 * var(--u)); width: calc(420 * var(--u)); height: calc(92 * var(--u));
+                     border-radius: calc(46 * var(--u)); font-size: calc(20 * var(--u));
+                     line-height: calc(30 * var(--u)); padding-inline: calc(28 * var(--u)); }
 
   /* ------------------------------------- שאלות נפוצות (7148 – 8436) ----- */
-  .faq       { top: calc(7148 * var(--u)); height: calc(1288 * var(--u)); }
+  .faq       { top: calc(7350 * var(--u)); height: calc(1288 * var(--u)); }
   .faq__grad { top: calc(367 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(1462 * var(--u)); }
   .faq__hero { top: calc(140 * var(--u)); left: calc(-40 * var(--u)); transform: none;
                width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
@@ -226,7 +254,7 @@
                border-radius: calc(20 * var(--u)); }
 
   /* --------------------------------- יש לכם שאלה נוספת? (8436 – 8976) --- */
-  .moreq          { top: calc(8436 * var(--u)); height: calc(540 * var(--u)); }
+  .moreq          { top: calc(8638 * var(--u)); height: calc(540 * var(--u)); }
   .moreq__ellipse { left: calc(60 * var(--u)); top: calc(470 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
   .moreq__photo   { left: calc(384 * var(--u)); top: calc(56 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u));
                     border-radius: calc(24 * var(--u)); }
@@ -237,7 +265,7 @@
   .moreq__btn2    { left: calc(28 * var(--u));  top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
 
   /* -------------------------------------- יצירת קשר (8976 – 10538) ------ */
-  .contact         { top: calc(8976 * var(--u)); height: calc(1562 * var(--u)); }
+  .contact         { top: calc(9178 * var(--u)); height: calc(1562 * var(--u)); }
   .contact__bg-m   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(900 * var(--u)); }
 
   .contact__panel  { left: calc(48 * var(--u)); top: calc(28 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
@@ -272,7 +300,7 @@
      corner the cards no longer need. This is where most of the height the
      phone footer wanted comes back: 1430 against 1852.
      ====================================================================== */
-  .foot       { top: calc(10538 * var(--u)); height: calc(1430 * var(--u)); }
+  .foot       { top: calc(10740 * var(--u)); height: calc(1430 * var(--u)); }
   .foot__bg   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(980 * var(--u)); }
   .foot__bird { left: calc(96 * var(--u)); top: calc(26 * var(--u)); width: calc(88 * var(--u)); }
   .foot__t    { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u)); }
@@ -411,9 +439,14 @@
   .tt--c { left: calc(296 * var(--u)); top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
   .tt--a { left: calc(512 * var(--u)); top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
 
-  .ti--b { left: calc(137 * var(--u)); top: calc(420 * var(--u)); width: calc(70 * var(--u)); height: calc(75 * var(--u)); }
-  .ti--c { left: calc(361 * var(--u)); top: calc(425 * var(--u)); width: calc(54 * var(--u)); height: calc(65 * var(--u)); }
-  .ti--a { left: calc(574 * var(--u)); top: calc(420 * var(--u)); width: calc(61 * var(--u)); height: calc(75 * var(--u)); }
+  /* Half again as big. At 70 they read as marks beside the caption rather than
+     as the picture each tile is built around. The crop boxes are
+     percentage-based, so widening the box scales the artwork inside it and
+     each keeps its own aspect; re-centred on the tile it belongs to (tiles at
+     72, 288 and 504, each 200 wide, caption starting at 520). */
+  .ti--b { left: calc(119 * var(--u)); top: calc(404 * var(--u)); width: calc(105 * var(--u)); height: calc(112 * var(--u)); }
+  .ti--c { left: calc(347 * var(--u)); top: calc(411 * var(--u)); width: calc(81 * var(--u));  height: calc(98 * var(--u)); }
+  .ti--a { left: calc(558 * var(--u)); top: calc(404 * var(--u)); width: calc(92 * var(--u));  height: calc(112 * var(--u)); }
 
   .ab-team__seal { left: calc(266 * var(--u)); top: calc(640 * var(--u)); width: calc(236 * var(--u)); height: calc(237 * var(--u)); }
 
@@ -432,14 +465,60 @@
      ====================================================================== */
   .page--do .foot { height: calc(1430 * var(--u)); }
 
-  .page--do .do-hero  { padding: calc(150 * var(--u)) calc(48 * var(--u)) calc(340 * var(--u)); gap: calc(16 * var(--u)); }
+  /* The children in this section's photograph are at the bottom of it, and the
+     copy was sitting on top of them. Anchoring the crop to its foot keeps them
+     there whatever the section's height works out to, and the deeper bottom
+     padding is the room they need to be below the words rather than behind
+     them. */
+  .page--do .do-hero  { padding: calc(150 * var(--u)) calc(48 * var(--u)) calc(560 * var(--u)); gap: calc(16 * var(--u)); }
+  .page--do .do-hero__bg { object-position: center bottom; }
   .page--do .do-hero__sub  { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
   .page--do .do-hero__body { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
 
-  .page--do .do-focus { padding: calc(72 * var(--u)) calc(48 * var(--u)) calc(48 * var(--u)); }
-  .page--do .fc-pic   { width: calc(300 * var(--u)); height: calc(300 * var(--u)); margin-top: calc(32 * var(--u)); }
-  .page--do .fc-t     { font-size: calc(34 * var(--u)); line-height: calc(50 * var(--u)); }
-  .page--do .fc-l     { font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
+  /* Two circles side by side, and two more beneath them. The four topics are
+     not wrapped as blocks — each is three loose siblings, a circle then a
+     heading then a list — so flex-wrap would break them apart mid-topic and
+     pair a circle with the previous topic's list. A grid can place them: two
+     columns, and each topic takes three rows of one column, which holds the
+     three pieces of a topic together and lines the circles up across. Column 1
+     is the right-hand one here, the page being RTL. */
+  /* `.s:where(:not(.foot)):where(:not(.do-cta))` in the phone sheet lays every
+     section out as a flex column, and `:not()` carries the specificity of what
+     is inside it — four classes' worth, which a plain `.page--do .do-focus`
+     loses to. Hence the longer selector: it has to outrank that rule to become
+     a grid at all. */
+  .page--do .s.do-focus:not(.foot):not(.do-cta) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: calc(24 * var(--u));
+    row-gap: calc(4 * var(--u));
+    justify-items: center;
+    align-items: start;
+    padding: calc(72 * var(--u)) calc(48 * var(--u)) calc(56 * var(--u));
+  }
+  .page--do .do-focus__t    { grid-column: 1 / -1; grid-row: 1; }
+  .page--do .fc-pic--motor  { grid-column: 1; grid-row: 2; }
+  .page--do .fc-t--motor    { grid-column: 1; grid-row: 3; }
+  .page--do .fc-l--motor    { grid-column: 1; grid-row: 4; }
+  .page--do .fc-pic--emo    { grid-column: 2; grid-row: 2; }
+  .page--do .fc-t--emo      { grid-column: 2; grid-row: 3; }
+  .page--do .fc-l--emo      { grid-column: 2; grid-row: 4; }
+  .page--do .fc-pic--social { grid-column: 1; grid-row: 5; }
+  .page--do .fc-t--social   { grid-column: 1; grid-row: 6; }
+  .page--do .fc-l--social   { grid-column: 1; grid-row: 7; }
+  .page--do .fc-pic--behav  { grid-column: 2; grid-row: 5; }
+  .page--do .fc-t--behav    { grid-column: 2; grid-row: 6; }
+  .page--do .fc-l--behav    { grid-column: 2; grid-row: 7; }
+  /* the rows are laid by the grid now, so the stack's own spacing goes */
+  /* The phone sheet stretches every section child to full width; the text
+     blocks still want that inside a grid cell, the circles do not — so this
+     comes first and .fc-pic overrides it below. */
+  .page--do .do-focus > * { width: 100%; }
+
+  .page--do .fc-pic   { width: calc(260 * var(--u)); height: calc(260 * var(--u));
+                        margin-top: calc(40 * var(--u)); }
+  .page--do .fc-t     { font-size: calc(30 * var(--u)); line-height: calc(44 * var(--u)); }
+  .page--do .fc-l     { font-size: calc(19 * var(--u)); line-height: calc(29 * var(--u)); }
 
   .page--do .do-proc  { padding: calc(96 * var(--u)) calc(48 * var(--u)) calc(96 * var(--u)); gap: calc(26 * var(--u)); }
   .page--do .st       { padding-right: calc(96 * var(--u)); min-height: calc(104 * var(--u)); }
