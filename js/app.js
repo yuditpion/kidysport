@@ -2,24 +2,42 @@
 (function () {
   'use strict';
 
-  /* --- mobile menu ------------------------------------------------------ */
-  var burger = document.querySelector('.hdr__burger');
-  var menu   = document.getElementById('m-menu');
+  /* --- mobile menu ------------------------------------------------------
+     One header per page — but the single-file preview holds all six pages in
+     one document, so `document.querySelector` wired the first burger and left
+     the other five doing nothing but their hover animation. Wire each header
+     to the menu inside it, and rename the ids the preview duplicates so
+     aria-controls still points at the panel that actually opens. */
+  var closers = [];
 
-  if (burger && menu) {
+  Array.prototype.forEach.call(document.querySelectorAll('.site-hdr'), function (hdr, i) {
+    var burger = hdr.querySelector('.hdr__burger');
+    var menu   = hdr.querySelector('.m-menu');
+    if (!burger || !menu) return;
+
+    if (i > 0) menu.id = 'm-menu-' + i;
+    burger.setAttribute('aria-controls', menu.id);
+
+    function set(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      menu.hidden = !open;
+    }
+
     burger.addEventListener('click', function () {
-      var open = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', String(!open));
-      menu.hidden = open;
+      set(burger.getAttribute('aria-expanded') !== 'true');
     });
 
     menu.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        burger.setAttribute('aria-expanded', 'false');
-        menu.hidden = true;
-      }
+      if (e.target.closest('a')) set(false);
     });
-  }
+
+    closers.push(function () { set(false); });
+  });
+
+  /* Switching view in the preview leaves the menu it was opened from standing
+     open behind the new page. */
+  function closeMenus() { closers.forEach(function (f) { f(); }); }
+  window.addEventListener('hashchange', closeMenus);
 
   /* --- FAQ: one row open at a time, and the page grows/shrinks with it ---
      The layout is an absolute artboard, so nothing below the list would move
