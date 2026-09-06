@@ -367,7 +367,7 @@
   .hline--i1 { left: calc(433 * var(--u)); top: calc(679 * var(--u)); width: calc(226 * var(--u)); }
   .hline--i2 { left: calc(433 * var(--u)); top: calc(740 * var(--u)); width: calc(226 * var(--u)); }
 
-  .fc--branch    { left: calc(48 * var(--u)); top: calc(540 * var(--u)); width: calc(324 * var(--u)); height: calc(320 * var(--u)); }
+  .fc--branch    { left: calc(48 * var(--u)); top: calc(540 * var(--u)); width: calc(324 * var(--u)); height: calc(372 * var(--u)); }
   .fc__t--branch { left: calc(72 * var(--u)); top: calc(556 * var(--u)); width: calc(276 * var(--u)); height: calc(64 * var(--u)); }
   .br--a { left: calc(170 * var(--u)); top: calc(634 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
   .br--b { left: calc(170 * var(--u)); top: calc(686 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
@@ -375,7 +375,9 @@
   .br--d { left: calc(65 * var(--u));  top: calc(790 * var(--u)); width: calc(271 * var(--u)); height: calc(40 * var(--u)); }
   .hline--b1 { left: calc(86 * var(--u)); top: calc(678 * var(--u)); width: calc(250 * var(--u)); }
   .hline--b2 { left: calc(86 * var(--u)); top: calc(730 * var(--u)); width: calc(250 * var(--u)); }
+  .br--e { left: calc(65 * var(--u)); top: calc(842 * var(--u)); width: calc(271 * var(--u)); height: calc(40 * var(--u)); }
   .hline--b3 { left: calc(86 * var(--u)); top: calc(782 * var(--u)); width: calc(250 * var(--u)); }
+  .hline--b4 { left: calc(86 * var(--u)); top: calc(834 * var(--u)); width: calc(250 * var(--u)); }
 
   /* the closing bar sits beside the boy rather than under him */
   .foot__bar   { left: calc(290 * var(--u)); top: calc(1000 * var(--u)); width: calc(430 * var(--u)); height: calc(140 * var(--u));
@@ -895,9 +897,9 @@
      יצירת קשר — an artboard on every frame. The ten fields pair off, which
      lifts the boy and everything under him by 302.
      ====================================================================== */
-  .page--contact { height: calc(3568 * var(--u)); }
+  .page--contact { height: calc(3628 * var(--u)); }
   /* the height too, or the phone sheet's taller footer wins on specificity */
-  .page--contact .foot { top: calc(2138 * var(--u)); height: calc(1430 * var(--u)); }
+  .page--contact .foot { top: calc(2198 * var(--u)); height: calc(1430 * var(--u)); }
 
   .ct { top: 0; height: calc(1360 * var(--u)); }
 
@@ -964,12 +966,16 @@
   .cdx--mail  { left: calc(232 * var(--u)); top: calc(172 * var(--u)); width: calc(308 * var(--u)); height: calc(40 * var(--u)); }
   .cdx--clock { left: calc(200 * var(--u)); top: calc(232 * var(--u)); width: calc(340 * var(--u)); height: calc(76 * var(--u)); }
 
-  .ct-br { top: calc(1754 * var(--u)); height: calc(344 * var(--u)); }
+  /* the branch bar carries five rows now; the details bar above it is
+     untouched, so the height is scoped to this one */
+  .page--contact .ct-br .ct-bar { height: calc(404 * var(--u)); }
+  .ct-br { top: calc(1754 * var(--u)); height: calc(404 * var(--u)); }
   .ct-br .ct-bar__t { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); line-height: calc(78 * var(--u)); }
   .cb--1 { left: calc(400 * var(--u)); top: calc(114 * var(--u)); width: calc(240 * var(--u)); height: calc(40 * var(--u)); }
   .cb--2 { left: calc(360 * var(--u)); top: calc(168 * var(--u)); width: calc(280 * var(--u)); height: calc(40 * var(--u)); }
   .cb--3 { left: calc(300 * var(--u)); top: calc(222 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
   .cb--4 { left: calc(300 * var(--u)); top: calc(282 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
+  .cb--5 { left: calc(300 * var(--u)); top: calc(342 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
 
   /* ======================================================================
      רוצים לבדוק אם התהליך מתאים — the shared CTA artboard, on 768

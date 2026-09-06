@@ -7,8 +7,8 @@
 
 @media (max-width: 1199px) {
 
-  .page--contact { height: calc(4174 * var(--u)); }
-  .page--contact .foot { top: calc(2322 * var(--u)); height: calc(1852 * var(--u)); }
+  .page--contact { height: calc(4233 * var(--u)); }
+  .page--contact .foot { top: calc(2381 * var(--u)); height: calc(1852 * var(--u)); }
 
   /* ============================== THE FORM ============================== */
   .ct { top: 0; height: calc(1544 * var(--u)); }
@@ -122,7 +122,9 @@
   .cdx--clock { left: calc(7 * var(--u));   top: calc(227 * var(--u)); width: calc(271 * var(--u)); height: calc(75 * var(--u)); }
 
   /* ---------------------------- הסניפים שלנו ---------------------------- */
-  .ct-br { top: calc(1938 * var(--u)); height: calc(344 * var(--u)); }
+  /* five rows in the branch bar; the details bar above keeps its 344 */
+  .page--contact .ct-br .ct-bar { height: calc(403 * var(--u)); }
+  .ct-br { top: calc(1938 * var(--u)); height: calc(403 * var(--u)); }
   .ct-br .ct-bar__t { left: calc(24 * var(--u)); top: calc(20 * var(--u)); width: calc(359 * var(--u));
                       line-height: calc(86 * var(--u)); }
 
@@ -130,4 +132,5 @@
   .cb--2 { left: calc(127 * var(--u)); top: calc(160 * var(--u)); width: calc(241 * var(--u)); height: calc(38 * var(--u)); }
   .cb--3 { left: calc(39 * var(--u));  top: calc(213 * var(--u)); width: calc(329 * var(--u)); height: calc(44 * var(--u)); }
   .cb--4 { left: calc(45 * var(--u));  top: calc(272 * var(--u)); width: calc(323 * var(--u)); height: calc(44 * var(--u)); }
+  .cb--5 { left: calc(45 * var(--u)); top: calc(331 * var(--u)); width: calc(323 * var(--u)); height: calc(44 * var(--u)); }
 }
