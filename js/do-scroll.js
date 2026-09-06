@@ -44,6 +44,9 @@
   'use strict';
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* the tablet and phone artboards, where a clip can be nearly as tall as the
+     window it is pinned in */
+  var narrowFrames = window.matchMedia('(max-width: 1199px)');
   var films = [].slice.call(document.querySelectorAll('[data-film]'));
 
   /* The bundled single-file build injects the frames as data URIs; the served
@@ -388,7 +391,19 @@
                page the difference is a whole section, and it was placing the
                boy that far below the fold. */
             var natTop = natPage.y - legTop;
-            var holdY = Math.min(Math.max(natTop, 0), Math.max(0, vh - fh));
+            /* The hold is where he waits out the middle of his leg. Lifting it
+               to `vh - fh` is what keeps a clip taller than the window from
+               hanging below the fold — but on the tablet frames the clip is
+               nearly the height of the screen, so that term collapses towards
+               nought and the hold becomes the top of the window. He was being
+               yanked up there over the first 15% of the leg, the instant the
+               clip before handed him over: down, then straight back up.
+               Below 1200 he simply stays where the frame draws him and waits
+               for the scroll to reach him. Above it the term is larger than
+               natTop anyway, so this is the same number desktop already had. */
+            var holdY = narrowFrames.matches
+              ? Math.max(natTop, 0)
+              : Math.min(Math.max(natTop, 0), Math.max(0, vh - fh));
             var rise = ease(t / 0.15);            // onto the hold, at the start
             var land = ease((t - 0.68) / 0.32);   // off it, onto the still
             var baseY = natTop + (holdY - natTop) * rise;
