@@ -48,7 +48,7 @@
      which are `position: fixed`, and they would scroll away with the page
      instead of staying put on the screen. */
   .page  { width: max(var(--vwc), calc(768 * var(--u)));
-           height: calc(11205 * var(--u) + var(--faq-shift, 0px)); }
+           height: calc(11075 * var(--u) + var(--faq-shift, 0px)); }
   .s     { left: calc((100% - 768 * var(--u)) / 2); }
   /* the header's children are placed against it, so it keeps the column's
      width and centres with the column */
@@ -113,14 +113,19 @@
   .hero__btn1{ left: calc(120 * var(--u)); top: calc(530 * var(--u)); width: calc(240 * var(--u)); }
   .hero__btn2{ left: calc(408 * var(--u)); top: calc(530 * var(--u)); width: calc(240 * var(--u)); }
 
-  /* Same fit as the phone, with more room to give it: at 768 his whole run
-     fits at 0.66, which leaves him 324 wide against the still's 347. */
-  .hero__film { left: calc(-343 * var(--u)); top: calc(479 * var(--u));
-                width: calc(1274 * var(--u)); height: calc(717 * var(--u)); }
+  /* A clip has to come out the size of the still it lands on, and these two
+     were not: the desktop sheet draws each film at 1.07 and 1.11 times its
+     still's height, which is what puts the boy's ink exactly over it — measured
+     off the last frame's alpha, the ink is 0.89 of the frame. Here they were at
+     1.39 and 1.61, so he rendered 44% oversized and his ball hung 257 past the
+     still, over the value cards below. Sized off the same ratios now, and each
+     placed so its anchor point stays where it was, which keeps him where the
+     frame draws him during the run-up. */
+  .hero__film { left: calc(-258 * var(--u)); top: calc(485 * var(--u));
+                width: calc(975 * var(--u)); height: calc(549 * var(--u)); }
 
-  /* Second leg, same fit at this width. */
-  .how__film { left: calc(-264 * var(--u)); top: calc(542 * var(--u));
-               width: calc(1600 * var(--u)); height: calc(900 * var(--u)); }
+  .how__film { left: calc(21 * var(--u)); top: calc(558 * var(--u));
+               width: calc(1106 * var(--u)); height: calc(622 * var(--u)); }
   .hero__strip  { left: calc(-44 * var(--u)); top: calc(1120 * var(--u)); width: calc(856 * var(--u)); height: calc(180 * var(--u)); }
 
   /* the three figures spread across the full width instead of crowding */
@@ -243,23 +248,26 @@
   /* Here the extra width buys the desktop arrangement back: the portrait sits
      beside the name instead of above it, and the story runs full width under
      the pair. */
-  .founder    { top: calc(5794 * var(--u)); height: calc(891 * var(--u)); }
-  .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(891 * var(--u)); }
+  .founder    { top: calc(5794 * var(--u)); height: calc(761 * var(--u)); }
+  .founder__bg     { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(761 * var(--u)); }
   .founder__photo  { left: calc(48 * var(--u)); top: calc(53 * var(--u)); width: calc(300 * var(--u)); height: calc(302 * var(--u));
                      border-radius: 50%; }
   .founder__kicker { left: calc(384 * var(--u)); top: calc(99 * var(--u)); width: calc(336 * var(--u)); height: calc(48 * var(--u)); }
   .founder__t      { left: calc(384 * var(--u)); top: calc(135 * var(--u)); width: calc(336 * var(--u)); height: calc(160 * var(--u)); }
-  .founder__body   { left: calc(48 * var(--u)); top: calc(379 * var(--u)); width: calc(672 * var(--u)); height: calc(336 * var(--u)); }
+  .founder__body   { left: calc(48 * var(--u)); top: calc(379 * var(--u)); width: calc(672 * var(--u)); height: calc(268 * var(--u)); }
   /* The one button on the site whose label does not fit on a line at this
      width: it wrapped to two and filled the box to within a pixel, so the
      words sat on the outline. Wide enough for the wrap to breathe, tall enough
      for two lines, and the slack is even on all four sides. */
-  .founder__btn    { left: calc(174 * var(--u)); top: calc(749 * var(--u)); width: calc(420 * var(--u)); height: calc(92 * var(--u));
-                     border-radius: calc(46 * var(--u)); font-size: calc(20 * var(--u));
-                     line-height: calc(30 * var(--u)); padding-inline: calc(28 * var(--u)); }
+  /* Sized like every other button on the artboard rather than as a special
+     case: they run 52–56 tall with 13–15 of slack over the label, and this one
+     was 92 with 31, which is what made it read as a different component. It
+     keeps the label on one line at 360 wide. */
+  .founder__btn    { left: calc(204 * var(--u)); top: calc(655 * var(--u)); width: calc(360 * var(--u)); height: calc(56 * var(--u));
+                     border-radius: calc(28 * var(--u)); padding-inline: calc(24 * var(--u)); }
 
   /* ------------------------------------- שאלות נפוצות (7148 – 8436) ----- */
-  .faq        { top: calc(6685 * var(--u)); height: calc(1288 * var(--u)); }
+  .faq        { top: calc(6555 * var(--u)); height: calc(1288 * var(--u)); }
   .faq__grad { top: calc(367 * var(--u)); width: max(var(--vwc), calc(768 * var(--u))); height: calc(1462 * var(--u)); }
   .faq__hero { top: calc(140 * var(--u)); left: calc(-40 * var(--u)); transform: none;
                width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
@@ -280,7 +288,7 @@
                border-radius: calc(20 * var(--u)); }
 
   /* --------------------------------- יש לכם שאלה נוספת? (8436 – 8976) --- */
-  .moreq      { top: calc(7973 * var(--u)); height: calc(540 * var(--u)); }
+  .moreq      { top: calc(7843 * var(--u)); height: calc(540 * var(--u)); }
   .moreq__ellipse { left: calc(60 * var(--u)); top: calc(470 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
   .moreq__photo   { left: calc(384 * var(--u)); top: calc(56 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u));
                     border-radius: calc(24 * var(--u)); }
@@ -291,7 +299,7 @@
   .moreq__btn2    { left: calc(28 * var(--u));  top: calc(418 * var(--u)); width: calc(152 * var(--u)); height: calc(52 * var(--u)); }
 
   /* -------------------------------------- יצירת קשר (8976 – 10538) ------ */
-  .contact    { top: calc(8513 * var(--u)); height: calc(1262 * var(--u)); }
+  .contact    { top: calc(8383 * var(--u)); height: calc(1262 * var(--u)); }
   .contact__bg-m   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(900 * var(--u)); }
 
   .contact__panel  { left: calc(48 * var(--u)); top: calc(28 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
@@ -326,7 +334,7 @@
      corner the cards no longer need. This is where most of the height the
      phone footer wanted comes back: 1430 against 1852.
      ====================================================================== */
-  .foot       { top: calc(9775 * var(--u)); height: calc(1430 * var(--u)); }
+  .foot       { top: calc(9645 * var(--u)); height: calc(1430 * var(--u)); }
   .foot__bg   { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(980 * var(--u)); }
   .foot__bird { left: calc(96 * var(--u)); top: calc(26 * var(--u)); width: calc(88 * var(--u)); }
   .foot__t    { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u)); }
