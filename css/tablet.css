@@ -401,8 +401,8 @@
   /* ======================================================================
      אודות
      ====================================================================== */
-  .page--about { height: calc(8161 * var(--u)); }
-  .page--about .foot { top: calc(6731 * var(--u)); }
+  .page--about { height: calc(7054 * var(--u)); }
+  .page--about .foot { top: calc(5624 * var(--u)); }
 
   /* --------------------------------------------- intro (0 – 1425) ------- */
   .ab-intro { top: 0; height: calc(1425 * var(--u)); }
@@ -423,76 +423,77 @@
   .ab-grow        { top: calc(1425 * var(--u)); height: calc(1116 * var(--u)); }
   .ab-grow > .film{ height: calc(1116 * var(--u)); }
   .ab-grow__title { left: calc(200 * var(--u)); top: calc(52 * var(--u)); width: calc(520 * var(--u)); height: calc(230 * var(--u)); }
-  .ab-grow__body  { left: calc(48 * var(--u)); top: calc(310 * var(--u)); width: calc(672 * var(--u)); height: calc(430 * var(--u)); }
+  .ab-grow__body  { left: calc(48 * var(--u)); top: calc(248 * var(--u)); width: calc(672 * var(--u)); height: calc(430 * var(--u)); }
   .ab-badge       { left: calc(-20 * var(--u)); top: calc(96 * var(--u)); width: calc(190 * var(--u)); height: calc(190 * var(--u)); }
 
-  /* ---------------------------------------- מה חשוב לנו? (2541 – 4793) -- */
+  /* ---------------------------------------- מה חשוב לנו? (2541 – 3815) -- */
   /* Five cards: two, two, and the last one centred. */
-  .ab-values        { top: calc(2541 * var(--u)); height: calc(2252 * var(--u)); }
-  .ab-values__title { left: calc(48 * var(--u)); top: calc(1020 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u));
+  .ab-values        { top: calc(2541 * var(--u)); height: calc(1274 * var(--u)); }
+  .ab-values__title { left: calc(48 * var(--u)); top: calc(42 * var(--u)); width: calc(672 * var(--u)); height: calc(110 * var(--u));
                       font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
 
-  .vc--c { left: calc(396 * var(--u)); top: calc(1200 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
-  .vc--a { left: calc(48 * var(--u));  top: calc(1200 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
-  .vc--b { left: calc(396 * var(--u)); top: calc(1540 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
-  .vc--e { left: calc(48 * var(--u));  top: calc(1540 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
-  .vc--d { left: calc(222 * var(--u)); top: calc(1880 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--c { left: calc(396 * var(--u)); top: calc(222 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--a { left: calc(48 * var(--u));  top: calc(222 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--b { left: calc(396 * var(--u)); top: calc(562 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--e { left: calc(48 * var(--u));  top: calc(562 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
+  .vc--d { left: calc(222 * var(--u)); top: calc(902 * var(--u)); width: calc(324 * var(--u)); height: calc(310 * var(--u)); }
 
   /* two of these run to five lines on a 276 box, so the text block is taller
      here than the phone's and the cards grew to hold it */
   .s > .vt { width: calc(276 * var(--u)); text-align: center; }
-  .vt--c { left: calc(420 * var(--u)); top: calc(1322 * var(--u)); height: calc(176 * var(--u)); }
-  .vt--a { left: calc(72 * var(--u));  top: calc(1322 * var(--u)); height: calc(176 * var(--u)); }
-  .vt--b { left: calc(420 * var(--u)); top: calc(1662 * var(--u)); height: calc(176 * var(--u)); }
-  .vt--e { left: calc(72 * var(--u));  top: calc(1662 * var(--u)); height: calc(176 * var(--u)); }
-  .vt--d { left: calc(246 * var(--u)); top: calc(2002 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--c { left: calc(420 * var(--u)); top: calc(344 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--a { left: calc(72 * var(--u));  top: calc(344 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--b { left: calc(420 * var(--u)); top: calc(684 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--e { left: calc(72 * var(--u));  top: calc(684 * var(--u)); height: calc(176 * var(--u)); }
+  .vt--d { left: calc(246 * var(--u)); top: calc(1024 * var(--u)); height: calc(176 * var(--u)); }
 
-  .vi--c { left: calc(522 * var(--u));   top: calc(1224 * var(--u)); width: calc(71.5 * var(--u));  height: calc(84.9 * var(--u)); }
-  .vi--a { left: calc(175.5 * var(--u)); top: calc(1223 * var(--u)); width: calc(69.3 * var(--u));  height: calc(85.7 * var(--u)); }
-  .vi--b { left: calc(516.3 * var(--u)); top: calc(1568 * var(--u)); width: calc(83.6 * var(--u));  height: calc(78.3 * var(--u)); }
-  .vi--e { left: calc(155.5 * var(--u)); top: calc(1568 * var(--u)); width: calc(109.1 * var(--u)); height: calc(78.3 * var(--u)); }
-  .vi--d { left: calc(334 * var(--u));   top: calc(1903 * var(--u)); width: calc(100.2 * var(--u)); height: calc(85.6 * var(--u)); }
+  .vi--c { left: calc(522 * var(--u));   top: calc(246 * var(--u)); width: calc(71.5 * var(--u));  height: calc(84.9 * var(--u)); }
+  .vi--a { left: calc(175.5 * var(--u)); top: calc(245 * var(--u)); width: calc(69.3 * var(--u));  height: calc(85.7 * var(--u)); }
+  .vi--b { left: calc(516.3 * var(--u)); top: calc(590 * var(--u)); width: calc(83.6 * var(--u));  height: calc(78.3 * var(--u)); }
+  .vi--e { left: calc(155.5 * var(--u)); top: calc(590 * var(--u)); width: calc(109.1 * var(--u)); height: calc(78.3 * var(--u)); }
+  .vi--d { left: calc(334 * var(--u));   top: calc(925 * var(--u)); width: calc(100.2 * var(--u)); height: calc(85.6 * var(--u)); }
 
-  /* ---------------------------------------- הצוות שלנו (4793 – 5719) ---- */
-  .ab-team        { top: calc(4793 * var(--u)); height: calc(926 * var(--u)); }
-  .ab-team__band  { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(926 * var(--u)); }
-  .ab-team__card  { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(700 * var(--u)); }
+  /* ---------------------------------------- הצוות שלנו (3815 – 4716) ---- */
+  .ab-team        { top: calc(3815 * var(--u)); height: calc(901 * var(--u)); }
+  .ab-team__band  { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(901 * var(--u)); }
+  .ab-team__card  { left: calc(48 * var(--u)); top: calc(56 * var(--u)); width: calc(672 * var(--u)); height: calc(675 * var(--u)); }
   .ab-team__title { left: calc(96 * var(--u)); top: calc(70 * var(--u)); width: calc(576 * var(--u)); height: calc(150 * var(--u));
                     font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
-  .ab-team__body  { left: calc(96 * var(--u)); top: calc(226 * var(--u)); width: calc(576 * var(--u)); height: calc(140 * var(--u));
+  .ab-team__body  { left: calc(96 * var(--u)); top: calc(201 * var(--u)); width: calc(576 * var(--u)); height: calc(140 * var(--u));
                     font-size: calc(20 * var(--u)); line-height: calc(30 * var(--u)); }
 
   /* three tiles across, which is what the width now allows */
-  .tc--b { left: calc(72 * var(--u));  top: calc(400 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
+  .tc--b { left: calc(72 * var(--u));  top: calc(375 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
            border-radius: calc(26 * var(--u)); }
-  .tc--c { left: calc(288 * var(--u)); top: calc(400 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
+  .tc--c { left: calc(288 * var(--u)); top: calc(375 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
            border-radius: calc(26 * var(--u)); }
-  .tc--a { left: calc(504 * var(--u)); top: calc(400 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
+  .tc--a { left: calc(504 * var(--u)); top: calc(375 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
            border-radius: calc(26 * var(--u)); }
 
   .tt { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
-  .tt--b { left: calc(80 * var(--u));  top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
-  .tt--c { left: calc(296 * var(--u)); top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
-  .tt--a { left: calc(512 * var(--u)); top: calc(520 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
+  .tt--b { left: calc(80 * var(--u));  top: calc(495 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
+  .tt--c { left: calc(296 * var(--u)); top: calc(495 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
+  .tt--a { left: calc(512 * var(--u)); top: calc(495 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
 
   /* Half again as big. At 70 they read as marks beside the caption rather than
      as the picture each tile is built around. The crop boxes are
      percentage-based, so widening the box scales the artwork inside it and
      each keeps its own aspect; re-centred on the tile it belongs to (tiles at
      72, 288 and 504, each 200 wide, caption starting at 520). */
-  .ti--b { left: calc(119 * var(--u)); top: calc(404 * var(--u)); width: calc(105 * var(--u)); height: calc(112 * var(--u)); }
-  .ti--c { left: calc(347 * var(--u)); top: calc(411 * var(--u)); width: calc(81 * var(--u));  height: calc(98 * var(--u)); }
-  .ti--a { left: calc(558 * var(--u)); top: calc(404 * var(--u)); width: calc(92 * var(--u));  height: calc(112 * var(--u)); }
+  .ti--b { left: calc(119 * var(--u)); top: calc(379 * var(--u)); width: calc(105 * var(--u)); height: calc(112 * var(--u)); }
+  .ti--c { left: calc(347 * var(--u)); top: calc(386 * var(--u)); width: calc(81 * var(--u));  height: calc(98 * var(--u)); }
+  .ti--a { left: calc(558 * var(--u)); top: calc(379 * var(--u)); width: calc(92 * var(--u));  height: calc(112 * var(--u)); }
 
-  .ab-team__seal { left: calc(266 * var(--u)); top: calc(640 * var(--u)); width: calc(236 * var(--u)); height: calc(237 * var(--u)); }
+  .ab-team__seal { left: calc(266 * var(--u)); top: calc(615 * var(--u)); width: calc(236 * var(--u)); height: calc(237 * var(--u)); }
 
-  /* ----------------------------------------------- CTA (5719 – 6731) ---- */
-  .ab-cta         { top: calc(5719 * var(--u)); height: calc(1012 * var(--u)); }
-  .ab-cta__band-m { top: 0; width: max(var(--vwc), calc(768 * var(--u))); height: calc(971 * var(--u)); }
-  .ab-cta__card   { left: calc(48 * var(--u)); top: calc(360 * var(--u)); width: calc(672 * var(--u)); height: calc(560 * var(--u)); }
-  .ab-cta__title  { left: calc(96 * var(--u)); top: calc(452 * var(--u)); width: calc(576 * var(--u)); height: calc(292 * var(--u));
+  /* ----------------------------------------------- CTA (4716 – 5624) ---- */
+  .ab-cta         { top: calc(4716 * var(--u)); height: calc(908 * var(--u)); }
+  /* the still crop steps aside for the clip here; it bleeds to this board */
+  .ab-cta .film   { width: max(var(--vwc), calc(768 * var(--u))); }
+  .ab-cta__card   { left: calc(48 * var(--u)); top: calc(360 * var(--u)); width: calc(672 * var(--u)); height: calc(456 * var(--u)); }
+  .ab-cta__title  { left: calc(96 * var(--u)); top: calc(378 * var(--u)); width: calc(576 * var(--u)); height: calc(292 * var(--u));
                     font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
-  .ab-cta__btn    { left: calc(254 * var(--u)); top: calc(790 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
+  .ab-cta__btn    { left: calc(254 * var(--u)); top: calc(714 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
                     border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); }
 
   /* ======================================================================

@@ -131,7 +131,13 @@
        loop       — not scrubbed at all: it just plays while on screen
        once       — plays through once, the first time the whole section is
                     on screen, and stays on the last frame                  */
-    var mode = section.dataset.filmMode || 'scroll';
+    /* A clip can need a different driver on the narrow boards, where the
+       section it backs is a fraction of the height it has on the desktop
+       artboard — a pinned stretch there can be no stretch at all here.
+       `data-film-mode-narrow` names the mode to use below 1200. */
+    var wideMode   = section.dataset.filmMode || 'scroll';
+    var narrowMode = section.dataset.filmModeNarrow || wideMode;
+    var mode = narrowFrames.matches ? narrowMode : wideMode;
     var VIS_FROM = 0.7;
 
     /* The still this clip hands over to, and where the boy sits inside the
@@ -236,6 +242,7 @@
     return {
       section: section,
       update: function () {
+        mode = narrowFrames.matches ? narrowMode : wideMode;
         var r = section.getBoundingClientRect();
         var vh = window.innerHeight || 1;
         var onScreen = r.bottom > 0 && r.top < vh;
