@@ -139,10 +139,12 @@
   .ab-cta__band-m { display: block; position: absolute; left: 50%; transform: translateX(-50%);
                     top: 0; width: max(var(--vwc), calc(503 * var(--u))); height: calc(971 * var(--u));
                     object-fit: cover; z-index: 0; }
-  .ab-cta__card  { left: calc(18 * var(--u)); top: calc(377 * var(--u)); width: calc(367 * var(--u)); height: calc(553 * var(--u)); }
-  .ab-cta__title { left: calc(38 * var(--u)); top: calc(503 * var(--u)); width: calc(327 * var(--u)); height: calc(163 * var(--u));
-                   font-size: calc(60 * var(--u)); line-height: calc(60 * var(--u)); }
-  .ab-cta__btn   { left: calc(78 * var(--u)); top: calc(817 * var(--u)); width: calc(267 * var(--u)); height: calc(67 * var(--u));
+  .ab-cta__card  { left: calc(18 * var(--u)); top: calc(377 * var(--u)); width: calc(367 * var(--u)); height: calc(355 * var(--u)); }
+  .ab-cta__title { left: calc(38 * var(--u)); top: calc(403 * var(--u)); width: calc(327 * var(--u)); height: calc(163 * var(--u));
+                   /* smaller here for the same reason as the tablet: the words
+                      were taking the whole card and burying the picture */
+                   font-size: calc(42 * var(--u)); line-height: calc(42 * var(--u)); }
+  .ab-cta__btn   { left: calc(78 * var(--u)); top: calc(619 * var(--u)); width: calc(267 * var(--u)); height: calc(67 * var(--u));
                    border-radius: calc(30 * var(--u)); font-size: calc(22 * var(--u)); }
 }
 

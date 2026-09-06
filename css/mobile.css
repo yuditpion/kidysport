@@ -478,7 +478,8 @@
     padding: calc(26 * var(--u)) calc(26 * var(--u)) calc(28 * var(--u));
     border-radius: calc(26 * var(--u));
   }
-  .thanks__t { font-size: calc(38 * var(--u)); line-height: calc(50 * var(--u)); }
+  /* half the size: at 38 the words took the card and left the boy no room */
+  .thanks__t { font-size: calc(19 * var(--u)); line-height: calc(25 * var(--u)); }
   .thanks__bird { width: calc(40 * var(--u)); margin-top: calc(12 * var(--u)); }
   .thanks__x { width: calc(42 * var(--u)); height: calc(42 * var(--u));
                top: calc(16 * var(--u)); right: calc(16 * var(--u)); }
@@ -491,6 +492,6 @@
   .thanks--err .thanks__art  { inset: 0 0 auto 0; height: 62.4%; }
   .thanks--err .thanks__t    { right: 0; left: 0; width: auto; top: 66%;
                                text-align: center;
-                               font-size: calc(38 * var(--u)); line-height: calc(50 * var(--u)); }
+                               font-size: calc(19 * var(--u)); line-height: calc(25 * var(--u)); }
   .thanks--err .thanks__bird { bottom: 6%; }
 }

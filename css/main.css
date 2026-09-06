@@ -968,7 +968,8 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
    design's card is 920 across with the picture filling 660 of its height, so the
    block keeps that ratio at every width and the words always land where they do
    in the design. */
-.thanks__art { display: block; width: 100%; margin-bottom: calc(10 * var(--u)); }
+.thanks__art { display: block; width: 100%; margin-bottom: calc(10 * var(--u));
+               pointer-events: none; }
 .thanks__art--d { aspect-ratio: 920 / 660; }
 .thanks__art--m { aspect-ratio: 622 / 1030; display: none; }
 
@@ -986,6 +987,10 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
    real target size even though the mark inside it is small. */
 .thanks__x {
   position: absolute; top: calc(18 * var(--u)); right: calc(18 * var(--u));
+  /* above the illustration: on the error card the drawing is laid over the whole
+     card and, coming later in the markup, it was taking the click meant for
+     this — the cross looked dead. */
+  z-index: 2;
   width: calc(46 * var(--u)); height: calc(46 * var(--u));
   display: grid; place-items: center;
   border: 0; border-radius: 50%;

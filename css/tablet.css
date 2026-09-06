@@ -500,10 +500,14 @@
   .ab-cta         { top: calc(4716 * var(--u)); height: calc(908 * var(--u)); }
   /* the still crop steps aside for the clip here; it bleeds to this board */
   .ab-cta .film   { width: max(var(--vwc), calc(768 * var(--u))); }
-  .ab-cta__card   { left: calc(48 * var(--u)); top: calc(360 * var(--u)); width: calc(672 * var(--u)); height: calc(456 * var(--u)); }
-  .ab-cta__title  { left: calc(96 * var(--u)); top: calc(378 * var(--u)); width: calc(576 * var(--u)); height: calc(292 * var(--u));
-                    font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
-  .ab-cta__btn    { left: calc(254 * var(--u)); top: calc(714 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
+  /* the card follows the words down: smaller type needs less of it, and the
+     margins around the copy stay the 20 / 47 / 46 they were */
+  .ab-cta__card   { left: calc(48 * var(--u)); top: calc(360 * var(--u)); width: calc(672 * var(--u)); height: calc(320 * var(--u)); }
+  .ab-cta__title  { left: calc(96 * var(--u)); top: calc(380 * var(--u)); width: calc(576 * var(--u)); height: calc(151 * var(--u));
+                    /* smaller here: the card is a fraction of the wide one, and
+                       the wide one's size filled the whole of it with words */
+                    font-size: calc(45 * var(--u)); line-height: calc(49 * var(--u)); }
+  .ab-cta__btn    { left: calc(254 * var(--u)); top: calc(578 * var(--u)); width: calc(260 * var(--u)); height: calc(56 * var(--u));
                     border-radius: calc(28 * var(--u)); font-size: calc(20 * var(--u)); }
 
   /* ======================================================================
@@ -1054,6 +1058,23 @@
   }
 
   /* ------------------------------------------------------- the dialogs -- */
-  .thanks__card { width: min(calc(520 * var(--u)), 76vw); }
-  .thanks--err .thanks__card { width: min(calc(520 * var(--u)), 76vw); }
+  /* This board takes the wide drawing and the wide arrangement — the column's
+     tall card ran off the bottom of the screen here. Everything below undoes
+     what the phone sheet switched, so it is the desktop card at this size. */
+  .thanks__art--d { display: block; }
+  .thanks__art--m { display: none; }
+  .thanks__card { width: min(calc(520 * var(--u)), 76vw);
+                  padding: calc(30 * var(--u)) calc(34 * var(--u)); border-radius: calc(30 * var(--u)); }
+  .thanks__x    { width: calc(46 * var(--u)); height: calc(46 * var(--u));
+                  top: calc(18 * var(--u)); right: calc(18 * var(--u)); }
+  .thanks__bird { width: calc(44 * var(--u)); margin-top: calc(10 * var(--u)); }
+  .thanks--err .thanks__card { width: min(calc(520 * var(--u)), 76vw);
+                               aspect-ratio: 1006 / 1018; padding: 0; }
+  .thanks--err .thanks__art  { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; }
+  .thanks--err .thanks__bird { bottom: 5%; }
+  /* and the words go back beside the boy, half the size they were: at 46 and 40
+     they crowded him out of his own card. */
+  .thanks__t { font-size: calc(23 * var(--u)); line-height: calc(29 * var(--u)); }
+  .thanks--err .thanks__t { right: 4%; left: auto; top: 55%; width: 54%; text-align: right;
+                            font-size: calc(20 * var(--u)); line-height: calc(27 * var(--u)); }
 }
