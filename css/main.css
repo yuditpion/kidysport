@@ -98,13 +98,20 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 
 /* ------------------------------------------------------------ surfaces -- */
 .glass {
+  --r: calc(30 * var(--u));
   background: var(--glass);
   border: calc(2 * var(--u)) solid var(--white);
   -webkit-backdrop-filter: blur(calc(10 * var(--u)));
   backdrop-filter: blur(calc(10 * var(--u)));
-  border-radius: calc(30 * var(--u));
+  border-radius: var(--r);
   z-index: 1;
 }
+/* A backdrop filter is clipped to the border box rather than to the rounded
+   one, so over a photograph the corners fill in with blurred white and the card
+   reads as a square with four white notches. Clipping the element to the same
+   rounded rect is what actually rounds it. Only the cards that are nothing but
+   a backdrop, since a clip would cut the content out of the ones that hold any. */
+.glass:empty { clip-path: inset(0 round var(--r)); }
 
 .vline  { width: 1px; background: rgba(0,0,0,.12); z-index: 2; }
 .hline  { height: 1px; background: rgba(0,0,0,.12); z-index: 2; }
@@ -607,11 +614,16 @@ button { font: inherit; color: inherit; background: none; border: 0; }
    shows through wherever the orange does not cover it exactly — the lines read
    doubled. `--on` is set by whatever triggers the icon, and both layers read it. */
 .ico > img:not(.ico__on) { opacity: calc(1 - var(--on)); transition: opacity .18s ease; }
+/* The twin has to land on the resting drawing exactly. Stretched to the box
+   instead — `inset: 0` with a height — it takes the box's aspect while the
+   drawing under it keeps its own, and on any board where the two differ the
+   coloured art smears as it fades in. Pinned to the top-left at the same width,
+   auto height, it is the same picture in the same place on every board. */
 .ico > .ico__on {
   position: absolute;
-  inset: 0;
+  inset: 0 auto auto 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   opacity: var(--on);
   transition: opacity .18s ease;
 }

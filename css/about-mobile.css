@@ -46,9 +46,21 @@
 
   /* -------------------------- ממכון קטן (1425 – 2541) -------------------------- */
   .ab-grow { top: calc(1425 * var(--u)); height: calc(1116 * var(--u)); }
-  /* the clip is this section's backdrop on both breakpoints; only its height
-     changes with the frame */
-  .ab-grow > .film { height: calc(1116 * var(--u)); }
+  /* The clip is a landscape shot of the room with the steps at its far left;
+     cropped to a column this narrow it shows an empty wall and the boy never
+     appears at all. The frame builds the section out of two stills instead:
+     the room art stretched to its box (1053:30) and the boy on his steps over
+     it (1053:44), which is what the desktop clip ends on. */
+  .ab-grow > .film { display: none; }
+  .ab-grow__band { display: block; position: absolute; top: 0;
+                   left: calc(-45 * var(--u));
+                   width: max(calc(497 * var(--u)), var(--vwc));
+                   height: calc(1116 * var(--u));
+                   object-fit: fill; z-index: 0; }
+  .ab-grow__boy  { display: block; position: absolute;
+                   left: calc(-61 * var(--u)); top: calc(704 * var(--u));
+                   width: calc(320 * var(--u)); height: calc(442 * var(--u));
+                   object-fit: contain; z-index: 2; }
   .ab-grow__title { left: calc(107 * var(--u)); top: calc(44 * var(--u)); width: calc(267 * var(--u)); height: calc(302 * var(--u)); }
   .ab-grow__body  { left: calc(42 * var(--u)); top: calc(307 * var(--u)); width: calc(329 * var(--u)); height: calc(448 * var(--u)); }
   .ab-badge { left: calc(-32 * var(--u)); top: calc(176 * var(--u)); width: calc(170 * var(--u)); height: calc(170 * var(--u)); }
@@ -97,21 +109,24 @@
                     font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
 
   .tc--b { left: calc(30.76 * var(--u)); top: calc(365.43 * var(--u)); width: calc(160.23 * var(--u)); height: calc(157.19 * var(--u));
-           border-radius: calc(22.78 * var(--u)); }
+           --r: calc(22.78 * var(--u)); }
   .tc--c { left: calc(214.53 * var(--u)); top: calc(365.43 * var(--u)); width: calc(159.47 * var(--u)); height: calc(157.19 * var(--u));
-           border-radius: calc(22.78 * var(--u)); }
+           --r: calc(22.78 * var(--u)); }
   .tc--a { left: calc(213 * var(--u)); top: calc(546 * var(--u)); width: calc(160.29 * var(--u)); height: calc(158 * var(--u));
-           border-radius: calc(22.9 * var(--u)); }
+           --r: calc(22.9 * var(--u)); }
 
   .tt { font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
   .tt--b { left: calc(30 * var(--u));  top: calc(465.43 * var(--u)); width: calc(161.75 * var(--u)); height: calc(35.69 * var(--u)); }
   .tt--c { left: calc(228.2 * var(--u)); top: calc(465.43 * var(--u)); width: calc(132.13 * var(--u)); height: calc(35.69 * var(--u)); }
   .tt--a { left: calc(225.21 * var(--u)); top: calc(646.75 * var(--u)); width: calc(135.86 * var(--u)); height: calc(35.87 * var(--u)); }
 
-  /* the mobile frame draws these three as image crops, not the icon set */
-  .ti--b { left: calc(76.32 * var(--u)); top: calc(382.9 * var(--u));  width: calc(69.86 * var(--u)); height: calc(74.96 * var(--u)); }
-  .ti--c { left: calc(266.93 * var(--u)); top: calc(388.21 * var(--u)); width: calc(53.79 * var(--u)); height: calc(64.7 * var(--u)); }
-  .ti--a { left: calc(262.61 * var(--u)); top: calc(564.32 * var(--u)); width: calc(61.06 * var(--u)); height: calc(75.29 * var(--u)); }
+  /* One width for all three and no height, as the desktop has it: the files are
+     square, so a single width makes them the same size. 99 is the desktop's 131
+     against its 210 tile, on a tile of 160, sitting 5 below the tile's top. */
+  .ti { width: calc(99 * var(--u)); }
+  .ti--b { left: calc(61.4 * var(--u));  top: calc(370.4 * var(--u)); }
+  .ti--c { left: calc(244.7 * var(--u)); top: calc(370.4 * var(--u)); }
+  .ti--a { left: calc(243.6 * var(--u)); top: calc(551 * var(--u)); }
 
   .ab-team__seal { left: calc(-10 * var(--u)); top: calc(546 * var(--u)); width: calc(235.8 * var(--u)); height: calc(237.17 * var(--u)); }
 

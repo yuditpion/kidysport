@@ -74,7 +74,7 @@
   .t-h2b { font-size: calc(26 * var(--u)); line-height: calc(36 * var(--u)); }
   .t-body{ font-size: calc(20 * var(--u)); line-height: calc(32 * var(--u)); }
 
-  .glass { border-width: calc(2 * var(--u)); border-radius: calc(28 * var(--u));
+  .glass { border-width: calc(2 * var(--u)); --r: calc(28 * var(--u));
            -webkit-backdrop-filter: blur(calc(10 * var(--u))); backdrop-filter: blur(calc(10 * var(--u))); }
   .btn   { height: calc(56 * var(--u)); border-radius: calc(28 * var(--u));
            font-size: calc(20 * var(--u)); line-height: calc(26 * var(--u)); }
@@ -421,7 +421,13 @@
 
   /* ------------------------------------------ ממכון קטן (1425 – 2541) --- */
   .ab-grow        { top: calc(1425 * var(--u)); height: calc(1116 * var(--u)); }
-  .ab-grow > .film{ height: calc(1116 * var(--u)); }
+  /* the same two stills as the phone, on this board's own numbers */
+  .ab-grow__band { left: calc(-86 * var(--u)); width: max(calc(949 * var(--u)), var(--vwc)); }
+  /* The copy on this board runs 68 lower than it does on the Figma frame, so he
+     starts below where it ends and comes in a shade smaller to still land his
+     steps inside the section. */
+  .ab-grow__boy  { left: calc(-36 * var(--u)); top: calc(612 * var(--u));
+                   width: calc(392 * var(--u)); height: calc(541 * var(--u)); }
   .ab-grow__title { left: calc(200 * var(--u)); top: calc(52 * var(--u)); width: calc(520 * var(--u)); height: calc(230 * var(--u)); }
   .ab-grow__body  { left: calc(48 * var(--u)); top: calc(248 * var(--u)); width: calc(672 * var(--u)); height: calc(430 * var(--u)); }
   .ab-badge       { left: calc(-20 * var(--u)); top: calc(96 * var(--u)); width: calc(190 * var(--u)); height: calc(190 * var(--u)); }
@@ -464,25 +470,26 @@
 
   /* three tiles across, which is what the width now allows */
   .tc--b { left: calc(72 * var(--u));  top: calc(375 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
-           border-radius: calc(26 * var(--u)); }
+           --r: calc(26 * var(--u)); }
   .tc--c { left: calc(288 * var(--u)); top: calc(375 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
-           border-radius: calc(26 * var(--u)); }
+           --r: calc(26 * var(--u)); }
   .tc--a { left: calc(504 * var(--u)); top: calc(375 * var(--u)); width: calc(200 * var(--u)); height: calc(196 * var(--u));
-           border-radius: calc(26 * var(--u)); }
+           --r: calc(26 * var(--u)); }
 
   .tt { font-size: calc(18 * var(--u)); line-height: calc(24 * var(--u)); }
   .tt--b { left: calc(80 * var(--u));  top: calc(495 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
   .tt--c { left: calc(296 * var(--u)); top: calc(495 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
   .tt--a { left: calc(512 * var(--u)); top: calc(495 * var(--u)); width: calc(184 * var(--u)); height: calc(60 * var(--u)); }
 
-  /* Half again as big. At 70 they read as marks beside the caption rather than
-     as the picture each tile is built around. The crop boxes are
-     percentage-based, so widening the box scales the artwork inside it and
-     each keeps its own aspect; re-centred on the tile it belongs to (tiles at
-     72, 288 and 504, each 200 wide, caption starting at 520). */
-  .ti--b { left: calc(119 * var(--u)); top: calc(379 * var(--u)); width: calc(105 * var(--u)); height: calc(112 * var(--u)); }
-  .ti--c { left: calc(347 * var(--u)); top: calc(386 * var(--u)); width: calc(81 * var(--u));  height: calc(98 * var(--u)); }
-  .ti--a { left: calc(558 * var(--u)); top: calc(379 * var(--u)); width: calc(92 * var(--u));  height: calc(112 * var(--u)); }
+  /* One width for all three and no height, which is what the desktop does: the
+     files are square, so a single width makes them the same size and each keeps
+     its own drawing undistorted. 125 is the desktop's 131 against its 210 tile,
+     on a tile of 200, and 7 below the tile's top as there. Boxes of their own
+     per icon is what left them three different sizes. */
+  .ti { width: calc(119 * var(--u)); top: calc(381 * var(--u)); }
+  .ti--b { left: calc(109.5 * var(--u)); }
+  .ti--c { left: calc(325.5 * var(--u)); }
+  .ti--a { left: calc(541.5 * var(--u)); }
 
   .ab-team__seal { left: calc(266 * var(--u)); top: calc(615 * var(--u)); width: calc(236 * var(--u)); height: calc(237 * var(--u)); }
 

@@ -50,13 +50,9 @@
 
 /* ==================== ממכון קטן (1023 – 1831) ==================== */
 .ab-grow { top: calc(1023 * var(--u)); height: calc(808 * var(--u)); }
-
-.ab-grow__band { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
-                 width: max(var(--vwc), calc(1945 * var(--u))); height: calc(808 * var(--u));
-                 object-fit: cover; z-index: 0; }
-.ab-grow__boy  { left: calc(80 * var(--u)); top: calc(184 * var(--u));
-                 width: calc(468 * var(--u)); height: calc(645 * var(--u));
-                 object-fit: cover; z-index: 3; }
+/* The clip is the backdrop on this board, so the two still layers the narrow
+   frames use stand down here. */
+.ab-grow__band, .ab-grow__boy { display: none; }
 
 .ab-grow__title { left: calc(423 * var(--u)); top: calc(101 * var(--u)); width: calc(1175 * var(--u)); height: calc(163 * var(--u)); text-align: right; z-index: 3; }
 .ab-grow__body  { left: calc(703 * var(--u)); top: calc(302 * var(--u)); width: calc(895 * var(--u)); height: calc(311 * var(--u)); text-align: right; z-index: 3; }

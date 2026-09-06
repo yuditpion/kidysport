@@ -607,6 +607,12 @@
     var CLIP_FRAMES = 20;
     var FPS = 12;
     var cards = [].slice.call(document.querySelectorAll('.dc-pic[data-clip]'));
+    /* A phone or a tablet has no pointer to hold on a card, so there the three
+       clips are not hover at all: each one runs on its own and keeps running.
+       Only once its card is near the window, though — sixty frames is 2.2MB and
+       none of it is worth fetching for a card nobody has scrolled to yet. */
+    var always = window.matchMedia("(max-width: 1199px)");
+    var autos = [];
     if (!cards.length || reduced) return;
 
     cards.forEach(function (box) {
@@ -662,10 +668,24 @@
         timer = setInterval(function () { if (hovering) paint(); }, 1000 / FPS);
       }
       function stop() {
+        if (always.matches) return;      /* it is not hover on these boards */
         hovering = false;
         clearInterval(timer); timer = 0;
-        box.classList.remove('is-playing');
+        box.classList.remove("is-playing");
       }
+      function near() {
+        var r = box.getBoundingClientRect(), vh = window.innerHeight || 0;
+        return r.bottom > -200 && r.top < vh + 200;
+      }
+      function applyMode() {
+        if (always.matches) { if (near()) start(); }
+        else {                             /* back on a board that has a pointer */
+          hovering = false;
+          clearInterval(timer); timer = 0;
+          box.classList.remove("is-playing");
+        }
+      }
+      autos.push(applyMode);
 
       zone.forEach(function (el) {
         el.addEventListener('pointerenter', start);
@@ -677,6 +697,12 @@
         });
       });
     });
+
+    function sweep() { for (var i = 0; i < autos.length; i++) autos[i](); }
+    if (always.addEventListener) always.addEventListener("change", sweep);
+    addEventListener("scroll", sweep, { passive: true });
+    addEventListener("resize", sweep);
+    sweep();
   })();
 
   /* Exposed so the layout harness can step the sections deterministically —

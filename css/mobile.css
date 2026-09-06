@@ -33,8 +33,15 @@
   .t-h2b { font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u)); }
   .t-body{ font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u)); }
 
-  .glass { border-width: calc(1.577 * var(--u)); border-radius: calc(23.65 * var(--u));
+  .glass { border-width: calc(1.577 * var(--u)); --r: calc(23.65 * var(--u));
            -webkit-backdrop-filter: blur(calc(7.883 * var(--u))); backdrop-filter: blur(calc(7.883 * var(--u))); }
+
+  /* A phone or a tablet has no pointer to hover with, so every icon rests in
+     its own plain teal here and the coloured twin is never even fetched — the
+     same thing `@media (hover: none)` does on a touch screen, but keyed to the
+     board rather than to what the browser claims about the pointer. */
+  .ico > .ico__on { display: none; }
+  .ico > img:not(.ico__on) { opacity: 1; transition: none; }
   .btn { height: calc(44.718 * var(--u)); border-radius: calc(20.023 * var(--u));
          font-size: calc(18 * var(--u)); line-height: calc(22 * var(--u));
          box-shadow: 0 calc(2.67 * var(--u)) calc(26.697 * var(--u)) calc(13.349 * var(--u)) rgba(0,0,0,.05); }
