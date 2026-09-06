@@ -350,8 +350,8 @@
   /* סניפים */
   .fc--branch    { left: calc(41 * var(--u)); top: calc(1210 * var(--u)); width: calc(321 * var(--u)); height: calc(372 * var(--u)); }
   .fc__t--branch { left: calc(77 * var(--u)); top: calc(1231 * var(--u)); width: calc(261 * var(--u)); height: calc(59 * var(--u)); }
-  .br--a { left: calc(161 * var(--u)); top: calc(1300 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
-  .br--b { left: calc(161 * var(--u)); top: calc(1358 * var(--u)); width: calc(166 * var(--u)); height: calc(38 * var(--u)); }
+  .br--a { left: calc(56 * var(--u));  top: calc(1300 * var(--u)); width: calc(271 * var(--u)); height: calc(38 * var(--u)); }
+  .br--b { left: calc(56 * var(--u));  top: calc(1358 * var(--u)); width: calc(271 * var(--u)); height: calc(38 * var(--u)); }
   .br--c { left: calc(56 * var(--u));  top: calc(1416 * var(--u)); width: calc(271 * var(--u)); height: calc(38 * var(--u)); }
   .br--d { left: calc(56 * var(--u));  top: calc(1474 * var(--u)); width: calc(271 * var(--u)); height: calc(38 * var(--u)); }
   .hline--b1 { left: calc(77 * var(--u)); top: calc(1348 * var(--u)); width: calc(250 * var(--u)); }
