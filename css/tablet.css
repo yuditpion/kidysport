@@ -289,8 +289,12 @@
   /* --------------------------------- יש לכם שאלה נוספת? (8436 – 8976) --- */
   .moreq      { top: calc(7843 * var(--u)); height: calc(540 * var(--u)); }
   .moreq__ellipse { left: calc(60 * var(--u)); top: calc(470 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
-  .moreq__photo   { left: calc(384 * var(--u)); top: calc(56 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u));
+  /* The photograph is the whole section here, as it is on the wide board and on
+     the phone — a card on the right left the rest of the section bare. */
+  .moreq__photo   { left: calc(25 * var(--u)); top: calc(56 * var(--u)); width: calc(718 * var(--u)); height: calc(420 * var(--u));
                     border-radius: calc(24 * var(--u)); }
+  .moreq__photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+                      object-fit: cover; }
   .moreq__boy     { left: calc(376 * var(--u)); top: calc(16 * var(--u)); width: calc(280 * var(--u)); height: calc(498 * var(--u)); }
   .moreq__t       { left: calc(48 * var(--u)); top: calc(62 * var(--u));  width: calc(300 * var(--u)); height: calc(232 * var(--u)); }
   .moreq__sub     { left: calc(48 * var(--u)); top: calc(304 * var(--u)); width: calc(300 * var(--u)); height: calc(100 * var(--u)); }
@@ -835,6 +839,7 @@
     --uu: min(1.10504px, calc(var(--vwc) / 834));
     display: block; position: relative; top: auto; left: auto;
     width: calc(834 * var(--uu)); margin-inline: auto; height: auto;
+    margin-top: 0;                     /* the phone's pull-up is the phone's */
     padding: calc(40 * var(--uu)) 0 calc(48 * var(--uu));
   }
   .page--do .funds {
@@ -883,7 +888,9 @@
 
   .page--faq .moreq          { height: calc(540 * var(--u)); }
   .page--faq .moreq__boy     { left: calc(376 * var(--u)); top: 0; width: calc(280 * var(--u)); height: calc(498 * var(--u)); }
-  .page--faq .moreq__photo   { left: calc(384 * var(--u)); top: calc(40 * var(--u)); width: calc(336 * var(--u)); height: calc(420 * var(--u)); }
+  .page--faq .moreq__photo   { left: calc(25 * var(--u)); top: calc(40 * var(--u)); width: calc(718 * var(--u)); height: calc(420 * var(--u)); }
+  .page--faq .moreq__photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+                                 object-fit: cover; }
   .page--faq .moreq__ellipse { left: calc(60 * var(--u)); top: calc(110 * var(--u)); width: calc(250 * var(--u)); height: calc(400 * var(--u)); }
   .page--faq .moreq__t       { left: calc(48 * var(--u)); top: calc(46 * var(--u)); width: calc(300 * var(--u)); height: calc(232 * var(--u));
                                font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }

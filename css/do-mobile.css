@@ -433,7 +433,12 @@
   .page--do .do-funds {
     display: block; position: relative; top: auto; left: auto;
     width: calc(402 * var(--u)); margin-inline: auto; height: auto;
-    padding: calc(28 * var(--u)) 0 calc(36 * var(--u));
+    /* The stage is a whole screen tall and its picture does not fill the last
+       of it, which left a band of nothing above the bar. Pulled up over that
+       tail, and closer to what follows — the frame has the card overlapping
+       the scene, not standing clear of it. */
+    margin-top: calc(-137 * var(--u));
+    padding: calc(28 * var(--u)) 0 calc(12 * var(--u));
   }
   .page--do .funds {
     display: block; position: relative;
@@ -455,9 +460,11 @@
   .page--do .fund { width: auto; }
   .page--do .fund--maccabi { left: calc(30.4 * var(--u));  top: calc(207.4 * var(--u)); width: calc(133.59 * var(--u)); height: calc(50.84 * var(--u)); }
   .page--do .fund--clalit  { left: calc(197.4 * var(--u)); top: calc(215.4 * var(--u)); width: calc(154 * var(--u));    height: calc(43 * var(--u)); }
-  .page--do .fund--leumit  { left: calc(3.4 * var(--u));   top: calc(274.4 * var(--u)); width: calc(183 * var(--u));    height: calc(45 * var(--u)); }
-  /* the phone frame carries three logos, not four */
-  .page--do .fund--meuhedet { display: none; }
+  .page--do .fund--leumit  { left: calc(190 * var(--u)); top: calc(274.4 * var(--u)); width: calc(183 * var(--u)); height: calc(45 * var(--u)); }
+  /* The frame draws three here, but the wide bar carries four and she wants all
+     four on every board. The fourth goes beside לאומית on the second row, in
+     the order the wide bar reads them: כללית, מכבי, לאומית, מאוחדת. */
+  .page--do .fund--meuhedet { left: calc(6 * var(--u)); top: calc(277.4 * var(--u)); width: calc(168 * var(--u)); height: calc(39 * var(--u)); }
 
 
 }

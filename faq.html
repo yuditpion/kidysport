@@ -68,6 +68,10 @@
        Same accordion as the home page: one open at a time, and the page
        grows and shrinks with it (app.js publishes --faq-shift). -->
   <section class="s fq-list-sec">
+    <!-- The frame paints one wash behind the questions at a fixed height, and
+         this list grows as answers open, so it ran out partway down. Pinned,
+         it is behind the whole list however long it gets. -->
+    <div class="sticky-bg fq-wash" aria-hidden="true"></div>
     <div class="faq__list" id="faq-list">
       <details class="fq" open>
         <summary>

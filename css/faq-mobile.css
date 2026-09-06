@@ -29,6 +29,13 @@
   }
   .page--faq .fq-grad--b { display: none; }   /* one wash on this frame */
 
+  /* and the one that is left is a fixed height, while the list grows as answers
+     open — which is how it ran out halfway down. This one is pinned instead, so
+     the same wash is behind the questions however long they get. */
+  .page--faq .fq-wash {
+    background: linear-gradient(180deg, #f0f7fd 0%, #fbfbfd 50%, #edf6fd 100%);
+  }
+
   .page--faq .fq-hero__film {
     left: calc(-51 * var(--u)); top: calc(234 * var(--u));
     width: calc(732 * var(--u)); height: calc(276 * var(--u));

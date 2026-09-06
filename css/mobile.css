@@ -456,6 +456,10 @@
                  width: calc(324 * var(--u)); height: calc(60 * var(--u));
                  font-size: calc(22 * var(--u)); line-height: calc(30 * var(--u));
                  text-align: center; z-index: 3; }
+  /* the do page brings its heading up: the bar above it now sits close, and the
+     stretch between the two read as a hole. The rec page keeps the frame's. */
+  .page--do .do-cta__t   { top: calc(110 * var(--u)); }
+  .page--do .do-cta__sub { top: calc(362 * var(--u)); }
   .page--do .do-cta__btn, .page--rec .do-cta__btn { left: calc(57 * var(--u)); top: calc(1003 * var(--u));
                  width: calc(267 * var(--u)); height: calc(67 * var(--u));
                  margin: 0; border-radius: calc(30 * var(--u));
