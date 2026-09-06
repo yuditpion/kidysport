@@ -154,7 +154,7 @@
     var ANCH = { x: parseFloat(anchor[0]) || 0, y: parseFloat(anchor[1]) || 0 };
     /* Where the clip sits when nothing has been scrolled — the position it
        must not jump away from as the pin takes over. Measured unpinned. */
-    var natPage = null, cbZero = { x: 0, y: 0 }, legTop = 0;
+    var natPage = null, cbZero = { x: 0, y: 0 }, legTop = 0, startAt = 0;
     /* 0 below, 1 above, eased in between */
     function ease(x) {
       var s = x < 0 ? 0 : x > 1 ? 1 : x;
@@ -276,7 +276,20 @@
              stops where boy-scroll.js picks him up. */
           legTop = r.top + window.scrollY;
           var pinTop = pinSec.getBoundingClientRect().top + window.scrollY;
-          raw = (window.scrollY - legTop) / Math.max(1, pinTop - legTop);
+          /* On the tablet frames the clip is drawn low in its section — low
+             enough that on a short screen the boy is still below the fold when
+             the leg would otherwise begin, so the whole run happened where
+             nobody could see it. There the leg waits: it starts at whichever
+             comes later, the top of the section or the scroll position that
+             first brings the boy's feet to the bottom of the screen. He rides
+             up on his own until then, standing still on his first frame, and
+             only starts moving once he is in view. */
+          startAt = legTop;
+          if (narrowFrames.matches && natPage) {
+            var boyFoot = natPage.y + ANCH.y * stage.offsetHeight + pinTo.offsetHeight;
+            startAt = Math.max(legTop, boyFoot - vh);
+          }
+          raw = (window.scrollY - startAt) / Math.max(1, pinTop - startAt);
           p = raw;
         } else if (mode === 'enter') {
           /* The hero is about one viewport tall, so it has no pinned stretch:
@@ -357,6 +370,14 @@
             stage.style.left = (endL - sr.left) + 'px';
             stage.style.top  = (endT - sr.top) + 'px';
             stage.style.visibility = '';
+          } else if (raw < 0 && window.scrollY >= legTop && narrowFrames.matches) {
+            /* The lead-in the wait above creates. The clip ahead has already
+               finished and stood down, so this one has to be the boy now —
+               shown, unpinned, riding up the page on its first frame. Hiding
+               it here is what left the screen with no boy at all. */
+            stage.style.position = '';
+            stage.style.left = stage.style.top = '';
+            stage.style.visibility = '';
           } else if (t >= 0.999 || raw < 0) {
             stage.style.position = '';
             stage.style.left = stage.style.top = '';
@@ -390,7 +411,9 @@
                whose section starts at nought — for a clip further down the
                page the difference is a whole section, and it was placing the
                boy that far below the fold. */
-            var natTop = natPage.y - legTop;
+            /* measured from where the leg actually begins, which on the narrow frames
+               is later than the section top — see the wait above */
+            var natTop = natPage.y - startAt;
             /* The hold is where he waits out the middle of his leg. Lifting it
                to `vh - fh` is what keeps a clip taller than the window from
                hanging below the fold — but on the tablet frames the clip is
