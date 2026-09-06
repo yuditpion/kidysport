@@ -31,8 +31,9 @@
 
 /* ============================ HERO (0 – 1090) ============================ */
 .do-hero { top: 0; height: calc(1090 * var(--u)); }
-.do-hero__bg { left: calc(-20 * var(--u)); top: calc(-37 * var(--u));
-               width: calc(1950 * var(--u)); height: calc(1087 * var(--u));
+.do-hero__bg { left: 50%; transform: translateX(-50%); top: calc(-37 * var(--u));
+               /* never narrower than the window, at any screen size */
+               width: max(calc(1950 * var(--u)), var(--vwc)); height: calc(1087 * var(--u));
                object-fit: cover; z-index: 0; }
 
 .do-hero__t    { left: calc(166 * var(--u)); top: calc(334 * var(--u));

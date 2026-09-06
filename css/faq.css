@@ -47,7 +47,8 @@
    because sections paint in document order: parked in the list section they
    covered the hero clip, which is what the frame puts in front of them. */
 .fq-grad {
-  left: calc(-80 * var(--u)); width: calc(2016 * var(--u)); height: calc(4371 * var(--u));
+  left: 50%; transform: translateX(-50%);
+  width: max(calc(2016 * var(--u)), var(--vwc)); height: calc(4371 * var(--u));
   background: linear-gradient(180deg, #f0f7fd 0%, #fbfbfd 50%, #edf6fd 100%);
   z-index: 0;
 }

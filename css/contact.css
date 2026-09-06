@@ -4,8 +4,8 @@
 
 /* The art runs to 1651; the footer overlaps it by 152 as everywhere else, and
    its own backdrop starts at that edge. 1499 + 1201 = 2700. */
-.page--contact { height: calc(2858 * var(--u)); }
-.page--contact .foot { top: calc(1657 * var(--u)); }
+.page--contact { height: calc(2919 * var(--u)); }
+.page--contact .foot { top: calc(1718 * var(--u)); }
 
 .page--contact .nav-i--contact { top: calc(-3 * var(--u)); }
 
@@ -24,8 +24,10 @@
    the right edge needs 0.7% more than that ideal scale, so he ends up ~6 units
    taller about the ball centre, and nothing else moves. */
 .ct__bg { position: absolute;
-          left: 0; top: 0;
-          width: calc(1920 * var(--u)); height: calc(1809 * var(--u));
+          left: 50%; transform: translateX(-50%); top: 0;
+          /* centred and never narrower than the window: a fixed 1920 leaves white
+             down both sides on anything wider than the board */
+          width: max(calc(1920 * var(--u)), var(--vwc)); height: calc(1809 * var(--u));
           overflow: hidden; z-index: 0; }
 .ct__bg > img { position: absolute; display: block; max-width: none;
                 left: calc(-5.9 * var(--u)); top: calc(-4 * var(--u));
@@ -192,11 +194,15 @@
 .cdx--clock { left: calc(1054 * var(--u)); top: calc(41 * var(--u)); width: calc(353 * var(--u)); }
 
 /* --------------------------- הסניפים שלנו (1390) --------------------------- */
-.ct-br { top: calc(1548 * var(--u)); height: calc(119 * var(--u)); }
+/* Two lines. Laid out from the title leftwards in her order, the five run 1363
+   wide and the title only leaves 1345 — so the last two go on a second line
+   rather than under the words, and the bar grows to hold them. */
+.ct-br { top: calc(1548 * var(--u)); height: calc(180 * var(--u)); }
+.ct-br .ct-bar { height: calc(180 * var(--u)); }
 .ct-br .ct-bar__t { left: calc(1512 * var(--u)); top: calc(22 * var(--u)); width: calc(250 * var(--u)); }
 
-.cb--1 { left: calc(1504 * var(--u)); top: calc(39 * var(--u)); width: calc(198 * var(--u)); }
-.cb--2 { left: calc(1235 * var(--u)); top: calc(39 * var(--u)); width: calc(241 * var(--u)); }
-.cb--3 { left: calc(878 * var(--u));  top: calc(36 * var(--u)); width: calc(329 * var(--u)); height: calc(44 * var(--u)); }
-.cb--4 { left: calc(527 * var(--u));  top: calc(36 * var(--u)); width: calc(323 * var(--u)); height: calc(44 * var(--u)); }
-.cb--5 { left: calc(219 * var(--u)); top: calc(36 * var(--u)); width: calc(280 * var(--u)); height: calc(44 * var(--u)); }
+.cb--1 { left: calc(1273 * var(--u)); top: calc(39 * var(--u)); width: calc(230 * var(--u)); }
+.cb--2 { left: calc(933 * var(--u));  top: calc(39 * var(--u)); width: calc(320 * var(--u)); }
+.cb--3 { left: calc(729 * var(--u));  top: calc(39 * var(--u)); width: calc(184 * var(--u)); }
+.cb--4 { left: calc(1200 * var(--u)); top: calc(99 * var(--u)); width: calc(303 * var(--u)); }
+.cb--5 { left: calc(934 * var(--u));  top: calc(99 * var(--u)); width: calc(246 * var(--u)); }

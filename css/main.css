@@ -476,9 +476,9 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 /* Group 131 in the file: the five addresses fit a card the same height as its
    three siblings, so the rows sit 56 apart rather than 66 and all five run to
    the same right edge at 445. */
-.br--a { left: calc(174 * var(--u)); top: calc(513 * var(--u)); width: calc(271 * var(--u)); }
-.br--b { left: calc(174 * var(--u)); top: calc(569 * var(--u)); width: calc(271 * var(--u)); }
-.br--c { left: calc(148 * var(--u)); top: calc(625 * var(--u)); width: calc(297 * var(--u)); }
+.br--a { left: calc(143 * var(--u)); top: calc(513 * var(--u)); width: calc(302 * var(--u)); }
+.br--b { left: calc(143 * var(--u)); top: calc(569 * var(--u)); width: calc(302 * var(--u)); }
+.br--c { left: calc(143 * var(--u)); top: calc(625 * var(--u)); width: calc(302 * var(--u)); }
 .br--d { left: calc(143 * var(--u)); top: calc(681 * var(--u)); width: calc(302 * var(--u)); }
 .br--e { left: calc(143 * var(--u)); top: calc(737 * var(--u)); width: calc(302 * var(--u)); }
 .hline--b1 { left: calc(143 * var(--u)); top: calc(560 * var(--u)); width: calc(332 * var(--u)); }

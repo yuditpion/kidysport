@@ -79,8 +79,8 @@
 .ab-values__band    { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
                       width: max(var(--vwc), calc(2230 * var(--u))); height: calc(946 * var(--u));
                       object-fit: cover; z-index: 0; }
-.ab-values__ellipse { position: absolute; left: calc(-7 * var(--u)); top: 0;
-                      width: calc(1956 * var(--u)); height: calc(946 * var(--u));
+.ab-values__ellipse { position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+                      width: max(calc(1956 * var(--u)), var(--vwc)); height: calc(946 * var(--u));
                       object-fit: cover; z-index: 1; }
 
 .ab-values__title { left: calc(697 * var(--u)); top: calc(139 * var(--u)); width: calc(533 * var(--u)); height: calc(100 * var(--u)); text-align: center; z-index: 3; }

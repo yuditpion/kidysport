@@ -52,8 +52,11 @@
      the room art stretched to its box (1053:30) and the boy on his steps over
      it (1053:44), which is what the desktop clip ends on. */
   .ab-grow > .film { display: none; }
+  /* centred on the window rather than pinned to the section's left, so it
+     reaches both edges at any width — a section-relative offset cannot, once
+     the window is wider than the board */
   .ab-grow__band { display: block; position: absolute; top: 0;
-                   left: calc(-45 * var(--u));
+                   left: 50%; transform: translateX(-50%);
                    width: max(calc(497 * var(--u)), var(--vwc));
                    height: calc(1116 * var(--u));
                    object-fit: fill; z-index: 0; }

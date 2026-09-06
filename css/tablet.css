@@ -127,7 +127,6 @@
   .how__film { left: calc(21 * var(--u)); top: calc(558 * var(--u));
                width: calc(1106 * var(--u)); height: calc(622 * var(--u)); }
   .hero__strip  { left: calc(-44 * var(--u)); top: calc(1120 * var(--u)); width: calc(856 * var(--u)); height: calc(180 * var(--u)); }
-
   /* the three figures spread across the full width instead of crowding */
   .hero__stats { left: calc(48 * var(--u)); top: calc(1150 * var(--u)); width: calc(672 * var(--u)); height: calc(112 * var(--u));
                  border-radius: calc(16 * var(--u)); border-width: calc(1 * var(--u));
@@ -422,7 +421,7 @@
   /* ------------------------------------------ ממכון קטן (1425 – 2541) --- */
   .ab-grow        { top: calc(1425 * var(--u)); height: calc(1116 * var(--u)); }
   /* the same two stills as the phone, on this board's own numbers */
-  .ab-grow__band { left: calc(-86 * var(--u)); width: max(calc(949 * var(--u)), var(--vwc)); }
+  .ab-grow__band { width: max(calc(949 * var(--u)), var(--vwc)); }
   /* The copy on this board runs 68 lower than it does on the Figma frame, so he
      starts below where it ends and comes in a shade smaller to still land his
      steps inside the section. */
@@ -864,10 +863,10 @@
   .page--faq .foot { height: calc(1430 * var(--u)); }
 
   .page--faq .fq-hero { height: calc(600 * var(--u)); }
-  .page--faq .fq-grad--a { left: calc(-40 * var(--u)); top: calc(500 * var(--u));
-                           width: calc(848 * var(--u)); height: calc(1524 * var(--u)); }
-  .page--faq .fq-hero__film { left: calc(-40 * var(--u)); top: calc(268 * var(--u));
-                              width: calc(848 * var(--u)); height: calc(320 * var(--u)); }
+  .page--faq .fq-grad--a { left: 50%; transform: translateX(-50%); top: calc(500 * var(--u));
+                           width: max(calc(848 * var(--u)), var(--vwc)); height: calc(1524 * var(--u)); }
+  .page--faq .fq-hero__film { left: 50%; transform: translateX(-50%); top: calc(268 * var(--u));
+                              width: max(calc(848 * var(--u)), var(--vwc)); height: calc(320 * var(--u)); }
   .page--faq .fq-hero__t    { left: calc(48 * var(--u)); top: calc(96 * var(--u));
                               width: calc(672 * var(--u)); height: calc(180 * var(--u));
                               font-size: calc(64 * var(--u)); line-height: calc(70 * var(--u)); }
@@ -919,10 +918,16 @@
 
   .ct { top: 0; height: calc(1360 * var(--u)); }
 
-  .ct__bg    { left: calc(-20 * var(--u)); top: calc(-26 * var(--u)); width: calc(808 * var(--u)); height: calc(940 * var(--u)); }
-  .ct__bg > img { left: calc(-1180 * var(--u)); top: calc(0.35 * var(--u));
-                  width: calc(2320 * var(--u)); height: calc(1810 * var(--u)); }
-  .ct__under { left: calc(-40 * var(--u)); top: calc(900 * var(--u)); width: calc(848 * var(--u)); height: calc(1210 * var(--u)); }
+  /* full bleed on this board too, with the picture given as a share of the box */
+  .ct__bg    { left: 50%; transform: translateX(-50%); top: calc(-26 * var(--u));
+               width: max(calc(808 * var(--u)), var(--vwc));
+               height: calc(940 * var(--u)); }
+  .ct__bg > img { left: -146.04%; top: 0.04%;
+                  width: 287.13%; height: 192.55%; }
+  .ct__under { left: 50%; transform: translateX(-50%); top: calc(900 * var(--u));
+               width: max(calc(848 * var(--u)), var(--vwc));
+               /* down to the footer: the frame's 1210 stopped 88 short of it */
+               height: calc(1298 * var(--u)); }
   .ct__boy   { left: calc(60 * var(--u)); top: calc(901 * var(--u)); width: calc(430 * var(--u)); height: calc(426 * var(--u)); }
 
   .ct__panel { left: calc(48 * var(--u)); top: calc(120 * var(--u)); width: calc(672 * var(--u)); height: calc(840 * var(--u));
@@ -987,11 +992,13 @@
   .page--contact .ct-br .ct-bar { height: calc(404 * var(--u)); }
   .ct-br { top: calc(1754 * var(--u)); height: calc(404 * var(--u)); }
   .ct-br .ct-bar__t { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); line-height: calc(78 * var(--u)); }
-  .cb--1 { left: calc(400 * var(--u)); top: calc(114 * var(--u)); width: calc(240 * var(--u)); height: calc(40 * var(--u)); }
-  .cb--2 { left: calc(360 * var(--u)); top: calc(168 * var(--u)); width: calc(280 * var(--u)); height: calc(40 * var(--u)); }
-  .cb--3 { left: calc(300 * var(--u)); top: calc(222 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
-  .cb--4 { left: calc(300 * var(--u)); top: calc(282 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
-  .cb--5 { left: calc(300 * var(--u)); top: calc(342 * var(--u)); width: calc(340 * var(--u)); height: calc(46 * var(--u)); }
+  /* one box for all five here too */
+  .cb  { left: calc(300 * var(--u)); width: calc(340 * var(--u)); }
+  .cb--1 { top: calc(114 * var(--u)); height: calc(40 * var(--u)); }
+  .cb--2 { top: calc(168 * var(--u)); height: calc(40 * var(--u)); }
+  .cb--3 { top: calc(222 * var(--u)); height: calc(46 * var(--u)); }
+  .cb--4 { top: calc(282 * var(--u)); height: calc(46 * var(--u)); }
+  .cb--5 { top: calc(342 * var(--u)); height: calc(46 * var(--u)); }
 
   /* ======================================================================
      רוצים לבדוק אם התהליך מתאים — the shared CTA artboard, on 768

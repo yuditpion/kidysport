@@ -24,8 +24,8 @@
   .page--faq .fq-hero > * { position: absolute; }
 
   .page--faq .fq-grad--a {
-    left: calc(-38 * var(--u)); top: calc(453 * var(--u));
-    width: calc(478 * var(--u)); height: calc(1524 * var(--u));
+    left: 50%; transform: translateX(-50%); top: calc(453 * var(--u));
+    width: max(calc(478 * var(--u)), var(--vwc)); height: calc(1524 * var(--u));
   }
   .page--faq .fq-grad--b { display: none; }   /* one wash on this frame */
 
