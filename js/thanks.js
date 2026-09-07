@@ -14,22 +14,41 @@
      lookup would always answer with the first — the contact form would open the
      home page's copy. Each form asks its own page for its own dialog. */
   function dialogFor(el, kind) {
-    var sel = kind === 'err' ? '.thanks--err' : '.thanks:not(.thanks--err)';
+    var sel = kind === 'err' ? '.thanks--err'
+            : kind === 'ask' ? '.thanks--ask'
+            : '.thanks:not(.thanks--err):not(.thanks--ask)';
     var page = el.closest('.page');
     return (page && page.querySelector(sel)) || document.querySelector(sel);
   }
 
-  /* A form goes nowhere until every one of its fields has something in it. The
-     hidden inputs behind the two choosers count as fields — an untouched
+  /* Three of the contact form's fields are asked for but not insisted on. Left
+     empty they do not stop the send: they raise the confirm card instead, which
+     offers to send anyway or to go back and fill them in. Everything else is
+     still required, and an empty one of those refuses the send outright. */
+  var OPTIONAL = { idnum: 1, dob: 1, father_phone: 1 };
+
+  function isEmpty(field) {
+    return field.type === 'hidden' ? !field.value : !String(field.value).trim();
+  }
+
+  /* A form goes nowhere until every one of its required fields has something in
+     it. The hidden inputs behind the two choosers count as fields — an untouched
      chooser is an empty one, and the design says so with the same message. */
   function firstEmpty(form) {
     var fields = [].slice.call(form.querySelectorAll('input, textarea'));
     for (var i = 0; i < fields.length; i++) {
-      if (fields[i].type === 'hidden') {
-        if (!fields[i].value) return fields[i];
-      } else if (!String(fields[i].value).trim()) {
-        return fields[i];
-      }
+      if (OPTIONAL[fields[i].name]) continue;
+      if (isEmpty(fields[i])) return fields[i];
+    }
+    return null;
+  }
+
+  /* the first of the three that was left blank, so closing the confirm card
+     lands on the field it is asking about */
+  function firstEmptyOptional(form) {
+    var fields = [].slice.call(form.querySelectorAll('input, textarea'));
+    for (var i = 0; i < fields.length; i++) {
+      if (OPTIONAL[fields[i].name] && isEmpty(fields[i])) return fields[i];
     }
     return null;
   }
@@ -45,7 +64,7 @@
     if (img.complete && !img.naturalWidth) img.remove();
   });
 
-  var dialog = null, card = null, opener = null, pending = null;
+  var dialog = null, card = null, opener = null, pending = null, askForm = null;
 
   /* Holding the page still. Switching the root's overflow would do it, but this
      layout is sized off `100vw`, and reclaiming the scrollbar's width grows
@@ -87,7 +106,7 @@
   }
 
   function onKey(e) {
-    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Escape') { askForm = null; close(); return; }
     /* the dialog is not a scrollable thing, so these would move the page */
     if (SCROLL_KEYS[e.key] && !/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || ''))) { e.preventDefault(); return; }
     if (e.key !== 'Tab') return;
@@ -103,7 +122,22 @@
   }
 
   document.addEventListener('click', function (e) {
-    if (dialog && !dialog.hidden && e.target.closest('[data-thanks-close]')) close();
+    if (!dialog || dialog.hidden) return;
+
+    /* "כן, שלח" — the confirm card steps aside and the usual thank-you takes
+       its place, exactly as if the three fields had never been asked about */
+    if (e.target.closest('[data-ask-send]') && askForm) {
+      var form = askForm;
+      askForm = null; pending = null;
+      close();
+      open(document.activeElement, dialogFor(form));
+      form.reset();
+      return;
+    }
+    /* "חזרה לטופס" — nothing is sent; focus goes to the field it asked about */
+    if (e.target.closest('[data-ask-back]')) { askForm = null; close(); return; }
+
+    if (e.target.closest('[data-thanks-close]')) { askForm = null; close(); }
   });
 
   [].forEach.call(document.querySelectorAll('form'), function (form) {
@@ -115,6 +149,16 @@
         /* remember what to go back to, so closing the message lands on the
            field that stopped it rather than on the send button */
         pending = missing;
+        return;
+      }
+      /* everything required is in. If any of the three optional ones is still
+         empty, ask before sending — but only on a page that carries the card. */
+      var skipped = firstEmptyOptional(form);
+      var ask = skipped && dialogFor(form, 'ask');
+      if (ask) {
+        askForm = form;
+        pending = skipped;
+        open(document.activeElement, ask);
         return;
       }
       open(document.activeElement, dialogFor(form));

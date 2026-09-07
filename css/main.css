@@ -1048,3 +1048,44 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
   position: absolute; left: 50%; bottom: 5%;
   translate: -50% 0; margin: 0;
 }
+
+/* ---- חסרים פרטים ---------------------------------------------------------
+   The confirm step, shown when the required fields are in but one or more of
+   the three optional ones is not. It is the "not sent" card with two changes:
+   the disc asks instead of refusing, and the bird's place at the foot is taken
+   by two of the site's own buttons. The card is taller than the drawing so that
+   the row of buttons has clear white under the picture rather than sitting on
+   the squiggle: the art keeps its own 1006/1018 proportion at 84.8% of a
+   1006/1200 card, which leaves exactly the button's height plus its margin. */
+.thanks--ask .thanks__card {
+  width: min(calc(700 * var(--u)), 92vw);
+  aspect-ratio: 1006 / 1200;
+  padding: 0;
+}
+.thanks--ask .thanks__art {
+  position: absolute; inset: 0 0 auto 0;
+  width: 100%; height: 84.8%;
+  margin: 0; aspect-ratio: auto;
+}
+.thanks--ask .thanks__t {
+  position: absolute; right: 4%; top: 47%; width: 56%;
+  text-align: right;
+  font-size: calc(38 * var(--u)); line-height: calc(50 * var(--u));
+}
+/* the two buttons share the width the card gives them, so neither is the odd
+   one out — the send is first, which in this direction puts it on the right */
+.thanks__acts {
+  position: absolute; left: 5%; right: 5%; bottom: 5.5%;
+  display: flex; gap: calc(18 * var(--u));
+}
+.thanks__acts > .btn { flex: 1 1 0; min-width: 0; }
+
+/* The three fields that may be left blank carry no mark. Every other one is
+   asked for and says so with a small orange star beside its label — and on the
+   two choosers, whose label is the value's own text, beside that instead. */
+.cf--req > label::after,
+.cf--req .pick__value::after {
+  content: '*';
+  margin-inline-start: calc(3 * var(--u));
+  color: var(--orange);
+}

@@ -69,12 +69,12 @@
     <div class="ct__lead t-body"><p>השאירו פרטים ונתחזור אליכם.<br>נשמע על הילד, נענה על שאלות, ונבדוק יחד אם קידיספורט יכול להתאים לו</p></div>
 
     <form class="ct__form glass" id="ct-form-el" novalidate>
-      <div class="cf cf--child">
+      <div class="cf cf--child cf--req">
         <input id="ct-child" type="text" name="child" placeholder=" " autocomplete="given-name">
         <label for="ct-child">שם הילד</label>
         <span class="ico" aria-hidden="true"><img src="assets/icons/kid.webp" alt=""><img class="ico__on" src="assets/icons/kid--hover.webp" alt=""></span>
       </div>
-      <div class="cf cf--surname">
+      <div class="cf cf--surname cf--req">
         <input id="ct-surname" type="text" name="surname" placeholder=" " autocomplete="family-name">
         <label for="ct-surname">שם משפחה</label>
         <span class="ico" aria-hidden="true"><img src="assets/icons/fullname.webp" alt=""><img class="ico__on" src="assets/icons/fullname--hover.webp" alt=""></span>
@@ -96,7 +96,7 @@
            highlight and the list that leaves the prompt behind can only exist as
            real elements. The value rides in a hidden input so the form still
            carries it. -->
-      <div class="cf cf--lang cf--pick" data-pick>
+      <div class="cf cf--lang cf--pick cf--req" data-pick>
         <input type="hidden" name="lang" value="">
         <button class="pick__btn" type="button" id="ct-lang" aria-haspopup="listbox" aria-expanded="false">
           <span class="pick__value" data-prompt="שפה">שפה</span>
@@ -109,7 +109,7 @@
           <li class="pick__opt" role="option" aria-selected="false" data-value="yi">אידיש</li>
         </ul>
       </div>
-      <div class="cf cf--area cf--pick" data-pick>
+      <div class="cf cf--area cf--pick cf--req" data-pick>
         <input type="hidden" name="area" value="">
         <button class="pick__btn" type="button" id="ct-area" aria-haspopup="listbox" aria-expanded="false">
           <span class="pick__value" data-prompt="אזור מגורים">אזור מגורים</span>
@@ -125,7 +125,7 @@
         </ul>
       </div>
 
-      <div class="cf cf--mphone">
+      <div class="cf cf--mphone cf--req">
         <input id="ct-mphone" type="tel" name="mother_phone" placeholder=" " autocomplete="tel">
         <label for="ct-mphone">טלפון אמא</label>
         <span class="ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt=""></span>
@@ -135,12 +135,12 @@
         <label for="ct-fphone">טלפון אבא</label>
         <span class="ico" aria-hidden="true"><img src="assets/icons/phone.webp" alt=""><img class="ico__on" src="assets/icons/phone--hover.webp" alt=""></span>
       </div>
-      <div class="cf cf--mail">
+      <div class="cf cf--mail cf--req">
         <input id="ct-mail" type="email" name="email" placeholder=" " autocomplete="email">
         <label for="ct-mail">אימייל</label>
         <span class="ico" aria-hidden="true"><img src="assets/icons/mail.webp" alt=""><img class="ico__on" src="assets/icons/mail--hover.webp" alt=""></span>
       </div>
-      <div class="cf cf--msg">
+      <div class="cf cf--msg cf--req">
         <textarea id="ct-msg" name="message" placeholder=" "></textarea>
         <label for="ct-msg">ספרו לנו בקצרה על הילד/ה</label>
         <span class="ico" aria-hidden="true"><img src="assets/icons/pencil.webp" alt=""><img class="ico__on" src="assets/icons/pencil--hover.webp" alt=""></span>
@@ -376,6 +376,106 @@
         <span class="c-teal">ונסה שנית</span>
       </p>
       <img class="thanks__bird" src="assets/icons/bird2.svg" alt="" aria-hidden="true">
+    </div>
+  </div>
+
+  <!-- Shown when every required field is filled but one or more of the three
+       optional ones (ת"ז, תאריך לידה, טלפון אבא) are still empty. Same card and
+       the same boy as the "not sent" message, with a mark that asks rather than
+       refuses, and two of the site's own buttons instead of the bird: send it
+       anyway, or go back and fill them in. -->
+  <div class="thanks thanks--ask" hidden>
+    <div class="thanks__veil" data-thanks-close></div>
+    <div class="thanks__card" role="dialog" aria-modal="true" aria-labelledby="ask-t">
+      <button class="thanks__x" type="button" aria-label="סגירה" data-thanks-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <svg class="thanks__art thanks__art--d" viewBox="0 0 1006 1018" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="ask-disc-d" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#7a2a28" flood-opacity=".14"/>
+          </filter>
+        </defs>
+        <g fill="none" stroke="#FF8C05" stroke-width="7" stroke-linecap="round">
+          <path d="M236 700 C152 676 100 740 146 788 C192 834 272 796 264 742"/>
+          <path d="M264 742 C356 652 452 546 588 486"/>
+          <path d="M588 486 C700 436 820 428 900 462"/>
+          <path d="M900 462 C946 482 934 530 902 514 C874 500 888 456 930 460"/>
+        </g>
+        <path d="M476 452 C556 502 642 498 702 442" fill="none" stroke="#FF8C05"
+              stroke-width="8" stroke-linecap="round"/>
+        <text x="404" y="196" font-family="Fredoka, 'Trebuchet MS', sans-serif" font-weight="700"
+              font-size="132" fill="#FF8C05" text-anchor="middle">?</text>
+        <g stroke-linecap="round" fill="none">
+          <path d="M676 148 C682 128 690 112 700 96" stroke="#FF8C05" stroke-width="9"/>
+          <path d="M612 176 C606 156 600 140 592 124" stroke="#1BA5AE" stroke-width="8"/>
+          <path d="M742 190 C760 176 776 166 794 158" stroke="#1BA5AE" stroke-width="9"/>
+          <path d="M776 246 C798 240 818 238 838 240" stroke="#1BA5AE" stroke-width="8"/>
+          <path d="M726 122 C738 112 750 106 764 102" stroke="#FF8C05" stroke-width="7"/>
+        </g>
+        <g fill="#FF8C05">
+          <circle cx="566" cy="180" r="9"/><circle cx="846" cy="316" r="8"/>
+          <circle cx="512" cy="470" r="8"/><circle cx="596" cy="642" r="6"/>
+        </g>
+        <g fill="#1BA5AE">
+          <circle cx="806" cy="132" r="8"/><circle cx="880" cy="222" r="7"/>
+          <circle cx="548" cy="374" r="8"/>
+        </g>
+        <circle cx="666" cy="336" r="146" fill="#FDF3EE" filter="url(#ask-disc-d)"/>
+        <circle cx="666" cy="336" r="146" fill="none" stroke="#F2622A" stroke-width="6"/>
+        <g stroke="#F2622A" stroke-width="42" stroke-linecap="round">
+          <path d="M666 258 L666 356"/><path d="M666 410 L666 412"/>
+        </g>
+        <image href="assets/img/oops-boy.webp" x="140" y="108" width="219" height="640"/>
+      </svg>
+
+      <svg class="thanks__art thanks__art--m" viewBox="0 0 735 980" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="ask-disc-m" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#7a2a28" flood-opacity=".14"/>
+          </filter>
+        </defs>
+        <g fill="none" stroke="#FF8C05" stroke-width="9" stroke-linecap="round">
+          <path d="M120 806 C48 786 14 856 62 900 C108 942 176 900 166 852"/>
+          <path d="M166 852 C230 780 300 742 372 730"/>
+          <path d="M638 706 C700 716 730 760 716 798"/>
+        </g>
+        <path d="M356 852 C470 918 610 900 690 806" fill="none" stroke="#FF8C05"
+              stroke-width="9" stroke-linecap="round"/>
+        <text x="372" y="286" font-family="Fredoka, 'Trebuchet MS', sans-serif" font-weight="700"
+              font-size="128" fill="#FF8C05" text-anchor="middle">?</text>
+        <g stroke-linecap="round" fill="none">
+          <path d="M470 396 C466 372 464 354 466 334" stroke="#FF8C05" stroke-width="10"/>
+          <path d="M540 372 C550 350 562 332 576 316" stroke="#FF8C05" stroke-width="9"/>
+          <path d="M600 452 C626 444 652 440 678 442" stroke="#1BA5AE" stroke-width="10"/>
+          <path d="M596 512 C622 512 648 518 672 526" stroke="#1BA5AE" stroke-width="9"/>
+        </g>
+        <g fill="#FF8C05">
+          <circle cx="430" cy="440" r="10"/><circle cx="686" cy="576" r="8"/>
+          <circle cx="392" cy="700" r="9"/>
+        </g>
+        <g fill="#1BA5AE">
+          <circle cx="640" cy="380" r="9"/><circle cx="418" cy="560" r="8"/>
+        </g>
+        <circle cx="520" cy="646" r="150" fill="#FDF3EE" filter="url(#ask-disc-m)"/>
+        <circle cx="520" cy="646" r="150" fill="none" stroke="#F2622A" stroke-width="7"/>
+        <g stroke="#F2622A" stroke-width="44" stroke-linecap="round">
+          <path d="M520 566 L520 668"/><path d="M520 722 L520 724"/>
+        </g>
+        <image href="assets/img/oops-boy.webp" x="95" y="220" width="233" height="680"/>
+      </svg>
+
+      <p class="thanks__t" id="ask-t">
+        <span class="c-orange">חסרים פרטים,</span>
+        <span class="c-teal">האם תרצה בכל זאת</span>
+        <span class="c-teal">לשלוח?</span>
+      </p>
+
+      <div class="thanks__acts">
+        <button class="btn btn--orange" type="button" data-ask-send><span class="btn__label">כן, שלח</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></button>
+        <button class="btn btn--outline" type="button" data-ask-back><span class="btn__label">חזרה לטופס</span><span class="btn__inner"><span class="btn__blobs"><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i><i class="btn__blob"></i></span></span></button>
+      </div>
     </div>
   </div>
 
