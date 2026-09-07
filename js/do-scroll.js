@@ -499,14 +499,31 @@
       }
       function paint() {
         var img = frames && frames[at];
-        if (img && img.complete && img.naturalWidth) {
+        var ready = img && img.complete && img.naturalWidth;
+        if (ready) {
           fit();
+          /* resizing the canvas resets these, so they are set every paint */
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
           ctx.clearRect(0, 0, canvas.width, canvas.height);   // alpha: no stacking
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
           box.classList.add('is-playing');
         }
-        /* run once to the end and hold there — he lowers the hoop and keeps it */
-        if (at < count - 1) at++;
+        /* run once to the end and hold there — he lowers the hoop and keeps it.
+           A frame that has not decoded holds rather than being stepped past:
+           skipping them is what read as the clip catching. */
+        if (ready && at < count - 1) at++;
+      }
+      /* Fetched as the section comes near, so by the time anyone can point at
+         him every frame is decoded and the run is smooth from the first one. */
+      if (window.IntersectionObserver) {
+        var sec = box.closest('.s') || box;
+        var io = new IntersectionObserver(function (es) {
+          for (var i = 0; i < es.length; i++) {
+            if (es[i].isIntersecting) { load(); io.disconnect(); return; }
+          }
+        }, { rootMargin: '600px' });
+        io.observe(sec);
       }
       function start() {
         if (on) return;
