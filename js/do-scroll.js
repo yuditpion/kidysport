@@ -538,13 +538,15 @@
      afford. Thirty of them at eight a second is what read as stuttering.
      Handing the file to the browser gets its own frame rate for nothing, out
      of a file smaller than the stills it replaces. */
-  (function () {
-    var box = document.querySelector('[data-swing-over]');
-    if (!box || reduced) return;
-    var over = document.querySelector(box.dataset.swingOver);
-    var section = box.closest('.s');
-    var vid = box.querySelector('video');
+  [].slice.call(document.querySelectorAll("[data-swing-over]")).forEach(function (box) {
+    if (reduced) return;
+    var section = box.closest(".s");
+    var over = section && section.querySelector(box.dataset.swingOver);
+    var vid = box.querySelector("video");
     if (!over || !vid || !section) return;
+    /* one of these is hover and nothing else: without a pointer there is no way
+       to ask for it, so on the narrow boards it simply never runs */
+    var hoverOnly = box.hasAttribute("data-swing-desktop");
 
     /* Not fetched until the section is nearly in view, so nobody who never
        scrolls this far pays for it and it is ready before anyone can hover. */
@@ -583,20 +585,21 @@
     var always = window.matchMedia('(max-width: 1199px)');
 
     function applyMode() {
-      if (always.matches) start();
+      if (always.matches && !hoverOnly) start();
       else stop();
     }
     if (always.addEventListener) always.addEventListener('change', applyMode);
     else if (always.addListener) always.addListener(applyMode);
     applyMode();
 
-    over.addEventListener('pointerenter', function () { start(); });
-    over.addEventListener('pointerleave', function () { if (!always.matches) stop(); });
+    var holds = function () { return always.matches && !hoverOnly; };
+    over.addEventListener("pointerenter", function () { if (hoverOnly && always.matches) return; start(); });
+    over.addEventListener("pointerleave", function () { if (!holds()) stop(); });
     /* a pointer that leaves the window without a leave event, and touch, which
        has no hover at all: stop rather than leaving it running */
-    over.addEventListener('pointercancel', function () { if (!always.matches) stop(); });
-    window.addEventListener('blur', function () { if (!always.matches) stop(); });
-  })();
+    over.addEventListener("pointercancel", function () { if (!holds()) stop(); });
+    window.addEventListener("blur", function () { if (!holds()) stop(); });
+  });
 
   /* ------------------------------------------------------------ card hover --
      Each of the three cards swaps its photo for a looping clip while the
