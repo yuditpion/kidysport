@@ -212,7 +212,14 @@
 .dc-pic--c { left: calc(313 * var(--u));  width: calc(347 * var(--u)); height: calc(405 * var(--u)); }
 
 .dc-x { top: calc(289 * var(--u)); height: calc(327 * var(--u)); width: calc(223 * var(--u));
-        text-align: right; color: #000; z-index: 3; }
+        text-align: right; color: #000; z-index: 3;
+        /* Figma centres this block on the box rather than hanging it from the top
+           (860:36 is `flex flex-col justify-center` with `-translate-y-1/2`). The
+           copy is taller than the 327 the box states, so anchored at the top the
+           whole of that difference fell out of the bottom of the card; centred,
+           it is shared between top and bottom and stays inside. Narrow boards
+           give this height:auto, where centring changes nothing. */
+        display: flex; flex-direction: column; justify-content: center; }
 .dc-x--a { left: calc(1310 * var(--u)); }
 .dc-x--b { left: calc(717 * var(--u)); }
 .dc-x--c { left: calc(143 * var(--u)); }
