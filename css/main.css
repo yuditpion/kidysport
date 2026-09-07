@@ -1078,7 +1078,11 @@ html { scroll-padding-top: calc(var(--hdr-bottom) + 24 * var(--u)); }
   position: absolute; left: 5%; right: 5%; bottom: 5.5%;
   display: flex; gap: calc(18 * var(--u));
 }
-.thanks__acts > .btn { flex: 1 1 0; min-width: 0; }
+/* .btn carries no position of its own — every other button on the site is
+   absolutely placed by its section, so .btn__inner anchors to the button. These
+   two sit in a flex row and are static, so without this the blobs anchored to
+   .thanks__acts and the goo swept the whole strip instead of the button. */
+.thanks__acts > .btn { position: relative; flex: 1 1 0; min-width: 0; }
 
 /* The three fields that may be left blank carry no mark. Every other one is
    asked for and says so with a small orange star beside its label — and on the
