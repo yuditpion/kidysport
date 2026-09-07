@@ -395,9 +395,12 @@ button { font: inherit; color: inherit; background: none; border: 0; }
    a cut-out with alpha, so the room behind it carries on. */
 .moreq__film {
   position: absolute;
-  left: calc(1153 * var(--u)); top: calc(238 * var(--u));
-  width: calc(491.886 * var(--u)); height: calc(874 * var(--u));
-  z-index: 5; display: none; pointer-events: none;
+  /* The clip is the whole scene, not a cut-out of him, so the box is the frame
+     and not the still's: sized this way his own ink comes out 349 by 657 at
+     (1193, 324), which is exactly where the still puts him. */
+  left: calc(-37.7 * var(--u)); top: calc(-19.7 * var(--u));
+  width: calc(2001.3 * var(--u)); height: calc(1092.4 * var(--u));
+  z-index: 4; display: none; pointer-events: none;
 }
 .moreq__film__v { width: 100%; height: 100%; object-fit: contain; display: block; }
 .moreq.is-swinging .moreq__film { display: block; }
