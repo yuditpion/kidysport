@@ -470,6 +470,10 @@
   /* The wide drawing gives way to the tall one: the column stacks the boy over
      the disc, which is a different arrangement rather than the same one at a
      different size. The card follows the design's own proportions here. */
+  /* no pointer here, so the hoop clip never runs and the still stays put */
+  .moreq__boy.is-playing > .moreq__hoop, .moreq__hoop { display: none; }
+  .moreq__boy.is-playing > img { opacity: 1; }
+
   .thanks__art--d { display: none; }
   .thanks__art--m { display: block; }
 

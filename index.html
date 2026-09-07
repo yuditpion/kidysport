@@ -304,13 +304,12 @@
   <section class="s moreq" id="more-q">
     <img class="moreq__ellipse" src="assets/img/ellipse3.svg" alt="" aria-hidden="true">
     <div class="moreq__photo"><img src="assets/img/image18.webp" alt="" aria-hidden="true"><span class="moreq__veil"></span></div>
-    <!-- He lowers the hoop while you point at him. A pointer is the only way to
-         ask for it, so this is the wide board only. -->
-    <div class="moreq__film" data-swing-over=".moreq__boy" data-swing-desktop aria-hidden="true">
-      <video class="moreq__film__v" src="assets/video/hoop-hover.webm"
-             muted loop playsinline preload="none"></video>
-    </div>
-    <span class="moreq__boy">
+    <!-- He lowers the hoop while you point at him. The clip is background-removed
+         and cropped to his own ink, so it plays into a canvas laid exactly over
+         the still. A pointer is the only way to ask for it, so the wide board
+         is the only one that shows it. -->
+    <span class="moreq__boy" data-hoverclip="q" data-hoverframes="20">
+      <canvas class="moreq__hoop" aria-hidden="true"></canvas>
       <img src="assets/img/boy-hoop-bosu.webp" alt="ילד על כדור שיווי משקל עם חישוק">
     </span>
     <h2 class="moreq__t t-h1 c-teal">יש לכם שאלה נוספת?</h2>

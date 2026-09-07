@@ -387,24 +387,21 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .moreq__sub  { left: calc(382 * var(--u)); top: calc(665 * var(--u)); width: calc(620 * var(--u)); height: calc(61 * var(--u));  text-align: right; z-index: 5; }
 .moreq__btn1 { left: calc(735 * var(--u)); top: calc(732 * var(--u)); width: calc(267 * var(--u)); z-index: 5; }
 .moreq__btn2 { left: calc(444 * var(--u)); top: calc(732 * var(--u)); width: calc(261 * var(--u)); z-index: 5; }
-/* He used to lower the hoop while you pointed at him. The clip read as a jump
-   sideways rather than a movement, so the boy is a still now, on both pages. */
+/* He lowers the hoop while you point at him — on the wide board, the only one
+   with a pointer to ask with. */
 .moreq__boy { display: block; }
-/* The clip that lowers the hoop, over the still and in its box exactly, so the
-   swap is the same drawing moving rather than a picture changing places. It is
-   a cut-out with alpha, so the room behind it carries on. */
-.moreq__film {
+/* The hoop coming down. The clip is cropped to his own ink, so the canvas is
+   laid over the still at the size that ink comes out: 349 by 657 at (1193, 324),
+   which is where the still puts him. Placed against the still's own box, which
+   is what it sits inside. */
+.moreq__hoop {
   position: absolute;
-  /* The clip is the whole scene, not a cut-out of him, so the box is the frame
-     and not the still's: sized this way his own ink comes out 349 by 657 at
-     (1193, 324), which is exactly where the still puts him. */
-  left: calc(-37.7 * var(--u)); top: calc(-19.7 * var(--u));
-  width: calc(2001.3 * var(--u)); height: calc(1092.4 * var(--u));
-  z-index: 4; display: none; pointer-events: none;
+  left: calc(32.9 * var(--u)); top: calc(80 * var(--u));
+  width: calc(362.8 * var(--u)); height: calc(673.4 * var(--u));
+  display: none; pointer-events: none;
 }
-.moreq__film__v { width: 100%; height: 100%; object-fit: contain; display: block; }
-.moreq.is-swinging .moreq__film { display: block; }
-.moreq.is-swinging .moreq__boy > img { opacity: 0; }
+.moreq__boy.is-playing > .moreq__hoop { display: block; }
+.moreq__boy.is-playing > img { opacity: 0; }
 .moreq__boy > img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 
