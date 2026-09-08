@@ -178,8 +178,13 @@
 
 .cd  { width: calc(53 * var(--u)); z-index: 3; }
 .cdx { height: calc(38 * var(--u)); text-align: right; color: var(--ink); z-index: 3; }
-.cb  { list-style: disc inside; text-align: right; color: var(--ink);
-       height: calc(38 * var(--u)); z-index: 3; }
+.cb  { list-style: none; margin: 0; padding: 0;
+       display: flex; flex-wrap: wrap;
+       column-gap: calc(30 * var(--u)); row-gap: calc(4 * var(--u));
+       text-align: right; color: var(--ink); z-index: 3; }
+.cb > li { display: flex; align-items: baseline; gap: calc(9 * var(--u));
+           white-space: nowrap; }
+.cb > li::before { content: "•"; }
 
 /* ------------------------- פרטי יצירת קשר (1226) ------------------------- */
 .ct-det { top: calc(1384 * var(--u)); height: calc(119 * var(--u)); }
@@ -197,12 +202,13 @@
 /* Two lines. Laid out from the title leftwards in her order, the five run 1363
    wide and the title only leaves 1345 — so the last two go on a second line
    rather than under the words, and the bar grows to hold them. */
-.ct-br { top: calc(1548 * var(--u)); height: calc(180 * var(--u)); }
-.ct-br .ct-bar { height: calc(180 * var(--u)); }
+/* One row now holds all five, so this bar matches its sibling above rather than
+   keeping the height the old two-row arrangement needed. */
+.ct-br { top: calc(1548 * var(--u)); height: calc(119 * var(--u)); }
+.ct-br .ct-bar { height: calc(119 * var(--u)); }
 .ct-br .ct-bar__t { left: calc(1512 * var(--u)); top: calc(22 * var(--u)); width: calc(250 * var(--u)); }
 
-.cb--1 { left: calc(1273 * var(--u)); top: calc(39 * var(--u)); width: calc(230 * var(--u)); }
-.cb--2 { left: calc(933 * var(--u));  top: calc(39 * var(--u)); width: calc(320 * var(--u)); }
-.cb--3 { left: calc(729 * var(--u));  top: calc(39 * var(--u)); width: calc(184 * var(--u)); }
-.cb--4 { left: calc(1200 * var(--u)); top: calc(99 * var(--u)); width: calc(303 * var(--u)); }
-.cb--5 { left: calc(934 * var(--u));  top: calc(99 * var(--u)); width: calc(246 * var(--u)); }
+/* .s > .t-body sets these lists to a centred column (main.css); this one is a
+   row, so it says so at the same weight and later in the cascade. */
+.ct-br .cb { left: calc(150 * var(--u)); top: calc(39 * var(--u)); width: calc(1345 * var(--u));
+             flex-direction: row; justify-content: flex-start; align-content: flex-start; }

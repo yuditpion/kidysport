@@ -1004,12 +1004,10 @@
   .ct-br { top: calc(1754 * var(--u)); height: calc(404 * var(--u)); }
   .ct-br .ct-bar__t { left: calc(48 * var(--u)); top: calc(24 * var(--u)); width: calc(672 * var(--u)); line-height: calc(78 * var(--u)); }
   /* one box for all five here too */
-  .cb  { left: calc(300 * var(--u)); width: calc(340 * var(--u)); }
-  .cb--1 { top: calc(114 * var(--u)); height: calc(40 * var(--u)); }
-  .cb--2 { top: calc(168 * var(--u)); height: calc(40 * var(--u)); }
-  .cb--3 { top: calc(222 * var(--u)); height: calc(46 * var(--u)); }
-  .cb--4 { top: calc(282 * var(--u)); height: calc(46 * var(--u)); }
-  .cb--5 { top: calc(342 * var(--u)); height: calc(46 * var(--u)); }
+  /* centred in the room the title leaves, so the rows are not all at the top
+     with the rest of the panel empty */
+  .ct-br .cb { left: calc(48 * var(--u)); top: calc(188 * var(--u)); width: calc(672 * var(--u));
+         column-gap: calc(26 * var(--u)); row-gap: calc(6 * var(--u)); }
 
   /* ======================================================================
      רוצים לבדוק אם התהליך מתאים — the shared CTA artboard, on 768

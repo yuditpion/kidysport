@@ -166,11 +166,19 @@
   <section class="s ct-br">
     <div class="ct-bar glass"></div>
     <h2 class="ct-bar__t c-orange">הסניפים שלנו</h2>
-    <ul class="cb cb--1 t-body"><li>נחל שורק 15 - רמה א’</li></ul>
-    <ul class="cb cb--2 t-body"><li>לב הרמה - נהר הירדן 1 - רמה ב’</li></ul>
-    <ul class="cb cb--3 t-body"><li>עובדיה 7 -רמה ג’</li></ul>
-    <ul class="cb cb--4 t-body"><li>שדרות האמוראים 33 - רמה ד’</li></ul>
-    <ul class="cb cb--5 t-body"><li>גרוסמן 8 - רמת אברהם</li></ul>
+    <!-- One list, not five boxes. The branches used to be five separately
+         placed lists, each with a width fixed to the label it held; once the
+         labels were rewritten longer than those widths every one of them broke
+         inside its own box — "רמה א׳" dropped to a second line on its own. As a
+         single wrapping row the names stay whole and the row breaks between
+         them instead. -->
+    <ul class="cb t-body">
+      <li>נחל שורק 15 - רמה א’</li>
+      <li>לב הרמה - נהר הירדן 1 - רמה ב’</li>
+      <li>עובדיה 7 - רמה ג’</li>
+      <li>שדרות האמוראים 33 - רמה ד’</li>
+      <li>גרוסמן 8 - רמת אברהם</li>
+    </ul>
   </section>
 
 
